@@ -1,8 +1,8 @@
 {
-  "name": "webpack-boilerplate-react",
+  "name": "chicplay",
   "version": "1.0.0",
   "main": "src/index.tsx",
-  "repository": "https://github.com/pasly0920/webpack-boilerplate-react.git",
+  "repository": "https://github.com/3j-dev/chicplay_web.git",
   "author": "pasly0920 <inwoo920621@gmail.com>",
   "license": "MIT",
   "dependencies": {
