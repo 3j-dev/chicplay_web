@@ -1,13 +1,8 @@
 import React from 'react';
+import Router from '@/routes';
 
-import Hello from '@/component/Hello';
-
-const App = () => {
-  return (
-    <div>
-      Hello World
-      <Hello />
-    </div>
-  );
+const App: React.FC = () => {
+  return <Router />;
 };
+
 export default App;
