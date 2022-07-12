@@ -21,6 +21,9 @@ module.exports = {
     new webpack.ProvidePlugin({
       React: 'react',
     }),
+    new webpack.ProvidePlugin({
+      process: 'process/browser',
+    })
   ],
   resolve: {
     alias: {
