@@ -1,6 +1,6 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import Hello from "@/component/Hello";
+import Hello from '@/component/Hello';
 
 const Router: React.FC = () => {
   return (
