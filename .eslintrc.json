@@ -22,7 +22,8 @@
     "react/function-component-definition": "off",
     "react/jsx-props-no-spreading": "off",
     "import/extensions": "off",
-    "import/no-extraneous-dependencies": "off"
+    "import/no-extraneous-dependencies": "off",
+    "react/react-in-jsx-scope": "off"
   },
   "settings": {
     "react": {
