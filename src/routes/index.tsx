@@ -1,12 +1,14 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import Hello from '@/component/Hello';
+import MainPage from '@/page/Mainpage';
+import ReplayPage from '@/page/ReplayPage';
 
 const Router: React.FC = () => {
   return (
     <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Routes>
-        <Route path="/" element={<Hello />} />
+        <Route path="/" element={<MainPage />} />;
+        <Route path="/stream" element={<ReplayPage />} />;
       </Routes>
     </BrowserRouter>
   );
