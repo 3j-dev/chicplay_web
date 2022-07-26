@@ -37,6 +37,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@babel/preset-env", "virtual:2aff291482f519dba3b150c72008a39132371d44001a25281e2ebd465e55f2ea2dd7fc00595ce8c7dd964d7988667918ad0fe08a0d646eb6dfc924d6920f642c#npm:7.18.6"],\
             ["@babel/preset-react", "virtual:2aff291482f519dba3b150c72008a39132371d44001a25281e2ebd465e55f2ea2dd7fc00595ce8c7dd964d7988667918ad0fe08a0d646eb6dfc924d6920f642c#npm:7.18.6"],\
             ["@babel/preset-typescript", "virtual:2aff291482f519dba3b150c72008a39132371d44001a25281e2ebd465e55f2ea2dd7fc00595ce8c7dd964d7988667918ad0fe08a0d646eb6dfc924d6920f642c#npm:7.18.6"],\
+            ["@draft-js-plugins/buttons", "virtual:2aff291482f519dba3b150c72008a39132371d44001a25281e2ebd465e55f2ea2dd7fc00595ce8c7dd964d7988667918ad0fe08a0d646eb6dfc924d6920f642c#npm:4.3.1"],\
+            ["@draft-js-plugins/editor", "virtual:2aff291482f519dba3b150c72008a39132371d44001a25281e2ebd465e55f2ea2dd7fc00595ce8c7dd964d7988667918ad0fe08a0d646eb6dfc924d6920f642c#npm:4.1.3"],\
+            ["@draft-js-plugins/static-toolbar", "virtual:2aff291482f519dba3b150c72008a39132371d44001a25281e2ebd465e55f2ea2dd7fc00595ce8c7dd964d7988667918ad0fe08a0d646eb6dfc924d6920f642c#npm:4.1.3"],\
             ["@types/draft-js", "npm:0.11.9"],\
             ["@types/node", "npm:18.0.3"],\
             ["@types/react", "npm:18.0.15"],\
@@ -2500,6 +2503,124 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["@draft-js-plugins/buttons", [\
+        ["npm:4.3.1", {\
+          "packageLocation": "./.yarn/cache/@draft-js-plugins-buttons-npm-4.3.1-e29c4ffeff-c08c090bec.zip/node_modules/@draft-js-plugins/buttons/",\
+          "packageDependencies": [\
+            ["@draft-js-plugins/buttons", "npm:4.3.1"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:2aff291482f519dba3b150c72008a39132371d44001a25281e2ebd465e55f2ea2dd7fc00595ce8c7dd964d7988667918ad0fe08a0d646eb6dfc924d6920f642c#npm:4.3.1", {\
+          "packageLocation": "./.yarn/__virtual__/@draft-js-plugins-buttons-virtual-a6c04f97f4/0/cache/@draft-js-plugins-buttons-npm-4.3.1-e29c4ffeff-c08c090bec.zip/node_modules/@draft-js-plugins/buttons/",\
+          "packageDependencies": [\
+            ["@draft-js-plugins/buttons", "virtual:2aff291482f519dba3b150c72008a39132371d44001a25281e2ebd465e55f2ea2dd7fc00595ce8c7dd964d7988667918ad0fe08a0d646eb6dfc924d6920f642c#npm:4.3.1"],\
+            ["@types/draft-js", "npm:0.11.9"],\
+            ["@types/react", "npm:18.0.15"],\
+            ["@types/react-dom", "npm:18.0.6"],\
+            ["clsx", "npm:1.2.1"],\
+            ["draft-js", "virtual:2aff291482f519dba3b150c72008a39132371d44001a25281e2ebd465e55f2ea2dd7fc00595ce8c7dd964d7988667918ad0fe08a0d646eb6dfc924d6920f642c#npm:0.11.7"],\
+            ["react", "npm:18.2.0"],\
+            ["react-dom", "virtual:2aff291482f519dba3b150c72008a39132371d44001a25281e2ebd465e55f2ea2dd7fc00595ce8c7dd964d7988667918ad0fe08a0d646eb6dfc924d6920f642c#npm:18.2.0"]\
+          ],\
+          "packagePeers": [\
+            "@types/draft-js",\
+            "@types/react-dom",\
+            "@types/react",\
+            "draft-js",\
+            "react-dom",\
+            "react"\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@draft-js-plugins/editor", [\
+        ["npm:4.1.3", {\
+          "packageLocation": "./.yarn/cache/@draft-js-plugins-editor-npm-4.1.3-8815f7eda3-c3c523f4b0.zip/node_modules/@draft-js-plugins/editor/",\
+          "packageDependencies": [\
+            ["@draft-js-plugins/editor", "npm:4.1.3"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:2aff291482f519dba3b150c72008a39132371d44001a25281e2ebd465e55f2ea2dd7fc00595ce8c7dd964d7988667918ad0fe08a0d646eb6dfc924d6920f642c#npm:4.1.3", {\
+          "packageLocation": "./.yarn/__virtual__/@draft-js-plugins-editor-virtual-9a5469b948/0/cache/@draft-js-plugins-editor-npm-4.1.3-8815f7eda3-c3c523f4b0.zip/node_modules/@draft-js-plugins/editor/",\
+          "packageDependencies": [\
+            ["@draft-js-plugins/editor", "virtual:2aff291482f519dba3b150c72008a39132371d44001a25281e2ebd465e55f2ea2dd7fc00595ce8c7dd964d7988667918ad0fe08a0d646eb6dfc924d6920f642c#npm:4.1.3"],\
+            ["@types/draft-js", "npm:0.11.9"],\
+            ["@types/react", "npm:18.0.15"],\
+            ["@types/react-dom", "npm:18.0.6"],\
+            ["draft-js", "virtual:2aff291482f519dba3b150c72008a39132371d44001a25281e2ebd465e55f2ea2dd7fc00595ce8c7dd964d7988667918ad0fe08a0d646eb6dfc924d6920f642c#npm:0.11.7"],\
+            ["immutable", "npm:3.7.6"],\
+            ["prop-types", "npm:15.8.1"],\
+            ["react", "npm:18.2.0"],\
+            ["react-dom", "virtual:2aff291482f519dba3b150c72008a39132371d44001a25281e2ebd465e55f2ea2dd7fc00595ce8c7dd964d7988667918ad0fe08a0d646eb6dfc924d6920f642c#npm:18.2.0"]\
+          ],\
+          "packagePeers": [\
+            "@types/draft-js",\
+            "@types/react-dom",\
+            "@types/react",\
+            "draft-js",\
+            "react-dom",\
+            "react"\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@draft-js-plugins/static-toolbar", [\
+        ["npm:4.1.3", {\
+          "packageLocation": "./.yarn/cache/@draft-js-plugins-static-toolbar-npm-4.1.3-f62ae422a3-f825890f70.zip/node_modules/@draft-js-plugins/static-toolbar/",\
+          "packageDependencies": [\
+            ["@draft-js-plugins/static-toolbar", "npm:4.1.3"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:2aff291482f519dba3b150c72008a39132371d44001a25281e2ebd465e55f2ea2dd7fc00595ce8c7dd964d7988667918ad0fe08a0d646eb6dfc924d6920f642c#npm:4.1.3", {\
+          "packageLocation": "./.yarn/__virtual__/@draft-js-plugins-static-toolbar-virtual-b7e5cd62bd/0/cache/@draft-js-plugins-static-toolbar-npm-4.1.3-f62ae422a3-f825890f70.zip/node_modules/@draft-js-plugins/static-toolbar/",\
+          "packageDependencies": [\
+            ["@draft-js-plugins/static-toolbar", "virtual:2aff291482f519dba3b150c72008a39132371d44001a25281e2ebd465e55f2ea2dd7fc00595ce8c7dd964d7988667918ad0fe08a0d646eb6dfc924d6920f642c#npm:4.1.3"],\
+            ["@draft-js-plugins/buttons", "virtual:2aff291482f519dba3b150c72008a39132371d44001a25281e2ebd465e55f2ea2dd7fc00595ce8c7dd964d7988667918ad0fe08a0d646eb6dfc924d6920f642c#npm:4.3.1"],\
+            ["@draft-js-plugins/utils", "virtual:b7e5cd62bd15bf677882aeb107f5c715d462451f6487ea1027ecf3a4f558765c68144ebd717da12c9d97ded95bea2934651d664f92a65a9bad5accf9177b0a0a#npm:4.2.0"],\
+            ["@types/draft-js", "npm:0.11.9"],\
+            ["@types/react", "npm:18.0.15"],\
+            ["@types/react-dom", "npm:18.0.6"],\
+            ["draft-js", "virtual:2aff291482f519dba3b150c72008a39132371d44001a25281e2ebd465e55f2ea2dd7fc00595ce8c7dd964d7988667918ad0fe08a0d646eb6dfc924d6920f642c#npm:0.11.7"],\
+            ["prop-types", "npm:15.8.1"],\
+            ["react", "npm:18.2.0"],\
+            ["react-dom", "virtual:2aff291482f519dba3b150c72008a39132371d44001a25281e2ebd465e55f2ea2dd7fc00595ce8c7dd964d7988667918ad0fe08a0d646eb6dfc924d6920f642c#npm:18.2.0"]\
+          ],\
+          "packagePeers": [\
+            "@types/draft-js",\
+            "@types/react-dom",\
+            "@types/react",\
+            "draft-js",\
+            "react-dom",\
+            "react"\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@draft-js-plugins/utils", [\
+        ["npm:4.2.0", {\
+          "packageLocation": "./.yarn/cache/@draft-js-plugins-utils-npm-4.2.0-13140838ff-0c5579f4e5.zip/node_modules/@draft-js-plugins/utils/",\
+          "packageDependencies": [\
+            ["@draft-js-plugins/utils", "npm:4.2.0"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:b7e5cd62bd15bf677882aeb107f5c715d462451f6487ea1027ecf3a4f558765c68144ebd717da12c9d97ded95bea2934651d664f92a65a9bad5accf9177b0a0a#npm:4.2.0", {\
+          "packageLocation": "./.yarn/__virtual__/@draft-js-plugins-utils-virtual-eb562f781d/0/cache/@draft-js-plugins-utils-npm-4.2.0-13140838ff-0c5579f4e5.zip/node_modules/@draft-js-plugins/utils/",\
+          "packageDependencies": [\
+            ["@draft-js-plugins/utils", "virtual:b7e5cd62bd15bf677882aeb107f5c715d462451f6487ea1027ecf3a4f558765c68144ebd717da12c9d97ded95bea2934651d664f92a65a9bad5accf9177b0a0a#npm:4.2.0"],\
+            ["@types/draft-js", "npm:0.11.9"],\
+            ["draft-js", "virtual:2aff291482f519dba3b150c72008a39132371d44001a25281e2ebd465e55f2ea2dd7fc00595ce8c7dd964d7988667918ad0fe08a0d646eb6dfc924d6920f642c#npm:0.11.7"]\
+          ],\
+          "packagePeers": [\
+            "@types/draft-js",\
+            "draft-js"\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["@emotion/is-prop-valid", [\
         ["npm:1.1.3", {\
           "packageLocation": "./.yarn/cache/@emotion-is-prop-valid-npm-1.1.3-d70163c49e-511997c3bb.zip/node_modules/@emotion/is-prop-valid/",\
@@ -4587,6 +4708,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@babel/preset-env", "virtual:2aff291482f519dba3b150c72008a39132371d44001a25281e2ebd465e55f2ea2dd7fc00595ce8c7dd964d7988667918ad0fe08a0d646eb6dfc924d6920f642c#npm:7.18.6"],\
             ["@babel/preset-react", "virtual:2aff291482f519dba3b150c72008a39132371d44001a25281e2ebd465e55f2ea2dd7fc00595ce8c7dd964d7988667918ad0fe08a0d646eb6dfc924d6920f642c#npm:7.18.6"],\
             ["@babel/preset-typescript", "virtual:2aff291482f519dba3b150c72008a39132371d44001a25281e2ebd465e55f2ea2dd7fc00595ce8c7dd964d7988667918ad0fe08a0d646eb6dfc924d6920f642c#npm:7.18.6"],\
+            ["@draft-js-plugins/buttons", "virtual:2aff291482f519dba3b150c72008a39132371d44001a25281e2ebd465e55f2ea2dd7fc00595ce8c7dd964d7988667918ad0fe08a0d646eb6dfc924d6920f642c#npm:4.3.1"],\
+            ["@draft-js-plugins/editor", "virtual:2aff291482f519dba3b150c72008a39132371d44001a25281e2ebd465e55f2ea2dd7fc00595ce8c7dd964d7988667918ad0fe08a0d646eb6dfc924d6920f642c#npm:4.1.3"],\
+            ["@draft-js-plugins/static-toolbar", "virtual:2aff291482f519dba3b150c72008a39132371d44001a25281e2ebd465e55f2ea2dd7fc00595ce8c7dd964d7988667918ad0fe08a0d646eb6dfc924d6920f642c#npm:4.1.3"],\
             ["@types/draft-js", "npm:0.11.9"],\
             ["@types/node", "npm:18.0.3"],\
             ["@types/react", "npm:18.0.15"],\
@@ -4738,6 +4862,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["clone-response", "npm:1.0.2"],\
             ["mimic-response", "npm:1.0.1"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["clsx", [\
+        ["npm:1.2.1", {\
+          "packageLocation": "./.yarn/cache/clsx-npm-1.2.1-77792dc182-30befca801.zip/node_modules/clsx/",\
+          "packageDependencies": [\
+            ["clsx", "npm:1.2.1"]\
           ],\
           "linkType": "HARD"\
         }]\
