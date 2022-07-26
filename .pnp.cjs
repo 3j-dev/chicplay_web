@@ -37,6 +37,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@babel/preset-env", "virtual:2aff291482f519dba3b150c72008a39132371d44001a25281e2ebd465e55f2ea2dd7fc00595ce8c7dd964d7988667918ad0fe08a0d646eb6dfc924d6920f642c#npm:7.18.6"],\
             ["@babel/preset-react", "virtual:2aff291482f519dba3b150c72008a39132371d44001a25281e2ebd465e55f2ea2dd7fc00595ce8c7dd964d7988667918ad0fe08a0d646eb6dfc924d6920f642c#npm:7.18.6"],\
             ["@babel/preset-typescript", "virtual:2aff291482f519dba3b150c72008a39132371d44001a25281e2ebd465e55f2ea2dd7fc00595ce8c7dd964d7988667918ad0fe08a0d646eb6dfc924d6920f642c#npm:7.18.6"],\
+            ["@editorjs/editorjs", "npm:2.25.0"],\
             ["@types/node", "npm:18.0.3"],\
             ["@types/react", "npm:18.0.15"],\
             ["@types/react-dom", "npm:18.0.6"],\
@@ -2498,6 +2499,18 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["@editorjs/editorjs", [\
+        ["npm:2.25.0", {\
+          "packageLocation": "./.yarn/cache/@editorjs-editorjs-npm-2.25.0-11616344dd-a7cf152bd2.zip/node_modules/@editorjs/editorjs/",\
+          "packageDependencies": [\
+            ["@editorjs/editorjs", "npm:2.25.0"],\
+            ["codex-notifier", "npm:1.1.2"],\
+            ["codex-tooltip", "npm:1.0.5"],\
+            ["nanoid", "npm:3.3.4"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["@emotion/is-prop-valid", [\
         ["npm:1.1.3", {\
           "packageLocation": "./.yarn/cache/@emotion-is-prop-valid-npm-1.1.3-d70163c49e-511997c3bb.zip/node_modules/@emotion/is-prop-valid/",\
@@ -4565,6 +4578,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@babel/preset-env", "virtual:2aff291482f519dba3b150c72008a39132371d44001a25281e2ebd465e55f2ea2dd7fc00595ce8c7dd964d7988667918ad0fe08a0d646eb6dfc924d6920f642c#npm:7.18.6"],\
             ["@babel/preset-react", "virtual:2aff291482f519dba3b150c72008a39132371d44001a25281e2ebd465e55f2ea2dd7fc00595ce8c7dd964d7988667918ad0fe08a0d646eb6dfc924d6920f642c#npm:7.18.6"],\
             ["@babel/preset-typescript", "virtual:2aff291482f519dba3b150c72008a39132371d44001a25281e2ebd465e55f2ea2dd7fc00595ce8c7dd964d7988667918ad0fe08a0d646eb6dfc924d6920f642c#npm:7.18.6"],\
+            ["@editorjs/editorjs", "npm:2.25.0"],\
             ["@types/node", "npm:18.0.3"],\
             ["@types/react", "npm:18.0.15"],\
             ["@types/react-dom", "npm:18.0.6"],\
@@ -4714,6 +4728,24 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["clone-response", "npm:1.0.2"],\
             ["mimic-response", "npm:1.0.1"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["codex-notifier", [\
+        ["npm:1.1.2", {\
+          "packageLocation": "./.yarn/cache/codex-notifier-npm-1.1.2-893faf9b49-2130f5b1ff.zip/node_modules/codex-notifier/",\
+          "packageDependencies": [\
+            ["codex-notifier", "npm:1.1.2"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["codex-tooltip", [\
+        ["npm:1.0.5", {\
+          "packageLocation": "./.yarn/cache/codex-tooltip-npm-1.0.5-b69f9284fd-8ea91ce698.zip/node_modules/codex-tooltip/",\
+          "packageDependencies": [\
+            ["codex-tooltip", "npm:1.0.5"]\
           ],\
           "linkType": "HARD"\
         }]\
