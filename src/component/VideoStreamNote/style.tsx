@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 
-export const Layout = styled.div`
-  position: relative;
-  width: 100vw;
-  height: 100vh;
+export const EditorContainer = styled.div`
+  width: 40%;
+  height: 50%;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  border: 2px solid black;
+  border-radius: 5px;
 `;
