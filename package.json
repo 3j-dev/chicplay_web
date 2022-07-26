@@ -6,7 +6,6 @@
   "author": "pasly0920 <inwoo920621@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "@editorjs/editorjs": "^2.25.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hls-player": "^3.0.7",
