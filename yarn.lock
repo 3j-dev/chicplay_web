@@ -1423,19 +1423,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@draft-js-plugins/buttons@npm:^4.0.0, @draft-js-plugins/buttons@npm:^4.3.1":
-  version: 4.3.1
-  resolution: "@draft-js-plugins/buttons@npm:4.3.1"
-  dependencies:
-    clsx: ^1.0.4
-  peerDependencies:
-    draft-js: ^0.10.1 || ^0.11.0
-    react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
-  checksum: c08c090bec345dcffaa878982c8f0de1cb7c1efce4e9d454bbe0c5b5d2cdb8b322080bde4e3bb79e0f40d0baeebbf31dc529a45053baf790d67e8a20dd974835
-  languageName: node
-  linkType: hard
-
 "@draft-js-plugins/editor@npm:^4.1.3":
   version: 4.1.3
   resolution: "@draft-js-plugins/editor@npm:4.1.3"
@@ -1447,30 +1434,6 @@ __metadata:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
   checksum: c3c523f4b06eef8714633a2b37126528857c16abc1cbeef55d9ac4449d8d4b36ca12cee166da78ccdcbca745855d134345a1492f13cf255ef5fbf9a5662934a4
-  languageName: node
-  linkType: hard
-
-"@draft-js-plugins/static-toolbar@npm:^4.1.3":
-  version: 4.1.3
-  resolution: "@draft-js-plugins/static-toolbar@npm:4.1.3"
-  dependencies:
-    "@draft-js-plugins/buttons": ^4.0.0
-    "@draft-js-plugins/utils": ^4.0.0
-    prop-types: ^15.8.1
-  peerDependencies:
-    draft-js: ^0.10.1 || ^0.11.0
-    react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
-  checksum: f825890f7060ce39a7c3678d82e0e7ba928319a0d76db863858970444f8e1641166f698d0a88d77bb0b1d265efdcad3e1194eaa963124d79ea3d95c2a0625e75
-  languageName: node
-  linkType: hard
-
-"@draft-js-plugins/utils@npm:^4.0.0":
-  version: 4.2.0
-  resolution: "@draft-js-plugins/utils@npm:4.2.0"
-  peerDependencies:
-    draft-js: ^0.10.1 || ^0.11.0
-  checksum: 0c5579f4e5cc715931604be0637163428ea7fc555ca9055aace90b1756cb61716243f49695eb5cfc48b01d7a13ade524da69add6e55fd098b2b2feb5688de096
   languageName: node
   linkType: hard
 
@@ -1749,7 +1712,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/draft-js@npm:^0":
+"@types/draft-js@npm:^0.11.9":
   version: 0.11.9
   resolution: "@types/draft-js@npm:0.11.9"
   dependencies:
@@ -3125,10 +3088,8 @@ __metadata:
     "@babel/preset-env": ^7.18.6
     "@babel/preset-react": ^7.18.6
     "@babel/preset-typescript": ^7.18.6
-    "@draft-js-plugins/buttons": ^4.3.1
     "@draft-js-plugins/editor": ^4.1.3
-    "@draft-js-plugins/static-toolbar": ^4.1.3
-    "@types/draft-js": ^0
+    "@types/draft-js": ^0.11.9
     "@types/node": ^18.0.3
     "@types/react": ^18.0.15
     "@types/react-dom": ^18.0.6
@@ -3260,13 +3221,6 @@ __metadata:
   dependencies:
     mimic-response: ^1.0.0
   checksum: 2d0e61547fc66276e0903be9654ada422515f5a15741691352000d47e8c00c226061221074ce2c0064d12e975e84a8687cfd35d8b405750cb4e772f87b256eda
-  languageName: node
-  linkType: hard
-
-"clsx@npm:^1.0.4":
-  version: 1.2.1
-  resolution: "clsx@npm:1.2.1"
-  checksum: 30befca8019b2eb7dbad38cff6266cf543091dae2825c856a62a8ccf2c3ab9c2907c4d12b288b73101196767f66812365400a227581484a05f968b0307cfaf12
   languageName: node
   linkType: hard
 
