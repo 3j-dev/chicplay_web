@@ -41,6 +41,18 @@ const VideoStreamNote: React.FC = () => {
         <button onMouseDown={(e) => handleToggleClick(e, 'STRIKETHROUGH')}>strikthrough</button>
         <button onMouseDown={(e) => handleBlockClick(e, 'ordered-list-item')}>ol</button>
         <button onMouseDown={(e) => handleBlockClick(e, 'unordered-list-item')}>ul</button>
+        <button
+          disabled={noteState.getUndoStack().size <= 0}
+          onMouseDown={() => setNoteState(EditorState.undo(noteState))}
+        >
+          undo
+        </button>
+        <button
+          disabled={noteState.getRedoStack().size <= 0}
+          onMouseDown={() => setNoteState(EditorState.redo(noteState))}
+        >
+          redo
+        </button>
       </div>
       <Editor
         ref={editorRef}
