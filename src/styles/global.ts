@@ -28,10 +28,31 @@ const GlobalStyle = createGlobalStyle`
         h3{
             font-size: 1.17em;
         }
+        ul, ol { 
+            display: block;
+            list-style: disc outside none;
+            margin: 1em 0;
+            padding: 0 0 0 40px;
+        }
+        ol { 
+            list-style-type: decimal;
+        }
+        li { 
+            display: list-item;
+        }
+        ul ul, ol ul {
+            list-style-type: circle;
+            margin-left: 15px; 
+        }
+        ol ol, ul ol { 
+            list-style-type: lower-latin;
+            margin-left: 15px; 
+        }
+
         .texteditor {
             width: 100%;
             height: 100%;
-          }
+        }
           
         .DraftEditor-root {
             border: 1px solid #eee;
@@ -41,14 +62,15 @@ const GlobalStyle = createGlobalStyle`
             height: 80%;
         }
           
-          .DraftEditor-editorContainer {
+        .DraftEditor-editorContainer {
             padding: 1.5rem;
+            height: 80%;
             overflow-y: scroll;
-          }
+        }
           
-          .public-DraftEditor-content {
+        .public-DraftEditor-content {
             min-height: 100%;
-          }
+        }
     }
 `;
 
