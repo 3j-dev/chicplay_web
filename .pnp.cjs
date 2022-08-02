@@ -58,6 +58,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-plugin-react", "virtual:2aff291482f519dba3b150c72008a39132371d44001a25281e2ebd465e55f2ea2dd7fc00595ce8c7dd964d7988667918ad0fe08a0d646eb6dfc924d6920f642c#npm:7.30.1"],\
             ["eslint-plugin-react-hooks", "virtual:2aff291482f519dba3b150c72008a39132371d44001a25281e2ebd465e55f2ea2dd7fc00595ce8c7dd964d7988667918ad0fe08a0d646eb6dfc924d6920f642c#npm:4.6.0"],\
             ["file-loader", "virtual:2aff291482f519dba3b150c72008a39132371d44001a25281e2ebd465e55f2ea2dd7fc00595ce8c7dd964d7988667918ad0fe08a0d646eb6dfc924d6920f642c#npm:6.2.0"],\
+            ["froala-editor", "npm:4.0.13"],\
             ["html-webpack-plugin", "virtual:2aff291482f519dba3b150c72008a39132371d44001a25281e2ebd465e55f2ea2dd7fc00595ce8c7dd964d7988667918ad0fe08a0d646eb6dfc924d6920f642c#npm:5.5.0"],\
             ["mini-css-extract-plugin", "virtual:2aff291482f519dba3b150c72008a39132371d44001a25281e2ebd465e55f2ea2dd7fc00595ce8c7dd964d7988667918ad0fe08a0d646eb6dfc924d6920f642c#npm:2.6.1"],\
             ["postcss", "npm:8.4.14"],\
@@ -66,6 +67,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["process", "npm:0.11.10"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:2aff291482f519dba3b150c72008a39132371d44001a25281e2ebd465e55f2ea2dd7fc00595ce8c7dd964d7988667918ad0fe08a0d646eb6dfc924d6920f642c#npm:18.2.0"],\
+            ["react-froala-wysiwyg", "virtual:2aff291482f519dba3b150c72008a39132371d44001a25281e2ebd465e55f2ea2dd7fc00595ce8c7dd964d7988667918ad0fe08a0d646eb6dfc924d6920f642c#npm:4.0.13"],\
             ["react-hls-player", "virtual:2aff291482f519dba3b150c72008a39132371d44001a25281e2ebd465e55f2ea2dd7fc00595ce8c7dd964d7988667918ad0fe08a0d646eb6dfc924d6920f642c#npm:3.0.7"],\
             ["react-is", "npm:18.2.0"],\
             ["react-router-dom", "virtual:2aff291482f519dba3b150c72008a39132371d44001a25281e2ebd465e55f2ea2dd7fc00595ce8c7dd964d7988667918ad0fe08a0d646eb6dfc924d6920f642c#npm:6.3.0"],\
@@ -4586,6 +4588,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-plugin-react", "virtual:2aff291482f519dba3b150c72008a39132371d44001a25281e2ebd465e55f2ea2dd7fc00595ce8c7dd964d7988667918ad0fe08a0d646eb6dfc924d6920f642c#npm:7.30.1"],\
             ["eslint-plugin-react-hooks", "virtual:2aff291482f519dba3b150c72008a39132371d44001a25281e2ebd465e55f2ea2dd7fc00595ce8c7dd964d7988667918ad0fe08a0d646eb6dfc924d6920f642c#npm:4.6.0"],\
             ["file-loader", "virtual:2aff291482f519dba3b150c72008a39132371d44001a25281e2ebd465e55f2ea2dd7fc00595ce8c7dd964d7988667918ad0fe08a0d646eb6dfc924d6920f642c#npm:6.2.0"],\
+            ["froala-editor", "npm:4.0.13"],\
             ["html-webpack-plugin", "virtual:2aff291482f519dba3b150c72008a39132371d44001a25281e2ebd465e55f2ea2dd7fc00595ce8c7dd964d7988667918ad0fe08a0d646eb6dfc924d6920f642c#npm:5.5.0"],\
             ["mini-css-extract-plugin", "virtual:2aff291482f519dba3b150c72008a39132371d44001a25281e2ebd465e55f2ea2dd7fc00595ce8c7dd964d7988667918ad0fe08a0d646eb6dfc924d6920f642c#npm:2.6.1"],\
             ["postcss", "npm:8.4.14"],\
@@ -4594,6 +4597,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["process", "npm:0.11.10"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:2aff291482f519dba3b150c72008a39132371d44001a25281e2ebd465e55f2ea2dd7fc00595ce8c7dd964d7988667918ad0fe08a0d646eb6dfc924d6920f642c#npm:18.2.0"],\
+            ["react-froala-wysiwyg", "virtual:2aff291482f519dba3b150c72008a39132371d44001a25281e2ebd465e55f2ea2dd7fc00595ce8c7dd964d7988667918ad0fe08a0d646eb6dfc924d6920f642c#npm:4.0.13"],\
             ["react-hls-player", "virtual:2aff291482f519dba3b150c72008a39132371d44001a25281e2ebd465e55f2ea2dd7fc00595ce8c7dd964d7988667918ad0fe08a0d646eb6dfc924d6920f642c#npm:3.0.7"],\
             ["react-is", "npm:18.2.0"],\
             ["react-router-dom", "virtual:2aff291482f519dba3b150c72008a39132371d44001a25281e2ebd465e55f2ea2dd7fc00595ce8c7dd964d7988667918ad0fe08a0d646eb6dfc924d6920f642c#npm:6.3.0"],\
@@ -4979,6 +4983,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["parse-json", "npm:5.2.0"],\
             ["path-type", "npm:4.0.0"],\
             ["yaml", "npm:1.10.2"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["create-react-class", [\
+        ["npm:15.7.0", {\
+          "packageLocation": "./.yarn/cache/create-react-class-npm-15.7.0-667818a95c-0c5f43da70.zip/node_modules/create-react-class/",\
+          "packageDependencies": [\
+            ["create-react-class", "npm:15.7.0"],\
+            ["loose-envify", "npm:1.4.0"],\
+            ["object-assign", "npm:4.1.1"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -6588,6 +6603,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/fresh-npm-0.5.2-ad2bb4c0a2-13ea8b08f9.zip/node_modules/fresh/",\
           "packageDependencies": [\
             ["fresh", "npm:0.5.2"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["froala-editor", [\
+        ["npm:4.0.13", {\
+          "packageLocation": "./.yarn/cache/froala-editor-npm-4.0.13-4be578f733-a1f83f7214.zip/node_modules/froala-editor/",\
+          "packageDependencies": [\
+            ["froala-editor", "npm:4.0.13"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -9885,6 +9909,34 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "packagePeers": [\
             "@types/react",\
+            "react"\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["react-froala-wysiwyg", [\
+        ["npm:4.0.13", {\
+          "packageLocation": "./.yarn/cache/react-froala-wysiwyg-npm-4.0.13-c85f486fcc-71c4aadf94.zip/node_modules/react-froala-wysiwyg/",\
+          "packageDependencies": [\
+            ["react-froala-wysiwyg", "npm:4.0.13"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:2aff291482f519dba3b150c72008a39132371d44001a25281e2ebd465e55f2ea2dd7fc00595ce8c7dd964d7988667918ad0fe08a0d646eb6dfc924d6920f642c#npm:4.0.13", {\
+          "packageLocation": "./.yarn/__virtual__/react-froala-wysiwyg-virtual-2fa549ba29/0/cache/react-froala-wysiwyg-npm-4.0.13-c85f486fcc-71c4aadf94.zip/node_modules/react-froala-wysiwyg/",\
+          "packageDependencies": [\
+            ["react-froala-wysiwyg", "virtual:2aff291482f519dba3b150c72008a39132371d44001a25281e2ebd465e55f2ea2dd7fc00595ce8c7dd964d7988667918ad0fe08a0d646eb6dfc924d6920f642c#npm:4.0.13"],\
+            ["@types/react", "npm:18.0.15"],\
+            ["@types/react-dom", "npm:18.0.6"],\
+            ["create-react-class", "npm:15.7.0"],\
+            ["froala-editor", "npm:4.0.13"],\
+            ["react", "npm:18.2.0"],\
+            ["react-dom", "virtual:2aff291482f519dba3b150c72008a39132371d44001a25281e2ebd465e55f2ea2dd7fc00595ce8c7dd964d7988667918ad0fe08a0d646eb6dfc924d6920f642c#npm:18.2.0"]\
+          ],\
+          "packagePeers": [\
+            "@types/react-dom",\
+            "@types/react",\
+            "react-dom",\
             "react"\
           ],\
           "linkType": "HARD"\

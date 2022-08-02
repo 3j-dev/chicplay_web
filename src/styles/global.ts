@@ -48,28 +48,8 @@ const GlobalStyle = createGlobalStyle`
             list-style-type: lower-latin;
             margin-left: 15px; 
         }
-
-        .texteditor {
-            width: 100%;
-            height: 100%;
-        }
-          
-        .DraftEditor-root {
-            border: 1px solid #eee;
-            margin: 2rem 0;
-            border-radius: 0.5rem;
-            width: 90%;
-            height: 80%;
-        }
-          
-        .DraftEditor-editorContainer {
-            padding: 1.5rem;
-            height: 80%;
-            overflow-y: scroll;
-        }
-          
-        .public-DraftEditor-content {
-            min-height: 100%;
+        em {
+            font-style: italic;
         }
     }
 `;
