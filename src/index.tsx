@@ -11,3 +11,4 @@ root.render(
     <App />
   </>,
 );
+//froala rerendering 문제로 인해 React.strict mode 해제
