@@ -1,7 +1,9 @@
-import Froala from 'react-froala-wysiwyg';
-import { useRef, useState, useEffect } from 'react';
+import FroalaEditor from 'react-froala-wysiwyg';
+import Froala from 'froala-editor';
+import { useState, useEffect } from 'react';
 
 import { FroalaContainer } from './style';
+import videoSnapshot from '@/util/videoSnapshot';
 
 import 'froala-editor/css/froala_style.min.css';
 import 'froala-editor/css/froala_editor.pkgd.min.css';
@@ -9,24 +11,31 @@ import 'froala-editor/js/plugins.pkgd.min.js';
 import 'froala-editor/js/languages/ko.js';
 
 const VideoStreamNote: React.FC = () => {
-  const ref = useRef<Froala>(null);
-  const [isFroalaInitialized, setIsFroalaInitialized] = useState(false);
-  const [editor, setEditor] = useState<any>(undefined);
   const [model, setModel] = useState<string>('');
 
-  console.log(ref);
-  const handleModelChange = (model: any) => {
-    setModel(model);
+  const handleModelChange = (modelData: string) => {
+    setModel(modelData);
   };
-  console.log(model);
+
   useEffect(() => {
-    console.log(ref.current);
-  }, [ref]);
+    console.log(model); // stomp를 이용한 socket 통신
+  }, [model]);
+
+  Froala.DefineIcon('videoSnapshot', { SVG_KEY: 'add' });
+  Froala.RegisterCommand('videoSnapshot', {
+    title: 'Video Snapshot',
+    icon: 'videoSnapshot',
+    focus: true,
+    undo: true,
+    refreshAfterCallback: true,
+    callback: () => {
+      videoSnapshot();
+    },
+  });
 
   return (
     <FroalaContainer>
-      <Froala
-        ref={ref}
+      <FroalaEditor
         model={model}
         onModelChange={handleModelChange}
         tag="textarea"
@@ -84,6 +93,7 @@ const VideoStreamNote: React.FC = () => {
             },
             moreMisc: {
               buttons: [
+                'videoSnapshot',
                 'undo',
                 'redo',
                 'fullscreen',

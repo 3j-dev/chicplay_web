@@ -51,6 +51,10 @@ const GlobalStyle = createGlobalStyle`
         em {
             font-style: italic;
         }
+
+        .fr-view .fr-wrapper{
+            overflow-y: scroll;
+        }
     }
 `;
 
