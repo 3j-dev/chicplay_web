@@ -8,8 +8,7 @@ interface DimensionProps {
   h: number;
 }
 
-const videoSource: string =
-  'https://service-video-storage.s3.ap-northeast-2.amazonaws.com/test_hls/Default/HLS/test_hls_360.m3u8';
+const videoSource: string = process.env.TEST_VIDEO_URL;
 
 interface Props {
   snapShotClicked: boolean;
@@ -46,14 +45,14 @@ const VideoStream: React.FC<Props> = ({ snapShotClicked, setSnapShotClicked }) =
         const formData = new FormData();
         formData.append('multipartFile', blob, 'test.png');
         axios
-          .post('http://15.164.222.41:8080/api/img/snapshot', formData, {
+          .post(process.env.SNAPSHOT_API, formData, {
             headers: {
               'Content-Type': 'multipart/form-data',
               //Authorization: sessionStorage.getItem("jwt")
             },
           })
           .then((response) => {
-            console.log('성공' + JSON.stringify(response.data));
+            console.log(JSON.stringify(response.data[0].filePath));
           })
           .catch((err) => {
             console.log(err);
@@ -68,8 +67,8 @@ const VideoStream: React.FC<Props> = ({ snapShotClicked, setSnapShotClicked }) =
     if (playerRef.current) {
       playerRef.current.addEventListener('loadedmetadata', () => {
         const { w, h } = getVideoSizeData(playerRef);
-        canvasRef.current.width = w;
-        canvasRef.current.height = h;
+        canvasRef.current!.width = w;
+        canvasRef.current!.height = h;
         setDimensions({
           w,
           h,
