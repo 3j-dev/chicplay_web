@@ -10,7 +10,11 @@ import 'froala-editor/css/froala_editor.pkgd.min.css';
 import 'froala-editor/js/plugins.pkgd.min.js';
 import 'froala-editor/js/languages/ko.js';
 
-const VideoStreamNote: React.FC = () => {
+interface Props {
+  setSnapShotClicked: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const VideoStreamNote: React.FC<Props> = ({ setSnapShotClicked }) => {
   const [model, setModel] = useState<string>('');
 
   const handleModelChange = (modelData: string) => {
@@ -29,7 +33,7 @@ const VideoStreamNote: React.FC = () => {
     undo: true,
     refreshAfterCallback: true,
     callback: () => {
-      videoSnapshot();
+      setSnapShotClicked(true);
     },
   });
 

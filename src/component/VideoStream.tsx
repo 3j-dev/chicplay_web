@@ -1,5 +1,7 @@
-import { useRef, useState, useEffect } from 'react';
 import ReactHlsPlayer from 'react-hls-player';
+import FormData from 'form-data';
+import axios from 'axios';
+import { useRef, useState, useEffect } from 'react';
 
 interface DimensionProps {
   w: number;
@@ -9,7 +11,12 @@ interface DimensionProps {
 const videoSource: string =
   'https://service-video-storage.s3.ap-northeast-2.amazonaws.com/test_hls/Default/HLS/test_hls_360.m3u8';
 
-const VideoStream: React.FC = () => {
+interface Props {
+  snapShotClicked: boolean;
+  setSnapShotClicked: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const VideoStream: React.FC<Props> = ({ snapShotClicked, setSnapShotClicked }) => {
   const playerRef = useRef<React.RefObject<HTMLVideoElement>>(null);
   const canvasRef = useRef<React.DetailedHTMLProps<
     React.CanvasHTMLAttributes<HTMLCanvasElement>,
@@ -34,9 +41,24 @@ const VideoStream: React.FC = () => {
     if (context && playerRef.current) {
       context.fillRect(0, 0, dimensions.w, dimensions.h);
       context.drawImage(playerRef.current, 0, 0, dimensions.w, dimensions.h);
-      const snapShotImage: HTMLImageElement = new Image();
-      snapShotImage.src = canvasRef.current?.toBlob(() => {}, 'image/webp', 1.0);
-      console.log(snapShotImage);
+
+      canvasRef.current?.toBlob((blob) => {
+        const formData = new FormData();
+        formData.append('multipartFile', blob, 'test.png');
+        axios
+          .post('http://15.164.222.41:8080/api/img/snapshot', formData, {
+            headers: {
+              'Content-Type': 'multipart/form-data',
+              //Authorization: sessionStorage.getItem("jwt")
+            },
+          })
+          .then((response) => {
+            console.log('성공' + JSON.stringify(response.data));
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      });
     }
   };
 
@@ -56,6 +78,11 @@ const VideoStream: React.FC = () => {
     }
   }, []);
 
+  useEffect(() => {
+    snapShotClicked && snapShot();
+    setSnapShotClicked(false);
+  }, [snapShotClicked]);
+
   return (
     <>
       <ReactHlsPlayer
@@ -67,7 +94,6 @@ const VideoStream: React.FC = () => {
         height="auto"
       />
       <canvas ref={canvasRef} style={{ display: 'none' }} />
-      <button onClick={snapShot}>Take Screenshot</button>
     </>
   );
 };
