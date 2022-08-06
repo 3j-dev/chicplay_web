@@ -6,8 +6,12 @@
   "author": "pasly0920 <inwoo920621@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "axios": "^0.27.2",
+    "form-data": "^4.0.0",
+    "froala-editor": "^4.0.13",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-froala-wysiwyg": "^4.0.13",
     "react-hls-player": "^3.0.7",
     "react-is": "^18.2.0",
     "react-router-dom": "^6.3.0",

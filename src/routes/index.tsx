@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import MainPage from '@/page/Mainpage';
-import ReplayPage from '@/page/ReplayPage';
+import MainPage from '@/page/MainPage/MainPage';
+import ReplayPage from '@/page/ReplayPage/ReplayPage';
 
 const Router: React.FC = () => {
   return (
