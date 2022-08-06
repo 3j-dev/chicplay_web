@@ -13,9 +13,10 @@ const videoSource: string = process.env.TEST_VIDEO_URL;
 interface Props {
   snapShotClicked: boolean;
   setSnapShotClicked: React.Dispatch<React.SetStateAction<boolean>>;
+  setSnapShotURL: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const VideoStream: React.FC<Props> = ({ snapShotClicked, setSnapShotClicked }) => {
+const VideoStream: React.FC<Props> = ({ snapShotClicked, setSnapShotClicked, setSnapShotURL }) => {
   const playerRef = useRef<React.RefObject<HTMLVideoElement>>(null);
   const canvasRef = useRef<React.DetailedHTMLProps<
     React.CanvasHTMLAttributes<HTMLCanvasElement>,
@@ -52,7 +53,7 @@ const VideoStream: React.FC<Props> = ({ snapShotClicked, setSnapShotClicked }) =
             },
           })
           .then((response) => {
-            console.log(JSON.stringify(response.data[0].filePath));
+            setSnapShotURL(response.data[0].filePath);
           })
           .catch((err) => {
             console.log(err);
