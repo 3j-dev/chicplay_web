@@ -1,9 +1,8 @@
 import styled from 'styled-components';
 
 export const FroalaContainer = styled.div`
-  width: 40%;
-  height: 80%;
+  width: 100%;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  align-self: center;
 `;

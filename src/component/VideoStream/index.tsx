@@ -8,15 +8,19 @@ interface DimensionProps {
   h: number;
 }
 
-const videoSource: string = process.env.TEST_VIDEO_URL;
+const videoSource: string | undefined = process.env.TEST_VIDEO_URL;
 
-interface Props {
+interface StreamProps {
   snapShotClicked: boolean;
   setSnapShotClicked: React.Dispatch<React.SetStateAction<boolean>>;
   setSnapShotURL: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const VideoStream: React.FC<Props> = ({ snapShotClicked, setSnapShotClicked, setSnapShotURL }) => {
+const VideoStream: React.FC<StreamProps> = ({
+  snapShotClicked,
+  setSnapShotClicked,
+  setSnapShotURL,
+}: StreamProps) => {
   const playerRef = useRef<React.RefObject<HTMLVideoElement>>(null);
   const canvasRef = useRef<React.DetailedHTMLProps<
     React.CanvasHTMLAttributes<HTMLCanvasElement>,

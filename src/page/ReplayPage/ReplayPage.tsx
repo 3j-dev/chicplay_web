@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import { Layout } from './style';
 import VideoStream from '@/component/VideoStream';
-import VideoStreamNote from '@/component/VideoStreamNote';
+import VideoNote from '@/component/VideoNote';
 
 const ReplayPage: React.FC = () => {
   const [snapShotClicked, setSnapShotClicked] = useState<boolean>(false);
@@ -15,7 +15,7 @@ const ReplayPage: React.FC = () => {
         setSnapShotClicked={setSnapShotClicked}
         setSnapShotURL={setSnapShotURL}
       />
-      <VideoStreamNote setSnapShotClicked={setSnapShotClicked} snapShotURL={snapShotURL} />
+      <VideoNote setSnapShotClicked={setSnapShotClicked} snapShotURL={snapShotURL} />
     </Layout>
   );
 };

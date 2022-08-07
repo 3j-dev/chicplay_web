@@ -5,19 +5,28 @@ import axios from 'axios';
 import { useState, useEffect, useRef } from 'react';
 
 import { FroalaContainer } from './style';
-import videoSnapshot from '@/util/videoSnapshot';
+import {
+  FROALA_TEXT_BUTTONS,
+  FROALA_PARAGRAPH_BUTTONS,
+  FROALA_RICH_BUTTONS,
+  FROALA_MISC_BUTTONS,
+  FROALA_PLUGINS,
+} from '@/util/Constant';
 
 import 'froala-editor/css/froala_style.min.css';
 import 'froala-editor/css/froala_editor.pkgd.min.css';
 import 'froala-editor/js/plugins.pkgd.min.js';
 import 'froala-editor/js/languages/ko.js';
 
-interface Props {
+interface MarkdownNoteProps {
   setSnapShotClicked: React.Dispatch<React.SetStateAction<boolean>>;
   snapShotURL: string;
 }
 
-const VideoStreamNote: React.FC<Props> = ({ setSnapShotClicked, snapShotURL }) => {
+const MarkdownNote: React.FC<MarkdownNoteProps> = ({
+  setSnapShotClicked,
+  snapShotURL,
+}: MarkdownNoteProps) => {
   const [model, setModel] = useState<string>('');
   const editorInstance = useRef<FroalaEditor>(null);
 
@@ -30,10 +39,8 @@ const VideoStreamNote: React.FC<Props> = ({ setSnapShotClicked, snapShotURL }) =
   }, [model]);
 
   useEffect(() => {
-    if (snapShotURL.length > 0) {
-      console.log(editorInstance.current, snapShotURL);
+    if (snapShotURL.length > 0)
       editorInstance.current?.editor.image.insert(snapShotURL, null, null, null);
-    }
   }, [snapShotURL]);
 
   Froala.DefineIcon('videoSnapshot', { SVG_KEY: 'add' });
@@ -89,99 +96,25 @@ const VideoStreamNote: React.FC<Props> = ({ setSnapShotClicked, snapShotURL }) =
           placeholder: 'Start typing...',
           toolbarButtons: {
             moreText: {
-              buttons: [
-                'bold',
-                'italic',
-                'underline',
-                'strikeThrough',
-                'subscript',
-                'superscript',
-                'fontFamily',
-                'fontSize',
-                'textColor',
-                'backgroundColor',
-                'inlineClass',
-                'inlineStyle',
-                'clearFormatting',
-              ],
+              buttons: FROALA_TEXT_BUTTONS,
             },
             moreParagraph: {
-              buttons: [
-                'alignLeft',
-                'alignCenter',
-                'formatOLSimple',
-                'alignRight',
-                'alignJustify',
-                'formatOL',
-                'formatUL',
-                'paragraphFormat',
-                'paragraphStyle',
-                'lineHeight',
-                'outdent',
-                'indent',
-                'quote',
-              ],
+              buttons: FROALA_PARAGRAPH_BUTTONS,
             },
             moreRich: {
-              buttons: [
-                'insertLink',
-                'insertImage',
-                'insertVideo',
-                'insertTable',
-                'emoticons',
-                'fontAwesome',
-                'specialCharacters',
-                'embedly',
-                'insertFile',
-                'insertHR',
-              ],
+              buttons: FROALA_RICH_BUTTONS,
             },
             moreMisc: {
-              buttons: [
-                'videoSnapshot',
-                'undo',
-                'redo',
-                'fullscreen',
-                'print',
-                'getPDF',
-                'spellChecker',
-                'selectAll',
-                'html',
-                'help',
-              ],
+              buttons: FROALA_MISC_BUTTONS,
               align: 'right',
-              buttonsVisible: 2,
+              buttonsVisible: 3,
             },
           },
-          pluginsEnabled: [
-            'table',
-            'spell',
-            'quote',
-            'save',
-            'quickInsert',
-            'paragraphFormat',
-            'paragraphStyle',
-            'help',
-            'draggable',
-            'align',
-            'link',
-            'lists',
-            'file',
-            'image',
-            'emoticons',
-            'url',
-            'video',
-            'embedly',
-            'colors',
-            'entities',
-            'inlineClass',
-            'inlineStyle',
-            'imageTUI',
-          ],
+          pluginsEnabled: FROALA_PLUGINS,
         }}
       />
     </FroalaContainer>
   );
 };
 
-export default VideoStreamNote;
+export default MarkdownNote;
