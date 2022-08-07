@@ -64,6 +64,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["froala-editor", "npm:4.0.13"],\
             ["html-webpack-plugin", "virtual:2aff291482f519dba3b150c72008a39132371d44001a25281e2ebd465e55f2ea2dd7fc00595ce8c7dd964d7988667918ad0fe08a0d646eb6dfc924d6920f642c#npm:5.5.0"],\
             ["mini-css-extract-plugin", "virtual:2aff291482f519dba3b150c72008a39132371d44001a25281e2ebd465e55f2ea2dd7fc00595ce8c7dd964d7988667918ad0fe08a0d646eb6dfc924d6920f642c#npm:2.6.1"],\
+            ["mobx", "npm:6.6.1"],\
             ["postcss", "npm:8.4.14"],\
             ["postcss-loader", "virtual:2aff291482f519dba3b150c72008a39132371d44001a25281e2ebd465e55f2ea2dd7fc00595ce8c7dd964d7988667918ad0fe08a0d646eb6dfc924d6920f642c#npm:7.0.0"],\
             ["prettier", "npm:2.7.1"],\
@@ -5809,6 +5810,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["froala-editor", "npm:4.0.13"],\
             ["html-webpack-plugin", "virtual:2aff291482f519dba3b150c72008a39132371d44001a25281e2ebd465e55f2ea2dd7fc00595ce8c7dd964d7988667918ad0fe08a0d646eb6dfc924d6920f642c#npm:5.5.0"],\
             ["mini-css-extract-plugin", "virtual:2aff291482f519dba3b150c72008a39132371d44001a25281e2ebd465e55f2ea2dd7fc00595ce8c7dd964d7988667918ad0fe08a0d646eb6dfc924d6920f642c#npm:2.6.1"],\
+            ["mobx", "npm:6.6.1"],\
             ["postcss", "npm:8.4.14"],\
             ["postcss-loader", "virtual:2aff291482f519dba3b150c72008a39132371d44001a25281e2ebd465e55f2ea2dd7fc00595ce8c7dd964d7988667918ad0fe08a0d646eb6dfc924d6920f642c#npm:7.0.0"],\
             ["prettier", "npm:2.7.1"],\
@@ -9629,6 +9631,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/mkdirp-npm-1.0.4-37f6ef56b9-a96865108c.zip/node_modules/mkdirp/",\
           "packageDependencies": [\
             ["mkdirp", "npm:1.0.4"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["mobx", [\
+        ["npm:6.6.1", {\
+          "packageLocation": "./.yarn/cache/mobx-npm-6.6.1-5529d198b9-20e876693d.zip/node_modules/mobx/",\
+          "packageDependencies": [\
+            ["mobx", "npm:6.6.1"]\
           ],\
           "linkType": "HARD"\
         }]\

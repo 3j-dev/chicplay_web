@@ -3805,6 +3805,7 @@ __metadata:
     froala-editor: ^4.0.13
     html-webpack-plugin: ^5.5.0
     mini-css-extract-plugin: ^2.6.1
+    mobx: ^6.6.1
     postcss: ^8.4.14
     postcss-loader: ^7.0.0
     prettier: ^2.7.1
@@ -6940,6 +6941,13 @@ __metadata:
     react-native:
       optional: true
   checksum: 9294e127e281c8b37ec7bcaf17de479f50519e6ad485b58d7b991291900511541a5a718653759d3cf6503462c70325d025e1c2ed376d4584fb1b2d3aac9d9b48
+  languageName: node
+  linkType: hard
+
+"mobx@npm:^6.6.1":
+  version: 6.6.1
+  resolution: "mobx@npm:6.6.1"
+  checksum: 20e876693d1a99916d347ba666f47e7931d5aa5a1172eae48d172477d537577d604207a8f8918041f9b6c74280b6533a516cf1639929735c6bb514f34776225a
   languageName: node
   linkType: hard
 
