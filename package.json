@@ -6,6 +6,7 @@
   "author": "pasly0920 <inwoo920621@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "@tldraw/tldraw": "^1.20.0",
     "axios": "^0.27.2",
     "form-data": "^4.0.0",
     "froala-editor": "^4.0.13",
