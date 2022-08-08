@@ -11,7 +11,6 @@ import {
   FROALA_RICH_BUTTONS,
   FROALA_MISC_BUTTONS,
   FROALA_PLUGINS,
-  NOTE_TYPE,
 } from '@/util/Constant';
 
 import 'froala-editor/css/froala_style.min.css';

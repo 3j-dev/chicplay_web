@@ -4,7 +4,6 @@ import axios from 'axios';
 import { useCallback, useRef } from 'react';
 
 import { CanvasNoteContainer } from './style';
-import { NOTE_TYPE } from '@/util/Constant';
 
 interface Props {
   nowNoteType: number;
