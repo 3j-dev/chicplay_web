@@ -11,6 +11,7 @@ import {
   FROALA_RICH_BUTTONS,
   FROALA_MISC_BUTTONS,
   FROALA_PLUGINS,
+  NOTE_TYPE,
 } from '@/util/Constant';
 
 import 'froala-editor/css/froala_style.min.css';
@@ -21,11 +22,13 @@ import 'froala-editor/js/languages/ko.js';
 interface MarkdownNoteProps {
   setSnapShotClicked: React.Dispatch<React.SetStateAction<boolean>>;
   snapShotURL: string;
+  nowNoteType: number;
 }
 
 const MarkdownNote: React.FC<MarkdownNoteProps> = ({
   setSnapShotClicked,
   snapShotURL,
+  nowNoteType,
 }: MarkdownNoteProps) => {
   const [model, setModel] = useState<string>('');
   const editorInstance = useRef<FroalaEditor>(null);
@@ -56,7 +59,7 @@ const MarkdownNote: React.FC<MarkdownNoteProps> = ({
   });
 
   return (
-    <FroalaContainer>
+    <FroalaContainer nowNoteType={nowNoteType}>
       <FroalaEditor
         ref={editorInstance}
         model={model}

@@ -1,8 +1,14 @@
 import styled from 'styled-components';
 
-export const FroalaContainer = styled.div`
+import { NOTE_TYPE } from '@/util/Constant';
+
+interface FroalaContainerProps {
+  nowNoteType: number;
+}
+
+export const FroalaContainer = styled.div<FroalaContainerProps>`
   width: 100%;
-  display: flex;
+  display: ${({ nowNoteType }) => (nowNoteType === NOTE_TYPE.MARKDOWN ? 'flex' : 'none')};
   flex-direction: column;
   align-self: center;
 `;
