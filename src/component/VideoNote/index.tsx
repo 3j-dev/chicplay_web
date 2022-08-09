@@ -1,20 +1,22 @@
-import { useState } from 'react';
-
 import CanvasNote from './CanvasNote';
 import MarkdownNote from './MarkdownNote';
 import NoteSlider from './NoteSlider';
 
 import { VideoNoteContainer } from './style';
-import { NOTE_TYPE } from '@/util/Constant';
 
 interface NoteProps {
   setSnapShotClicked: React.Dispatch<React.SetStateAction<boolean>>;
   snapShotURL: string;
+  noteType: number;
+  setNoteType: React.Dispatch<React.SetStateAction<number>>;
 }
 
-const VideoNote: React.FC<NoteProps> = ({ setSnapShotClicked, snapShotURL }: NoteProps) => {
-  const [noteType, setNoteType] = useState<number>(NOTE_TYPE.MARKDOWN);
-
+const VideoNote: React.FC<NoteProps> = ({
+  setSnapShotClicked,
+  snapShotURL,
+  noteType,
+  setNoteType,
+}: NoteProps) => {
   return (
     <VideoNoteContainer>
       <MarkdownNote

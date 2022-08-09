@@ -16,12 +16,14 @@ interface StreamProps {
   snapShotClicked: boolean;
   setSnapShotClicked: React.Dispatch<React.SetStateAction<boolean>>;
   setSnapShotURL: React.Dispatch<React.SetStateAction<string>>;
+  noteType: number;
 }
 
 const VideoStream: React.FC<StreamProps> = ({
   snapShotClicked,
   setSnapShotClicked,
   setSnapShotURL,
+  noteType,
 }: StreamProps) => {
   const playerRef = useRef<React.RefObject<HTMLVideoElement>>(null);
   const canvasRef = useRef<React.DetailedHTMLProps<
