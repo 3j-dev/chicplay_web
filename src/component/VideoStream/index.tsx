@@ -3,6 +3,8 @@ import FormData from 'form-data';
 import axios from 'axios';
 import { useRef, useState, useEffect } from 'react';
 
+import { VideoStreamContainer } from './style';
+
 interface DimensionProps {
   w: number;
   h: number;
@@ -88,17 +90,17 @@ const VideoStream: React.FC<StreamProps> = ({
   }, [snapShotClicked]);
 
   return (
-    <>
+    <VideoStreamContainer>
       <ReactHlsPlayer
         playerRef={playerRef}
         src={videoSource}
         autoPlay={true}
         controls={true}
-        width="50%"
+        width="100%"
         height="auto"
       />
       <canvas ref={canvasRef} style={{ display: 'none' }} />
-    </>
+    </VideoStreamContainer>
   );
 };
 
