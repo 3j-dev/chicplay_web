@@ -2,6 +2,7 @@ import { PlayerPlay, PlayerPause } from 'tabler-icons-react';
 import { useState, useEffect } from 'react';
 
 import { VideoControlContainer } from './style';
+import { convertTime } from '@/util/convertTime';
 
 interface Props {
   playerRef: React.RefObject<HTMLVideoElement>;
@@ -57,7 +58,7 @@ const VideoControl: React.FC<Props> = ({ playerRef }: Props) => {
       ) : (
         <PlayerPlay onClick={onPlayIconClick} />
       )}
-      {currentTime}
+      {convertTime(currentTime)}
     </VideoControlContainer>
   );
 };
