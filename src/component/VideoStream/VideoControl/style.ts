@@ -8,4 +8,5 @@ export const VideoControlContainer = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  gap: 10px;
 `;

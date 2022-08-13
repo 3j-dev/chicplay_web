@@ -28,18 +28,15 @@ const VideoStream: React.FC<StreamProps> = ({
   setSnapShotURL,
   noteType,
 }: StreamProps) => {
-  const playerRef = useRef<React.RefObject<HTMLVideoElement>>(null);
-  const canvasRef = useRef<React.DetailedHTMLProps<
-    React.CanvasHTMLAttributes<HTMLCanvasElement>,
-    HTMLCanvasElement
-  > | null>(null);
+  const playerRef = useRef<HTMLVideoElement>(null);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
   const [dimensions, setDimensions] = useState<DimensionProps>({ w: 0, h: 0 });
 
   const context = canvasRef === null ? null : canvasRef.current?.getContext('2d');
 
-  const getVideoSizeData = (videoRef) => {
-    const ratio: number = videoRef.current.videoWidth / videoRef.current.videoHeight;
-    const w: number = videoRef.current.videoWidth - 100;
+  const getVideoSizeData = (videoRef: React.RefObject<HTMLVideoElement>) => {
+    const ratio: number = videoRef.current!.videoWidth / videoRef.current!.videoHeight;
+    const w: number = videoRef.current!.videoWidth - 100;
     const h: number = w / ratio;
     return {
       ratio,
@@ -101,15 +98,13 @@ const VideoStream: React.FC<StreamProps> = ({
         <ReactHlsPlayer
           playerRef={playerRef}
           src={videoSource}
-          autoPlay={true}
-          controls={true}
+          controls={false}
           muted={true}
           width="100%"
-          height="auto"
         />
         <canvas ref={canvasRef} style={{ display: 'none' }} />
         <VideoCanvas noteType={noteType} />
-        <VideoControl />
+        <VideoControl playerRef={playerRef} />
       </Video>
     </VideoStreamContainer>
   );
