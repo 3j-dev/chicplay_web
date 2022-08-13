@@ -3,14 +3,17 @@ import FormData from 'form-data';
 import axios from 'axios';
 import { useRef, useState, useEffect } from 'react';
 
-import { VideoStreamContainer } from './style';
+import VideoCanvas from './VideoCanvas';
+import VideoControl from './VideoControl';
+import VideoCanvasTool from './VideoCanvasTool';
+import { VideoStreamContainer, Video } from './style';
 
 interface DimensionProps {
   w: number;
   h: number;
 }
 
-const videoSource: string | undefined = process.env.TEST_VIDEO_URL;
+const videoSource: string = process.env.TEST_VIDEO_URL as string;
 
 interface StreamProps {
   snapShotClicked: boolean;
@@ -93,15 +96,21 @@ const VideoStream: React.FC<StreamProps> = ({
 
   return (
     <VideoStreamContainer>
-      <ReactHlsPlayer
-        playerRef={playerRef}
-        src={videoSource}
-        autoPlay={true}
-        controls={true}
-        width="100%"
-        height="auto"
-      />
-      <canvas ref={canvasRef} style={{ display: 'none' }} />
+      <VideoCanvasTool />
+      <Video>
+        <ReactHlsPlayer
+          playerRef={playerRef}
+          src={videoSource}
+          autoPlay={true}
+          controls={true}
+          muted={true}
+          width="100%"
+          height="auto"
+        />
+        <canvas ref={canvasRef} style={{ display: 'none' }} />
+        <VideoCanvas noteType={noteType} />
+        <VideoControl />
+      </Video>
     </VideoStreamContainer>
   );
 };
