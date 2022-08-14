@@ -95,7 +95,7 @@ const VideoStream: React.FC<StreamProps> = ({
 
   return (
     <VideoStreamContainer>
-      <VideoCanvasTool videoCanvasRef={videoCanvasRef} />
+      <VideoCanvasTool videoCanvasRef={videoCanvasRef} noteType={noteType} />
       <Video>
         <ReactHlsPlayer
           playerRef={playerRef}
