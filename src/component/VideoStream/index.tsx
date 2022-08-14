@@ -1,6 +1,7 @@
 import ReactHlsPlayer from 'react-hls-player';
 import FormData from 'form-data';
 import axios from 'axios';
+import { TldrawApp } from '@tldraw/tldraw';
 import { useRef, useState, useEffect } from 'react';
 
 import VideoCanvas from './VideoCanvas';
@@ -30,6 +31,7 @@ const VideoStream: React.FC<StreamProps> = ({
 }: StreamProps) => {
   const playerRef = useRef<HTMLVideoElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const videoCanvasRef = useRef<TldrawApp | null>(null);
   const [dimensions, setDimensions] = useState<DimensionProps>({ w: 0, h: 0 });
 
   const context = canvasRef === null ? null : canvasRef.current?.getContext('2d');
@@ -93,7 +95,7 @@ const VideoStream: React.FC<StreamProps> = ({
 
   return (
     <VideoStreamContainer>
-      <VideoCanvasTool />
+      <VideoCanvasTool videoCanvasRef={videoCanvasRef} />
       <Video>
         <ReactHlsPlayer
           playerRef={playerRef}
@@ -103,7 +105,7 @@ const VideoStream: React.FC<StreamProps> = ({
           width="100%"
         />
         <canvas ref={canvasRef} style={{ display: 'none' }} />
-        <VideoCanvas noteType={noteType} />
+        <VideoCanvas noteType={noteType} videoCanvasRef={videoCanvasRef} />
         <VideoControl playerRef={playerRef} />
       </Video>
     </VideoStreamContainer>
