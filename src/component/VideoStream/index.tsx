@@ -101,7 +101,7 @@ const VideoStream: React.FC<StreamProps> = ({
           playerRef={playerRef}
           src={videoSource}
           controls={false}
-          muted={true}
+          muted={false}
           width="100%"
         />
         <canvas ref={canvasRef} style={{ display: 'none' }} />
