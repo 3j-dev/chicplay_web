@@ -9,4 +9,6 @@ export const Layout = styled.div`
   justify-content: center;
   align-items: center;
   gap: 10px;
+  overflox-x: hidden;
+  overflow-y: hidden;
 `;
