@@ -45,7 +45,7 @@ const VideoStream: React.FC<StreamProps> = ({
       w,
       h,
     };
-  };
+  }; // get videoRef & return videoElement's ratio, width, height
 
   const snapShot = () => {
     if (context && playerRef.current) {
@@ -59,7 +59,6 @@ const VideoStream: React.FC<StreamProps> = ({
           .post(process.env.SNAPSHOT_API, formData, {
             headers: {
               'Content-Type': 'multipart/form-data',
-              //Authorization: sessionStorage.getItem("jwt")
             },
           })
           .then((response) => {
@@ -70,7 +69,7 @@ const VideoStream: React.FC<StreamProps> = ({
           });
       });
     }
-  };
+  }; // drawing video snapshot on canvas and post with axios then get filepath on S3 storage
 
   useEffect(() => {
     // Add listener when the video is actually available for
@@ -92,6 +91,7 @@ const VideoStream: React.FC<StreamProps> = ({
     snapShotClicked && snapShot();
     setSnapShotClicked(false);
   }, [snapShotClicked]);
+  // chang state by snapshot action
 
   return (
     <VideoStreamContainer>
