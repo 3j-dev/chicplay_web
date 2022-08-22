@@ -83,3 +83,12 @@ export const NOTE_TYPE = {
   CANVAS: 1,
   SCREEN_CANVAS: 2,
 };
+
+export const Colors = {
+  Gray: '#f1f2f5',
+  Gray1: '#979797',
+  Gray2: '#6b6b6b',
+  Blue: '#3055fe',
+  Black: '#000000',
+  Black1: '#272727',
+};
