@@ -1,4 +1,12 @@
-import { Click, Pencil, Eraser, ArrowUpRight, Rectangle, Circle, Trash } from 'tabler-icons-react';
+import {
+  TbClick,
+  TbPencil,
+  TbEraser,
+  TbArrowUpRight,
+  TbRectangle,
+  TbCircle,
+  TbTrash,
+} from 'react-icons/tb';
 import { TldrawApp, TDShapeType } from '@tldraw/tldraw';
 
 import { VideoCanvasToolContainer } from './style';
@@ -19,13 +27,13 @@ const VideoCanvasTool: React.FC<Props> = ({ videoCanvasRef, noteType }: Props) =
 
   return (
     <VideoCanvasToolContainer noteType={noteType}>
-      <Click onClick={() => tlDrawApp?.selectTool('select')} />
-      <Pencil onClick={() => tlDrawApp?.selectTool(TDShapeType.Draw)} />
-      <Eraser onClick={() => tlDrawApp?.selectTool('erase')} />
-      <ArrowUpRight onClick={() => tlDrawApp?.selectTool(TDShapeType.Arrow)} />
-      <Rectangle onClick={() => tlDrawApp?.selectTool(TDShapeType.Rectangle)} />
-      <Circle onClick={() => tlDrawApp?.selectTool(TDShapeType.Ellipse)} />
-      <Trash onClick={clearDrawing} />
+      <TbClick onClick={() => tlDrawApp?.selectTool('select')} />
+      <TbPencil onClick={() => tlDrawApp?.selectTool(TDShapeType.Draw)} />
+      <TbEraser onClick={() => tlDrawApp?.selectTool('erase')} />
+      <TbArrowUpRight onClick={() => tlDrawApp?.selectTool(TDShapeType.Arrow)} />
+      <TbRectangle onClick={() => tlDrawApp?.selectTool(TDShapeType.Rectangle)} />
+      <TbCircle onClick={() => tlDrawApp?.selectTool(TDShapeType.Ellipse)} />
+      <TbTrash onClick={clearDrawing} />
     </VideoCanvasToolContainer>
   );
 };

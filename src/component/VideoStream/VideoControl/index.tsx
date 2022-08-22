@@ -1,4 +1,4 @@
-import { PlayerPlay, PlayerPause } from 'tabler-icons-react';
+import { BsFillPlayFill, BsFillPauseFill } from 'react-icons/bs';
 import { useState, useEffect } from 'react';
 
 import { VideoControlContainer } from './style';
@@ -54,9 +54,9 @@ const VideoControl: React.FC<Props> = ({ playerRef }: Props) => {
   return (
     <VideoControlContainer>
       {nowPlaying ? (
-        <PlayerPause onClick={onPlayIconClick} />
+        <BsFillPlayFill onClick={onPlayIconClick} />
       ) : (
-        <PlayerPlay onClick={onPlayIconClick} />
+        <BsFillPauseFill onClick={onPlayIconClick} />
       )}
       {convertTime(currentTime)}
     </VideoControlContainer>
