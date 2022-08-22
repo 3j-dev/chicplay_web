@@ -8,6 +8,7 @@ import VideoCanvas from './VideoCanvas';
 import VideoControl from './VideoControl';
 import VideoCanvasTool from './VideoCanvasTool';
 import { VideoStreamContainer, Video } from './style';
+import VideoTopBar from './VideoTopBar';
 
 interface DimensionProps {
   w: number;
@@ -95,7 +96,7 @@ const VideoStream: React.FC<StreamProps> = ({
 
   return (
     <VideoStreamContainer>
-      <VideoCanvasTool videoCanvasRef={videoCanvasRef} noteType={noteType} />
+      <VideoTopBar videoTitle="1주차 - 포켓몬 환경의 이해" />
       <Video>
         <ReactHlsPlayer
           playerRef={playerRef}
@@ -106,8 +107,9 @@ const VideoStream: React.FC<StreamProps> = ({
         />
         <canvas ref={canvasRef} style={{ display: 'none' }} />
         <VideoCanvas noteType={noteType} videoCanvasRef={videoCanvasRef} />
-        <VideoControl playerRef={playerRef} />
       </Video>
+      <VideoCanvasTool videoCanvasRef={videoCanvasRef} noteType={noteType} />
+      <VideoControl playerRef={playerRef} />
     </VideoStreamContainer>
   );
 };
