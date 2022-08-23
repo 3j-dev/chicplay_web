@@ -1,18 +1,28 @@
-import { NoteSliderContainer, ButtonContainer } from './style';
+import { NoteSliderContainer, ButtonContainer, Buttons } from './style';
 import { NOTE_TYPE } from '@/util/Constant';
 
 interface Props {
+  nowNoteType: number;
   setNowNoteType: React.Dispatch<React.SetStateAction<number>>;
 }
 
-const NoteSlider: React.FC<Props> = ({ setNowNoteType }: Props) => {
+const NoteSlider: React.FC<Props> = ({ setNowNoteType, nowNoteType }: Props) => {
   return (
     <NoteSliderContainer>
-      <ButtonContainer onClick={() => setNowNoteType(NOTE_TYPE.MARKDOWN)}>Markdown</ButtonContainer>
-      <ButtonContainer onClick={() => setNowNoteType(NOTE_TYPE.CANVAS)}>Canvas</ButtonContainer>
-      <ButtonContainer onClick={() => setNowNoteType(NOTE_TYPE.SCREEN_CANVAS)}>
-        Canvas On Screen
-      </ButtonContainer>
+      <Buttons>
+        <ButtonContainer
+          onClick={() => setNowNoteType(NOTE_TYPE.MARKDOWN)}
+          activated={nowNoteType === NOTE_TYPE.MARKDOWN}
+        >
+          텍스트
+        </ButtonContainer>
+        <ButtonContainer
+          onClick={() => setNowNoteType(NOTE_TYPE.CANVAS)}
+          activated={nowNoteType === NOTE_TYPE.CANVAS}
+        >
+          그리기
+        </ButtonContainer>
+      </Buttons>
     </NoteSliderContainer>
   );
 };

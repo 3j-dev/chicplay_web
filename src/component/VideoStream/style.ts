@@ -10,6 +10,14 @@ export const VideoStreamContainer = styled.div`
 `;
 
 export const Video = styled.div`
+  align-self: center;
   position: relative;
-  width: 100%;
+  width: 92%;
+  height: 87.5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  video {
+    border-radius: 10px;
+  }
 `;

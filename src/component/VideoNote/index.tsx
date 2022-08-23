@@ -19,13 +19,13 @@ const VideoNote: React.FC<NoteProps> = ({
 }: NoteProps) => {
   return (
     <VideoNoteContainer>
+      <NoteSlider setNowNoteType={setNoteType} nowNoteType={noteType} />
       <MarkdownNote
         setSnapShotClicked={setSnapShotClicked}
         snapShotURL={snapShotURL}
         nowNoteType={noteType}
       />
       <CanvasNote nowNoteType={noteType} />
-      <NoteSlider setNowNoteType={setNoteType} />
     </VideoNoteContainer>
   );
 };

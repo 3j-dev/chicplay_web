@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
 export const VideoNoteContainer = styled.div`
-  width: 40%;
-  height: 80%;
+  width: 20%;
+  height: 100%;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 10px;

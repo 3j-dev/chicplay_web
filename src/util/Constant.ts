@@ -91,4 +91,5 @@ export const Colors = {
   Blue: '#3055fe',
   Black: '#000000',
   Black1: '#272727',
+  White: '#ffffff',
 };

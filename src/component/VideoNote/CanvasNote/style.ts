@@ -9,7 +9,7 @@ interface CanvasNoteContainerProps {
 export const CanvasNoteContainer = styled.div<CanvasNoteContainerProps>`
   position: relative;
   width: 100%;
-  height: 60%;
+  height: 94%;
   align-self: center;
   display: ${({ nowNoteType }) => (nowNoteType === NOTE_TYPE.CANVAS ? 'flex' : 'none')};
   border-radius: 10px;
