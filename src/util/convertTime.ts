@@ -8,10 +8,11 @@ const getSecond = (_number: number, _minute: number): number => {
 
 const makeString = (_minute: number, _second: number): string => {
   const timeArray: string[] = [String(_minute).padStart(2, '0'), String(_second).padStart(2, '0')];
-  return timeArray.join(' : ');
+  return timeArray.join(':');
 };
 
-export const convertTime = (_time: number): string => {
+export const convertTime = (_time: number | undefined): string => {
+  if (!_time) return '';
   const minute: number = getMinute(_time);
   const second: number = getSecond(_time, minute);
 
