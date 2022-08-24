@@ -4,11 +4,11 @@ import { Tldraw, TldrawApp } from '@tldraw/tldraw';
 import { VideoCanvasContainer } from './style';
 
 interface Props {
-  noteType: number;
+  canvasActivated: boolean;
   videoCanvasRef: React.MutableRefObject<TldrawApp | null>;
 }
 
-const VideoCanvas: React.FC<Props> = ({ noteType, videoCanvasRef }: Props) => {
+const VideoCanvas: React.FC<Props> = ({ canvasActivated, videoCanvasRef }: Props) => {
   const outerRef = useRef<HTMLDivElement | null>(null);
 
   const handleMount = useCallback((app: TldrawApp) => {
@@ -16,7 +16,7 @@ const VideoCanvas: React.FC<Props> = ({ noteType, videoCanvasRef }: Props) => {
   }, []);
 
   return (
-    <VideoCanvasContainer ref={outerRef} noteType={noteType}>
+    <VideoCanvasContainer ref={outerRef} canvasActivated={canvasActivated}>
       <Tldraw onMount={handleMount} showMenu={false} showPages={false} showUI={false} />
     </VideoCanvasContainer>
   );

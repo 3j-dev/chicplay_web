@@ -13,10 +13,10 @@ import { VideoCanvasToolContainer } from './style';
 
 interface Props {
   videoCanvasRef: React.MutableRefObject<TldrawApp | null>;
-  noteType: number;
+  canvasActivated: boolean;
 }
 
-const VideoCanvasTool: React.FC<Props> = ({ videoCanvasRef, noteType }: Props) => {
+const VideoCanvasTool: React.FC<Props> = ({ videoCanvasRef, canvasActivated }: Props) => {
   const tlDrawApp = videoCanvasRef.current;
   const clearDrawing = () => {
     if (!tlDrawApp) return;
@@ -26,7 +26,7 @@ const VideoCanvasTool: React.FC<Props> = ({ videoCanvasRef, noteType }: Props) =
   };
 
   return (
-    <VideoCanvasToolContainer noteType={noteType}>
+    <VideoCanvasToolContainer canvasActivated={canvasActivated}>
       <TbClick onClick={() => tlDrawApp?.selectTool('select')} />
       <TbPencil onClick={() => tlDrawApp?.selectTool(TDShapeType.Draw)} />
       <TbEraser onClick={() => tlDrawApp?.selectTool('erase')} />

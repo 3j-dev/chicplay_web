@@ -2,12 +2,13 @@ import ReactHlsPlayer from 'react-hls-player';
 import FormData from 'form-data';
 import axios from 'axios';
 import { TldrawApp } from '@tldraw/tldraw';
+import { BsPencilSquare } from 'react-icons/bs';
 import { useRef, useState, useEffect } from 'react';
 
 import VideoCanvas from './VideoCanvas';
 import VideoControl from './VideoControl';
 import VideoCanvasTool from './VideoCanvasTool';
-import { VideoStreamContainer, Video } from './style';
+import { VideoStreamContainer, Video, VideoCanvasButton } from './style';
 import VideoTopBar from './VideoTopBar';
 
 interface DimensionProps {
@@ -21,19 +22,18 @@ interface StreamProps {
   snapShotClicked: boolean;
   setSnapShotClicked: React.Dispatch<React.SetStateAction<boolean>>;
   setSnapShotURL: React.Dispatch<React.SetStateAction<string>>;
-  noteType: number;
 }
 
 const VideoStream: React.FC<StreamProps> = ({
   snapShotClicked,
   setSnapShotClicked,
   setSnapShotURL,
-  noteType,
 }: StreamProps) => {
   const playerRef = useRef<HTMLVideoElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const videoCanvasRef = useRef<TldrawApp | null>(null);
   const [dimensions, setDimensions] = useState<DimensionProps>({ w: 0, h: 0 });
+  const [canvasActivated, setCanvasActivated] = useState<boolean>(false);
 
   const context = canvasRef === null ? null : canvasRef.current?.getContext('2d');
 
@@ -106,9 +106,15 @@ const VideoStream: React.FC<StreamProps> = ({
           width="100%"
         />
         <canvas ref={canvasRef} style={{ display: 'none' }} />
-        <VideoCanvas noteType={noteType} videoCanvasRef={videoCanvasRef} />
+        <VideoCanvas canvasActivated={canvasActivated} videoCanvasRef={videoCanvasRef} />
+        <VideoCanvasButton
+          canvasActivated={canvasActivated}
+          onClick={() => setCanvasActivated(true)}
+        >
+          <BsPencilSquare size={30} color="white" />
+        </VideoCanvasButton>
       </Video>
-      <VideoCanvasTool videoCanvasRef={videoCanvasRef} noteType={noteType} />
+      <VideoCanvasTool videoCanvasRef={videoCanvasRef} canvasActivated={canvasActivated} />
       <VideoControl playerRef={playerRef} />
     </VideoStreamContainer>
   );
