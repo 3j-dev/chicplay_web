@@ -1,8 +1,8 @@
 {
-  "name": "chicplay",
+  "name": "vivid",
   "version": "1.0.0",
   "main": "src/index.tsx",
-  "repository": "https://github.com/3j-dev/chicplay_web.git",
+  "repository": "https://github.com/3j-dev/vivid_web.git",
   "author": "pasly0920 <inwoo920621@gmail.com>",
   "license": "MIT",
   "dependencies": {
