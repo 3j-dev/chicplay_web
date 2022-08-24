@@ -3793,68 +3793,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chicplay@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "chicplay@workspace:."
-  dependencies:
-    "@babel/core": ^7.18.6
-    "@babel/preset-env": ^7.18.6
-    "@babel/preset-react": ^7.18.6
-    "@babel/preset-typescript": ^7.18.6
-    "@tldraw/tldraw": ^1.20.0
-    "@types/node": ^18.0.3
-    "@types/react": ^18.0.15
-    "@types/react-dom": ^18.0.6
-    "@types/styled-components": ^5.1.25
-    "@typescript-eslint/eslint-plugin": ^5.30.5
-    "@typescript-eslint/parser": ^5.30.5
-    "@yarnpkg/pnpify": ^4.0.0-rc.12
-    axios: ^0.27.2
-    babel-loader: ^8.2.5
-    core-js: ^3.23.3
-    css-loader: ^6.7.1
-    css-minimizer-webpack-plugin: ^4.0.0
-    dotenv: ^16.0.1
-    eslint: ^8.19.0
-    eslint-config-airbnb-typescript: ^17.0.0
-    eslint-config-prettier: ^8.5.0
-    eslint-plugin-import: ^2.26.0
-    eslint-plugin-jsx-a11y: ^6.6.0
-    eslint-plugin-prettier: ^4.2.1
-    eslint-plugin-react: ^7.30.1
-    eslint-plugin-react-hooks: ^4.6.0
-    file-loader: ^6.2.0
-    form-data: ^4.0.0
-    froala-editor: ^4.0.13
-    html-webpack-plugin: ^5.5.0
-    mini-css-extract-plugin: ^2.6.1
-    mobx: ^6.6.1
-    postcss: ^8.4.14
-    postcss-loader: ^7.0.0
-    prettier: ^2.7.1
-    process: ^0.11.10
-    react: ^18.2.0
-    react-dom: ^18.2.0
-    react-froala-wysiwyg: ^4.0.13
-    react-hls-player: ^3.0.7
-    react-icons: ^4.4.0
-    react-is: ^18.2.0
-    react-query: ^3.39.2
-    react-router-dom: ^6.3.0
-    recoil: ^0.7.4
-    style-loader: ^3.3.1
-    styled-components: ^5.3.5
-    styled-reset: ^4.4.2
-    terser-webpack-plugin: ^5.3.3
-    typescript: ^4.7.4
-    webpack: ^5.73.0
-    webpack-bundle-analyzer: ^4.5.0
-    webpack-cli: ^4.10.0
-    webpack-dev-server: ^4.9.3
-    webpack-merge: ^5.8.0
-  languageName: unknown
-  linkType: soft
-
 "chokidar@npm:^3.5.3":
   version: 3.5.3
   resolution: "chokidar@npm:3.5.3"
@@ -9600,6 +9538,68 @@ __metadata:
   checksum: ae0123222c6df65b437669d63dfa8c36cee20a504101b2fcd97b8bf76f91259c17f9f2b4d70a1e3c6bbcee7f51b28392833adb6b2770b23b01abec84e369660b
   languageName: node
   linkType: hard
+
+"vivid@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "vivid@workspace:."
+  dependencies:
+    "@babel/core": ^7.18.6
+    "@babel/preset-env": ^7.18.6
+    "@babel/preset-react": ^7.18.6
+    "@babel/preset-typescript": ^7.18.6
+    "@tldraw/tldraw": ^1.20.0
+    "@types/node": ^18.0.3
+    "@types/react": ^18.0.15
+    "@types/react-dom": ^18.0.6
+    "@types/styled-components": ^5.1.25
+    "@typescript-eslint/eslint-plugin": ^5.30.5
+    "@typescript-eslint/parser": ^5.30.5
+    "@yarnpkg/pnpify": ^4.0.0-rc.12
+    axios: ^0.27.2
+    babel-loader: ^8.2.5
+    core-js: ^3.23.3
+    css-loader: ^6.7.1
+    css-minimizer-webpack-plugin: ^4.0.0
+    dotenv: ^16.0.1
+    eslint: ^8.19.0
+    eslint-config-airbnb-typescript: ^17.0.0
+    eslint-config-prettier: ^8.5.0
+    eslint-plugin-import: ^2.26.0
+    eslint-plugin-jsx-a11y: ^6.6.0
+    eslint-plugin-prettier: ^4.2.1
+    eslint-plugin-react: ^7.30.1
+    eslint-plugin-react-hooks: ^4.6.0
+    file-loader: ^6.2.0
+    form-data: ^4.0.0
+    froala-editor: ^4.0.13
+    html-webpack-plugin: ^5.5.0
+    mini-css-extract-plugin: ^2.6.1
+    mobx: ^6.6.1
+    postcss: ^8.4.14
+    postcss-loader: ^7.0.0
+    prettier: ^2.7.1
+    process: ^0.11.10
+    react: ^18.2.0
+    react-dom: ^18.2.0
+    react-froala-wysiwyg: ^4.0.13
+    react-hls-player: ^3.0.7
+    react-icons: ^4.4.0
+    react-is: ^18.2.0
+    react-query: ^3.39.2
+    react-router-dom: ^6.3.0
+    recoil: ^0.7.4
+    style-loader: ^3.3.1
+    styled-components: ^5.3.5
+    styled-reset: ^4.4.2
+    terser-webpack-plugin: ^5.3.3
+    typescript: ^4.7.4
+    webpack: ^5.73.0
+    webpack-bundle-analyzer: ^4.5.0
+    webpack-cli: ^4.10.0
+    webpack-dev-server: ^4.9.3
+    webpack-merge: ^5.8.0
+  languageName: unknown
+  linkType: soft
 
 "watchpack@npm:^2.3.1":
   version: 2.4.0
