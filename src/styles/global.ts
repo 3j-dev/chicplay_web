@@ -51,7 +51,16 @@ const GlobalStyle = createGlobalStyle`
         em {
             font-style: italic;
         }
+        
+        .fr-box, .fr-wrapper, .fr-second-toolbar, .fr-toolbar {
+            border: 0 !important;
+        }
+        .fr-newline{
+            display: none !important;
+        }
+        .fr-toolbar {
 
+        }
         .fr-view .fr-wrapper{
             overflow-y: scroll;
         }
