@@ -81,7 +81,6 @@ export const FROALA_PLUGINS = [
 export const NOTE_TYPE = {
   MARKDOWN: 0,
   CANVAS: 1,
-  SCREEN_CANVAS: 2,
 };
 
 export const Colors = {
