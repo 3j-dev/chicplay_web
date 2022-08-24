@@ -114,7 +114,12 @@ const VideoStream: React.FC<StreamProps> = ({
           <BsPencilSquare size={30} color="white" />
         </VideoCanvasButton>
       </Video>
-      <VideoCanvasTool videoCanvasRef={videoCanvasRef} canvasActivated={canvasActivated} />
+      <VideoCanvasTool
+        playerRef={playerRef}
+        videoCanvasRef={videoCanvasRef}
+        canvasActivated={canvasActivated}
+        setCanvasActivated={setCanvasActivated}
+      />
       <VideoControl playerRef={playerRef} />
     </VideoStreamContainer>
   );
