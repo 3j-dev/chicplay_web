@@ -1,7 +1,5 @@
 import styled from 'styled-components';
 
-import { NOTE_TYPE } from '@/util/Constant';
-
 interface VideoCanvasContainerProps {
   canvasActivated: boolean;
 }
