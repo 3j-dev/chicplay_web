@@ -1,5 +1,7 @@
-import { Colors } from '@/util/Constant';
 import styled from 'styled-components';
+
+import { Colors } from '@/util/Constant';
+import { Typography } from '@/styles/style';
 
 interface Props {
   activated: boolean;
@@ -30,8 +32,7 @@ export const ButtonContainer = styled.div<Props>`
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  font-size: 14px;
-  line-height: 20px;
+  ${Typography.Paragraph2};
   color: ${({ activated }) => (activated ? Colors.White : Colors.Gray1)};
   transition: all ease 0.7s 0s;
 `;

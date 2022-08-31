@@ -10,11 +10,11 @@ const VideoTopBar: React.FC<Props> = ({ videoTitle }: Props) => {
   return (
     <VideoTopBarContainer>
       <VideoTopBarLeft>
-        <TbList />
-        {videoTitle}
+        <TbList size={20} />
+        <h4>{videoTitle}</h4>
       </VideoTopBarLeft>
       <VideoTopBarRight>
-        <TbSettings />
+        <TbSettings size={20} />
       </VideoTopBarRight>
     </VideoTopBarContainer>
   );
