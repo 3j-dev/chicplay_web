@@ -1,15 +1,19 @@
 import React, { Suspense } from 'react';
 import { RecoilRoot } from 'recoil';
+import { QueryClient, QueryClientProvider } from 'react-query';
 
 import '@/styles/font.css';
 import Hello from '@/component/Hello';
 import Router from '@/routes';
 
 const App: React.FC = () => {
+  const queryClient = new QueryClient();
   return (
     <Suspense fallback={<Hello />}>
       <RecoilRoot>
-        <Router />
+        <QueryClientProvider client={queryClient}>
+          <Router />
+        </QueryClientProvider>
       </RecoilRoot>
     </Suspense>
   );
