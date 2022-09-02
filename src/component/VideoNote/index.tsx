@@ -1,8 +1,10 @@
-import { NOTE_TYPE } from '@/util/Constant';
 import { useState } from 'react';
+
+import { NOTE_TYPE } from '@/util/Constant';
 import CanvasNote from './CanvasNote';
 import MarkdownNote from './MarkdownNote';
 import NoteSlider from './NoteSlider';
+import NoteExport from './NoteExport';
 
 import { VideoNoteContainer } from './style';
 
@@ -23,6 +25,7 @@ const VideoNote: React.FC<NoteProps> = ({ setSnapShotClicked, snapShotURL }: Not
         nowNoteType={noteType}
       />
       <CanvasNote nowNoteType={noteType} />
+      <NoteExport />
     </VideoNoteContainer>
   );
 };
