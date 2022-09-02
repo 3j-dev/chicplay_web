@@ -119,6 +119,11 @@ const GlobalStyle = createGlobalStyle`
                 margin: 5px 6px !important;
             }
         }
+
+        #TD-PrimaryTools, #TD-Delete, #TD-Tools-Dots, #TD-Link-github, #TD-Link-twitter, #TD-Link-discord, #TD-Link-become.a.sponsor {
+            display: none !important;
+        }
+        
     }
 `;
 

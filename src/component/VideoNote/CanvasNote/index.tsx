@@ -36,6 +36,7 @@ const CanvasNote: React.FC<Props> = ({ nowNoteType }: Props) => {
         onMount={handleMount}
         showMultiplayerMenu={false}
         showZoom={false}
+        showUI={false}
         {...fileSystmeEvents}
       />
     </CanvasNoteContainer>

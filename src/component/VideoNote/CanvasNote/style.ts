@@ -13,4 +13,8 @@ export const CanvasNoteContainer = styled.div<CanvasNoteContainerProps>`
   align-self: center;
   display: ${({ nowNoteType }) => (nowNoteType === NOTE_TYPE.CANVAS ? 'flex' : 'none')};
   border-radius: 10px;
+
+  & > div > span > div {
+    background-color: transparent !important;
+  }
 `;

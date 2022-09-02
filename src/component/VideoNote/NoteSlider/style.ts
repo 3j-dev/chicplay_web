@@ -15,7 +15,7 @@ export const NoteSliderContainer = styled.div`
   display: flex;
   gap: 10px;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   background-color: ${Colors.White};
 `;
