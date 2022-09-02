@@ -2,6 +2,7 @@ import { createGlobalStyle } from 'styled-components';
 import reset from 'styled-reset';
 
 import { Typography } from './style';
+import { Colors } from '@/util/Constant';
 
 const GlobalStyle = createGlobalStyle`
     ${reset}
@@ -71,6 +72,7 @@ const GlobalStyle = createGlobalStyle`
         }
 
         .fr-box{
+
             h1{
                 font-size: 2em;
             }
@@ -80,18 +82,42 @@ const GlobalStyle = createGlobalStyle`
             h3{
                 font-size: 1.17em;
             }
+
         }
         .fr-box, .fr-wrapper, .fr-second-toolbar, .fr-toolbar {
             border: 0 !important;
+        }
+        .fr-wrapper > .fr-element {
+            max-height: 73vh !important;
+            overflow-y: auto;
+            &::-webkit-scrollbar{
+                width: 8px;
+            }
+            &::-webkit-scrollbar-thumb{
+                display: hidden;
+                background: ${Colors.Gray1};
+                border-radius: 12px;
+            }
+            &::-webkit-scrollbar-track {
+                background-color: transparent !important;
+            }
         }
         .fr-newline{
             display: none !important;
         }
         .fr-toolbar {
-
+            background-color: ${Colors.Gray0};
+            border-radius: 0 !important;
+            margin: 0 !important;
         }
         .fr-view .fr-wrapper{
             overflow-y: scroll;
+        }
+        .fr-btn {
+            margin: 0 !important;
+            svg{
+                margin: 5px 6px !important;
+            }
         }
     }
 `;
