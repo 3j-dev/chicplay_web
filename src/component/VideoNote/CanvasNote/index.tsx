@@ -1,8 +1,9 @@
 import { Tldraw, TldrawApp, useFileSystem } from '@tldraw/tldraw';
 import FormData from 'form-data';
 import axios from 'axios';
-import { useCallback, useRef } from 'react';
+import { useState, useCallback, useRef } from 'react';
 
+import CanvasNoteTool from './CanvasNoteTool';
 import { CanvasNoteContainer } from './style';
 
 interface Props {
@@ -10,16 +11,17 @@ interface Props {
 }
 
 const CanvasNote: React.FC<Props> = ({ nowNoteType }: Props) => {
+  const [isMounted, setIsMounted] = useState<boolean>(false);
   const fileSystmeEvents = useFileSystem();
   const tlDrawRef = useRef<TldrawApp | null>(null);
+  console.log(tlDrawRef);
 
   const handleChange = useCallback((appState: TldrawApp) => {
     console.log(appState.document);
   }, []);
   const handleMount = (app: TldrawApp) => {
     tlDrawRef.current = app;
-    tlDrawRef.current.setCamera([0, 0], 1, 'layout_mount');
-    console.log(app);
+    setIsMounted(true);
   };
 
   const clearDrawing = useCallback(() => {
@@ -31,14 +33,8 @@ const CanvasNote: React.FC<Props> = ({ nowNoteType }: Props) => {
 
   return (
     <CanvasNoteContainer nowNoteType={nowNoteType}>
-      <Tldraw
-        onChange={handleChange}
-        onMount={handleMount}
-        showMultiplayerMenu={false}
-        showZoom={false}
-        showUI={false}
-        {...fileSystmeEvents}
-      />
+      {isMounted && <CanvasNoteTool tlDrawApp={tlDrawRef.current as TldrawApp} />}
+      <Tldraw onChange={handleChange} onMount={handleMount} showUI={false} {...fileSystmeEvents} />
     </CanvasNoteContainer>
   );
 };

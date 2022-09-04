@@ -74,8 +74,10 @@ export const Colors = {
   Gray1: '#979797',
   Gray2: '#6b6b6b',
   Blue: '#3055fe',
+  Blue1: '#0098f7',
   Black: '#000000',
   Black1: '#272727',
   Black2: '#000000b5',
+  Black3: '#333333',
   White: '#ffffff',
 };

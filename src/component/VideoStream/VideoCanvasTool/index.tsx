@@ -24,7 +24,6 @@ import {
   VideoSnapImage,
   VideoSnapTime,
 } from './style';
-import { convertTime } from '@/util/convertTime';
 
 interface Props {
   videoCanvasRef: React.MutableRefObject<TldrawApp | null>;
