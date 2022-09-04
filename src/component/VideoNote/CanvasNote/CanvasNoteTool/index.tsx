@@ -20,6 +20,7 @@ const CanvasNoteTool: React.FC<Props> = ({ tlDrawApp }: Props) => {
     tlDrawApp.selectTool('select');
     setClickedSvg(clickedSVG.CURSOR);
   }, []);
+  //svg color 안 바뀌는 문제 해결 필요
 
   console.log(tlDrawApp.style);
   return (
