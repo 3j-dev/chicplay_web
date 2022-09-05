@@ -1,4 +1,4 @@
-import { TDExport, Tldraw, TldrawApp, useFileSystem } from '@tldraw/tldraw';
+import { TDExport, TDExportType, Tldraw, TldrawApp, useFileSystem } from '@tldraw/tldraw';
 import FormData from 'form-data';
 import axios from 'axios';
 import { useState, useCallback, useRef, useEffect } from 'react';
@@ -35,7 +35,7 @@ const CanvasNote: React.FC<Props> = ({ nowNoteType, exportClicked, setExportClic
   }, []);
 
   useEffect(() => {
-    exportClicked && tlDrawRef.current?.exportImage();
+    exportClicked && tlDrawRef.current?.exportImage(TDExportType.PNG);
     setExportClicked(false);
   }, [exportClicked]);
 
