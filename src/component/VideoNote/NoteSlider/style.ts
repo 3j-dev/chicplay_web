@@ -47,3 +47,18 @@ export const Buttons = styled.div`
   background-color: ${Colors.Gray};
   border-radius: 25px;
 `;
+
+export const SvgContainer = styled.div`
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &:hover {
+    background-color: ${Colors.Gray};
+  }
+  &:active {
+    background-color: ${Colors.Gray0};
+  }
+`;

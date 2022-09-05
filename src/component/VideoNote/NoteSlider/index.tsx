@@ -1,6 +1,6 @@
 import { BsThreeDotsVertical, BsXLg } from 'react-icons/bs';
 
-import { NoteSliderContainer, ButtonContainer, Buttons } from './style';
+import { NoteSliderContainer, ButtonContainer, Buttons, SvgContainer } from './style';
 import { NOTE_TYPE } from '@/util/Constant';
 
 interface Props {
@@ -11,7 +11,9 @@ interface Props {
 const NoteSlider: React.FC<Props> = ({ setNowNoteType, nowNoteType }: Props) => {
   return (
     <NoteSliderContainer>
-      <BsXLg />
+      <SvgContainer>
+        <BsXLg />
+      </SvgContainer>
       <Buttons>
         <ButtonContainer
           onClick={() => setNowNoteType(NOTE_TYPE.MARKDOWN)}
@@ -26,7 +28,9 @@ const NoteSlider: React.FC<Props> = ({ setNowNoteType, nowNoteType }: Props) => 
           그리기
         </ButtonContainer>
       </Buttons>
-      <BsThreeDotsVertical />
+      <SvgContainer>
+        <BsThreeDotsVertical />
+      </SvgContainer>
     </NoteSliderContainer>
   );
 };
