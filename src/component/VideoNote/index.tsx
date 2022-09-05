@@ -15,6 +15,8 @@ interface NoteProps {
 
 const VideoNote: React.FC<NoteProps> = ({ setSnapShotClicked, snapShotURL }: NoteProps) => {
   const [noteType, setNoteType] = useState<number>(NOTE_TYPE.MARKDOWN);
+  const [markdownExportClicked, setMarkdownExportClicked] = useState<boolean>(false);
+  const [canvasExportClicked, setCanvasExportClicked] = useState<boolean>(false);
 
   return (
     <VideoNoteContainer>
@@ -23,9 +25,19 @@ const VideoNote: React.FC<NoteProps> = ({ setSnapShotClicked, snapShotURL }: Not
         setSnapShotClicked={setSnapShotClicked}
         snapShotURL={snapShotURL}
         nowNoteType={noteType}
+        exportClicked={markdownExportClicked}
+        setExportClicked={setMarkdownExportClicked}
       />
-      <CanvasNote nowNoteType={noteType} />
-      <NoteExport />
+      <CanvasNote
+        nowNoteType={noteType}
+        exportClicked={canvasExportClicked}
+        setExportClicked={setCanvasExportClicked}
+      />
+      <NoteExport
+        setExportClicked={
+          noteType === NOTE_TYPE.MARKDOWN ? setMarkdownExportClicked : setCanvasExportClicked
+        }
+      />
     </VideoNoteContainer>
   );
 };

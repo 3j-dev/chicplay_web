@@ -16,12 +16,16 @@ interface MarkdownNoteProps {
   setSnapShotClicked: React.Dispatch<React.SetStateAction<boolean>>;
   snapShotURL: string;
   nowNoteType: number;
+  exportClicked: boolean;
+  setExportClicked: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const MarkdownNote: React.FC<MarkdownNoteProps> = ({
   setSnapShotClicked,
   snapShotURL,
   nowNoteType,
+  exportClicked,
+  setExportClicked,
 }: MarkdownNoteProps) => {
   const [model, setModel] = useState<string>('');
   const editorInstance = useRef<FroalaEditor>(null);

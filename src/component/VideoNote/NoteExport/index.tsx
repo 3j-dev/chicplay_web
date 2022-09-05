@@ -2,9 +2,13 @@ import { BsBoxArrowRight } from 'react-icons/bs';
 
 import { NoteExportContainer } from './style';
 
-const NoteExport: React.FC = () => {
+interface Props {
+  setExportClicked: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const NoteExport: React.FC<Props> = ({ setExportClicked }: Props) => {
   return (
-    <NoteExportContainer>
+    <NoteExportContainer onClick={() => setExportClicked(true)}>
       노트 내보내기 <BsBoxArrowRight />
     </NoteExportContainer>
   );

@@ -1,16 +1,18 @@
-import { Tldraw, TldrawApp, useFileSystem } from '@tldraw/tldraw';
+import { TDExport, Tldraw, TldrawApp, useFileSystem } from '@tldraw/tldraw';
 import FormData from 'form-data';
 import axios from 'axios';
-import { useState, useCallback, useRef } from 'react';
+import { useState, useCallback, useRef, useEffect } from 'react';
 
 import CanvasNoteTool from './CanvasNoteTool';
 import { CanvasNoteContainer } from './style';
 
 interface Props {
   nowNoteType: number;
+  exportClicked: boolean;
+  setExportClicked: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const CanvasNote: React.FC<Props> = ({ nowNoteType }: Props) => {
+const CanvasNote: React.FC<Props> = ({ nowNoteType, exportClicked, setExportClicked }: Props) => {
   const [isMounted, setIsMounted] = useState<boolean>(false);
   const fileSystmeEvents = useFileSystem();
   const tlDrawRef = useRef<TldrawApp | null>(null);
@@ -19,6 +21,7 @@ const CanvasNote: React.FC<Props> = ({ nowNoteType }: Props) => {
   const handleChange = useCallback((appState: TldrawApp) => {
     console.log(appState.document);
   }, []);
+
   const handleMount = (app: TldrawApp) => {
     tlDrawRef.current = app;
     setIsMounted(true);
@@ -30,6 +33,11 @@ const CanvasNote: React.FC<Props> = ({ nowNoteType }: Props) => {
     tlDrawRef.current.deleteAll();
     tlDrawRef.current.selectTool(tool);
   }, []);
+
+  useEffect(() => {
+    exportClicked && tlDrawRef.current?.exportImage();
+    setExportClicked(false);
+  }, [exportClicked]);
 
   return (
     <CanvasNoteContainer nowNoteType={nowNoteType}>
