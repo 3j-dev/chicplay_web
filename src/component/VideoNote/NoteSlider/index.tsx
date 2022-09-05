@@ -6,9 +6,14 @@ import { NOTE_TYPE } from '@/util/Constant';
 interface Props {
   nowNoteType: number;
   setNowNoteType: React.Dispatch<React.SetStateAction<number>>;
+  setDropdownActivated: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const NoteSlider: React.FC<Props> = ({ setNowNoteType, nowNoteType }: Props) => {
+const NoteSlider: React.FC<Props> = ({
+  setNowNoteType,
+  nowNoteType,
+  setDropdownActivated,
+}: Props) => {
   return (
     <NoteSliderContainer>
       <SvgContainer>
@@ -29,7 +34,7 @@ const NoteSlider: React.FC<Props> = ({ setNowNoteType, nowNoteType }: Props) => 
         </ButtonContainer>
       </Buttons>
       <SvgContainer>
-        <BsThreeDotsVertical />
+        <BsThreeDotsVertical onClick={() => setDropdownActivated((prev) => !prev)} />
       </SvgContainer>
     </NoteSliderContainer>
   );
