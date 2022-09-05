@@ -49,8 +49,8 @@ export const Buttons = styled.div`
 `;
 
 export const SvgContainer = styled.div`
-  width: 28px;
-  height: 28px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   display: flex;
   justify-content: center;

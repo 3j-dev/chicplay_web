@@ -68,11 +68,18 @@ export const NOTE_TYPE = {
   CANVAS: 1,
 };
 
+export const NOTE_PLUS_TYPE = {
+  DEFAULT: 0,
+  RECORD: 1,
+  SEARCH: 2,
+};
+
 export const Colors = {
   Gray: '#f1f2f5',
   Gray0: '#ebecf0',
   Gray1: '#979797',
   Gray2: '#6b6b6b',
+  Gray3: '#dfdfdf',
   Blue: '#3055fe',
   Blue1: '#0098f7',
   Black: '#000000',
