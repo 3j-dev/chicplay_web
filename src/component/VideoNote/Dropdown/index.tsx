@@ -1,5 +1,6 @@
 import { NOTE_PLUS_TYPE } from '@/util/Constant';
-import { DropdownContainer } from './style';
+import { useCallback } from 'react';
+import { DropdownContainer, DropdownButtonContainer } from './style';
 
 interface Props {
   dropdownActivated: boolean;
@@ -7,8 +8,25 @@ interface Props {
   setNotePlusType: React.Dispatch<React.SetStateAction<number>>;
 }
 
-const DropdownButton: React.FC = () => {
-  return <div></div>;
+interface ButtonProps {
+  text: string;
+  notePlusType: number;
+  setNotePlusType: React.Dispatch<React.SetStateAction<number>>;
+  setDropdownActivated: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const DropdownButton: React.FC<ButtonProps> = ({
+  text,
+  notePlusType,
+  setNotePlusType,
+  setDropdownActivated,
+}: ButtonProps) => {
+  const dropdownClickHandler = useCallback(() => {
+    setNotePlusType(notePlusType);
+    setDropdownActivated(false);
+  }, []);
+
+  return <DropdownButtonContainer onClick={dropdownClickHandler}>{text}</DropdownButtonContainer>;
 };
 
 const Dropdown: React.FC<Props> = ({
@@ -17,14 +35,26 @@ const Dropdown: React.FC<Props> = ({
   setNotePlusType,
 }: Props) => {
   const buttonText: string[] = ['MY 필기 기록', '스마트 검색', '새로운 노트', '노트 전체 지우기'];
-  const buttonTextClickHandler: (void | null)[] = [
-    setNotePlusType(NOTE_PLUS_TYPE.RECORD),
-    setNotePlusType(NOTE_PLUS_TYPE.SEARCH),
-    null,
-    null,
+  const notePlusType: number[] = [
+    NOTE_PLUS_TYPE.RECORD,
+    NOTE_PLUS_TYPE.SEARCH,
+    NOTE_PLUS_TYPE.DEFAULT,
+    NOTE_PLUS_TYPE.DEFAULT,
   ];
 
-  return <DropdownContainer activated={dropdownActivated}>dropdown</DropdownContainer>;
+  return (
+    <DropdownContainer activated={dropdownActivated}>
+      {buttonText.map((cur, idx) => (
+        <DropdownButton
+          text={cur}
+          key={idx}
+          notePlusType={notePlusType[idx]}
+          setNotePlusType={setNotePlusType}
+          setDropdownActivated={setDropdownActivated}
+        />
+      ))}
+    </DropdownContainer>
+  );
 };
 
 export default Dropdown;
