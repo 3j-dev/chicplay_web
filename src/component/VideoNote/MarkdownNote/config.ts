@@ -3,6 +3,7 @@ import axios from 'axios';
 import { FROALA_TEXT_BUTTONS, FROALA_RICH_BUTTONS, FROALA_PLUGINS } from '@/util/Constant';
 
 export const config = {
+  key: process.env.FROALA_LICENSE_KEY,
   imageMaxSize: 10 * 1024 * 1024,
   imageDefaultAlign: 'left',
   imageDefaultDisplay: 'inline-block',
