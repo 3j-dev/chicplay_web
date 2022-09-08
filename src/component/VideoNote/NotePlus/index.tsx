@@ -6,12 +6,18 @@ import VideoSearch from './VideoSearch';
 
 interface Props {
   notePlusType: number;
+  setNotePlusType: React.Dispatch<React.SetStateAction<number>>;
 }
 
-const NotePlus: React.FC<Props> = ({ notePlusType }: Props) => {
+const NotePlus: React.FC<Props> = ({ notePlusType, setNotePlusType }: Props) => {
+  console.log(notePlusType);
   return (
     <NotePlusContainer activated={notePlusType !== NOTE_PLUS_TYPE.DEFAULT}>
-      {notePlusType === NOTE_PLUS_TYPE.RECORD ? <NoteRecord /> : <VideoSearch />}
+      {notePlusType === NOTE_PLUS_TYPE.RECORD ? (
+        <NoteRecord setNotePlusType={setNotePlusType} />
+      ) : (
+        <VideoSearch setNotePlusType={setNotePlusType} />
+      )}
     </NotePlusContainer>
   );
 };

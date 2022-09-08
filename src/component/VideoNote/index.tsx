@@ -34,7 +34,7 @@ const VideoNote: React.FC<NoteProps> = ({ setSnapShotClicked, snapShotURL }: Not
         setDropdownActivated={setDropdownActivated}
         setNotePlusType={setNotePlusType}
       />
-      <NotePlus notePlusType={notePlusType} />
+      <NotePlus notePlusType={notePlusType} setNotePlusType={setNotePlusType} />
       <MarkdownNote
         setSnapShotClicked={setSnapShotClicked}
         snapShotURL={snapShotURL}
