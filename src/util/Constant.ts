@@ -82,6 +82,7 @@ export const Colors = {
   Gray3: '#dfdfdf',
   Blue: '#3055fe',
   Blue1: '#0098f7',
+  Blue2: '#E0EAFF',
   Black: '#000000',
   Black1: '#272727',
   Black2: '#000000b5',
