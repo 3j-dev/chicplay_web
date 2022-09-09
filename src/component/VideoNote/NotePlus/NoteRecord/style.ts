@@ -5,6 +5,8 @@ export const NoteRecordContainer = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
+  flex-shrink: 0;
+  flex-grow: 0;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -14,6 +16,7 @@ export const RecordTitleContainer = styled.div`
   width: 100%;
   height: 20%;
   display: flex;
+  flex-shrink: 0;
   justify-content: center;
   align-items: center;
   background-color: ${Colors.Gray0};
@@ -23,6 +26,7 @@ export const RecordTitle = styled.div`
   width: 90%;
   height: 100%;
   display: flex;
+  flex-shrink: 0;
   justify-content: space-between;
   align-items: center;
 `;
@@ -32,6 +36,7 @@ export const RecordContentContainer = styled.div`
   height: 80%;
   display: flex;
   flex-shrink: 0;
+  flex-grow: 0;
   flex-direction: column;
   align-items: center;
   overflow-y: auto;
