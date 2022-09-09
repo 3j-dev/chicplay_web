@@ -13,6 +13,7 @@ export const NoteSliderContainer = styled.div`
   border-radius: 10px;
   align-self: center;
   display: flex;
+  flex-shrink: 0;
   gap: 10px;
   flex-direction: row;
   justify-content: space-evenly;
