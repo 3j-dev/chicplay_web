@@ -35,6 +35,17 @@ export const RecordContentContainer = styled.div`
   flex-direction: column;
   align-items: center;
   overflow-y: auto;
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+  &::-webkit-scrollbar-thumb {
+    display: hidden;
+    background: ${Colors.Gray1};
+    border-radius: 12px;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: transparent !important;
+  }
 `;
 
 export const ContentContainer = styled.div`
