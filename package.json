@@ -8,6 +8,7 @@
   "dependencies": {
     "@tldraw/tldraw": "^1.20.0",
     "axios": "^0.27.2",
+    "date-fns": "^2.29.2",
     "form-data": "^4.0.0",
     "froala-editor": "^4.0.13",
     "react": "^18.2.0",
