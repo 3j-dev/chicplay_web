@@ -53,7 +53,7 @@ const VideoSearch: React.FC<Props> = ({ setNotePlusType }: Props) => {
           onChange={(e) => setInput(e.target.value)}
           value={input}
         />
-        <FiSearch size={24} />
+        <FiSearch size={20} />
       </SearchInputContainer>
       <SearchResultContainer isEmpty={input.length === 0}>
         {input.length === 0 ? (
