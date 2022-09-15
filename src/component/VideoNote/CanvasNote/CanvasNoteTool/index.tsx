@@ -1,41 +1,69 @@
-import { TldrawApp, TDShapeType } from '@tldraw/tldraw';
+/* eslint-disable react/jsx-key */
+import { TldrawApp, TDShapeType, TDToolType } from '@tldraw/tldraw';
 import { RiBallPenLine, RiEraserLine, RiArrowRightUpLine } from 'react-icons/ri';
 import { GrCursor } from 'react-icons/gr';
 import { TbRectangle, TbCircle } from 'react-icons/tb';
-import { BsFonts } from 'react-icons/bs';
+import { BsFonts, BsTrash } from 'react-icons/bs';
 import { useCallback, useState } from 'react';
 
 import { CanvasNoteToolContainer, CanvasNoteTools } from './style';
 import { clickedSVG } from './constant';
 import { Colors } from '@/util/Constant';
+import { BiPointer } from 'react-icons/bi';
+import { config } from 'process';
 
 interface Props {
   tlDrawApp: TldrawApp;
 }
 
+const SvgGroup: JSX.Element[] = [
+  <GrCursor />,
+  <RiBallPenLine />,
+  <RiEraserLine />,
+  <RiArrowRightUpLine />,
+  <TbRectangle />,
+  <TbCircle />,
+];
+const SvgGroupPlus: JSX.Element[] = [...SvgGroup, <BsTrash />];
+const toolGroup: TDToolType[] = [
+  'select',
+  TDShapeType.Draw,
+  TDShapeType.Arrow,
+  TDShapeType.Rectangle,
+  TDShapeType.Ellipse,
+  TDShapeType.Text,
+];
+
 const CanvasNoteTool: React.FC<Props> = ({ tlDrawApp }: Props) => {
   const [clickedSvg, setClickedSvg] = useState<number>(clickedSVG.CURSOR);
 
-  const cursorClickhandler = useCallback(() => {
-    tlDrawApp.selectTool('select');
-    setClickedSvg(clickedSVG.CURSOR);
-  }, []);
-  //svg color 안 바뀌는 문제 해결 필요
+  const iconClickHandler = useCallback(
+    (idx: number) => {
+      tlDrawApp.selectTool(toolGroup[idx]);
+      setClickedSvg(idx);
+    },
+    [tlDrawApp],
+  );
 
-  console.log(tlDrawApp.style);
+  const iconConfig = (idx) => {
+    onClick={() => iconClickHandler(idx)},
+    color={clickedSvg === idx ? Colors.Blue3 : Colors.Black3},
+    size="24"
+  };
+  //svg color 안 바뀌는 문제 해결 필
+
   return (
     <CanvasNoteToolContainer>
       <CanvasNoteTools>
-        <GrCursor
-          onClick={cursorClickhandler}
-          style={{ fill: `${clickedSvg === clickedSVG.CURSOR ? Colors.Blue1 : Colors.Black3}` }}
-          size="20"
+        <BiPointer
+          {...iconConfig(0)}
         />
         <RiBallPenLine
           onClick={() => tlDrawApp.selectTool(TDShapeType.Draw)}
-          color="#333333"
+          color="#333"
           size="24"
         />
+      
         <RiEraserLine onClick={() => tlDrawApp.selectTool('erase')} color="#333333" size="24" />
         <RiArrowRightUpLine
           onClick={() => tlDrawApp.selectTool(TDShapeType.Arrow)}

@@ -24,6 +24,7 @@ import {
   VideoSnapImage,
   VideoSnapTime,
 } from './style';
+import CanvasNoteTool from '@/component/VideoNote/CanvasNote/CanvasNoteTool';
 
 interface Props {
   videoCanvasRef: React.MutableRefObject<TldrawApp | null>;
@@ -87,37 +88,7 @@ const VideoCanvasTool: React.FC<Props> = ({
           <VideoCanvasText>영상 필기</VideoCanvasText>
         </VideoCanvasTitle>
         <VideoCanvasTools>
-          <BsFillCursorFill
-            onClick={() => tlDrawApp?.selectTool('select')}
-            color="white"
-            size="20"
-          />
-          <BsFillPenFill
-            onClick={() => tlDrawApp?.selectTool(TDShapeType.Draw)}
-            color="white"
-            size="20"
-          />
-          <BsFillEraserFill
-            onClick={() => tlDrawApp?.selectTool('erase')}
-            color="white"
-            size="20"
-          />
-          <BsArrowUpRight
-            onClick={() => tlDrawApp?.selectTool(TDShapeType.Arrow)}
-            color="white"
-            size="20"
-          />
-          <BiRectangle
-            onClick={() => tlDrawApp?.selectTool(TDShapeType.Rectangle)}
-            color="white"
-            size="20"
-          />
-          <BsCircle
-            onClick={() => tlDrawApp?.selectTool(TDShapeType.Ellipse)}
-            color="white"
-            size="20"
-          />
-          <BsTrash onClick={clearDrawing} color="white" size="20" />
+          {videoCanvasRef.current !== null && <CanvasNoteTool tlDrawApp={videoCanvasRef.current} />}
         </VideoCanvasTools>
         <VideoCanvasMinimize onClick={() => setCanvasToolMinimized((prev) => !prev)}>
           {canvasToolMinimized ? <BsChevronUp color="white" /> : <BsChevronDown color="white" />}

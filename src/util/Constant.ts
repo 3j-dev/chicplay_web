@@ -83,6 +83,7 @@ export const Colors = {
   Blue: '#3055fe',
   Blue1: '#0098f7',
   Blue2: '#E0EAFF',
+  Blue3: '#4669fc',
   Black: '#000000',
   Black1: '#272727',
   Black2: '#000000b5',

@@ -1,6 +1,4 @@
-import { TDExport, TDExportType, Tldraw, TldrawApp, useFileSystem } from '@tldraw/tldraw';
-import FormData from 'form-data';
-import axios from 'axios';
+import { TDExportType, Tldraw, TldrawApp, useFileSystem } from '@tldraw/tldraw';
 import { useState, useCallback, useRef, useEffect } from 'react';
 
 import CanvasNoteTool from './CanvasNoteTool';
