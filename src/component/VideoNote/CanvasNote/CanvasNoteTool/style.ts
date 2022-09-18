@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import { Colors } from '@/util/Constant';
 
-export const CanvasNoteToolContainer = styled.div`
+export const CanvasNoteToolContainer = styled.div<{ isTransparent: boolean }>`
   width: 100%;
   height: auto;
   @media (min-width: 1384px) {
@@ -11,7 +11,7 @@ export const CanvasNoteToolContainer = styled.div`
   @media (max-width: 1384px) {
     height: 11%;
   }
-  background-color: ${Colors.Gray0};
+  background-color: ${({ isTransparent }) => (isTransparent ? Colors.Gray0 : Colors.Transparent)};
   display: flex;
   justify-content: flex-start;
   align-items: center;

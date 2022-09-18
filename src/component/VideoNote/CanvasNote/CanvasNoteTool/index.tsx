@@ -15,18 +15,19 @@ interface Props {
   isPlusFeatureIn: boolean;
 }
 
+const toolGroup: TDToolType[] = [
+  'select',
+  TDShapeType.Draw,
+  'erase',
+  TDShapeType.Arrow,
+  TDShapeType.Rectangle,
+  TDShapeType.Ellipse,
+  TDShapeType.Text,
+];
+
 const CanvasNoteTool: React.FC<Props> = ({ tlDrawApp, isPlusFeatureIn }: Props) => {
   const [clickedSvg, setClickedSvg] = useState<number>(SVG_ID.POINTER);
 
-  const toolGroup: TDToolType[] = [
-    'select',
-    TDShapeType.Draw,
-    'erase',
-    TDShapeType.Arrow,
-    TDShapeType.Rectangle,
-    TDShapeType.Ellipse,
-    TDShapeType.Text,
-  ];
   const iconClickHandler = useCallback(
     (idx: number) => {
       idx !== SVG_ID.TRASH && tlDrawApp.selectTool(toolGroup[idx]);
@@ -47,7 +48,7 @@ const CanvasNoteTool: React.FC<Props> = ({ tlDrawApp, isPlusFeatureIn }: Props) 
   };
 
   return (
-    <CanvasNoteToolContainer>
+    <CanvasNoteToolContainer isTransparent={isPlusFeatureIn}>
       <CanvasNoteTools>
         <BiPointer
           onClick={() => iconClickHandler(SVG_ID.POINTER)}
