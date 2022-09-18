@@ -27,5 +27,6 @@ export const CanvasNoteTools = styled.div`
   margin: 0 17px 0 12px;
   svg {
     margin: 7px 6px;
+    transition: all ease 0.5s;
   }
 `;
