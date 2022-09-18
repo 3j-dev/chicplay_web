@@ -89,4 +89,5 @@ export const Colors = {
   Black2: '#000000b5',
   Black3: '#333333',
   White: '#ffffff',
+  Transparent: 'transparent',
 };
