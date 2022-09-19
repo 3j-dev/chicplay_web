@@ -38,6 +38,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@babel/preset-react", "virtual:45f30d38dbe693d8821abcd87af315e8d7a0ac4aa060fdcf62b1d33b2fed6c7a3bfc1b588474183900876d703b79201474f4f3222dde9b4e53587004ba67d688#npm:7.18.6"],\
             ["@babel/preset-typescript", "virtual:45f30d38dbe693d8821abcd87af315e8d7a0ac4aa060fdcf62b1d33b2fed6c7a3bfc1b588474183900876d703b79201474f4f3222dde9b4e53587004ba67d688#npm:7.18.6"],\
             ["@tldraw/tldraw", "virtual:45f30d38dbe693d8821abcd87af315e8d7a0ac4aa060fdcf62b1d33b2fed6c7a3bfc1b588474183900876d703b79201474f4f3222dde9b4e53587004ba67d688#npm:1.20.0"],\
+            ["@types/lodash", "npm:4.14.185"],\
             ["@types/node", "npm:18.0.3"],\
             ["@types/react", "npm:18.0.15"],\
             ["@types/react-dom", "npm:18.0.6"],\
@@ -64,6 +65,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["form-data", "npm:4.0.0"],\
             ["froala-editor", "npm:4.0.13"],\
             ["html-webpack-plugin", "virtual:45f30d38dbe693d8821abcd87af315e8d7a0ac4aa060fdcf62b1d33b2fed6c7a3bfc1b588474183900876d703b79201474f4f3222dde9b4e53587004ba67d688#npm:5.5.0"],\
+            ["lodash", "npm:4.17.21"],\
             ["mini-css-extract-plugin", "virtual:45f30d38dbe693d8821abcd87af315e8d7a0ac4aa060fdcf62b1d33b2fed6c7a3bfc1b588474183900876d703b79201474f4f3222dde9b4e53587004ba67d688#npm:2.6.1"],\
             ["mobx", "npm:6.6.1"],\
             ["postcss", "npm:8.4.14"],\
@@ -4119,6 +4121,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["@types/keyv", "npm:3.1.4"],\
             ["@types/node", "npm:18.0.3"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@types/lodash", [\
+        ["npm:4.14.185", {\
+          "packageLocation": "./.yarn/cache/@types-lodash-npm-4.14.185-974674435a-f81d13da5e.zip/node_modules/@types/lodash/",\
+          "packageDependencies": [\
+            ["@types/lodash", "npm:4.14.185"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -13205,6 +13216,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@babel/preset-react", "virtual:45f30d38dbe693d8821abcd87af315e8d7a0ac4aa060fdcf62b1d33b2fed6c7a3bfc1b588474183900876d703b79201474f4f3222dde9b4e53587004ba67d688#npm:7.18.6"],\
             ["@babel/preset-typescript", "virtual:45f30d38dbe693d8821abcd87af315e8d7a0ac4aa060fdcf62b1d33b2fed6c7a3bfc1b588474183900876d703b79201474f4f3222dde9b4e53587004ba67d688#npm:7.18.6"],\
             ["@tldraw/tldraw", "virtual:45f30d38dbe693d8821abcd87af315e8d7a0ac4aa060fdcf62b1d33b2fed6c7a3bfc1b588474183900876d703b79201474f4f3222dde9b4e53587004ba67d688#npm:1.20.0"],\
+            ["@types/lodash", "npm:4.14.185"],\
             ["@types/node", "npm:18.0.3"],\
             ["@types/react", "npm:18.0.15"],\
             ["@types/react-dom", "npm:18.0.6"],\
@@ -13231,6 +13243,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["form-data", "npm:4.0.0"],\
             ["froala-editor", "npm:4.0.13"],\
             ["html-webpack-plugin", "virtual:45f30d38dbe693d8821abcd87af315e8d7a0ac4aa060fdcf62b1d33b2fed6c7a3bfc1b588474183900876d703b79201474f4f3222dde9b4e53587004ba67d688#npm:5.5.0"],\
+            ["lodash", "npm:4.17.21"],\
             ["mini-css-extract-plugin", "virtual:45f30d38dbe693d8821abcd87af315e8d7a0ac4aa060fdcf62b1d33b2fed6c7a3bfc1b588474183900876d703b79201474f4f3222dde9b4e53587004ba67d688#npm:2.6.1"],\
             ["mobx", "npm:6.6.1"],\
             ["postcss", "npm:8.4.14"],\
