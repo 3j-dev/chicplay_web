@@ -53,7 +53,7 @@ export const VideoCanvasText = styled.span`
 
 export const VideoCanvasTools = styled.div`
   margin-left: -5%;
-  width: 25%;
+  width: 35%;
   height: 100%;
   display: flex;
   justify-content: space-evenly;
@@ -69,24 +69,23 @@ export const VideoCanvasMinimize = styled.div`
   align-items: center;
   background-color: ${Colors.Gray2};
   margin-right: 2%;
+  transition: ease all 0.5s;
 `;
 
 export const VideoVisualIndexing = styled.div`
   width: 97%;
   height: 77%;
+  margin-bottom: 1%;
   display: flex;
   justify-content: flex-start;
   background-color: transparent;
   padding: 0 !important;
   align-items: center;
+  cursor: pointer;
   gap: 10px;
   overflow-x: scroll;
   &::-webkit-scrollbar {
-    background-color: transparent;
-  }
-  &::-webkit-scrollbar-thumb {
-    background-color: ${Colors.Black};
-    width: 1px;
+    display: none;
   }
 `;
 

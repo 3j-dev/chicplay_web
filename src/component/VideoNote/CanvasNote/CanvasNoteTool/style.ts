@@ -11,7 +11,7 @@ export const CanvasNoteToolContainer = styled.div<{ isTransparent: boolean }>`
   @media (max-width: 1384px) {
     height: 11%;
   }
-  background-color: ${({ isTransparent }) => (isTransparent ? Colors.Gray0 : Colors.Transparent)};
+  background-color: ${({ isTransparent }) => (isTransparent ? Colors.Transparent : Colors.Gray0)};
   display: flex;
   justify-content: flex-start;
   align-items: center;
