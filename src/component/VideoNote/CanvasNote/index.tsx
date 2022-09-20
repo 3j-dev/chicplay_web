@@ -25,21 +25,16 @@ const CanvasNote: React.FC<Props> = ({ nowNoteType, exportClicked, setExportClic
     setIsMounted(true);
   };
 
-  const clearDrawing = useCallback(() => {
-    if (tlDrawRef.current === null) return;
-    const tool = tlDrawRef.current?.useStore.getState().appState.activeTool;
-    tlDrawRef.current.deleteAll();
-    tlDrawRef.current.selectTool(tool);
-  }, []);
-
   useEffect(() => {
     exportClicked && tlDrawRef.current?.exportImage(TDExportType.PNG);
     setExportClicked(false);
-  }, [exportClicked]);
+  }, [exportClicked, setExportClicked]);
 
   return (
     <CanvasNoteContainer nowNoteType={nowNoteType}>
-      {isMounted && <CanvasNoteTool tlDrawApp={tlDrawRef.current as TldrawApp} />}
+      {isMounted && (
+        <CanvasNoteTool tlDrawApp={tlDrawRef.current as TldrawApp} isPlusFeatureIn={false} />
+      )}
       <Tldraw onChange={handleChange} onMount={handleMount} showUI={false} {...fileSystmeEvents} />
     </CanvasNoteContainer>
   );
