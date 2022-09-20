@@ -11,9 +11,12 @@ interface Props {
 const VideoCanvas: React.FC<Props> = ({ canvasActivated, videoCanvasRef }: Props) => {
   const outerRef = useRef<HTMLDivElement | null>(null);
 
-  const handleMount = useCallback((app: TldrawApp) => {
-    videoCanvasRef.current = app;
-  }, []);
+  const handleMount = useCallback(
+    (app: TldrawApp) => {
+      videoCanvasRef.current = app;
+    },
+    [videoCanvasRef],
+  );
 
   return (
     <VideoCanvasContainer ref={outerRef} canvasActivated={canvasActivated}>
