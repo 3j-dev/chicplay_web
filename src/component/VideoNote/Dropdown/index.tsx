@@ -1,5 +1,7 @@
+import { useCallback, useRef } from 'react';
+
 import { NOTE_PLUS_TYPE } from '@/util/Constant';
-import { useCallback } from 'react';
+import useOutsideClick from '@/hook/useOutsideClick';
 import { DropdownContainer, DropdownButtonContainer } from './style';
 
 interface Props {
@@ -42,8 +44,10 @@ const Dropdown: React.FC<Props> = ({
     NOTE_PLUS_TYPE.DEFAULT,
   ];
 
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
   return (
-    <DropdownContainer activated={dropdownActivated}>
+    <DropdownContainer activated={dropdownActivated} ref={dropdownRef}>
       {buttonText.map((cur, idx) => (
         <DropdownButton
           text={cur}
