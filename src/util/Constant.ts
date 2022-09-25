@@ -84,6 +84,7 @@ export const Colors = {
   Blue1: '#0098f7',
   Blue2: '#E0EAFF',
   Blue3: '#4669fc',
+  Red: '#e31514',
   Black: '#000000',
   Black1: '#272727',
   Black2: '#000000b5',
