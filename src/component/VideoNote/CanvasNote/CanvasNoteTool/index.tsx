@@ -3,20 +3,16 @@ import { RiBallPenLine, RiEraserLine, RiArrowRightUpLine } from 'react-icons/ri'
 import { TbRectangle, TbCircle } from 'react-icons/tb';
 import { BsFonts, BsTrash } from 'react-icons/bs';
 import { BiPointer } from 'react-icons/bi';
-import { MdFiberManualRecord } from 'react-icons/md';
-import { useCallback, useState } from 'react';
+import { PropsWithChildren, useCallback, useState } from 'react';
 
 // import { Icon } from '@/component/Common/Icon';
 import { CanvasNoteToolContainer, CanvasNoteTools } from './style';
 import { SVG_ID } from './constant';
 import { Colors } from '@/util/Constant';
 
-interface Props {
+interface Props extends PropsWithChildren {
   tlDrawApp: TldrawApp;
   isPlusFeatureIn: boolean;
-  plusFunction?: React.Dispatch<React.SetStateAction<number>>;
-  nowVideoTime?: number;
-  isPlusActive?: boolean;
 }
 
 const toolGroup: TDToolType[] = [
@@ -29,14 +25,11 @@ const toolGroup: TDToolType[] = [
   TDShapeType.Text,
 ];
 
-const CanvasNoteTool: React.FC<Props> = ({
-  tlDrawApp,
-  isPlusFeatureIn,
-  plusFunction,
-  isPlusActive,
-  nowVideoTime,
-}: Props) => {
+const CanvasNoteTool: React.FC<Props> = ({ tlDrawApp, isPlusFeatureIn, children }: Props) => {
   const [clickedSvg, setClickedSvg] = useState<number>(SVG_ID.POINTER);
+  const [nonActiveColor, activeColor] = isPlusFeatureIn
+    ? [Colors.White, Colors.Blue3]
+    : [Colors.Black3, Colors.Blue3];
 
   const iconClickHandler = useCallback(
     (idx: number) => {
@@ -54,7 +47,7 @@ const CanvasNoteTool: React.FC<Props> = ({
   };
 
   const colorHandler = (svgId: number): string => {
-    return clickedSvg === svgId ? Colors.Blue3 : Colors.White;
+    return clickedSvg === svgId ? activeColor : nonActiveColor;
   };
 
   return (
@@ -98,15 +91,7 @@ const CanvasNoteTool: React.FC<Props> = ({
         {isPlusFeatureIn && (
           <BsTrash onClick={() => clearDrawing()} color={colorHandler(SVG_ID.TRASH)} size="24" />
         )}
-        {isPlusFeatureIn && (
-          <MdFiberManualRecord
-            onClick={
-              isPlusActive && plusFunction && nowVideoTime
-                ? () => plusFunction(nowVideoTime)
-                : undefined
-            }
-          />
-        )}
+        {children}
       </CanvasNoteTools>
     </CanvasNoteToolContainer>
   );
