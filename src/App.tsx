@@ -7,7 +7,13 @@ import Hello from '@/component/Hello';
 import Router from '@/routes';
 
 const App: React.FC = () => {
-  const queryClient = new QueryClient();
+  const queryClient = new QueryClient({
+    defaultOptions: {
+      queries: {
+        refetchOnWindowFocus: false,
+      },
+    },
+  });
   return (
     <Suspense fallback={<Hello />}>
       <RecoilRoot>
