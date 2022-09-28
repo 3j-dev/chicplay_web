@@ -2,6 +2,7 @@ import { useRef, useCallback } from 'react';
 import { Tldraw, TldrawApp } from '@tldraw/tldraw';
 
 import { VideoCanvasContainer } from './style';
+import { canvasRecordInitialState } from './constant';
 
 interface Props {
   canvasActivated: boolean;
@@ -18,9 +19,20 @@ const VideoCanvas: React.FC<Props> = ({ canvasActivated, videoCanvasRef }: Props
     [videoCanvasRef],
   );
 
+  const handleChange = useCallback((appState: TldrawApp) => {
+    console.log(appState.document);
+  }, []);
+
   return (
     <VideoCanvasContainer ref={outerRef} canvasActivated={canvasActivated}>
-      <Tldraw onMount={handleMount} showMenu={false} showPages={false} showUI={false} />
+      <Tldraw
+        onMount={handleMount}
+        onChange={handleChange}
+        showMenu={false}
+        showPages={false}
+        showUI={false}
+        document={canvasRecordInitialState}
+      />
     </VideoCanvasContainer>
   );
 };
