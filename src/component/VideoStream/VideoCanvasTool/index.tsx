@@ -1,4 +1,4 @@
-import { BsChevronDown, BsXLg, BsChevronUp } from 'react-icons/bs';
+import { BsChevronDown, BsXLg, BsChevronUp, BsFillRecordCircleFill } from 'react-icons/bs';
 import { TldrawApp } from '@tldraw/tldraw';
 import rafSchd from 'raf-schd';
 import { useState, useRef } from 'react';
@@ -15,7 +15,9 @@ import {
   VideoSnapTime,
 } from './style';
 import CanvasNoteTool from '@/component/VideoNote/CanvasNote/CanvasNoteTool';
+import useCanvasRecord from '@/hook/useCanvasRecord';
 import { timeArr, imageArr } from './temp.data';
+import { Colors } from '@/util/Constant';
 
 interface Props {
   videoCanvasRef: React.MutableRefObject<TldrawApp | null>;
@@ -23,6 +25,11 @@ interface Props {
   setCanvasActivated: React.Dispatch<React.SetStateAction<boolean>>;
   playerRef: React.RefObject<HTMLVideoElement>;
 }
+
+const convertNumber = (number: number, isFloor: boolean): number => {
+  const convertedNum = isFloor ? Math.floor(number / 10) * 10 : Math.ceil(number / 10) * 10;
+  return convertedNum;
+};
 
 const VideoCanvasTool: React.FC<Props> = ({
   videoCanvasRef,
@@ -34,6 +41,14 @@ const VideoCanvasTool: React.FC<Props> = ({
   const visualIndexingRef = useRef<HTMLDivElement>(null);
   const [isDrag, setIsDrag] = useState<boolean>(false);
   const [startX, setStartX] = useState<number>(0);
+  const [isRecordActive, setIsRecordActive] = useState<boolean>(false);
+  const {
+    canvasRecordTimeline,
+    startCanvasRecord,
+    endCanvasRecord,
+    getCanvasRecord,
+    deleteCanvasRecord,
+  } = useCanvasRecord();
 
   const snapShotMove = (idx: number): void => {
     if (playerRef && playerRef.current) playerRef.current.currentTime = idx * 5;
@@ -61,6 +76,21 @@ const VideoCanvasTool: React.FC<Props> = ({
 
   const throttledOnDragMove = rafSchd(onDragMove);
 
+  const recordClickHandler = () => {
+    setIsRecordActive((prev) => !prev);
+    if (playerRef && playerRef.current && videoCanvasRef && videoCanvasRef.current)
+      isRecordActive
+        ? startCanvasRecord(
+            videoCanvasRef.current,
+            'username',
+            convertNumber(playerRef.current.currentTime, true).toString(),
+          )
+        : endCanvasRecord(
+            videoCanvasRef.current,
+            convertNumber(playerRef.current.currentTime, false).toString(),
+          );
+  };
+
   return (
     <VideoCanvasToolContainer canvasActivated={canvasActivated}>
       <VideoCanvasToolBar>
@@ -70,7 +100,13 @@ const VideoCanvasTool: React.FC<Props> = ({
         </VideoCanvasTitle>
         <VideoCanvasTools>
           {videoCanvasRef.current !== null && (
-            <CanvasNoteTool tlDrawApp={videoCanvasRef.current} isPlusFeatureIn={true} />
+            <CanvasNoteTool tlDrawApp={videoCanvasRef.current} isPlusFeatureIn={true}>
+              <BsFillRecordCircleFill
+                onClick={recordClickHandler}
+                color={isRecordActive ? Colors.Red : Colors.White}
+                size="24"
+              />
+            </CanvasNoteTool>
           )}
         </VideoCanvasTools>
         <VideoCanvasMinimize onClick={() => setCanvasToolMinimized((prev) => !prev)}>
