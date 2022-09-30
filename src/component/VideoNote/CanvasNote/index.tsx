@@ -16,10 +16,6 @@ const CanvasNote: React.FC<Props> = ({ nowNoteType, exportClicked, setExportClic
   const tlDrawRef = useRef<TldrawApp | null>(null);
   console.log(tlDrawRef);
 
-  const handleChange = useCallback((appState: TldrawApp) => {
-    console.log(appState.document);
-  }, []);
-
   const handleMount = (app: TldrawApp) => {
     tlDrawRef.current = app;
     setIsMounted(true);
@@ -35,7 +31,7 @@ const CanvasNote: React.FC<Props> = ({ nowNoteType, exportClicked, setExportClic
       {isMounted && (
         <CanvasNoteTool tlDrawApp={tlDrawRef.current as TldrawApp} isPlusFeatureIn={false} />
       )}
-      <Tldraw onChange={handleChange} onMount={handleMount} showUI={false} {...fileSystmeEvents} />
+      <Tldraw onMount={handleMount} showUI={false} {...fileSystmeEvents} />
     </CanvasNoteContainer>
   );
 };

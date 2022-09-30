@@ -1,6 +1,6 @@
 import FroalaEditor from 'react-froala-wysiwyg';
 import Froala from 'froala-editor';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useLayoutEffect } from 'react';
 
 import { FroalaContainer } from './style';
 import { config } from './config';
@@ -9,6 +9,7 @@ import 'froala-editor/css/froala_style.min.css';
 import 'froala-editor/css/froala_editor.pkgd.min.css';
 import 'froala-editor/js/plugins.pkgd.min.js';
 import 'froala-editor/js/languages/ko.js';
+import { getTextMemo, updateTextMemo } from '@/api/stream';
 
 interface MarkdownNoteProps {
   setSnapShotClicked: React.Dispatch<React.SetStateAction<boolean>>;
@@ -31,8 +32,19 @@ const MarkdownNote: React.FC<MarkdownNoteProps> = ({
   const handleModelChange = (modelData: string) => {
     setModel(modelData);
   };
+  // useLayoutEffect(() => {
+  //   const data = getTextMemo('1');
+  //   setModel(JSON.parse(data.stateJson) || '');
+  // }, []);
 
   useEffect(() => {
+    const requestData = {
+      id: 'userId',
+      individualVideoId: '1',
+      stateJson: model,
+      videoTime: '1',
+    };
+    updateTextMemo('1', JSON.stringify(requestData));
     console.log(model); // stomp를 이용한 socket 통신
   }, [model]);
 

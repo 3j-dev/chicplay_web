@@ -5,6 +5,7 @@ import { TldrawApp } from '@tldraw/tldraw';
 import { BsPencilSquare } from 'react-icons/bs';
 import { useRef, useState, useEffect } from 'react';
 
+import { postSnapshot } from '@/api/stream';
 import VideoCanvas from './VideoCanvas';
 import VideoControl from './VideoControl';
 import VideoCanvasTool from './VideoCanvasTool';
@@ -34,6 +35,9 @@ const VideoStream: React.FC<StreamProps> = ({
   const videoCanvasRef = useRef<TldrawApp | null>(null);
   const [dimensions, setDimensions] = useState<DimensionProps>({ w: 0, h: 0 });
   const [canvasActivated, setCanvasActivated] = useState<boolean>(false);
+  //useSnapShot custom hook 사용해서 정리하기
+
+  const [startTime, setStartTime] = useState<number>(0);
 
   const context = canvasRef === null ? null : canvasRef.current?.getContext('2d');
 
@@ -53,21 +57,12 @@ const VideoStream: React.FC<StreamProps> = ({
       context.fillRect(0, 0, dimensions.w, dimensions.h);
       context.drawImage(playerRef.current, 0, 0, dimensions.w, dimensions.h);
 
-      canvasRef.current?.toBlob((blob) => {
+      canvasRef.current?.toBlob(async (blob) => {
         const formData = new FormData();
         formData.append('multipartFile', blob, 'test.png');
-        axios
-          .post(process.env.SNAPSHOT_API, formData, {
-            headers: {
-              'Content-Type': 'multipart/form-data',
-            },
-          })
-          .then((response) => {
-            setSnapShotURL(response.data[0].filePath);
-          })
-          .catch((err) => {
-            console.log(err);
-          });
+        const data = await postSnapshot('1', formData);
+        console.log(data);
+        setSnapShotURL(data[0].filePath);
       });
     }
   }; // drawing video snapshot on canvas and post with axios then get filepath on S3 storage
@@ -91,7 +86,7 @@ const VideoStream: React.FC<StreamProps> = ({
   useEffect(() => {
     snapShotClicked && snapShot();
     setSnapShotClicked(false);
-  }, [snapShotClicked]);
+  }, [setSnapShotClicked, snapShotClicked]);
   // chang state by snapshot action
 
   return (
