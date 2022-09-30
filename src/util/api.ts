@@ -9,10 +9,11 @@ export const api = {
       },
       ...params,
     }),
-  post: <T>(url: string, data: any) =>
+  post: <T>(url: string, data: any, params?: object) =>
     axios.post<T>(url, data, {
       headers: {
         token: Cookies.get('token') || '',
+        ...params,
       },
     }),
   patch: <T>(url: string, data: any) =>
