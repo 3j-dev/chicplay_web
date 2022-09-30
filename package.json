@@ -5,6 +5,7 @@
   "repository": "https://github.com/3j-dev/vivid_web.git",
   "author": "pasly0920 <inwoo920621@gmail.com>",
   "license": "MIT",
+  "proxy": "https://api.dev.edu-vivid.com",
   "dependencies": {
     "@tldraw/tldraw": "^1.20.0",
     "axios": "^0.27.2",
