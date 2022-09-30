@@ -1,7 +1,26 @@
-import { PlayerPlay, PlayerPause } from 'tabler-icons-react';
+import {
+  BsFillPlayFill,
+  BsFillPauseFill,
+  BsFillSkipEndFill,
+  BsFillSkipStartFill,
+  BsVolumeUpFill,
+  BsVolumeDownFill,
+  BsVolumeMuteFill,
+} from 'react-icons/bs';
 import { useState, useEffect } from 'react';
 
-import { VideoControlContainer } from './style';
+import {
+  VideoControlBar,
+  VideoControlBarContainer,
+  VideoControlBottom,
+  VideoControlContainer,
+  VideoControlInput,
+  VideoControlLeft,
+  VideoControlRight,
+  VideoControlTime,
+  VideoNowTime,
+  VideoTotalTime,
+} from './style';
 import { convertTime } from '@/util/convertTime';
 
 interface Props {
@@ -14,6 +33,7 @@ const VideoControl: React.FC<Props> = ({ playerRef }: Props) => {
 
   const totalTime: number = (playerRef && playerRef.current && playerRef.current.duration) || 0;
   const playerElement: HTMLVideoElement | null = playerRef && playerRef.current;
+  const videoPercent: number = (currentTime / totalTime) * 100;
 
   const addTimeUpdate = () => {
     const observedPlayerElement = playerRef && playerRef.current;
@@ -28,10 +48,28 @@ const VideoControl: React.FC<Props> = ({ playerRef }: Props) => {
   };
 
   const onProgressChange = (percent: number) => {
-    !showControl && setShowControl(true);
     if (playerElement) {
       const playingTime = playerElement.duration * (percent / 100);
       setCurrentTime(playingTime);
+    }
+  };
+
+  const onMouseUp = () => {
+    if (playerElement) {
+      // controller를 옮긴 시점에 currentTime이 최신화 되지 않아, 이를 위해 수정
+      playerElement.currentTime = currentTime;
+      nowPlaying ? playerElement.play() : playerElement.pause();
+    }
+  };
+
+  const onMouseDown = () => {
+    if (playerElement) playerElement.pause();
+  };
+
+  const handleVolume = () => {
+    if (!playerElement?.muted && playerElement) playerElement.muted = true;
+    else {
+      if (playerElement) playerElement.muted = false;
     }
   };
 
@@ -53,12 +91,41 @@ const VideoControl: React.FC<Props> = ({ playerRef }: Props) => {
 
   return (
     <VideoControlContainer>
-      {nowPlaying ? (
-        <PlayerPause onClick={onPlayIconClick} />
-      ) : (
-        <PlayerPlay onClick={onPlayIconClick} />
-      )}
-      {convertTime(currentTime)}
+      <VideoControlBarContainer>
+        <VideoControlBar videoPercent={videoPercent} />
+        <VideoControlInput
+          onChange={(e) => onProgressChange(parseInt(e.target.value, 10))}
+          onMouseDown={onMouseDown}
+          onMouseUp={onMouseUp}
+          type="range"
+          min="0"
+          max="100"
+          step="1"
+          value={videoPercent}
+        />
+      </VideoControlBarContainer>
+      <VideoControlBottom>
+        <VideoControlLeft>
+          <BsFillSkipStartFill size={24} />
+          {nowPlaying ? (
+            <BsFillPauseFill size={48} onClick={onPlayIconClick} />
+          ) : (
+            <BsFillPlayFill size={48} onClick={onPlayIconClick} />
+          )}
+          <BsFillSkipEndFill size={24} />
+        </VideoControlLeft>
+        <VideoControlRight>
+          <VideoControlTime>
+            <VideoNowTime>{convertTime(currentTime)}</VideoNowTime>
+            <VideoTotalTime>{`/${convertTime(totalTime)}`}</VideoTotalTime>
+          </VideoControlTime>
+          {playerElement?.muted ? (
+            <BsVolumeMuteFill onClick={handleVolume} size={24} />
+          ) : (
+            <BsVolumeUpFill onClick={handleVolume} size={24} />
+          )}
+        </VideoControlRight>
+      </VideoControlBottom>
     </VideoControlContainer>
   );
 };

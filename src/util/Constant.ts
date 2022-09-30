@@ -3,55 +3,41 @@ export const FROALA_TEXT_BUTTONS = [
   'italic',
   'underline',
   'strikeThrough',
-  'subscript',
-  'superscript',
-  'fontFamily',
   'fontSize',
   'textColor',
   'backgroundColor',
-  'inlineClass',
-  'inlineStyle',
   'clearFormatting',
 ];
-export const FROALA_PARAGRAPH_BUTTONS = [
+
+export const FROALA_RICH_BUTTONS = [
   'alignLeft',
   'alignCenter',
-  'formatOLSimple',
   'alignRight',
-  'alignJustify',
-  'formatOL',
-  'formatUL',
-  'paragraphFormat',
-  'paragraphStyle',
-  'lineHeight',
-  'outdent',
-  'indent',
-  'quote',
-];
-export const FROALA_RICH_BUTTONS = [
+  'videoSnapshot',
   'insertLink',
   'insertImage',
   'insertVideo',
   'insertTable',
+  'formatOLSimple',
+  'paragraphFormat',
+  'indent',
+  'quote',
   'emoticons',
-  'fontAwesome',
-  'specialCharacters',
   'embedly',
   'insertFile',
   'insertHR',
 ];
-export const FROALA_MISC_BUTTONS = [
-  'videoSnapshot',
-  'undo',
-  'redo',
-  'fullscreen',
-  'print',
-  'getPDF',
-  'spellChecker',
-  'selectAll',
-  'html',
-  'help',
+
+export const FROALA_PARAGRAPH_BUTTONS = [
+  'alignLeft',
+  'alignCenter',
+  'alignRight',
+  'formatOLSimple',
+  'paragraphFormat',
+  'indent',
+  'quote',
 ];
+
 export const FROALA_PLUGINS = [
   'table',
   'spell',
@@ -66,6 +52,7 @@ export const FROALA_PLUGINS = [
   'link',
   'lists',
   'file',
+  'fontSize',
   'image',
   'emoticons',
   'url',
@@ -73,13 +60,35 @@ export const FROALA_PLUGINS = [
   'embedly',
   'colors',
   'entities',
-  'inlineClass',
-  'inlineStyle',
   'imageTUI',
 ];
 
 export const NOTE_TYPE = {
   MARKDOWN: 0,
   CANVAS: 1,
-  SCREEN_CANVAS: 2,
+};
+
+export const NOTE_PLUS_TYPE = {
+  DEFAULT: 0,
+  RECORD: 1,
+  SEARCH: 2,
+};
+
+export const Colors = {
+  Gray: '#f1f2f5',
+  Gray0: '#ebecf0',
+  Gray1: '#979797',
+  Gray2: '#6b6b6b',
+  Gray3: '#dfdfdf',
+  Blue: '#3055fe',
+  Blue1: '#0098f7',
+  Blue2: '#E0EAFF',
+  Blue3: '#4669fc',
+  Red: '#e31514',
+  Black: '#000000',
+  Black1: '#272727',
+  Black2: '#000000b5',
+  Black3: '#333333',
+  White: '#ffffff',
+  Transparent: 'transparent',
 };

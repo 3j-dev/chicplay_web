@@ -1,13 +1,11 @@
 import styled from 'styled-components';
 
-import { NOTE_TYPE } from '@/util/Constant';
-
 interface VideoCanvasContainerProps {
-  noteType: number;
+  canvasActivated: boolean;
 }
 
 export const VideoCanvasContainer = styled.div<VideoCanvasContainerProps>`
-  display: ${({ noteType }) => noteType !== NOTE_TYPE.SCREEN_CANVAS && 'none'};
+  display: ${({ canvasActivated }) => !canvasActivated && 'none'};
   position: absolute;
   width: 100%;
   top: 0;
