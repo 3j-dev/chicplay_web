@@ -11,9 +11,7 @@ const Header: React.FC = () => {
   return (
     <HeaderContainer>
       <HeaderContentContainer>
-        <HeaderContent onClick={() => navigate('/')}>
-          <Logo src={LogoSrc} />
-        </HeaderContent>
+        <Logo src={LogoSrc} onClick={() => navigate('/')} />
         <HeaderContent>
           <IoNotificationsOutline size={20} color="#333" />
           <IoSettingsOutline size={20} color="#333" />

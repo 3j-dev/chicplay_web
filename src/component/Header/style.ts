@@ -11,7 +11,7 @@ const HeaderContainer = styled.div`
 `;
 
 const HeaderContentContainer = styled.div`
-  width: 80%;
+  width: 85%;
   height: 100%;
   display: flex;
   justify-content: space-between;
@@ -19,7 +19,7 @@ const HeaderContentContainer = styled.div`
 `;
 
 const HeaderContent = styled.div`
-  width: 25%;
+  width: 20%;
   height: 100%;
   display: flex;
   flex-content: row;
