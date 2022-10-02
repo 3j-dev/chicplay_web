@@ -1,7 +1,7 @@
 import { Colors } from '@/util/Constant';
 import styled from 'styled-components';
 
-const HeaderContainer = styled.div`
+const HeaderContainer = styled.header`
   width: 100%;
   height: 60px;
   display: flex;
