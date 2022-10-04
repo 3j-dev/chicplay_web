@@ -25,12 +25,13 @@ const ToVividTextGroup = styled.div`
     align-items: center;
 `;
 
-const ToVividText = styled.span`
+const ToVividText = styled.p`
   font-size: 48px;
   font-weight: 500;
   line-height: 100px;
   letter-spacing: -0.07em;
   color: ${Colors.White};
+  text-align: center;
 `;
 
 export { ToVividContainer, ToVividImage, ToVividTextGroup, ToVividText };
