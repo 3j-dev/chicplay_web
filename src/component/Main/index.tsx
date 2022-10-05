@@ -1,31 +1,34 @@
+import { lazy } from 'react';
+
 import { ContentContainer, MainContainer } from './style';
-import Feature from './Feature';
-import Slogan from './Slogan';
-import WhyVivid from './WhyVivid';
-import ToVivid from './ToVivid';
-import WithVivid from './WithVivid';
-import VividSolution from './VividSolution';
+
+const LazySlogan = lazy(() => import('./Slogan'));
+const LazyFeature = lazy(() => import('./Feature'));
+const LazyWhyVivid = lazy(() => import('./WhyVivid'));
+const LazyToVivid = lazy(() => import('./ToVivid'));
+const LazyWithVivid = lazy(() => import('./WithVivid'));
+const LazyVividSolution = lazy(() => import('./VividSolution'));
 
 const Main: React.FC = () => {
   return (
     <MainContainer>
       <ContentContainer height={700}>
-        <Slogan />
+        <LazySlogan />
       </ContentContainer>
       <ContentContainer height={600}>
-        <Feature />
+        <LazyFeature />
       </ContentContainer>
       <ContentContainer height={700}>
-        <WhyVivid />
+        <LazyWhyVivid />
       </ContentContainer>
       <ContentContainer height={700}>
-        <ToVivid />
+        <LazyToVivid />
       </ContentContainer>
       <ContentContainer height={1800}>
-        <WithVivid />
+        <LazyWithVivid />
       </ContentContainer>
       <ContentContainer height={1000}>
-        <VividSolution />
+        <LazyVividSolution />
       </ContentContainer>
     </MainContainer>
   );
