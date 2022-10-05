@@ -15,6 +15,11 @@ module.exports = {
         use: 'babel-loader',
         exclude: /node_modules/,
       },
+      {
+        test: /\.(png|svg|jpg)$/,
+        use: 'file-loader',
+        exclude: /node_modules/,
+      },
     ],
   },
   plugins: [

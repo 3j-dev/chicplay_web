@@ -5,7 +5,6 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import '@/styles/font.css';
-import Hello from '@/component/Hello';
 import Router from '@/routes';
 
 const App: React.FC = () => {
@@ -17,7 +16,7 @@ const App: React.FC = () => {
     },
   });
   return (
-    <Suspense fallback={<Hello />}>
+    <Suspense>
       <RecoilRoot>
         <QueryClientProvider client={queryClient}>
           <ToastContainer />
