@@ -16,7 +16,7 @@ module.exports = {
         exclude: /node_modules/,
       },
       {
-        test: /\.(png|svg|jpg)$/,
+        test: /\.(png|svg|jpg|ico)$/,
         use: 'file-loader',
         exclude: /node_modules/,
       },
@@ -25,6 +25,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: `${path.resolve(__dirname, '../public')}/index.html`,
+      favicon: './public/favicon.ico',
     }),
     new webpack.ProvidePlugin({
       React: 'react',
