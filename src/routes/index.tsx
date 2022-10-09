@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import { Main, Replay } from '@/page';
+import { Main, Redirect, Replay } from '@/page';
 
 const Router: React.FC = () => {
   return (
@@ -8,6 +8,7 @@ const Router: React.FC = () => {
       <Routes>
         <Route path="/" element={<Main />} />;
         <Route path="/stream" element={<Replay />} />;
+        <Route path="/redirect" element={<Redirect />} />;
       </Routes>
     </BrowserRouter>
   );
