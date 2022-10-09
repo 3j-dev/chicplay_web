@@ -8,4 +8,8 @@ const refreshToken = async () => {
   return accessToken;
 };
 
-export { refreshToken };
+const logout = async () => {
+  axiosInstance.post(apiRoutes.logout);
+};
+
+export { refreshToken, logout };

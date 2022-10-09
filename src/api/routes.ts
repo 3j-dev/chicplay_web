@@ -11,4 +11,5 @@ export const apiRoutes = {
   getTextMemo: '/api/{individual-video-id}/cache/text-memo-state-latest',
 
   refreshToken: '/auth/token',
+  logout: '/auth/logout',
 };
