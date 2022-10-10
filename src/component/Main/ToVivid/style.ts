@@ -9,11 +9,12 @@ const ToVividContainer = styled.div`
   justify-content: center;
   align-items: center;
   background-color: ${Colors.Black1};
+  gap: 6%;
 `;
 
 const ToVividImage = styled.img`
   width: 40%;
-  height: 80%;
+  height: 70%;
 `;
 
 const ToVividTextGroup = styled.div`
@@ -26,7 +27,7 @@ const ToVividTextGroup = styled.div`
 `;
 
 const ToVividText = styled.p`
-  font-size: 48px;
+  font-size: 44px;
   font-weight: 500;
   line-height: 100px;
   letter-spacing: -0.07em;

@@ -19,7 +19,7 @@ const Header: React.FC = () => {
           <IoNotificationsOutline size={20} color="#333" />
           <IoSettingsOutline size={20} color="#333" />
           <UserProfile>
-            <h4>홍길동 님</h4>
+            <h5>홍길동 님</h5>
             <CgProfile size={26} color="#333" onClick={() => setIsLoginModalOpen(true)} />
             <Login isOpen={loginModalOpen} setIsOpen={setIsLoginModalOpen} />
           </UserProfile>
