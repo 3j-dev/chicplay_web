@@ -4,7 +4,6 @@ import styled from 'styled-components';
 const HeaderContainer = styled.header`
   position: sticky;
   top: 0;
-  z-index: 100;
   width: 100%;
   height: 60px;
   display: flex;
