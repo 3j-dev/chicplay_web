@@ -15,10 +15,10 @@ export const NAV_ROUTER: RouterT[] = [
   },
   {
     title: '업로드',
-    route: '/uplaod',
+    route: '/upload',
   },
   {
     title: '환경설정',
-    route: 'setting',
+    route: '/setting',
   },
 ];
