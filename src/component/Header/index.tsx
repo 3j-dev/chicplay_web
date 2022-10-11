@@ -63,7 +63,10 @@ const Header: React.FC = () => {
                   />
                 ))}
                 <VerticalLine />
-                <UserImage src="https://media.disquiet.io/images/profile/2c34469b0c08a4a0722bc3bff3e76ac5a22871ce2b253a01a4258cfb4b10775b?w=72&f=webp" />
+                <UserImage
+                  src="https://media.disquiet.io/images/profile/2c34469b0c08a4a0722bc3bff3e76ac5a22871ce2b253a01a4258cfb4b10775b?w=72&f=webp"
+                  onClick={() => navigate('/mypage')}
+                />
               </>
             )}
             <Login isOpen={loginModalOpen} setIsOpen={setIsLoginModalOpen} />
