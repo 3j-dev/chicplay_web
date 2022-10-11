@@ -68,7 +68,7 @@ const FeatureTextSection = styled.div`
 `;
 
 const FeatureBigText = styled.span`
-  font-size: 26px;
+  font-size: 24px;
   font-height: 26px;
   font-weight: 500;
   letter-spacing: -0.07em;
@@ -76,7 +76,7 @@ const FeatureBigText = styled.span`
 
 const FeatureSmallText = styled.span`
   font-weight: 500;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 16px;
   letter-spacing: -0.07em;
   text-align: center;

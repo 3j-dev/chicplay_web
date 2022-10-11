@@ -12,7 +12,7 @@ const LazyVividSolution = lazy(() => import('./VividSolution'));
 const Main: React.FC = () => {
   return (
     <MainContainer>
-      <ContentContainer height={700}>
+      <ContentContainer height={650}>
         <LazySlogan />
       </ContentContainer>
       <ContentContainer height={600}>

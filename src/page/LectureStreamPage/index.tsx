@@ -4,7 +4,7 @@ import { Layout } from './style';
 import VideoStream from '@/component/VideoStream';
 import VideoNote from '@/component/VideoNote';
 
-const ReplayPage: React.FC = () => {
+const LectureStreamPage: React.FC = () => {
   const [snapShotClicked, setSnapShotClicked] = useState<boolean>(false);
   const [snapShotURL, setSnapShotURL] = useState<string>('');
 
@@ -20,4 +20,4 @@ const ReplayPage: React.FC = () => {
   );
 };
 
-export default ReplayPage;
+export default LectureStreamPage;
