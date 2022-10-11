@@ -128,6 +128,7 @@ const GlobalStyle = createGlobalStyle`
             width: 50%;
             height: 60%;
             display: flex;
+            position: relative;
             gap: 10%;
             flex-direction: column;
             justify-content: center;

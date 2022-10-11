@@ -3,6 +3,7 @@ import noScroll from 'no-scroll';
 import { PropsWithChildren, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FaCheck } from 'react-icons/fa';
+import { IoCloseOutline } from 'react-icons/io5';
 
 import LogoWithTextSrc from '@/assets/images/logo_with_text2.png';
 import GoogleLogoSrc from '@/assets/images/google_logo.png';
@@ -11,6 +12,7 @@ import {
   GoogleLogo,
   LoginTitle,
   LogoImage,
+  ModalCloseButton,
   WhyLogin,
   WhyLoginDetail,
   WhyLoginDetailText,
@@ -53,6 +55,13 @@ const Login: React.FC<Props> = ({ isOpen, setIsOpen }: Props) => {
       shouldCloseOnOverlayClick={true}
       shouldFocusAfterRender={false}
     >
+      <ModalCloseButton>
+        <IoCloseOutline
+          size="20"
+          color={Colors.Gray2}
+          onClick={() => setIsOpen((state) => !state)}
+        />
+      </ModalCloseButton>
       <LogoImage src={LogoWithTextSrc} />
       <LoginTitle>안녕하세요! VIVID는 이런 사람들을 위한 서비스입니다</LoginTitle>
       <WhyLogin>

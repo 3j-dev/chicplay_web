@@ -2,6 +2,22 @@ import { Typography } from '@/styles/style';
 import { Colors } from '@/util/Constant';
 import styled from 'styled-components';
 
+const ModalCloseButton = styled.button`
+  text-decoration: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  margin-right: -1%;
+  border-radius: 50%;
+  background: ${Colors.Gray0};
+  border: 1px solid ${Colors.Gray3};
+`;
+
 const LogoImage = styled.img`
   width: 130px;
   height: 110px;
@@ -65,6 +81,7 @@ const GoogleLogin = styled.button`
 `;
 
 export {
+  ModalCloseButton,
   LogoImage,
   LoginTitle,
   WhyLogin,
