@@ -31,13 +31,6 @@ const MarkdownNote: React.FC<MarkdownNoteProps> = ({
 
   const handleModelChange = (modelData: string) => {
     setModel(modelData);
-  };
-  // useLayoutEffect(() => {
-  //   const data = getTextMemo('1');
-  //   setModel(JSON.parse(data.stateJson) || '');
-  // }, []);
-
-  useEffect(() => {
     const requestData = {
       id: 'userId',
       individualVideoId: '1',
@@ -45,9 +38,12 @@ const MarkdownNote: React.FC<MarkdownNoteProps> = ({
       videoTime: '1',
     };
     updateTextMemo('1', JSON.stringify(requestData));
-    console.log(model); // stomp를 이용한 socket 통신
-  }, [model]);
-
+  };
+  // useLayoutEffect(() => {
+  //   const data = getTextMemo('1');
+  //   setModel(JSON.parse(data.stateJson) || '');
+  // }, []);
+  r;
   useEffect(() => {
     if (snapShotURL.length > 0)
       editorInstance.current?.editor.image.insert(snapShotURL, null, null, null);
