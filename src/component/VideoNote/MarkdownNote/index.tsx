@@ -43,7 +43,7 @@ const MarkdownNote: React.FC<MarkdownNoteProps> = ({
   //   const data = getTextMemo('1');
   //   setModel(JSON.parse(data.stateJson) || '');
   // }, []);
-  r;
+
   useEffect(() => {
     if (snapShotURL.length > 0)
       editorInstance.current?.editor.image.insert(snapShotURL, null, null, null);
