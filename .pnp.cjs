@@ -68,6 +68,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["form-data", "npm:4.0.0"],\
             ["froala-editor", "npm:4.0.13"],\
             ["html-webpack-plugin", "virtual:45f30d38dbe693d8821abcd87af315e8d7a0ac4aa060fdcf62b1d33b2fed6c7a3bfc1b588474183900876d703b79201474f4f3222dde9b4e53587004ba67d688#npm:5.5.0"],\
+            ["interpolate-html-plugin", "virtual:45f30d38dbe693d8821abcd87af315e8d7a0ac4aa060fdcf62b1d33b2fed6c7a3bfc1b588474183900876d703b79201474f4f3222dde9b4e53587004ba67d688#npm:4.0.0"],\
             ["js-cookie", "npm:3.0.1"],\
             ["mini-css-extract-plugin", "virtual:45f30d38dbe693d8821abcd87af315e8d7a0ac4aa060fdcf62b1d33b2fed6c7a3bfc1b588474183900876d703b79201474f4f3222dde9b4e53587004ba67d688#npm:2.6.1"],\
             ["mobx", "npm:6.6.1"],\
@@ -8710,6 +8711,29 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["interpolate-html-plugin", [\
+        ["npm:4.0.0", {\
+          "packageLocation": "./.yarn/cache/interpolate-html-plugin-npm-4.0.0-0bcb9e8981-0435c4554e.zip/node_modules/interpolate-html-plugin/",\
+          "packageDependencies": [\
+            ["interpolate-html-plugin", "npm:4.0.0"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:45f30d38dbe693d8821abcd87af315e8d7a0ac4aa060fdcf62b1d33b2fed6c7a3bfc1b588474183900876d703b79201474f4f3222dde9b4e53587004ba67d688#npm:4.0.0", {\
+          "packageLocation": "./.yarn/__virtual__/interpolate-html-plugin-virtual-a8b147d9ff/0/cache/interpolate-html-plugin-npm-4.0.0-0bcb9e8981-0435c4554e.zip/node_modules/interpolate-html-plugin/",\
+          "packageDependencies": [\
+            ["interpolate-html-plugin", "virtual:45f30d38dbe693d8821abcd87af315e8d7a0ac4aa060fdcf62b1d33b2fed6c7a3bfc1b588474183900876d703b79201474f4f3222dde9b4e53587004ba67d688#npm:4.0.0"],\
+            ["@types/html-webpack-plugin", null],\
+            ["escape-string-regexp", "npm:1.0.5"],\
+            ["html-webpack-plugin", "virtual:45f30d38dbe693d8821abcd87af315e8d7a0ac4aa060fdcf62b1d33b2fed6c7a3bfc1b588474183900876d703b79201474f4f3222dde9b4e53587004ba67d688#npm:5.5.0"]\
+          ],\
+          "packagePeers": [\
+            "@types/html-webpack-plugin",\
+            "html-webpack-plugin"\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["interpret", [\
         ["npm:2.2.0", {\
           "packageLocation": "./.yarn/cache/interpret-npm-2.2.0-3603a544e1-f51efef7cb.zip/node_modules/interpret/",\
@@ -13392,6 +13416,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["form-data", "npm:4.0.0"],\
             ["froala-editor", "npm:4.0.13"],\
             ["html-webpack-plugin", "virtual:45f30d38dbe693d8821abcd87af315e8d7a0ac4aa060fdcf62b1d33b2fed6c7a3bfc1b588474183900876d703b79201474f4f3222dde9b4e53587004ba67d688#npm:5.5.0"],\
+            ["interpolate-html-plugin", "virtual:45f30d38dbe693d8821abcd87af315e8d7a0ac4aa060fdcf62b1d33b2fed6c7a3bfc1b588474183900876d703b79201474f4f3222dde9b4e53587004ba67d688#npm:4.0.0"],\
             ["js-cookie", "npm:3.0.1"],\
             ["mini-css-extract-plugin", "virtual:45f30d38dbe693d8821abcd87af315e8d7a0ac4aa060fdcf62b1d33b2fed6c7a3bfc1b588474183900876d703b79201474f4f3222dde9b4e53587004ba67d688#npm:2.6.1"],\
             ["mobx", "npm:6.6.1"],\
