@@ -1,4 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const InterpolateHtmlPlugin = require('interpolate-html-plugin');
 const path = require('path');
 const dotenv = require('dotenv');
 const webpack = require('webpack');
@@ -16,7 +17,7 @@ module.exports = {
         exclude: /node_modules/,
       },
       {
-        test: /\.(png|svg|jpg)$/,
+        test: /\.(png|svg|jpg|ico)$/,
         use: 'file-loader',
         exclude: /node_modules/,
       },
@@ -25,6 +26,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: `${path.resolve(__dirname, '../public')}/index.html`,
+      favicon: './public/favicon.ico',
     }),
     new webpack.ProvidePlugin({
       React: 'react',
@@ -35,6 +37,7 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env': JSON.stringify(process.env),
     }),
+    new InterpolateHtmlPlugin({ PUBLIC_URL: '' }),
   ],
   resolve: {
     alias: {

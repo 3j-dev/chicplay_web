@@ -124,6 +124,33 @@ const GlobalStyle = createGlobalStyle`
             display: none !important;
         }
         
+        .modal {
+            width: 50%;
+            height: 60%;
+            display: flex;
+            position: relative;
+            gap: 10%;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: ${Colors.White};
+            border-radius: 40px;
+            &:focus{
+                outline: none;
+            }
+        }
+        .modal-overlay{
+            position: fixed;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: ${Colors.Black2};
+            backdrop-filter: saturate(180%) blur(7px);
+        }
     }
 `;
 
