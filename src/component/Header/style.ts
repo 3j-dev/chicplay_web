@@ -14,6 +14,7 @@ const HeaderContainer = styled.header`
   align-items: center;
   box-shadow: rgb(234 234 236) 0px 1px 0px;
   background-color: ${Colors.White};
+  z-index: 1;
 `;
 
 const HeaderContentContainer = styled.div`

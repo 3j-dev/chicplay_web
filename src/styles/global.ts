@@ -150,6 +150,7 @@ const GlobalStyle = createGlobalStyle`
             height: 100vh;
             background-color: ${Colors.Black2};
             backdrop-filter: saturate(180%) blur(7px);
+            z-index: 2;
         }
     }
 `;
