@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 import { FROALA_TEXT_BUTTONS, FROALA_RICH_BUTTONS, FROALA_PLUGINS } from '@/util/Constant';
+import { postSnapshot } from '@/api/stream';
 
 export const config = {
   key: process.env.FROALA_LICENSE_KEY,
@@ -9,27 +10,18 @@ export const config = {
   imageDefaultDisplay: 'inline-block',
   imageAllowedTypes: ['jpeg', 'jpg', 'png'],
   events: {
-    'image.beforeUpload': (images: File[]) => {
+    'image.beforeUpload': async (images: File[]) => {
       const formData = new FormData();
       formData.append('multipartFile', images[0]);
 
-      axios
-        .post(process.env.SNAPSHOT_API as string, formData, {
-          headers: {
-            'Content-Type': 'multipart/form-data',
-          },
-        })
-        .then((res) => {
-          editorInstance.current?.editor.image.insert(
-            res.data[0].filePath,
-            null,
-            null,
-            editorInstance.current?.editor.image.get(),
-          );
-        })
-        .catch((err) => {
-          console.log(err);
-        });
+      const data = await postSnapshot('1', formData);
+      editorInstance.current?.editor.image.insert(
+        data.filePath,
+        null,
+        null,
+        editorInstance.current?.editor.image.get(),
+      );
+
       return false;
     },
   },
