@@ -100,6 +100,9 @@ const UserImage = styled.img`
   height: 36px;
   border-radius: 50%;
   margin-left: 2%;
+  &:hover {
+    opacity: 0.7;
+  }
 `;
 
 export {
