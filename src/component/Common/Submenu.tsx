@@ -71,7 +71,7 @@ const SubmenuGroup = styled.div`
   height: 60%;
   display: flex;
   flex-direction: column;
-  gap: 5%;
+  gap: 3%;
   justify-content: flex-start;
   align-items: flex-end;
   margin-top: -120%;
