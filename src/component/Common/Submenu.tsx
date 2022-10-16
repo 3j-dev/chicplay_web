@@ -8,13 +8,13 @@ import { Typography } from '@/styles/style';
 interface SubmenuProps {
   allMenuState: string[] | null;
   nowMenuState: string | null;
-  changeMenuState: React.Dispatch<React.SetStateAction<string | null>>;
+  changeMenuState: React.Dispatch<React.SetStateAction<string>>;
   statePlusMethod?: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 interface AtomProps {
   atomState: string;
-  changeMenuState: React.Dispatch<React.SetStateAction<string | null>>;
+  changeMenuState: React.Dispatch<React.SetStateAction<string>>;
   isNowSubMenu: boolean;
 }
 
