@@ -85,6 +85,7 @@ export const Colors = {
   Blue2: '#E0EAFF',
   Blue3: '#4669fc',
   Blue4: '#00A4E1',
+  Blue5: '#A1B6DE',
   Red: '#e31514',
   Red1: '#FF3D33',
   Yellow: '#FFCC17',
