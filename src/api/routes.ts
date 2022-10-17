@@ -10,9 +10,9 @@ export const apiRoutes = {
   updateTextMemo: '/api/videos/{individual-video-id}/cache/text-memo-states',
   getTextMemo: '/api/{individual-video-id}/cache/text-memo-state-latest',
 
-  refreshToken: 'api/auth/token',
-  logout: 'api/auth/logout',
-  getMyPageDashboard: 'api/my-page/dashboard',
+  refreshToken: '/api/auth/token',
+  logout: '/api/auth/logout',
+  getMyPageDashboard: '/api/my-page/dashboard',
 
   plusUserInVideoSpace: '/api/video-space/{video-space-id}/{user-email}',
 };
