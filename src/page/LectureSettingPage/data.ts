@@ -59,3 +59,11 @@ export const data: LectureSpaceT[] = [
     ],
   },
 ];
+
+export const tempSpace: LectureSpaceT = {
+  id: 0,
+  name: '',
+  description: '',
+  videos: [],
+  users: [],
+};
