@@ -72,7 +72,7 @@ const Login: React.FC<Props> = ({ isOpen, setIsOpen }: Props) => {
       <GoogleLogin
         onClick={() => {
           navigate('/redirect', {
-            state: { url: process.env.BASE_API_URL + 'api/login/google' },
+            state: { url: process.env.BASE_API_URL + '/api/login/google' },
           });
         }}
       >
