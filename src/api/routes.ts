@@ -13,4 +13,6 @@ export const apiRoutes = {
   refreshToken: 'api/auth/token',
   logout: 'api/auth/logout',
   getMyPageDashboard: 'api/my-page/dashboard',
+
+  plusUserInVideoSpace: '/api/video-space/{video-space-id}/{user-email}',
 };
