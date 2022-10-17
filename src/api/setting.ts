@@ -9,3 +9,11 @@ export const plusUserInVideoSpace = async (videoSpaceId: number, userEmail: stri
   );
   return data;
 };
+
+export const plusVideoSpace = async (name: string, description: string) => {
+  const data = await axiosInstance.post(apiRoutes.createVideoSpace, {
+    name: name,
+    description: description,
+  });
+  return data;
+};
