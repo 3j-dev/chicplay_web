@@ -90,6 +90,7 @@ export const Colors = {
   Red1: '#FF3D33',
   Yellow: '#FFCC17',
   Green: '#54BF00',
+  Purple: '#262261',
   Black: '#000000',
   Black1: '#272727',
   Black2: '#000000b5',
