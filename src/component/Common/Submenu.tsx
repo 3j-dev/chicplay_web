@@ -109,7 +109,7 @@ const SubmenuGroup = styled.div`
   gap: 3%;
   justify-content: flex-start;
   align-items: flex-end;
-  margin-top: -120%;
+  margin-top: -180%;
 `;
 
 const SubmenuAtomContainer = styled.a<{ isNowMenu: boolean }>`
