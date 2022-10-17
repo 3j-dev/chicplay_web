@@ -14,6 +14,7 @@ const HeaderContainer = styled.header`
   align-items: center;
   box-shadow: rgb(234 234 236) 0px 1px 0px;
   background-color: ${Colors.White};
+  z-index: 1;
 `;
 
 const HeaderContentContainer = styled.div`
@@ -99,6 +100,9 @@ const UserImage = styled.img`
   height: 36px;
   border-radius: 50%;
   margin-left: 2%;
+  &:hover {
+    opacity: 0.7;
+  }
 `;
 
 export {
