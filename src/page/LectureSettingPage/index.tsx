@@ -4,8 +4,9 @@ import { Layout } from './style';
 import { data, tempSpace } from './data';
 import Submenu from '@/component/Common/Submenu';
 import Content from '@/component/Common/Content';
-import { SettingVideoList, SettingUserList, SettingUserAdd } from '@/component/SettingAtom';
+import { SettingVideoList, SettingUserList, SettingUserAdd } from '@/component/Setting/SettingAtom';
 import { LectureSpaceT, SpaceVideoT, SpaceUserT } from '@/interfaces/setting';
+import SettingModal from '@/component/Setting/SettingModal';
 
 const LectureSettingPage: React.FC = () => {
   const [lectureSpaceData, setLectureSpaceData] = useState<LectureSpaceT[]>(data);
@@ -28,6 +29,8 @@ const LectureSettingPage: React.FC = () => {
         allMenuState={getAllMenuState(lectureSpaceData)}
         nowMenuState={nowSpaceName}
         changeMenuState={setNowSpaceName}
+        isPlusMethodExist={true}
+        plusMethodComponent={<SettingModal />}
       />
       <Content
         atomCount={3}
