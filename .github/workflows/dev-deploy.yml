@@ -8,6 +8,10 @@ jobs:
     steps:
       - name: Checkout source code
         uses: actions/checkout@v2
+      - name: Setup Node Version #avoid node verison error
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.15.1
       - name: Setup Python for AWS CLI
         uses: actions/setup-python@v1
         with:
