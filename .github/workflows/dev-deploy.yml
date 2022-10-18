@@ -12,6 +12,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16.15.1
+          cache: yarn
       - name: Setup Python for AWS CLI
         uses: actions/setup-python@v1
         with:
@@ -25,6 +26,8 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_REGION }}
           mask-aws-account-id: true
+      - name: Install dependencies
+        run: yarn
       - name: Build
         run: yarn build:prod
       - name: Deploy to S3
