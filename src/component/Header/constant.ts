@@ -18,7 +18,7 @@ export const NAV_ROUTER: RouterT[] = [
     route: '/upload',
   },
   {
-    title: '환경설정',
+    title: '강의설정',
     route: '/setting',
   },
 ];

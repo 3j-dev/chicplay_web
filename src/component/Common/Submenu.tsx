@@ -9,7 +9,7 @@ import { PropsWithChildren, ReactNode, useState } from 'react';
 
 interface AtomProps {
   atomState: string;
-  changeMenuState: React.Dispatch<React.SetStateAction<string>>;
+  changeMenuState?: React.Dispatch<React.SetStateAction<string>>;
   isNowSubMenu: boolean;
 }
 
@@ -19,7 +19,10 @@ const SubmenuAtom: React.FC<AtomProps> = ({
   isNowSubMenu,
 }: AtomProps) => {
   return (
-    <SubmenuAtomContainer onClick={() => changeMenuState(atomState)} isNowMenu={isNowSubMenu}>
+    <SubmenuAtomContainer
+      onClick={() => changeMenuState !== undefined && changeMenuState(atomState)}
+      isNowMenu={isNowSubMenu}
+    >
       <SubmenuText>{atomState}</SubmenuText>
       {isNowSubMenu && <SubmenuVector src={submenuVectorImageSrc} />}
     </SubmenuAtomContainer>
@@ -29,7 +32,7 @@ const SubmenuAtom: React.FC<AtomProps> = ({
 interface SubmenuProps {
   allMenuState: string[] | null;
   nowMenuState: string | null;
-  changeMenuState: React.Dispatch<React.SetStateAction<string>>;
+  changeMenuState?: React.Dispatch<React.SetStateAction<string>>;
   isPlusMethodExist: boolean;
   plusMethodComponent?: ReactNode;
 }
@@ -55,7 +58,7 @@ const Submenu: React.FC<SubmenuProps> = ({
           />
         ))}
       </SubmenuGroup>
-      {isPlusMethodExist !== undefined &&
+      {isPlusMethodExist &&
         (isMethodOpen ? (
           <HiOutlineChevronLeft
             className="absolute-svg"
@@ -106,7 +109,7 @@ const SubmenuGroup = styled.div`
   gap: 3%;
   justify-content: flex-start;
   align-items: flex-end;
-  margin-top: -120%;
+  margin-top: -180%;
 `;
 
 const SubmenuAtomContainer = styled.a<{ isNowMenu: boolean }>`

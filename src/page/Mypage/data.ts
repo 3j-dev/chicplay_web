@@ -1,0 +1,73 @@
+import { MyDataT } from '@/interfaces/mypage';
+
+export const dashBoardData: string[] = [
+  'Home',
+  '프로필',
+  '내 학습',
+  '강의 노트',
+  '학습 통계',
+  '계정 연동',
+  '내 강의',
+];
+
+export const myTempData: MyDataT = {
+  email: 'test01@gmail.com',
+  name: 'test01',
+  picture: 'https://lh3.googleusercontent.com/a/ALm5wu30vxzpsZnUhBIzgRdhl7FeR-dEt0WTCQxaLNUC=s96-c',
+  lastStudiedIndividualVideo: {
+    videoSpaceId: 2,
+    videoSpaceName: '개인 영상',
+    videoSpaceDescription: 'test01님의 개인 영상 그룹 입니다.',
+    individualVideoId: 'db763b58-e1e6-4248-a3a4-b69d660eb9a8',
+    updatedDate: '2022-10-16T11:42:00.327045',
+    videoTitle: 'test',
+    videoDescription: 'test',
+    lastAccessTime: '2022-10-16T11:42:00.327045',
+  },
+  videoSpaceCount: 2,
+  totalIndividualVideoCount: 11,
+  completedIndividualVideoCount: 7,
+  dashboardIndividualVideos: [
+    {
+      videoSpaceId: 2,
+      videoSpaceName: '개인 영상',
+      videoSpaceDescription: 'test01님의 개인 영상 그룹 입니다.',
+      individualVideoId: 'db763b58-e1e6-4248-a3a4-b69d660eb9a8',
+      updatedDate: '2022-10-16T11:42:00.327045',
+      videoTitle: 'test',
+      videoDescription: 'test',
+      lastAccessTime: '2022-10-16T11:42:00.327045',
+    },
+    {
+      videoSpaceId: 2,
+      videoSpaceName: '개인 영상',
+      videoSpaceDescription: 'test01님의 개인 영상 그룹 입니다.',
+      individualVideoId: '6561ad2c-e7f8-411f-b448-8ef41d92499a',
+      updatedDate: '2022-10-14T02:17:41.13269',
+      videoTitle: 'test',
+      videoDescription: 'test',
+      lastAccessTime: '2022-10-14T02:17:41.13269',
+    },
+    {
+      videoSpaceId: 2,
+      videoSpaceName: '개인 영상',
+      videoSpaceDescription: 'test01님의 개인 영상 그룹 입니다.',
+      individualVideoId: '979b9262-4ddf-4706-aabf-071dfef5ee04',
+      updatedDate: '2022-10-14T02:11:59.50733',
+      videoTitle: 'test',
+      videoDescription: 'test',
+      lastAccessTime: '2022-10-14T02:11:59.50733',
+    },
+    {
+      videoSpaceId: 2,
+      videoSpaceName: '개인 영상',
+      videoSpaceDescription: 'test01님의 개인 영상 그룹 입니다.',
+      individualVideoId: 'f6ad0edd-74c9-4b31-b97a-ba115415b5fa',
+      updatedDate: '2022-10-14T02:10:18.896112',
+      videoTitle: 'test',
+      videoDescription: 'test',
+      lastAccessTime: '2022-10-14T02:10:18.896112',
+    },
+  ],
+  connectedWebex: true,
+};
