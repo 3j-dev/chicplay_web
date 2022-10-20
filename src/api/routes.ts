@@ -14,4 +14,8 @@ export const apiRoutes = {
   refreshToken: '/api/auth/token',
   logout: '/api/auth/logout',
   getMyPageDashboard: '/api/my-page/dashboard',
+
+  postWebexLoginCode: '/api/webex/token/{code}',
+  getWebexRecordingList: '/api/webex/recordings',
+  postWebexRecording: 'api/webex/recordings/{video-space-id}/{recording-id}',
 };
