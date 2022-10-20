@@ -7,12 +7,14 @@ import Main from '@/component/Main';
 import Footer from '@/component/Footer';
 import { setAccessToken } from '@/util/auth';
 import { LoginState } from '@/store/State/LoginState';
+import { postWebexLoginCode } from '@/api/upload';
 
 const MainPage: React.FC = () => {
   const [searchParams] = useSearchParams();
   const setLoginState = useSetRecoilState(LoginState);
   const navigate = useNavigate();
   const token = searchParams.get('token');
+  const code = searchParams.get('code');
 
   useEffect(() => {
     if (token) {
@@ -20,7 +22,11 @@ const MainPage: React.FC = () => {
       navigate('');
       setLoginState((prev) => !prev);
     }
-  }, [token, navigate, setLoginState]);
+    if (code) {
+      postWebexLoginCode(code);
+      navigate('/upload');
+    }
+  }, [token, code, navigate, setLoginState]);
 
   return (
     <Layout>
