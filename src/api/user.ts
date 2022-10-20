@@ -4,8 +4,8 @@ import { apiRoutes } from './routes';
 type TokenT = { accessToken: string };
 
 const refreshToken = async () => {
-  const { accessToken } = axiosInstance.get<TokenT>(apiRoutes.refreshToken);
-  return accessToken;
+  const data = axiosInstance.get<TokenT>(apiRoutes.refreshToken);
+  return data;
 };
 
 const logout = async () => {
