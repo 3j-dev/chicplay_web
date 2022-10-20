@@ -8,7 +8,7 @@ const LectureUpload: React.FC = () => {
   return (
     <LectureUplaodContainer>
       {selectedSpaceId.length > 0 ? (
-        <VideoUpload setSelectedSpaceId={setSelectedSpaceId} />
+        <VideoUpload setSelectedSpaceId={setSelectedSpaceId} selectedSpaceId={selectedSpaceId} />
       ) : (
         <VideoSpace setSelectedSpaceId={setSelectedSpaceId} />
       )}
