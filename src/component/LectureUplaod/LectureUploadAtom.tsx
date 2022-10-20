@@ -16,6 +16,7 @@ import YoutubeUpload from './UploadAtom/YoutubeUpload';
 
 interface VideoSpaceProps {
   setSelectedSpaceId: React.Dispatch<React.SetStateAction<string>>;
+  selectedSpaceId?: string;
 }
 
 const VideoSpace: React.FC<VideoSpaceProps> = ({ setSelectedSpaceId }: VideoSpaceProps) => {
@@ -95,7 +96,7 @@ const LectureSpaceAtom = styled.div`
   cursor: pointer;
   display: flex;
   justify-content: space-evenly;
-  align-items: center;jjjjjh
+  align-items: center;
 `;
 
 const LectureSpaceTextGroup = styled.div<{ width: number }>`
@@ -108,7 +109,10 @@ const LectureSpaceTextGroup = styled.div<{ width: number }>`
   ${Typography.Paragraph2};
 `;
 
-const VideoUpload: React.FC<VideoSpaceProps> = ({ setSelectedSpaceId }: VideoSpaceProps) => {
+const VideoUpload: React.FC<VideoSpaceProps> = ({
+  setSelectedSpaceId,
+  selectedSpaceId,
+}: VideoSpaceProps) => {
   const [uploadWay, setUploadWay] = useState<number>(UPLOAD.Default);
   return (
     <LectureAtomContainer>
@@ -128,20 +132,22 @@ const VideoUpload: React.FC<VideoSpaceProps> = ({ setSelectedSpaceId }: VideoSpa
             <UploadIcon src={youtubeImgSrc} />
           </UploadIconContainer>
         </LectureFlexStart>
-        <LectureUploadSection>{getUploadContainer(uploadWay)}</LectureUploadSection>
+        <LectureUploadSection>
+          {getUploadContainer(uploadWay, selectedSpaceId as string)}
+        </LectureUploadSection>
       </LectureSpaceGroupContainer>
     </LectureAtomContainer>
   );
 };
 
-const getUploadContainer = (uploadWay: number) => {
+const getUploadContainer = (uploadWay: number, selectedSpaceId: string) => {
   switch (uploadWay) {
     case UPLOAD.File:
-      return <FileUpload />;
+      return <FileUpload spaceId={selectedSpaceId} />;
     case UPLOAD.Webex:
-      return <WebexUpload />;
+      return <WebexUpload spaceId={selectedSpaceId} />;
     case UPLOAD.Youtube:
-      return <YoutubeUpload />;
+      return <YoutubeUpload spaceId={selectedSpaceId} />;
   }
 };
 
