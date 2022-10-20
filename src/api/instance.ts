@@ -23,8 +23,9 @@ instance.interceptors.response.use(
   async (error: AxiosError) => {
     if (error.response && error.response.status === 401) {
       try {
-        const newAccessToken = await refreshToken();
-        setAccessToken(newAccessToken);
+        const data = await refreshToken();
+        if (data.accessToken !== undefined) setAccessToken(data.accessToken);
+        else return;
       } catch (e: any) {
         console.log('error : ', e.response);
       }
