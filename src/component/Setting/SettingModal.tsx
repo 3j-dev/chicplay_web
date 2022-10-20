@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import { Colors } from '@/util/Constant';
 import { useState } from 'react';
-import { plusVideoSpace } from '@/api/setting';
+import { plusVideoSpace } from '@/api/space';
 import { pushNotification } from '@/util/notification';
 
 const SettingModal: React.FC = () => {
@@ -12,8 +12,8 @@ const SettingModal: React.FC = () => {
   const submitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (spaceName.length < 1 || spaceDescription.length < 1) return;
-    const data = await plusVideoSpace(spaceName, spaceDescription);
-    if (data.name === spaceName && data.description === spaceDescription) {
+    const { name, description } = await plusVideoSpace(spaceName, spaceDescription);
+    if (name === spaceName && description === spaceDescription) {
       pushNotification('Space 생성 성공!', 'success');
       setSpaceName('');
       setSpaceDescription('');
