@@ -1,19 +1,19 @@
 import styled from 'styled-components';
 import { useState, useLayoutEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { parseISO, format } from 'date-fns';
 
 import { WebexRecordingT } from '@/interfaces/upload';
 import { getWebexRecordingList, postWebexRecording } from '@/api/upload';
 import { Colors } from '@/util/Constant';
 import { Typography } from '@/styles/style';
-import { parseISO, format } from 'date-fns';
 
 interface NowSpaceT {
   spaceId: string;
 }
 
 const WebexUpload: React.FC<NowSpaceT> = ({ spaceId }: NowSpaceT) => {
-  const [recordingList, setRecordingList] = useState<WebexRecordingT[] | null>(tempData);
+  const [recordingList, setRecordingList] = useState<WebexRecordingT[] | null>([]);
 
   useLayoutEffect(() => {
     const data = getWebexRecordingList();
