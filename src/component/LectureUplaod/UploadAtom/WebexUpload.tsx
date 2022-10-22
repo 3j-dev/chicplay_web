@@ -18,28 +18,30 @@ const WebexUpload: React.FC<NowSpaceT> = ({ spaceId }: NowSpaceT) => {
   useLayoutEffect(() => {
     const data = getWebexRecordingList();
     console.log(data);
-    if (data.code === undefined) setRecordingList(data);
+    if (data.code !== undefined) setRecordingList(data);
     else setRecordingList(null);
   }, []);
   return (
     <UploadContainer>
-      <WebexRecordingAtomGroup>
-        {recordingList !== null &&
-          recordingList.length > 0 &&
-          recordingList.map((recording, idx) => {
-            return (
-              <WebexRecordingAtom
-                spaceId={spaceId}
-                recordingId={recording.recordingId}
-                topic={recording.topic}
-                hostEmail={recording.hostEmail}
-                timeRecorded={recording.timeRecorded}
-                key={idx}
-              />
-            );
-          })}
-      </WebexRecordingAtomGroup>
-      {recordingList === null || (recordingList.length < 1 && <WebexLoginButton />)}
+      {recordingList && recordingList?.length > 0 && (
+        <WebexRecordingAtomGroup>
+          {recordingList !== null &&
+            recordingList.length > 0 &&
+            recordingList.map((recording, idx) => {
+              return (
+                <WebexRecordingAtom
+                  spaceId={spaceId}
+                  recordingId={recording.recordingId}
+                  topic={recording.topic}
+                  hostEmail={recording.hostEmail}
+                  timeRecorded={recording.timeRecorded}
+                  key={idx}
+                />
+              );
+            })}
+        </WebexRecordingAtomGroup>
+      )}
+      {recordingList === null && <WebexLoginButton />}
     </UploadContainer>
   );
 };
