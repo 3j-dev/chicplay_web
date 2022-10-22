@@ -30,9 +30,10 @@ instance.interceptors.response.use(
         console.log('error : ', e.response);
       }
       return Promise.reject(error);
-    } else {
-      pushNotification('로그인이 필요한 서비스입니다', 'error');
-    }
+    } else if (error.response && error.response.status === 500) {
+      pushNotification('현재 서버에 문제가 발생하였습니다. 추후 다시 시도해주십시오', 'error');
+    } else pushNotification('에러가 발생했습니다.', 'error');
+
     return Promise.reject(error);
   },
 );
