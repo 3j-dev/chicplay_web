@@ -5,6 +5,7 @@ import uploadImgSrc from '@/assets/images/upload.png';
 import { Colors } from '@/util/Constant';
 import { Typography } from '@/styles/style';
 import { uploadVideoFile } from '@/api/upload';
+import { pushNotification } from '@/util/notification';
 
 interface FileT {
   id: number;
@@ -18,11 +19,31 @@ interface NowSpaceT {
 const FileUpload: React.FC<NowSpaceT> = ({ spaceId }: NowSpaceT) => {
   const inputRef = useRef<HTMLInputElement>(null);
   const [isUploading, setIsUploading] = useState<boolean>(false);
+  const [isDragging, setIsDragging] = useState<boolean>(false);
+  const dragRef = useRef<HTMLLabelElement>(null);
+
+  const onInputFile = (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.preventDefault();
+
+    if (e.target.files !== null) handleSelectFiles(e.target.files);
+  };
+
+  const onDropFiles = (e: React.DragEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    if (e.dataTransfer.files !== null) handleSelectFiles(e.dataTransfer.files);
+  };
 
   const handleSelectFiles = useCallback(
-    async (event: React.ChangeEvent<HTMLInputElement>) => {
-      const { files } = event.target;
-      console.log(files, event);
+    async (files: FileList) => {
+      if (files === null) {
+        pushNotification('잘못된 파일 형식입니다', 'error');
+        return;
+      }
+      if (files?.length > 1) {
+        pushNotification('한 번에 한개의 파일만 가능합니다.', 'warning');
+        return;
+      }
+      console.log(files);
       if (!files || !files[0]) return;
       setIsUploading(true);
       const { id } = await uploadVideoFile(spaceId, files[0]);
@@ -31,20 +52,27 @@ const FileUpload: React.FC<NowSpaceT> = ({ spaceId }: NowSpaceT) => {
     [spaceId],
   );
 
+  const dragOver = (e: React.DragEvent<HTMLDivElement>) => {
+    e.preventDefault();
+  };
+
   return (
     <UploadContainer>
-      <FileUploadSection>
+      <FileUploadSection onDrop={onDropFiles} onDragOver={dragOver}>
         <FileUploadImage src={uploadImgSrc} />
         <FileUploadInput
           type="file"
           multiple={false}
-          onChange={handleSelectFiles}
+          onChange={onInputFile}
           ref={inputRef}
           id="fileUpload"
+          accept="video/*"
           disabled={isUploading}
         />
         <h4>Drop your video here, or</h4>
-        <label htmlFor="fileUpload">Browse...</label>
+        <label htmlFor="fileUpload" ref={dragRef}>
+          Browse...
+        </label>
       </FileUploadSection>
     </UploadContainer>
   );
