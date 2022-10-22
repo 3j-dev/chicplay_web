@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import { Colors } from '@/util/Constant';
 import { useState } from 'react';
-import { plusVideoSpace } from '@/api/space';
+import { plusVideoSpace } from '@/api/setting';
 import { pushNotification } from '@/util/notification';
 
 const SettingModal: React.FC = () => {
