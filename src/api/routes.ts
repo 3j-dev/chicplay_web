@@ -6,6 +6,7 @@ export const apiRoutes = {
   createVideoSpace: '/api/video-space',
   getVideoSpaceList: '/api/video-space',
   plusUserInVideoSpace: '/api/video-space/{video-space-id}/{user-email}',
+  getHostVideoSpaceList: '/api/video-space/hosted',
 
   updateTextMemo: '/api/videos/{individual-video-id}/cache/text-memo-states',
   getTextMemo: '/api/{individual-video-id}/cache/text-memo-state-latest',
@@ -13,4 +14,9 @@ export const apiRoutes = {
   refreshToken: '/api/auth/token',
   logout: '/api/auth/logout',
   getMyPageDashboard: '/api/my-page/dashboard',
+
+  postWebexLoginCode: '/api/webex/token/{code}',
+  getWebexRecordingList: '/api/webex/recordings',
+  postWebexRecording: '/api/webex/recordings/{video-space-id}/{recording-id}',
+  uploadVideoFile: '/api/videos/{video-space-id}',
 };

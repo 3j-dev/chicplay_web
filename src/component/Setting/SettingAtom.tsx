@@ -7,7 +7,7 @@ import userAddImgSrc from '@/assets/icon/setting_useradd.png';
 import userListImgSrc from '@/assets/icon/setting_userlist.png';
 import { Colors } from '@/util/Constant';
 import { Typography } from '@/styles/style';
-import { plusUserInVideoSpace } from '@/api/setting';
+import { plusUserInVideoSpace } from '@/api/space';
 import { pushNotification } from '@/util/notification';
 
 type SettingAtomType = 'VideoList' | 'UserList' | 'UserAdd';

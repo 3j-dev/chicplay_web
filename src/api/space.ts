@@ -17,3 +17,8 @@ export const plusVideoSpace = async (name: string, description: string) => {
   });
   return data;
 };
+
+export const getHostedVideoList = async () => {
+  const data = await axiosInstance.get(apiRoutes.getHostVideoSpaceList);
+  return data;
+};

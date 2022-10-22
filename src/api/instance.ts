@@ -2,8 +2,8 @@ import axios, { AxiosError, AxiosResponse } from 'axios';
 
 import { authHeader } from '@/util/auth';
 import { pushNotification } from '@/util/notification';
-// import { refreshToken } from './user';
-// import { setAccessToken } from '@/util/auth';
+import { refreshToken } from './user';
+import { setAccessToken } from '@/util/auth';
 
 const baseURL: string = 'https://api.dev.edu-vivid.com';
 
@@ -23,16 +23,17 @@ instance.interceptors.response.use(
   async (error: AxiosError) => {
     if (error.response && error.response.status === 401) {
       try {
-        // const newAccessToken = await refreshToken();
-        // setAccessToken(newAccessToken);
-        pushNotification('로그인이 필요한 서비스입니다.', 'error');
-        // eslint-disable-next-line @typescript-eslint/no-implied-eval
-        setTimeout((window.location.href = '/'), 2000);
+        const data = await refreshToken();
+        if (data.accessToken !== undefined) setAccessToken(data.accessToken);
+        else return;
       } catch (e: any) {
         console.log('error : ', e.response);
       }
       return Promise.reject(error);
-    }
+    } else if (error.response && error.response.status === 500) {
+      pushNotification('현재 서버에 문제가 발생하였습니다. 추후 다시 시도해주십시오', 'error');
+    } else pushNotification('에러가 발생했습니다.', 'error');
+
     return Promise.reject(error);
   },
 );
