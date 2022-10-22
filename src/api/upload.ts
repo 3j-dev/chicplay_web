@@ -1,3 +1,5 @@
+import FormData from 'form-data';
+
 import { axiosInstance } from './instance';
 import { apiRoutes } from './routes';
 
@@ -15,5 +17,15 @@ export const postWebexRecording = async (videoSpaceId: string, recordingId: stri
     apiRoutes.postWebexRecording
       .replace('{video-space-id}', videoSpaceId)
       .replace('{recording-id}', recordingId),
+  );
+};
+
+export const uploadVideoFile = async (videoSpaceId: string, videoFile: File) => {
+  let videoFormData = new FormData();
+  videoFormData.append('video', videoFile);
+  videoFormData.append('videoInfo', videoFile.name);
+  axiosInstance.post(
+    apiRoutes.uploadVideoFile.replace('{video-space-id}', videoSpaceId),
+    videoFormData,
   );
 };

@@ -17,5 +17,6 @@ export const apiRoutes = {
 
   postWebexLoginCode: '/api/webex/token/{code}',
   getWebexRecordingList: '/api/webex/recordings',
-  postWebexRecording: 'api/webex/recordings/{video-space-id}/{recording-id}',
+  postWebexRecording: '/api/webex/recordings/{video-space-id}/{recording-id}',
+  uploadVideoFile: '/api/videos/{video-space-id}',
 };
