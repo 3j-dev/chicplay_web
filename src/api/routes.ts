@@ -4,7 +4,6 @@ export const apiRoutes = {
   getVideoInfo: '/api/videos/{individual-video-id}',
 
   createVideoSpace: '/api/video-space',
-  getVideoSpaceList: '/api/video-space',
   plusUserInVideoSpace: '/api/video-space/{video-space-id}/{user-email}',
   getHostVideoSpaceList: '/api/video-space/hosted',
 
@@ -19,4 +18,7 @@ export const apiRoutes = {
   getWebexRecordingList: '/api/webex/recordings',
   postWebexRecording: '/api/webex/recordings/{video-space-id}/{recording-id}',
   uploadVideoFile: '/api/videos/{video-space-id}',
+
+  getVideoSpaceList: '/api/video-space',
+  getIndividualVideo: '/api/individual-videos/{individual-video-id}',
 };
