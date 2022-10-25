@@ -27,5 +27,8 @@ export const uploadVideoFile = async (videoSpaceId: string, videoFile: File) => 
   axiosInstance.post(
     apiRoutes.uploadVideoFile.replace('{video-space-id}', videoSpaceId),
     videoFormData,
+    {
+      headers: { 'Content-Type': 'multipart/form-data' },
+    },
   );
 };
