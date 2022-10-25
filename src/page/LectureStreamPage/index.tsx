@@ -5,7 +5,7 @@ import { Layout } from './style';
 import VideoStream from '@/component/VideoStream';
 import VideoNote from '@/component/VideoNote';
 import { IndivudalVideoInfoT } from '@/interfaces/stream';
-import { getVideoInfo } from '@/api/stream';
+import { freshVideoAccessTime, getVideoInfo } from '@/api/stream';
 
 const LectureStreamPage: React.FC = () => {
   const [snapShotClicked, setSnapShotClicked] = useState<boolean>(false);
@@ -20,20 +20,26 @@ const LectureStreamPage: React.FC = () => {
       getVideoInfo(individualVideoId).then((videoInfo) => {
         setIndividualVideoInfo(videoInfo.data);
       });
+      freshVideoAccessTime(individualVideoId);
     }
   }, [individualVideoId]);
 
   return (
     <Layout>
-      {individualVideoInfo && (
+      {individualVideoId && individualVideoInfo && (
         <>
           <VideoStream
             snapShotClicked={snapShotClicked}
             setSnapShotClicked={setSnapShotClicked}
             setSnapShotURL={setSnapShotURL}
             individualVideoInfo={individualVideoInfo}
+            individualVideoId={individualVideoId}
           />
-          <VideoNote setSnapShotClicked={setSnapShotClicked} snapShotURL={snapShotURL} />
+          <VideoNote
+            individualVideoId={individualVideoId}
+            setSnapShotClicked={setSnapShotClicked}
+            snapShotURL={snapShotURL}
+          />
         </>
       )}
     </Layout>
