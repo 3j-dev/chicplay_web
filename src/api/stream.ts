@@ -2,9 +2,15 @@ import FormData from 'form-data';
 
 import { axiosInstance } from './instance';
 import { apiRoutes } from './routes';
+import { IndivudalVideoInfoT } from '@/interfaces/stream';
+
+const getVideoInfo = async (individualVideoId: string) =>
+  axiosInstance.get<IndivudalVideoInfoT>(
+    apiRoutes.getVideoInfo.replace('{individual-video-id}', individualVideoId),
+  );
 
 const postSnapshot = async (individualVideoId: string, formData: FormData) => {
-  const { data } = await axiosInstance.post(
+  const data = await axiosInstance.post(
     apiRoutes.postImageSnapshot.replace('{individual-video-id}', individualVideoId),
     formData,
   );
@@ -12,7 +18,7 @@ const postSnapshot = async (individualVideoId: string, formData: FormData) => {
 };
 
 const getTextMemo = async (individualVideoId: string) => {
-  const { data } = await axiosInstance.get(
+  const data = await axiosInstance.get(
     apiRoutes.getTextMemo.replace('{individual-video-id}', individualVideoId),
   );
   return data;
@@ -25,4 +31,4 @@ const updateTextMemo = async (individualVideoId: string, textMemo: string) => {
   );
 };
 
-export { postSnapshot, getTextMemo, updateTextMemo };
+export { postSnapshot, getTextMemo, updateTextMemo, getVideoInfo };

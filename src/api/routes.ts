@@ -1,7 +1,7 @@
 export const apiRoutes = {
   uploadVideo: '/api/videos',
   postImageSnapshot: '/api/videos/{individual-video-id}/snapshot',
-  getVideoInfo: '/api/videos/{individual-video-id}',
+  getVideoInfo: '/api/individual-videos/{individual-video-id}',
 
   createVideoSpace: '/api/video-space',
   plusUserInVideoSpace: '/api/video-space/{video-space-id}/{user-email}',
