@@ -1,6 +1,5 @@
 import ReactHlsPlayer from 'react-hls-player';
 import FormData from 'form-data';
-import axios from 'axios';
 import { TldrawApp } from '@tldraw/tldraw';
 import { BsPencilSquare } from 'react-icons/bs';
 import { useRef, useState, useEffect } from 'react';
@@ -11,24 +10,27 @@ import VideoControl from './VideoControl';
 import VideoCanvasTool from './VideoCanvasTool';
 import { VideoStreamContainer, Video, VideoCanvasButton } from './style';
 import VideoTopBar from './VideoTopBar';
+import { IndivudalVideoInfoT } from '@/interfaces/stream';
 
 interface DimensionProps {
   w: number;
   h: number;
 }
 
-const videoSource: string = process.env.TEST_VIDEO_URL as string;
-
 interface StreamProps {
   snapShotClicked: boolean;
   setSnapShotClicked: React.Dispatch<React.SetStateAction<boolean>>;
   setSnapShotURL: React.Dispatch<React.SetStateAction<string>>;
+  individualVideoInfo: IndivudalVideoInfoT;
+  individualVideoId: string;
 }
 
 const VideoStream: React.FC<StreamProps> = ({
   snapShotClicked,
   setSnapShotClicked,
   setSnapShotURL,
+  individualVideoInfo,
+  individualVideoId,
 }: StreamProps) => {
   const playerRef = useRef<HTMLVideoElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -36,8 +38,6 @@ const VideoStream: React.FC<StreamProps> = ({
   const [dimensions, setDimensions] = useState<DimensionProps>({ w: 0, h: 0 });
   const [canvasActivated, setCanvasActivated] = useState<boolean>(false);
   //useSnapShot custom hook 사용해서 정리하기
-
-  const [startTime, setStartTime] = useState<number>(0);
 
   const context = canvasRef === null ? null : canvasRef.current?.getContext('2d');
 
@@ -60,9 +60,14 @@ const VideoStream: React.FC<StreamProps> = ({
       canvasRef.current?.toBlob(async (blob) => {
         const formData = new FormData();
         formData.append('multipartFile', blob, 'test.png');
-        const data = await postSnapshot('1', formData);
-        console.log(data);
-        setSnapShotURL(data[0].filePath);
+        if (playerRef && playerRef.current) {
+          const { data } = await postSnapshot(
+            individualVideoId,
+            playerRef.current.duration,
+            formData,
+          );
+          setSnapShotURL(data.filePath);
+        }
       });
     }
   }; // drawing video snapshot on canvas and post with axios then get filepath on S3 storage
@@ -91,11 +96,11 @@ const VideoStream: React.FC<StreamProps> = ({
 
   return (
     <VideoStreamContainer>
-      <VideoTopBar videoTitle="1주차 - 포켓몬 환경의 이해" />
+      <VideoTopBar videoTitle={individualVideoInfo.title} />
       <Video>
         <ReactHlsPlayer
           playerRef={playerRef}
-          src={videoSource}
+          src={individualVideoInfo.videoFilePath}
           controls={false}
           muted={true}
           width="100%"
@@ -114,6 +119,7 @@ const VideoStream: React.FC<StreamProps> = ({
         videoCanvasRef={videoCanvasRef}
         canvasActivated={canvasActivated}
         setCanvasActivated={setCanvasActivated}
+        visualIndexImageFilePathList={individualVideoInfo.visualIndexImageFilePathList}
       />
       <VideoControl playerRef={playerRef} />
     </VideoStreamContainer>

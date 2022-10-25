@@ -1,5 +1,6 @@
 import { BsXLg } from 'react-icons/bs';
-//date-fns;
+import parseISO from 'date-fns/parseISO';
+import format from 'date-fns/format';
 
 import {
   NoteRecordContainer,
@@ -9,9 +10,13 @@ import {
   ContentContainer,
 } from './style';
 import { NOTE_PLUS_TYPE } from '@/util/Constant';
+import { useLayoutEffect, useState } from 'react';
+import { TextMemoT } from '@/interfaces/stream';
+import { getNoteList } from '@/api/stream';
 
 interface Props {
   setNotePlusType: React.Dispatch<React.SetStateAction<number>>;
+  individualVideoId: string;
 }
 
 interface ContentProps {
@@ -21,16 +26,15 @@ interface ContentProps {
 const RecordContent: React.FC<ContentProps> = ({ text }: ContentProps) => {
   return <ContentContainer>{text}</ContentContainer>;
 };
+//onClick markdownNote change handler 추가
 
-const NoteRecord: React.FC<Props> = ({ setNotePlusType }: Props) => {
-  const testText: string[] = [
-    '1강. 포켓몬 환경의 이해',
-    '2강. 포켓몬 마스터 개론',
-    '3강. 포켓몬 종자',
-    '4강. 포켓몬 마스터의 길',
-    '5강. 하이마트 포켓몬의 품질',
-    '6강. 롯데마트 포켓몬의 품격',
-  ];
+const NoteRecord: React.FC<Props> = ({ setNotePlusType, individualVideoId }: Props) => {
+  const [noteList, setNoteList] = useState<TextMemoT[]>([]);
+
+  useLayoutEffect(() => {
+    getNoteList(individualVideoId).then((res) => setNoteList(res.data));
+  }, [individualVideoId]);
+
   return (
     <NoteRecordContainer>
       <RecordTitleContainer>
@@ -40,8 +44,8 @@ const NoteRecord: React.FC<Props> = ({ setNotePlusType }: Props) => {
         </RecordTitle>
       </RecordTitleContainer>
       <RecordContentContainer>
-        {testText.map((cur, idx) => (
-          <RecordContent text={cur} key={idx} />
+        {noteList.map((note, idx) => (
+          <RecordContent text={format(parseISO(note.createdAt), 'yyyy.MM.dd')} key={idx} />
         ))}
       </RecordContentContainer>
     </NoteRecordContainer>

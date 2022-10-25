@@ -2,27 +2,48 @@ import FormData from 'form-data';
 
 import { axiosInstance } from './instance';
 import { apiRoutes } from './routes';
+import { IndivudalVideoInfoT, SnapshotInfoT, TextMemoT } from '@/interfaces/stream';
 
-const postSnapshot = async (individualVideoId: string, formData: FormData) => {
-  const { data } = await axiosInstance.post(
-    apiRoutes.postImageSnapshot.replace('{individual-video-id}', individualVideoId),
-    formData,
+const getVideoInfo = async (individualVideoId: string) =>
+  axiosInstance.get<IndivudalVideoInfoT>(
+    apiRoutes.getVideoInfo.replace('{individual-video-id}', individualVideoId),
   );
-  return data;
-};
 
-const getTextMemo = async (individualVideoId: string) => {
-  const { data } = await axiosInstance.get(
+const postSnapshot = async (individualVideoId: string, videoTime: number, formData: FormData) =>
+  axiosInstance.post<SnapshotInfoT>(
+    apiRoutes.postImageSnapshot
+      .replace('{individual-video-id}', individualVideoId)
+      .replace('{video-time}', `${videoTime}`),
+    formData,
+    {
+      headers: { 'Content-Type': 'multipart/form-data' },
+    },
+  );
+
+const getTextMemo = async (individualVideoId: string) =>
+  axiosInstance.get<TextMemoT>(
     apiRoutes.getTextMemo.replace('{individual-video-id}', individualVideoId),
   );
-  return data;
-};
 
-const updateTextMemo = async (individualVideoId: string, textMemo: string) => {
-  await axiosInstance.post(
+const updateTextMemo = async (individualVideoId: string, textMemo: string) =>
+  axiosInstance.post(
     apiRoutes.updateTextMemo.replace('{individual-video-id}', individualVideoId),
     textMemo,
   );
-};
 
-export { postSnapshot, getTextMemo, updateTextMemo };
+const freshVideoAccessTime = async (individualVideoId: string) =>
+  axiosInstance.put(
+    apiRoutes.freshVideoAccessTime.replace('{individual-video-id}', individualVideoId),
+  );
+
+const getNoteList = async (individualVideoId: string) =>
+  axiosInstance.get(apiRoutes.getNoteList.replace('{individual-video-id}', individualVideoId));
+
+export {
+  postSnapshot,
+  getTextMemo,
+  updateTextMemo,
+  getVideoInfo,
+  freshVideoAccessTime,
+  getNoteList,
+};

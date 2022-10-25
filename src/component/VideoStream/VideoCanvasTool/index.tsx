@@ -16,7 +16,6 @@ import {
 } from './style';
 import CanvasNoteTool from '@/component/VideoNote/CanvasNote/CanvasNoteTool';
 import useCanvasRecord from '@/hook/useCanvasRecord';
-import { timeArr, imageArr } from './temp.data';
 import { Colors } from '@/util/Constant';
 
 interface Props {
@@ -24,6 +23,7 @@ interface Props {
   canvasActivated: boolean;
   setCanvasActivated: React.Dispatch<React.SetStateAction<boolean>>;
   playerRef: React.RefObject<HTMLVideoElement>;
+  visualIndexImageFilePathList: string[];
 }
 
 const convertNumber = (number: number, isFloor: boolean): number => {
@@ -36,6 +36,7 @@ const VideoCanvasTool: React.FC<Props> = ({
   canvasActivated,
   setCanvasActivated,
   playerRef,
+  visualIndexImageFilePathList,
 }: Props) => {
   const [canvasToolMinimized, setCanvasToolMinimized] = useState<Boolean>(false);
   const visualIndexingRef = useRef<HTMLDivElement>(null);
@@ -120,9 +121,9 @@ const VideoCanvasTool: React.FC<Props> = ({
         onMouseUp={onDragEnd}
         onMouseLeave={onDragEnd}
       >
-        {timeArr.map((cur, idx) => (
+        {visualIndexImageFilePathList.map((pileFath, idx) => (
           <VideoSnapImage
-            src={imageArr[idx]}
+            src={pileFath}
             alt="snapimage"
             key={idx}
             onClick={() => snapShotMove(idx)}

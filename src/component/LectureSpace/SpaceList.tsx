@@ -100,7 +100,7 @@ const SpaceLectureAtom: React.FC<LectureVideoT> = ({
 }: LectureVideoT) => {
   const navigate = useNavigate();
   const onClickHandler = () => {
-    navigate(`/stream/?v=${individualVideoId}`);
+    navigate(`/stream?v=${individualVideoId}`);
   };
 
   return (

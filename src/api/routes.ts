@@ -1,7 +1,7 @@
 export const apiRoutes = {
   uploadVideo: '/api/videos',
-  postImageSnapshot: '/api/videos/{individual-video-id}/snapshot',
-  getVideoInfo: '/api/videos/{individual-video-id}',
+  postImageSnapshot: '/api/videos/{individual-video-id}/snapshot?video-time={video-time}',
+  getVideoInfo: '/api/individual-videos/{individual-video-id}',
 
   createVideoSpace: '/api/video-space',
   plusUserInVideoSpace: '/api/video-space/{video-space-id}/{user-email}',
@@ -21,4 +21,6 @@ export const apiRoutes = {
 
   getVideoSpaceList: '/api/video-space',
   getIndividualVideo: '/api/individual-videos/{individual-video-id}',
+  freshVideoAccessTime: '/api/individual-videos/{individual-video-id}/accessed',
+  getNoteList: '/api/individual-videos/{individual-video-id}/text-memo-state-history',
 };
