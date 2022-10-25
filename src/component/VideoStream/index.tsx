@@ -22,6 +22,7 @@ interface StreamProps {
   setSnapShotClicked: React.Dispatch<React.SetStateAction<boolean>>;
   setSnapShotURL: React.Dispatch<React.SetStateAction<string>>;
   individualVideoInfo: IndivudalVideoInfoT;
+  individualVideoId: string;
 }
 
 const VideoStream: React.FC<StreamProps> = ({
@@ -29,6 +30,7 @@ const VideoStream: React.FC<StreamProps> = ({
   setSnapShotClicked,
   setSnapShotURL,
   individualVideoInfo,
+  individualVideoId,
 }: StreamProps) => {
   const playerRef = useRef<HTMLVideoElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -58,9 +60,14 @@ const VideoStream: React.FC<StreamProps> = ({
       canvasRef.current?.toBlob(async (blob) => {
         const formData = new FormData();
         formData.append('multipartFile', blob, 'test.png');
-        const data = await postSnapshot('1', formData);
-        console.log(data);
-        setSnapShotURL(data[0].filePath);
+        if (playerRef && playerRef.current) {
+          const { data } = await postSnapshot(
+            individualVideoId,
+            playerRef.current.duration,
+            formData,
+          );
+          setSnapShotURL(data.filePath);
+        }
       });
     }
   }; // drawing video snapshot on canvas and post with axios then get filepath on S3 storage

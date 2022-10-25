@@ -13,9 +13,14 @@ import NotePlus from './NotePlus';
 interface NoteProps {
   setSnapShotClicked: React.Dispatch<React.SetStateAction<boolean>>;
   snapShotURL: string;
+  individualVideoId: string;
 }
 
-const VideoNote: React.FC<NoteProps> = ({ setSnapShotClicked, snapShotURL }: NoteProps) => {
+const VideoNote: React.FC<NoteProps> = ({
+  setSnapShotClicked,
+  snapShotURL,
+  individualVideoId,
+}: NoteProps) => {
   const [noteType, setNoteType] = useState<number>(NOTE_TYPE.MARKDOWN);
   const [markdownExportClicked, setMarkdownExportClicked] = useState<boolean>(false);
   const [canvasExportClicked, setCanvasExportClicked] = useState<boolean>(false);
@@ -41,6 +46,7 @@ const VideoNote: React.FC<NoteProps> = ({ setSnapShotClicked, snapShotURL }: Not
         nowNoteType={noteType}
         exportClicked={markdownExportClicked}
         setExportClicked={setMarkdownExportClicked}
+        individualVideoId={individualVideoId}
       />
       <CanvasNote
         nowNoteType={noteType}
