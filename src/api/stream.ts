@@ -36,4 +36,14 @@ const freshVideoAccessTime = async (individualVideoId: string) =>
     apiRoutes.freshVideoAccessTime.replace('{individual-video-id}', individualVideoId),
   );
 
-export { postSnapshot, getTextMemo, updateTextMemo, getVideoInfo, freshVideoAccessTime };
+const getNoteList = async (individualVideoId: string) =>
+  axiosInstance.get(apiRoutes.getNoteList.replace('{individual-video-id}', individualVideoId));
+
+export {
+  postSnapshot,
+  getTextMemo,
+  updateTextMemo,
+  getVideoInfo,
+  freshVideoAccessTime,
+  getNoteList,
+};

@@ -22,4 +22,5 @@ export const apiRoutes = {
   getVideoSpaceList: '/api/video-space',
   getIndividualVideo: '/api/individual-videos/{individual-video-id}',
   freshVideoAccessTime: '/api/individual-videos/{individual-video-id}/accessed',
+  getNoteList: '/api/individual-videos/{individual-video-id}/text-memo-state-history',
 };
