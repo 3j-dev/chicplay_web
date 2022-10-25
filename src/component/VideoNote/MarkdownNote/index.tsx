@@ -31,14 +31,6 @@ const MarkdownNote: React.FC<MarkdownNoteProps> = ({
   const [model, setModel] = useState<string>('');
   const editorInstance = useRef<FroalaEditor>(null);
 
-  const handleModelChange = (modelData: string) => {
-    setModel(modelData);
-    const requestData = {
-      stateJson: model,
-      videoTime: '1',
-    };
-    updateTextMemo(individualVideoId, JSON.stringify(requestData));
-  };
   useLayoutEffect(() => {
     getTextMemo(individualVideoId).then((res) => setModel(res.data.stateJson));
   }, [individualVideoId]);
@@ -47,6 +39,15 @@ const MarkdownNote: React.FC<MarkdownNoteProps> = ({
     if (snapShotURL.length > 0)
       editorInstance.current?.editor.image.insert(snapShotURL, null, null, null);
   }, [snapShotURL]);
+
+  const handleModelChange = (modelData: string) => {
+    setModel(modelData);
+    const requestData = {
+      stateJson: model,
+      videoTime: '1',
+    };
+    updateTextMemo(individualVideoId, JSON.stringify(requestData));
+  };
 
   Froala.DefineIcon('videoSnapshot', { SVG_KEY: 'add' });
   Froala.RegisterCommand('videoSnapshot', {
