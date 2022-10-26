@@ -10,10 +10,18 @@ export interface SpaceUserT {
   picture: string;
 }
 
-export interface LectureSpaceT {
+export interface SpaceSimpleT {
   id: number;
   name: string;
   description: string;
+}
+
+export interface LectureSpaceT extends SpaceSimpleT {
   videos: SpaceVideoT[];
   users: SpaceUserT[];
+}
+
+export interface UserPlusT {
+  id: number;
+  userEmail: string;
 }
