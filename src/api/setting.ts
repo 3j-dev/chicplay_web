@@ -1,24 +1,19 @@
+import { LectureSpaceT, SpaceSimpleT, UserPlusT } from '@/interfaces/setting';
 import { axiosInstance } from './instance';
 import { apiRoutes } from './routes';
 
-export const plusUserInVideoSpace = async (videoSpaceId: number, userEmail: string) => {
-  const data = await axiosInstance.post(
+export const plusUserInVideoSpace = async (videoSpaceId: number, userEmail: string) =>
+  axiosInstance.post<UserPlusT>(
     apiRoutes.plusUserInVideoSpace
       .replace('{video-space-id}', `${videoSpaceId}`)
       .replace('{user-email}', userEmail),
   );
-  return data;
-};
 
-export const plusVideoSpace = async (name: string, description: string) => {
-  const data = await axiosInstance.post(apiRoutes.createVideoSpace, {
+export const plusVideoSpace = (name: string, description: string) =>
+  axiosInstance.post<SpaceSimpleT>(apiRoutes.createVideoSpace, {
     name: name,
     description: description,
   });
-  return data;
-};
 
-export const getHostedVideoList = async () => {
-  const data = await axiosInstance.get(apiRoutes.getHostVideoSpaceList);
-  return data;
-};
+export const getHostedVideoList = () =>
+  axiosInstance.get<LectureSpaceT[]>(apiRoutes.getHostVideoSpaceList);
