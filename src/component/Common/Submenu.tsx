@@ -8,14 +8,16 @@ import { Typography } from '@/styles/style';
 import { PropsWithChildren, ReactNode, useState } from 'react';
 
 interface AtomProps {
-  atomState: string;
-  changeMenuState?: React.Dispatch<React.SetStateAction<string>>;
+  atomState: number;
+  changeMenuState?: React.Dispatch<React.SetStateAction<number>>;
+  text: string;
   isNowSubMenu: boolean;
 }
 
 const SubmenuAtom: React.FC<AtomProps> = ({
   atomState,
   changeMenuState,
+  text,
   isNowSubMenu,
 }: AtomProps) => {
   return (
@@ -23,22 +25,24 @@ const SubmenuAtom: React.FC<AtomProps> = ({
       onClick={() => changeMenuState !== undefined && changeMenuState(atomState)}
       isNowMenu={isNowSubMenu}
     >
-      <SubmenuText>{atomState}</SubmenuText>
+      <SubmenuText>{text}</SubmenuText>
       {isNowSubMenu && <SubmenuVector src={submenuVectorImageSrc} />}
     </SubmenuAtomContainer>
   );
 };
 
 interface SubmenuProps {
-  allMenuState: string[] | null;
-  nowMenuState: string | null;
-  changeMenuState?: React.Dispatch<React.SetStateAction<string>>;
+  allMenuState: number[];
+  nowMenuState: number;
+  allMenuName: string[];
+  changeMenuState?: React.Dispatch<React.SetStateAction<number>>;
   isPlusMethodExist: boolean;
   plusMethodComponent?: ReactNode;
 }
 
 const Submenu: React.FC<SubmenuProps> = ({
   allMenuState,
+  allMenuName,
   nowMenuState,
   changeMenuState,
   isPlusMethodExist,
@@ -54,6 +58,7 @@ const Submenu: React.FC<SubmenuProps> = ({
             atomState={cur}
             changeMenuState={changeMenuState}
             isNowSubMenu={cur === nowMenuState}
+            text={allMenuName[idx]}
             key={idx}
           />
         ))}
@@ -103,13 +108,15 @@ const SubmenuContainer = styled.div`
 
 const SubmenuGroup = styled.div`
   width: 100%;
-  height: 60%;
+  height: 75%;
+  overflow-x: hidden;
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
   gap: 3%;
   justify-content: flex-start;
   align-items: flex-end;
-  margin-top: -180%;
+  margin-top: -60%;
 `;
 
 const SubmenuAtomContainer = styled.a<{ isNowMenu: boolean }>`
@@ -117,6 +124,8 @@ const SubmenuAtomContainer = styled.a<{ isNowMenu: boolean }>`
   width: 80%;
   position: relative;
   display: flex;
+  flex-shrink: 0;
+  flex-grow: 0;
   justify-content: center;
   align-items: center;
   color: ${({ isNowMenu }) => (isNowMenu ? Colors.Blue4 : Colors.Black)};

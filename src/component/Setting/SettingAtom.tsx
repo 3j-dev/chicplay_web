@@ -97,8 +97,8 @@ const SettingUserAdd: React.FC<UserAddProps> = ({ videoSpaceId }: UserAddProps) 
   const [userEmail, setUserEmail] = useState<string>('');
   const submitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const data = await plusUserInVideoSpace(videoSpaceId, userEmail);
-    if (data.videoSpaceId === videoSpaceId && data.userEmail === userEmail) {
+    const { data } = await plusUserInVideoSpace(videoSpaceId, userEmail);
+    if (data.id === videoSpaceId && data.userEmail === userEmail) {
       setUserEmail('');
       pushNotification('사용자 추가 성공!', 'success');
     } else pushNotification('사용자 추가 실패', 'error');

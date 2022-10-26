@@ -12,8 +12,8 @@ const SettingModal: React.FC = () => {
   const submitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (spaceName.length < 1 || spaceDescription.length < 1) return;
-    const { name, description } = await plusVideoSpace(spaceName, spaceDescription);
-    if (name === spaceName && description === spaceDescription) {
+    const { data } = await plusVideoSpace(spaceName, spaceDescription);
+    if (data.name === spaceName && data.description === spaceDescription) {
       pushNotification('Space 생성 성공!', 'success');
       setSpaceName('');
       setSpaceDescription('');
