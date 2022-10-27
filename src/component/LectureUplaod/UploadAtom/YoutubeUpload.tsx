@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 interface NowSpaceT {
-  spaceId: string;
+  spaceId: number;
 }
 
 const YoutubeUpload: React.FC<NowSpaceT> = ({ spaceId }: NowSpaceT) => {

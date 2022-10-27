@@ -7,13 +7,8 @@ import { Typography } from '@/styles/style';
 import { uploadVideoFile } from '@/api/upload';
 import { pushNotification } from '@/util/notification';
 
-interface FileT {
-  id: number;
-  object: File;
-}
-
 interface NowSpaceT {
-  spaceId: string;
+  spaceId: number;
 }
 
 const FileUpload: React.FC<NowSpaceT> = ({ spaceId }: NowSpaceT) => {
@@ -46,7 +41,9 @@ const FileUpload: React.FC<NowSpaceT> = ({ spaceId }: NowSpaceT) => {
       console.log(files);
       if (!files || !files[0]) return;
       setIsUploading(true);
-      const { id } = await uploadVideoFile(spaceId, files[0]);
+      const { data } = await uploadVideoFile(spaceId, files[0]);
+      if (data.id) pushNotification('업로드 성공!', 'success');
+      else pushNotification('업로드 실패', 'error');
       setIsUploading(false);
     },
     [spaceId],
