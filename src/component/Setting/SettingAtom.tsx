@@ -10,6 +10,7 @@ import { Colors } from '@/util/Constant';
 import { Typography } from '@/styles/style';
 import { deleteVideoSpace, plusUserInVideoSpace } from '@/api/setting';
 import { pushNotification } from '@/util/notification';
+import { minimizeString } from '@/util/minimizeString';
 
 type SettingAtomType = 'VideoList' | 'UserList' | 'UserAdd';
 
@@ -29,10 +30,10 @@ const VideoListAtom: React.FC<SpaceVideoT> = ({ id, title, description }: SpaceV
   return (
     <ListAtomContainer>
       <ListAtomMain onClick={() => setIsClicked((state) => !state)}>
-        <p>{title}</p>
+        <p>{minimizeString(title, 40)}</p>
       </ListAtomMain>
       <ListAtomDetail show={isClicked}>
-        <p>{description}</p>
+        <p>{minimizeString(description, 80)}</p>
       </ListAtomDetail>
     </ListAtomContainer>
   );
