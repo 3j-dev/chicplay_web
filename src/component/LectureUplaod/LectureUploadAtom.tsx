@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { HiOutlineChevronLeft } from 'react-icons/hi';
 
 import { LectureSpaceT } from '@/interfaces/setting';
-import { tempData } from './data';
 import { Colors } from '@/util/Constant';
 import { Typography } from '@/styles/style';
 import { UPLOAD } from './constant';
@@ -13,17 +12,19 @@ import folderImgSrc from '@/assets/images/folder.png';
 import FileUpload from './UploadAtom/FileUpload';
 import WebexUpload from './UploadAtom/WebexUpload';
 import YoutubeUpload from './UploadAtom/YoutubeUpload';
+import { getHostedVideoList } from '@/api/setting';
 
 interface VideoSpaceProps {
-  setSelectedSpaceId: React.Dispatch<React.SetStateAction<string>>;
-  selectedSpaceId?: string;
+  setSelectedSpaceId: React.Dispatch<React.SetStateAction<number>>;
+  selectedSpaceId?: number;
 }
 
 const VideoSpace: React.FC<VideoSpaceProps> = ({ setSelectedSpaceId }: VideoSpaceProps) => {
-  const [videoSpaceData, setVideoSpaceData] = useState<LectureSpaceT[]>(tempData);
+  const [videoSpaceData, setVideoSpaceData] = useState<LectureSpaceT[]>([]);
   useLayoutEffect(() => {
-    //api call and setVideoSpaceData
-  });
+    getHostedVideoList().then((res) => setVideoSpaceData(res.data));
+  }, []);
+
   return (
     <LectureAtomContainer>
       <h2>Space</h2>
@@ -31,7 +32,7 @@ const VideoSpace: React.FC<VideoSpaceProps> = ({ setSelectedSpaceId }: VideoSpac
         <h2>Find your space</h2>
         <LectureSpaceGroup>
           {videoSpaceData.map((videoSpace, idx) => (
-            <LectureSpaceAtom key={idx} onClick={() => setSelectedSpaceId(`${videoSpace.id}`)}>
+            <LectureSpaceAtom key={idx} onClick={() => setSelectedSpaceId(videoSpace.id)}>
               <LectureSpaceTextGroup width={40}>
                 <h4>{videoSpace.name}</h4>
                 {videoSpace.description}
@@ -47,7 +48,7 @@ const VideoSpace: React.FC<VideoSpaceProps> = ({ setSelectedSpaceId }: VideoSpac
                 {`User 수 : ${videoSpace.users.length} 명`}
               </LectureSpaceTextGroup>
               <LectureSpaceTextGroup width={10}>
-                {`Video 수 : ${videoSpace.videos.length} 명`}
+                {`Video 수 : ${videoSpace.videos.length} 개`}
               </LectureSpaceTextGroup>
             </LectureSpaceAtom>
           ))}
@@ -133,14 +134,14 @@ const VideoUpload: React.FC<VideoSpaceProps> = ({
           </UploadIconContainer>
         </LectureFlexStart>
         <LectureUploadSection>
-          {getUploadContainer(uploadWay, selectedSpaceId as string)}
+          {getUploadContainer(uploadWay, selectedSpaceId || 0)}
         </LectureUploadSection>
       </LectureSpaceGroupContainer>
     </LectureAtomContainer>
   );
 };
 
-const getUploadContainer = (uploadWay: number, selectedSpaceId: string) => {
+const getUploadContainer = (uploadWay: number, selectedSpaceId: number) => {
   switch (uploadWay) {
     case UPLOAD.File:
       return <FileUpload spaceId={selectedSpaceId} />;
