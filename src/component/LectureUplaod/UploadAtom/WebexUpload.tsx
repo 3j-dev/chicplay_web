@@ -7,23 +7,23 @@ import { WebexRecordingT } from '@/interfaces/upload';
 import { getWebexRecordingList, postWebexRecording } from '@/api/upload';
 import { Colors } from '@/util/Constant';
 import { Typography } from '@/styles/style';
+import { pushNotification } from '@/util/notification';
 
 interface NowSpaceT {
-  spaceId: string;
+  spaceId: number;
 }
 
 const WebexUpload: React.FC<NowSpaceT> = ({ spaceId }: NowSpaceT) => {
-  const [recordingList, setRecordingList] = useState<WebexRecordingT[] | null>([]);
+  const [recordingList, setRecordingList] = useState<WebexRecordingT[]>([]);
 
   useLayoutEffect(() => {
-    const data = getWebexRecordingList();
-    console.log(data);
-    if (data.code !== undefined) setRecordingList(data);
-    else setRecordingList(null);
+    getWebexRecordingList()
+      .then((res) => setRecordingList(res.data))
+      .catch(() => pushNotification('리스트를 받아오는데 실패했습니다', 'error'));
   }, []);
   return (
     <UploadContainer>
-      {recordingList && recordingList?.length > 0 && (
+      {recordingList?.length > 0 ? (
         <WebexRecordingAtomGroup>
           {recordingList !== null &&
             recordingList.length > 0 &&
@@ -40,14 +40,15 @@ const WebexUpload: React.FC<NowSpaceT> = ({ spaceId }: NowSpaceT) => {
               );
             })}
         </WebexRecordingAtomGroup>
+      ) : (
+        <WebexLoginButton />
       )}
-      {recordingList === null && <WebexLoginButton />}
     </UploadContainer>
   );
 };
 
 interface WebexRecordingAtomProps extends WebexRecordingT {
-  spaceId: string;
+  spaceId: number;
 }
 
 const WebexRecordingAtom: React.FC<WebexRecordingAtomProps> = ({

@@ -4,10 +4,10 @@ import styled from 'styled-components';
 import { VideoSpace, VideoUpload } from './LectureUploadAtom';
 
 const LectureUpload: React.FC = () => {
-  const [selectedSpaceId, setSelectedSpaceId] = useState<string>('');
+  const [selectedSpaceId, setSelectedSpaceId] = useState<number>(-1);
   return (
     <LectureUplaodContainer>
-      {selectedSpaceId.length > 0 ? (
+      {selectedSpaceId > 0 ? (
         <VideoUpload setSelectedSpaceId={setSelectedSpaceId} selectedSpaceId={selectedSpaceId} />
       ) : (
         <VideoSpace setSelectedSpaceId={setSelectedSpaceId} />
