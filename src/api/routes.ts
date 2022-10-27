@@ -4,6 +4,7 @@ export const apiRoutes = {
   getVideoInfo: '/api/individual-videos/{individual-video-id}',
 
   createVideoSpace: '/api/video-space',
+  deleteVideoSpace: '/api/video-space/{video-space-id}',
   plusUserInVideoSpace: '/api/video-space/{video-space-id}/{user-email}',
   getHostVideoSpaceList: '/api/video-space/hosted',
 

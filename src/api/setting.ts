@@ -17,3 +17,6 @@ export const plusVideoSpace = (name: string, description: string) =>
 
 export const getHostedVideoList = () =>
   axiosInstance.get<LectureSpaceT[]>(apiRoutes.getHostVideoSpaceList);
+
+export const deleteVideoSpace = (videoSpaceId: number) =>
+  axiosInstance.delete(apiRoutes.deleteVideoSpace.replace('{video-space-id}', `${videoSpaceId}`));

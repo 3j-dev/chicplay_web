@@ -5,9 +5,10 @@ import { SpaceVideoT, SpaceUserT } from '@/interfaces/setting';
 import videoListImgSrc from '@/assets/icon/setting_video.png';
 import userAddImgSrc from '@/assets/icon/setting_useradd.png';
 import userListImgSrc from '@/assets/icon/setting_userlist.png';
+import deleteImgSrc from '@/assets/icon/setting_delete.png';
 import { Colors } from '@/util/Constant';
 import { Typography } from '@/styles/style';
-import { plusUserInVideoSpace } from '@/api/setting';
+import { deleteVideoSpace, plusUserInVideoSpace } from '@/api/setting';
 import { pushNotification } from '@/util/notification';
 
 type SettingAtomType = 'VideoList' | 'UserList' | 'UserAdd';
@@ -95,6 +96,7 @@ const SettingUserList: React.FC<UserListProps> = ({ userList }: UserListProps) =
 
 const SettingUserAdd: React.FC<UserAddProps> = ({ videoSpaceId }: UserAddProps) => {
   const [userEmail, setUserEmail] = useState<string>('');
+
   const submitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const { data } = await plusUserInVideoSpace(videoSpaceId, userEmail);
@@ -103,6 +105,14 @@ const SettingUserAdd: React.FC<UserAddProps> = ({ videoSpaceId }: UserAddProps) 
       pushNotification('사용자 추가 성공!', 'success');
     } else pushNotification('사용자 추가 실패', 'error');
   };
+  const deleteHandler = async () => {
+    try {
+      deleteVideoSpace(videoSpaceId).then(() => pushNotification('스페이스 삭제 완료!', 'success'));
+    } catch {
+      pushNotification('스페이스 삭제 실패 관리자에게 문의하세요', 'error');
+    }
+  };
+
   return (
     <SettingAtomContainer>
       <IconContainer type="UserAdd">
@@ -120,9 +130,20 @@ const SettingUserAdd: React.FC<UserAddProps> = ({ videoSpaceId }: UserAddProps) 
           />
         </form>
       </AtomDataContainer>
+      <TrashIcon src={deleteImgSrc} onClick={() => deleteHandler()} />
     </SettingAtomContainer>
   );
 };
+
+const TrashIcon = styled.img`
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin-right: -5%;
+  margin-bottom: -5%;
+`;
 
 const getBackgroundColor = (type: SettingAtomType): string => {
   switch (type) {
@@ -138,6 +159,7 @@ const getBackgroundColor = (type: SettingAtomType): string => {
 };
 
 const SettingAtomContainer = styled.div`
+  position: relative;
   width: 100%;
   height: 90%;
   display: flex;
