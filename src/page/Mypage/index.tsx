@@ -25,8 +25,9 @@ const Mypage: React.FC = () => {
   return (
     <Layout>
       <Submenu
-        allMenuState={dashBoardData}
-        nowMenuState={dashBoardData[0]}
+        allMenuState={[0]}
+        nowMenuState={0}
+        allMenuName={dashBoardData}
         isPlusMethodExist={false}
       />
       <Content
