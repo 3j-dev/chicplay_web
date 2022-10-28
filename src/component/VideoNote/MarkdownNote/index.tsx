@@ -46,7 +46,7 @@ const MarkdownNote: React.FC<MarkdownNoteProps> = ({
       stateJson: model,
       videoTime: '1',
     };
-    updateTextMemo(individualVideoId, JSON.stringify(requestData));
+    updateTextMemo(individualVideoId, requestData);
   };
 
   Froala.DefineIcon('videoSnapshot', { SVG_KEY: 'add' });

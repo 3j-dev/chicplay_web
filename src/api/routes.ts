@@ -8,8 +8,8 @@ export const apiRoutes = {
   plusUserInVideoSpace: '/api/video-space/{video-space-id}/{user-email}',
   getHostVideoSpaceList: '/api/video-space/hosted',
 
-  updateTextMemo: '/api/videos/{individual-video-id}/cache/text-memo-states',
-  getTextMemo: '/api/{individual-video-id}/cache/text-memo-state-latest',
+  updateTextMemo: '/api/individual-videos/{individual-video-id}/cache/text-memo-state',
+  getTextMemo: '/api/individual-videos/{individual-video-id}/cache/text-memo-state-latest',
 
   refreshToken: '/api/auth/token',
   logout: '/api/auth/logout',
