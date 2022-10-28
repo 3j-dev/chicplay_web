@@ -4,18 +4,23 @@ import { Layout } from './style';
 import { SpaceList, SpaceSubmenu } from '@/component/LectureSpace';
 import { getVideoList } from '@/api/space';
 import { LectureStreamSpaceT } from '@/interfaces/space';
-import { data } from './data';
+import { pushNotification } from '@/util/notification';
 
 const LectureSpace: React.FC = () => {
-  const [lectureList, setLectureList] = useState<LectureStreamSpaceT[]>(data);
+  const [lectureList, setLectureList] = useState<LectureStreamSpaceT[]>([]);
   const [lectureSpaceId, setLectureSpaceId] = useState<number>(1);
-  const [nowSpaceInfo, setNowSpaceInfo] = useState<LectureStreamSpaceT>(data[0]);
+  const [nowSpaceInfo, setNowSpaceInfo] = useState<LectureStreamSpaceT | null>(null);
 
-  // useLayoutEffect(() => {
-  //   const data = getVideoList();
-  //   if (data.code !== undefined) setLectureList(data);
-  //   setLectureSpaceId(lectureList[0].id);
-  // }, []);
+  useLayoutEffect(() => {
+    getVideoList()
+      .then((res) => {
+        setLectureList(res.data);
+        setNowSpaceInfo(res.data[0]);
+        setLectureSpaceId(res.data[0].id);
+      })
+      .catch(() => pushNotification('서버 통신에 오류가 발생했습니다', 'error'));
+  }, []);
+
   useEffect(() => {
     const nowSpaceList = lectureList.filter((lecture) => lecture.id === lectureSpaceId && lecture);
     setNowSpaceInfo(nowSpaceList[0]);
@@ -23,12 +28,16 @@ const LectureSpace: React.FC = () => {
 
   return (
     <Layout>
-      <SpaceList {...(nowSpaceInfo || [])} />
-      <SpaceSubmenu
-        nowSpaceId={lectureSpaceId}
-        setSpaceId={setLectureSpaceId}
-        spaceList={lectureList}
-      />
+      {lectureList.length > 1 && nowSpaceInfo !== null && (
+        <>
+          <SpaceList {...(nowSpaceInfo || [])} />
+          <SpaceSubmenu
+            nowSpaceId={lectureSpaceId}
+            setSpaceId={setLectureSpaceId}
+            spaceList={lectureList}
+          />
+        </>
+      )}
     </Layout>
   );
 };
