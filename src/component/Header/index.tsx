@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useRecoilValue } from 'recoil';
 import { NavigateFunction, useNavigate } from 'react-router-dom';
 
@@ -17,6 +17,7 @@ import LogoSrc from '@/assets/images/logo_with_text.png';
 import Login from '@/component/Login';
 import { LoginState } from '@/store/State/LoginState';
 import { LOGIN_SELECT, NAV_ROUTER, RouterT } from './constant';
+import { refreshToken } from '@/api/user';
 
 interface NavRouterT extends RouterT {
   navigate: NavigateFunction;
@@ -30,6 +31,10 @@ const Header: React.FC = () => {
   const [loginModalOpen, setIsLoginModalOpen] = useState(false);
   const navigate = useNavigate();
   const loginState = useRecoilValue(LoginState);
+
+  useEffect(() => {
+    //header에서 token validate를 매 생성시 체크 이를 통해서 매 새로고침 시에 헤더가 나오면서 로그인 처리를 진행
+  }, []);
 
   return (
     <HeaderContainer>
