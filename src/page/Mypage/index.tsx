@@ -14,12 +14,15 @@ import {
   MyAuthAccount,
   MyVideoList,
 } from '@/component/Mypage/MypageAtom';
+import { pushNotification } from '@/util/notification';
 
 const Mypage: React.FC = () => {
   const [myData, setMyData] = useState<MyDataT>(myTempData);
 
   useLayoutEffect(() => {
-    //get and setMyData
+    getMyPageDashBoard()
+      .then((res) => setMyData(res.data))
+      .catch(() => pushNotification('서버와의 통신에 에러가 있습니다', 'error'));
   }, []);
 
   return (
