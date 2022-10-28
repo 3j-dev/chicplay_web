@@ -11,9 +11,13 @@ const instance = axios.create({
   baseURL: baseURL,
   headers: {
     'Access-Control-Allow-Origin': '*',
-    Authorization: authHeader(),
     withCredentials: true,
   },
+});
+
+instance.interceptors.request.use((config) => {
+  if (config && config.headers) config.headers.authorization = `${authHeader()}`;
+  return config;
 });
 
 instance.interceptors.response.use(
@@ -21,9 +25,13 @@ instance.interceptors.response.use(
     return res;
   },
   async (error: AxiosError) => {
-    if (error.response && error.response.status === 401) {
+    if (
+      error.response &&
+      error.response.status === 401 &&
+      error.response.message === 'Access Token is Expired.'
+    ) {
       try {
-        const data = await refreshToken();
+        const { data } = await refreshToken();
         if (data.accessToken !== undefined) setAccessToken(data.accessToken);
         else return;
       } catch (e: any) {
