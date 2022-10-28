@@ -105,8 +105,10 @@ const SpaceLectureAtom: React.FC<LectureVideoT> = ({
 
   return (
     <SpaceLectureAtomContainer onClick={onClickHandler}>
-      <h1>{title}</h1>
-      {description}
+      <SpaceLectureText width={50}>
+        <h1>{title}</h1>
+      </SpaceLectureText>
+      <SpaceLectureText width={30}>{description}</SpaceLectureText>
     </SpaceLectureAtomContainer>
   );
 };
@@ -118,9 +120,17 @@ const SpaceLectureAtomContainer = styled.div`
   justify-content: center;
   align-items: center;
   border-radius: 8px;
-  gap: 70%;
+  gap: 30%;
   background: ${Colors.White};
   cursor: pointer;
+`;
+
+const SpaceLectureText = styled.div<{ width: number }>`
+  width: ${({ width }) => `${width}%`};
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 export default SpaceList;
