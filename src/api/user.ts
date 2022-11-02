@@ -3,7 +3,7 @@ import { apiRoutes } from './routes';
 
 type TokenT = { accessToken: string };
 
-const refreshToken = () => axiosInstance.get<TokenT>(apiRoutes.refreshToken);
+const refreshToken = () => axiosInstance.post<TokenT>(apiRoutes.refreshToken);
 
 const logout = () => axiosInstance.post(apiRoutes.logout);
 
