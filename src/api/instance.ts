@@ -2,8 +2,6 @@ import axios, { AxiosError, AxiosResponse } from 'axios';
 
 import { authHeader } from '@/util/auth';
 import { pushNotification } from '@/util/notification';
-import { refreshToken } from './user';
-import { setAccessToken } from '@/util/auth';
 
 const baseURL: string = 'https://api.dev.edu-vivid.com';
 
@@ -25,20 +23,7 @@ instance.interceptors.response.use(
     return res;
   },
   async (error: AxiosError) => {
-    if (
-      error.response &&
-      error.response.status === 401 &&
-      error.response.message === 'Access Token is Expired.'
-    ) {
-      try {
-        const { data } = await refreshToken();
-        if (data.accessToken !== undefined) setAccessToken(data.accessToken);
-        else return;
-      } catch (e: any) {
-        console.log('error : ', e.response);
-      }
-      return Promise.reject(error);
-    } else if (error.response && error.response.status === 500) {
+    if (error.response && error.response.status === 500) {
       pushNotification('현재 서버에 문제가 발생하였습니다. 추후 다시 시도해주십시오', 'error');
     } else if (error.response && error.response.data.code === 'A03') {
       pushNotification('해당 유저를 찾을 수 없습니다.', 'error');
