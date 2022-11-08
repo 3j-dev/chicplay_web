@@ -44,7 +44,7 @@ const MarkdownNote: React.FC<MarkdownNoteProps> = ({
     setModel(modelData);
     const requestData = {
       stateJson: model,
-      videoTime: '1',
+      videoTime: '05:12:12',
     };
     updateTextMemo(individualVideoId, requestData);
   };
