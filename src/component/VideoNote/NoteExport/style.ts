@@ -3,7 +3,7 @@ import { Colors } from '@/util/Constant';
 import styled from 'styled-components';
 
 export const NoteExportContainer = styled.div`
-  width: 43%;
+  width: 47%;
   height: 4.5%;
   position: absolute;
   bottom: 0;
