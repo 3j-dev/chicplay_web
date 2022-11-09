@@ -37,6 +37,11 @@ const updateTextMemo = async (individualVideoId: string, memoData: object) => {
   );
 };
 
+const reflectTextMemoInDB = async (individualVideoId: string) =>
+  axiosInstance.post(
+    apiRoutes.reflectTextMemoInDB.replace('{individual-video-id}', individualVideoId),
+  );
+
 const freshVideoAccessTime = async (individualVideoId: string) =>
   axiosInstance.put(
     apiRoutes.freshVideoAccessTime.replace('{individual-video-id}', individualVideoId),
@@ -49,6 +54,7 @@ export {
   postSnapshot,
   getTextMemo,
   updateTextMemo,
+  reflectTextMemoInDB,
   getVideoInfo,
   freshVideoAccessTime,
   getNoteList,
