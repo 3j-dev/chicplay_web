@@ -1,7 +1,4 @@
-import axios from 'axios';
-
-import { FROALA_TEXT_BUTTONS, FROALA_RICH_BUTTONS, FROALA_PLUGINS } from '@/util/Constant';
-import { postSnapshot } from '@/api/stream';
+import { FROALA_BUTTONS, FROALA_PLUGINS } from '@/util/Constant';
 
 export const config = {
   key: process.env.FROALA_LICENSE_KEY,
@@ -9,33 +6,12 @@ export const config = {
   imageDefaultAlign: 'left',
   imageDefaultDisplay: 'inline-block',
   imageAllowedTypes: ['jpeg', 'jpg', 'png'],
-  events: {
-    'image.beforeUpload': async (images: File[]) => {
-      const formData = new FormData();
-      formData.append('multipartFile', images[0]);
-
-      const data = await postSnapshot('1', formData);
-      editorInstance.current?.editor.image.insert(
-        data.filePath,
-        null,
-        null,
-        editorInstance.current?.editor.image.get(),
-      );
-
-      return false;
-    },
-  },
   attribution: false,
   placeholder: '<h1>제목</h1><h4>내용을 입력해주세요.</h4>',
   toolbarButtons: {
     moreText: {
-      buttons: FROALA_TEXT_BUTTONS,
-      buttonsVisible: 8,
-      align: 'center',
-    },
-    moreRich: {
-      buttons: FROALA_RICH_BUTTONS,
-      buttonsVisible: 7,
+      buttons: FROALA_BUTTONS,
+      buttonsVisible: 17,
       align: 'center',
     },
   },

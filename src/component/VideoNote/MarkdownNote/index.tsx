@@ -9,7 +9,8 @@ import 'froala-editor/css/froala_style.min.css';
 import 'froala-editor/css/froala_editor.pkgd.min.css';
 import 'froala-editor/js/plugins.pkgd.min.js';
 import 'froala-editor/js/languages/ko.js';
-import { getTextMemo, updateTextMemo } from '@/api/stream';
+import { getTextMemo, reflectTextMemoInDB, updateTextMemo } from '@/api/stream';
+import useInterval from '@/hook/useInterval';
 
 interface MarkdownNoteProps {
   setSnapShotClicked: React.Dispatch<React.SetStateAction<boolean>>;
@@ -36,6 +37,16 @@ const MarkdownNote: React.FC<MarkdownNoteProps> = ({
   }, [individualVideoId]);
 
   useEffect(() => {
+    return () => {
+      reflectTextMemoInDB(individualVideoId);
+    };
+  }, [individualVideoId]);
+
+  useInterval(() => {
+    reflectTextMemoInDB(individualVideoId);
+  }, 300000);
+
+  useEffect(() => {
     if (snapShotURL.length > 0)
       editorInstance.current?.editor.image.insert(snapShotURL, null, null, null);
   }, [snapShotURL]);
@@ -44,7 +55,7 @@ const MarkdownNote: React.FC<MarkdownNoteProps> = ({
     setModel(modelData);
     const requestData = {
       stateJson: model,
-      videoTime: '1',
+      videoTime: '05:12:12',
     };
     updateTextMemo(individualVideoId, requestData);
   };
