@@ -90,6 +90,9 @@ const GlobalStyle = createGlobalStyle`
         .fr-toolbar .fr-btn-grp {
             margin: 0 8px 0 10px; !important
         }
+        .fr-second-toolbar{
+            background: transparent; !important
+        }
         .fr-wrapper > .fr-element {
             max-height: 73vh !important;
             overflow-y: auto;
