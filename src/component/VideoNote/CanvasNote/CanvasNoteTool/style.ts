@@ -6,10 +6,10 @@ export const CanvasNoteToolContainer = styled.div<{ isTransparent: boolean }>`
   width: 100%;
   height: auto;
   @media (min-width: 1384px) {
-    height: 6%;
+    height: 3%;
   }
   @media (max-width: 1384px) {
-    height: 11%;
+    height: 6%;
   }
   background-color: ${({ isTransparent }) => (isTransparent ? Colors.Transparent : Colors.Gray0)};
   display: flex;
@@ -24,9 +24,9 @@ export const CanvasNoteTools = styled.div`
   width: 100%;
   height: auto;
   overflow: hidden;
-  margin: 0 17px 0 12px;
+  margin: 0 10px 0 12px;
   svg {
-    margin: 7px 6px;
+    margin: 7px 4px;
     transition: all ease 0.5s;
   }
 `;
