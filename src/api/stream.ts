@@ -37,10 +37,17 @@ const updateTextMemo = async (individualVideoId: string, memoData: object) => {
   );
 };
 
-const reflectTextMemoInDB = async (individualVideoId: string) =>
-  axiosInstance.post(
+const reflectTextMemoInDB = async (individualVideoId: string, memoData: object) => {
+  const blob = new Blob([JSON.stringify(memoData)], { type: 'application/json' });
+
+  return axiosInstance.post(
     apiRoutes.reflectTextMemoInDB.replace('{individual-video-id}', individualVideoId),
+    blob,
+    {
+      headers: { 'Content-Type': 'application/json' },
+    },
   );
+};
 
 const freshVideoAccessTime = async (individualVideoId: string) =>
   axiosInstance.put(

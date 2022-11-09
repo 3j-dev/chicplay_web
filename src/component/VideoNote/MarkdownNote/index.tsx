@@ -38,12 +38,20 @@ const MarkdownNote: React.FC<MarkdownNoteProps> = ({
 
   useEffect(() => {
     return () => {
-      reflectTextMemoInDB(individualVideoId);
+      const requestData = {
+        stateJson: model,
+        videoTime: '05:12:12',
+      };
+      reflectTextMemoInDB(individualVideoId, requestData);
     };
-  }, [individualVideoId]);
+  }, [individualVideoId, model]);
 
   useInterval(() => {
-    reflectTextMemoInDB(individualVideoId);
+    const requestData = {
+      stateJson: model,
+      videoTime: '05:12:12',
+    };
+    reflectTextMemoInDB(individualVideoId, requestData);
   }, 300000);
 
   useEffect(() => {
