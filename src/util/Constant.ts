@@ -1,4 +1,4 @@
-export const FROALA_TEXT_BUTTONS = [
+export const FROALA_BUTTONS = [
   'bold',
   'italic',
   'underline',
@@ -7,9 +7,6 @@ export const FROALA_TEXT_BUTTONS = [
   'textColor',
   'backgroundColor',
   'clearFormatting',
-];
-
-export const FROALA_RICH_BUTTONS = [
   'alignLeft',
   'alignCenter',
   'alignRight',
@@ -26,16 +23,6 @@ export const FROALA_RICH_BUTTONS = [
   'embedly',
   'insertFile',
   'insertHR',
-];
-
-export const FROALA_PARAGRAPH_BUTTONS = [
-  'alignLeft',
-  'alignCenter',
-  'alignRight',
-  'formatOLSimple',
-  'paragraphFormat',
-  'indent',
-  'quote',
 ];
 
 export const FROALA_PLUGINS = [

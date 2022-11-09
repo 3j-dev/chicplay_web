@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { FROALA_TEXT_BUTTONS, FROALA_RICH_BUTTONS, FROALA_PLUGINS } from '@/util/Constant';
+import { FROALA_BUTTONS, FROALA_PLUGINS } from '@/util/Constant';
 import { postSnapshot } from '@/api/stream';
 
 export const config = {
@@ -29,13 +29,8 @@ export const config = {
   placeholder: '<h1>제목</h1><h4>내용을 입력해주세요.</h4>',
   toolbarButtons: {
     moreText: {
-      buttons: FROALA_TEXT_BUTTONS,
-      buttonsVisible: 8,
-      align: 'center',
-    },
-    moreRich: {
-      buttons: FROALA_RICH_BUTTONS,
-      buttonsVisible: 7,
+      buttons: FROALA_BUTTONS,
+      buttonsVisible: 17,
       align: 'center',
     },
   },
