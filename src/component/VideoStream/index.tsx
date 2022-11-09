@@ -59,11 +59,11 @@ const VideoStream: React.FC<StreamProps> = ({
 
       canvasRef.current?.toBlob(async (blob) => {
         const formData = new FormData();
-        formData.append('multipartFile', blob, 'test.png');
+        formData.append('image', blob, 'test.png');
         if (playerRef && playerRef.current) {
           const { data } = await postSnapshot(
             individualVideoId,
-            playerRef.current.duration,
+            Math.trunc(playerRef.current.currentTime),
             formData,
           );
           setSnapShotURL(data.filePath);
