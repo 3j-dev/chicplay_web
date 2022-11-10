@@ -11,6 +11,7 @@ import 'froala-editor/js/plugins.pkgd.min.js';
 import 'froala-editor/js/languages/ko.js';
 import { getTextMemo, reflectTextMemoInDB, updateTextMemo } from '@/api/stream';
 import useInterval from '@/hook/useInterval';
+import { pushNotification } from '@/util/notification';
 
 interface MarkdownNoteProps {
   setSnapShotClicked: React.Dispatch<React.SetStateAction<boolean>>;
@@ -42,16 +43,20 @@ const MarkdownNote: React.FC<MarkdownNoteProps> = ({
         stateJson: model,
         videoTime: '05:12:12',
       };
-      reflectTextMemoInDB(individualVideoId, requestData);
+      model.length > 0 && reflectTextMemoInDB(individualVideoId, requestData);
     };
-  }, [individualVideoId, model]);
+  }, []);
 
   useInterval(() => {
     const requestData = {
       stateJson: model,
       videoTime: '05:12:12',
     };
-    reflectTextMemoInDB(individualVideoId, requestData);
+    if (model.length > 0) {
+      reflectTextMemoInDB(individualVideoId, requestData).then(() =>
+        pushNotification('자동 저장 완료', 'success'),
+      );
+    }
   }, 300000);
 
   useEffect(() => {
@@ -65,7 +70,7 @@ const MarkdownNote: React.FC<MarkdownNoteProps> = ({
       stateJson: model,
       videoTime: '05:12:12',
     };
-    updateTextMemo(individualVideoId, requestData);
+    model.length > 0 && updateTextMemo(individualVideoId, requestData);
   };
 
   Froala.DefineIcon('videoSnapshot', { SVG_KEY: 'add' });
