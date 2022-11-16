@@ -12,13 +12,14 @@ import {
   NavDetail,
   VerticalLine,
   UserImage,
+  LogoutSection,
 } from './style';
 import LogoSrc from '@/assets/images/logo_with_text.png';
 import Login from '@/component/Login';
 import { LoginState } from '@/store/State/LoginState';
 import { LOGIN_SELECT, NAV_ROUTER, RouterT } from './constant';
-import { refreshToken } from '@/api/user';
-import { setAccessToken } from '@/util/auth';
+import { logout, refreshToken } from '@/api/user';
+import { deleteToken, getAccessToken, getPictureURL, setAccessToken } from '@/util/auth';
 
 interface NavRouterT extends RouterT {
   navigate: NavigateFunction;
@@ -33,6 +34,11 @@ const Header: React.FC = () => {
   const navigate = useNavigate();
   const [loginState, setLoginState] = useRecoilState(LoginState);
 
+  const logoutHandler = () => {
+    deleteToken();
+    logout();
+  };
+
   useEffect(() => {
     //header에서 token validate를 매 생성시 체크 이를 통해서 매 새로고침 시에 헤더가 나오면서 로그인 처리를 진행
     refreshToken()
@@ -42,7 +48,14 @@ const Header: React.FC = () => {
       })
       .catch((err) => {
         console.log(err);
-        setLoginState(false);
+        if (getAccessToken().length > 0) {
+          deleteToken();
+          setLoginState(false);
+          window.location.reload();
+        } else {
+          deleteToken();
+          setLoginState(false);
+        }
       });
   }, [setLoginState]);
 
@@ -63,7 +76,8 @@ const Header: React.FC = () => {
                   />
                 ))}
                 <VerticalLine />
-                <UserImage src="" onClick={() => navigate('/mypage')} />
+                <UserImage src={getPictureURL()} onClick={() => navigate('/mypage')} />
+                <LogoutSection onClick={logoutHandler}></LogoutSection>
               </>
             ) : (
               <>
