@@ -28,7 +28,7 @@ const LectureSpace: React.FC = () => {
 
   return (
     <Layout>
-      {lectureList.length > 1 && nowSpaceInfo !== null && (
+      {lectureList.length > 0 && nowSpaceInfo !== null && (
         <>
           <SpaceList {...(nowSpaceInfo || [])} />
           <SpaceSubmenu
