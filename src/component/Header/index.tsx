@@ -46,7 +46,7 @@ const Header: React.FC = () => {
         setAccessToken(res.data.accessToken);
         setLoginState(true);
       })
-      .catch((err) => {
+      .catch(() => {
         if (getAccessToken().length > 0) {
           deleteToken();
           setLoginState(false);
