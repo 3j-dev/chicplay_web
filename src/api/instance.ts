@@ -31,7 +31,7 @@ instance.interceptors.response.use(
       pushNotification('해당 유저는 이미 space 내에 있습니다.', 'error');
     } else if (error.response && error.response.data.code === 'E01') {
       pushNotification('Webex Login이 필요합니다.', 'error');
-    } else pushNotification('에러가 발생했습니다.', 'error');
+    }
 
     return Promise.reject(error);
   },
