@@ -17,7 +17,7 @@ import LogoSrc from '@/assets/images/logo_with_text.png';
 import Login from '@/component/Login';
 import { LoginState } from '@/store/State/LoginState';
 import { LOGIN_SELECT, NAV_ROUTER, RouterT } from './constant';
-import { logout, refreshToken } from '@/api/user';
+import { refreshToken } from '@/api/user';
 import { deleteToken, getAccessToken, getPictureURL, setAccessToken } from '@/util/auth';
 import UserInfo from './UserInfo';
 
