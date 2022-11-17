@@ -5,7 +5,7 @@ import { useSetRecoilState } from 'recoil';
 import { Layout } from './style';
 import Main from '@/component/Main';
 import Footer from '@/component/Footer';
-import { setAccessToken } from '@/util/auth';
+import { setAccessToken, setName, setPicture } from '@/util/auth';
 import { LoginState } from '@/store/State/LoginState';
 import { postWebexLoginCode } from '@/api/upload';
 
@@ -15,10 +15,14 @@ const MainPage: React.FC = () => {
   const navigate = useNavigate();
   const token = searchParams.get('token');
   const code = searchParams.get('code');
+  const name = searchParams.get('name');
+  const picture = searchParams.get('picture');
 
   useEffect(() => {
     if (token) {
       setAccessToken(token);
+      if (picture) setPicture(picture);
+      if (name) setName(name);
       navigate('');
       setLoginState((prev) => !prev);
     }
@@ -26,7 +30,7 @@ const MainPage: React.FC = () => {
       postWebexLoginCode(code);
       navigate('/upload');
     }
-  }, [token, code, navigate, setLoginState]);
+  }, [token, code, picture, name, navigate, setLoginState]);
 
   return (
     <Layout>

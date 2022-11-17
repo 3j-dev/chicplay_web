@@ -12,13 +12,15 @@ import {
   NavDetail,
   VerticalLine,
   UserImage,
+  UserProfileContainer,
 } from './style';
 import LogoSrc from '@/assets/images/logo_with_text.png';
 import Login from '@/component/Login';
 import { LoginState } from '@/store/State/LoginState';
 import { LOGIN_SELECT, NAV_ROUTER, RouterT } from './constant';
 import { refreshToken } from '@/api/user';
-import { setAccessToken } from '@/util/auth';
+import { deleteToken, getAccessToken, getPictureURL, setAccessToken } from '@/util/auth';
+import UserInfo from './UserInfo';
 
 interface NavRouterT extends RouterT {
   navigate: NavigateFunction;
@@ -30,6 +32,7 @@ const NavDetailAtom: React.FC<NavRouterT> = ({ title, route, navigate }: NavRout
 
 const Header: React.FC = () => {
   const [loginModalOpen, setIsLoginModalOpen] = useState(false);
+  const [userProfileOpen, setUserProfileOpen] = useState(false);
   const navigate = useNavigate();
   const [loginState, setLoginState] = useRecoilState(LoginState);
 
@@ -40,9 +43,15 @@ const Header: React.FC = () => {
         setAccessToken(res.data.accessToken);
         setLoginState(true);
       })
-      .catch((err) => {
-        console.log(err);
-        setLoginState(false);
+      .catch(() => {
+        if (getAccessToken().length > 0) {
+          deleteToken();
+          setLoginState(false);
+          window.location.reload();
+        } else {
+          deleteToken();
+          setLoginState(false);
+        }
       });
   }, [setLoginState]);
 
@@ -63,7 +72,13 @@ const Header: React.FC = () => {
                   />
                 ))}
                 <VerticalLine />
-                <UserImage src="" onClick={() => navigate('/mypage')} />
+                <UserProfileContainer isExtended={userProfileOpen}>
+                  <UserImage
+                    src={getPictureURL()}
+                    onClick={() => setUserProfileOpen((prev) => !prev)}
+                  />
+                  <UserInfo setVisible={setUserProfileOpen} isVisible={userProfileOpen} />
+                </UserProfileContainer>
               </>
             ) : (
               <>
