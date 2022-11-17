@@ -25,13 +25,14 @@ const UserInfo: React.FC<Props> = ({ setVisible, isVisible }: Props) => {
     logout().then(() => {
       deleteToken();
       pushNotification('로그아웃 성공', 'success');
+      window.location.replace('/');
     });
   };
 
   return (
     <UserInfoContainer isVisible={isVisible}>
-      <CgProfile size="32" onClick={mypageHandler} />
-      <IoLogOutOutline size="32" onClick={logoutHandler} />
+      <CgProfile size="30" color="white" onClick={mypageHandler} />
+      <IoLogOutOutline size="34" color="white" onClick={logoutHandler} />
     </UserInfoContainer>
   );
 };
@@ -39,12 +40,13 @@ const UserInfo: React.FC<Props> = ({ setVisible, isVisible }: Props) => {
 export default UserInfo;
 
 const UserInfoContainer = styled.div<{ isVisible: boolean }>`
-  width: 30%;
+  width: 40%;
   height: 80%;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  gap: 20%;
   border-radius: 20px;
   display: ${({ isVisible }) => (isVisible ? 'absolute' : 'none')};
 `;
