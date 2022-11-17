@@ -23,6 +23,8 @@ const getPictureURL = () => Cookies.get('picture') || '';
 const deleteToken = () => {
   Cookies.remove('access-token');
   Cookies.remove('vivid-at');
+  Cookies.remove('name');
+  Cookies.remove('picture');
 };
 
 const authHeader = (): TokenHeaderT => {
