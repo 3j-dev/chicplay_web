@@ -114,6 +114,7 @@ const UserImage = styled.img`
   height: 36px;
   border-radius: 50%;
   margin-left: 2%;
+  cursor: pointer;
   &:hover {
     opacity: 0.7;
   }
