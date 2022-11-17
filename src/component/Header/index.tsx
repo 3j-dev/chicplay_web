@@ -12,6 +12,7 @@ import {
   NavDetail,
   VerticalLine,
   UserImage,
+  UserProfileContainer,
 } from './style';
 import LogoSrc from '@/assets/images/logo_with_text.png';
 import Login from '@/component/Login';
@@ -71,11 +72,13 @@ const Header: React.FC = () => {
                   />
                 ))}
                 <VerticalLine />
-                <UserImage
-                  src={getPictureURL()}
-                  onClick={() => setUserProfileOpen((prev) => !prev)}
-                />
-                <UserInfo setVisible={setUserProfileOpen} isVisible={userProfileOpen} />
+                <UserProfileContainer isExtended={userProfileOpen}>
+                  <UserImage
+                    src={getPictureURL()}
+                    onClick={() => setUserProfileOpen((prev) => !prev)}
+                  />
+                  <UserInfo setVisible={setUserProfileOpen} isVisible={userProfileOpen} />
+                </UserProfileContainer>
               </>
             ) : (
               <>
