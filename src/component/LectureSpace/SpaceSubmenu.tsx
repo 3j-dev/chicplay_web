@@ -98,6 +98,7 @@ const SpaceContainer = styled.div<{ isNowSpace: boolean }>`
   border-radius: 8px;
   background: ${({ isNowSpace }) => (isNowSpace ? Colors.Blue2 : Colors.White)};
   color: ${({ isNowSpace }) => (isNowSpace ? Colors.Blue : Colors.Black1)};
+  cursor: pointer;
   h4 {
     margin-left: 7%;
   }
