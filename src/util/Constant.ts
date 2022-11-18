@@ -75,6 +75,8 @@ export const Colors = {
   Blue5: '#A1B6DE',
   Red: '#e31514',
   Red1: '#FF3D33',
+  Red2: '#FFEFF4',
+  Red3: '#DD3A6A',
   Yellow: '#FFCC17',
   Green: '#54BF00',
   Purple: '#262261',
