@@ -87,7 +87,7 @@ const UserListAtom: React.FC<SpaceDetailUserProps> = ({
       <ListAtomMain onClick={() => setIsClicked((state) => !state)}>
         <ListAtomUser>
           <ListAtomImg src={picture} />
-          <p>{name}</p>
+          <p>{minimizeString(name, 10)}</p>
         </ListAtomUser>
         <GrFormClose color="#333" size={20} onClick={userDeleteHandler} />
       </ListAtomMain>
@@ -268,10 +268,10 @@ const ListAtomImg = styled.img`
 `;
 
 const ListAtomUser = styled.div`
-  width: 40%;
+  width: 60%;
   height: 80%;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 `;
 
