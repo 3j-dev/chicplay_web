@@ -28,4 +28,5 @@ export const apiRoutes = {
   getIndividualVideo: '/api/individual-videos/{individual-video-id}',
   freshVideoAccessTime: '/api/individual-videos/{individual-video-id}/accessed',
   getNoteList: '/api/individual-videos/{individual-video-id}/text-memo-state-history',
+  updateVideoProgressRate: '/api/individual-videos/{individual-video-id}/progress-rate/{percent}',
 };
