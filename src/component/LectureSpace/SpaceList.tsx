@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 
 import formatDate from '@/util/fomatDate';
 import { parseISO } from 'date-fns';
+import { pushNotification } from '@/util/notification';
 
 const SpaceList: React.FC<LectureStreamSpaceT> = ({
   id,
@@ -34,6 +35,7 @@ const SpaceList: React.FC<LectureStreamSpaceT> = ({
             lastAccessTime={video.lastAccessTime}
             progressRate={video.progressRate}
             thumbnailImagePath={video.thumbnailImagePath}
+            uploaded={video.uploaded}
           />
         ))}
       </SpaceLectureListGroup>
@@ -106,14 +108,21 @@ const SpaceLectureAtom: React.FC<LectureVideoT> = ({
   lastAccessTime,
   progressRate,
   thumbnailImagePath,
+  uploaded,
 }: LectureVideoT) => {
   const navigate = useNavigate();
   const onClickHandler = () => {
     navigate(`/stream?v=${individualVideoId}`);
   };
+  const onClickNotUploadedHandler = () => {
+    pushNotification('현재 업로드 처리 중에 있습니다. 잠시만 기다려주시기 바랍니다', 'warning');
+  };
 
   return (
-    <SpaceLectureAtomContainer onClick={onClickHandler}>
+    <SpaceLectureAtomContainer
+      uploaded
+      onClick={uploaded ? onClickHandler : onClickNotUploadedHandler}
+    >
       <SpaceLectureThumbnail src={thumbnailImagePath} />
       <SpaceLectureText width={40}>
         <SpaceLectureTitle>
@@ -130,7 +139,7 @@ const SpaceLectureAtom: React.FC<LectureVideoT> = ({
   );
 };
 
-const SpaceLectureAtomContainer = styled.div`
+const SpaceLectureAtomContainer = styled.div<{ uploaded: boolean }>`
   width: 100%;
   height: 130px;
   display: flex;
@@ -138,7 +147,7 @@ const SpaceLectureAtomContainer = styled.div`
   align-items: center;
   border-radius: 8px;
   background: ${Colors.White};
-  cursor: pointer;
+  cursor: ${({ uploaded }) => uploaded && 'pointer'};
 `;
 
 const SpaceLectureThumbnail = styled.img`

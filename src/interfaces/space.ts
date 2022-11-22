@@ -5,6 +5,7 @@ export interface LectureVideoT extends SpaceVideoT {
   lastAccessTime: string;
   progressRate: number;
   thumbnailImagePath: string;
+  uploaded: boolean;
 }
 
 export interface LectureStreamSpaceT extends Omit<Omit<LectureSpaceT, 'videos'>, 'users'> {
