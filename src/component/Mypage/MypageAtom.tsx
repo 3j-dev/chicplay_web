@@ -11,6 +11,7 @@ import webexLogoImgSrc from '@/assets/images/webex_logo2.png';
 import { MyDataT, StudiedVideoT } from '@/interfaces/mypage';
 import { Typography } from '@/styles/style';
 import { Colors } from '@/util/Constant';
+import { minimizeString } from '@/util/minimizeString';
 
 interface ContentAtomFlex {
   direction?: 'row' | 'column';
@@ -129,7 +130,16 @@ const MyAuthAccount: React.FC<MyAuthProps> = ({ connectedWebex }: MyAuthProps) =
         {'계정 연동 정보'}
       </MypageAtomTitle>
       <MypageAtomContent isCenter={true}>
-        {connectedWebex && <AuthImg src={webexLogoImgSrc} />}
+        {connectedWebex && (
+          <AuthConnectSection>
+            <AuthConnectImage>
+              <AuthImg src={webexLogoImgSrc} />
+            </AuthConnectImage>
+            <AuthConnectText>
+              <h5>Webex 연결됨</h5>
+            </AuthConnectText>
+          </AuthConnectSection>
+        )}
       </MypageAtomContent>
     </MypageAtomContainer>
   );
@@ -154,7 +164,7 @@ const MyVideoList: React.FC<MyVideoListProps> = ({
         {dashboardIndividualVideos.map((indiviualVideo, idx) => {
           return (
             <MypageVideoAtom key={idx}>
-              {indiviualVideo.videoTitle}
+              {minimizeString(indiviualVideo.videoTitle, 40)}
               <MypageVideoSmallText>
                 {format(parseISO(indiviualVideo.lastAccessTime), 'yyyy.MM.dd')}
               </MypageVideoSmallText>
@@ -264,9 +274,33 @@ const MypageVideoSmallText = styled.p`
   ${Typography.Paragraph3};
 `;
 
+const AuthConnectSection = styled.div`
+  width: 90%;
+  height: 40%;
+  display: flex;
+  align-items: center;
+  background: ${Colors.White1};
+  border-radius: 8px;
+`;
+
+const AuthConnectImage = styled.div`
+  width: 25%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const AuthConnectText = styled.div`
+  width: 60%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+`;
+
 const AuthImg = styled.img`
-  width: 50px;
-  height: 40px;
+  width: 30px;
+  height: 26px;
 `;
 
 export { MyProfile, MyRecentStudy, MyRecentNote, MyStudyStat, MyAuthAccount, MyVideoList };
