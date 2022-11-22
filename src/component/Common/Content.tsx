@@ -7,6 +7,7 @@ interface ContentProps {
   atomInRow: number;
   atomCount: number;
   childrens: ReactNode[];
+  fullscreen?: boolean;
 }
 
 interface ContentAtomProps extends Omit<ContentProps, 'childrens'> {
@@ -25,9 +26,14 @@ const ContentAtom: React.FC<ContentAtomProps> = ({
   );
 };
 
-const Content: React.FC<ContentProps> = ({ atomInRow, atomCount, childrens }: ContentProps) => {
+const Content: React.FC<ContentProps> = ({
+  atomInRow,
+  atomCount,
+  childrens,
+  fullscreen,
+}: ContentProps) => {
   return (
-    <ContentContainer>
+    <ContentContainer fullscreen={fullscreen === undefined ? false : fullscreen}>
       {childrens?.map((children, idx) => (
         <ContentAtom atomInRow={atomInRow} atomCount={atomCount} key={idx}>
           {children}
@@ -37,8 +43,8 @@ const Content: React.FC<ContentProps> = ({ atomInRow, atomCount, childrens }: Co
   );
 };
 
-const ContentContainer = styled.main`
-  width: 90%;
+const ContentContainer = styled.main<{ fullscreen: boolean }>`
+  width: ${({ fullscreen }) => (fullscreen ? '100%' : '90%')};
   height: calc(100vh - 60px);
   background: ${Colors.White1};
   display: flex;

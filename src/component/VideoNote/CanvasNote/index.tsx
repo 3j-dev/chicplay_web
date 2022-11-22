@@ -1,5 +1,5 @@
 import { TDExportType, Tldraw, TldrawApp, useFileSystem } from '@tldraw/tldraw';
-import { useState, useCallback, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect } from 'react';
 
 import CanvasNoteTool from './CanvasNoteTool';
 import { CanvasNoteContainer } from './style';
@@ -14,7 +14,6 @@ const CanvasNote: React.FC<Props> = ({ nowNoteType, exportClicked, setExportClic
   const [isMounted, setIsMounted] = useState<boolean>(false);
   const fileSystmeEvents = useFileSystem();
   const tlDrawRef = useRef<TldrawApp | null>(null);
-  console.log(tlDrawRef);
 
   const handleMount = (app: TldrawApp) => {
     tlDrawRef.current = app;

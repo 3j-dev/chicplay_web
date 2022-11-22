@@ -39,7 +39,7 @@ export const ButtonContainer = styled.div<Props>`
 `;
 
 export const Buttons = styled.div`
-  width: 60%;
+  width: 70%;
   height: 70%;
   display: flex;
   self-align: center;

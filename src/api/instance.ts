@@ -2,8 +2,6 @@ import axios, { AxiosError, AxiosResponse } from 'axios';
 
 import { authHeader } from '@/util/auth';
 import { pushNotification } from '@/util/notification';
-// import { refreshToken } from './user';
-// import { setAccessToken } from '@/util/auth';
 
 const baseURL: string = 'https://api.dev.edu-vivid.com';
 
@@ -11,9 +9,13 @@ const instance = axios.create({
   baseURL: baseURL,
   headers: {
     'Access-Control-Allow-Origin': '*',
-    Authorization: authHeader(),
     withCredentials: true,
   },
+});
+
+instance.interceptors.request.use((config) => {
+  if (config && config.headers) config.headers.authorization = `${authHeader()}`;
+  return config;
 });
 
 instance.interceptors.response.use(
@@ -21,18 +23,16 @@ instance.interceptors.response.use(
     return res;
   },
   async (error: AxiosError) => {
-    if (error.response && error.response.status === 401) {
-      try {
-        // const newAccessToken = await refreshToken();
-        // setAccessToken(newAccessToken);
-        pushNotification('로그인이 필요한 서비스입니다.', 'error');
-        // eslint-disable-next-line @typescript-eslint/no-implied-eval
-        setTimeout((window.location.href = '/'), 2000);
-      } catch (e: any) {
-        console.log('error : ', e.response);
-      }
-      return Promise.reject(error);
+    if (error.response && error.response.status === 500) {
+      pushNotification('현재 서버에 문제가 발생하였습니다. 추후 다시 시도해주십시오', 'error');
+    } else if (error.response && error.response.data.code === 'A03') {
+      pushNotification('해당 유저를 찾을 수 없습니다.', 'error');
+    } else if (error.response && error.response.data.code === 'VS03') {
+      pushNotification('해당 유저는 이미 space 내에 있습니다.', 'error');
+    } else if (error.response && error.response.data.code === 'E01') {
+      pushNotification('Webex Login이 필요합니다.', 'error');
     }
+
     return Promise.reject(error);
   },
 );

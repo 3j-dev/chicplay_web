@@ -53,7 +53,7 @@ export const VideoCanvasText = styled.span`
 
 export const VideoCanvasTools = styled.div`
   margin-left: -5%;
-  width: 35%;
+  width: 50%;
   height: 100%;
   display: flex;
   justify-content: space-evenly;

@@ -56,40 +56,40 @@ const CanvasNoteTool: React.FC<Props> = ({ tlDrawApp, isPlusFeatureIn, children 
         <BiPointer
           onClick={() => iconClickHandler(SVG_ID.POINTER)}
           color={colorHandler(SVG_ID.POINTER)}
-          size="24"
+          size="22"
         />
         <RiBallPenLine
           onClick={() => iconClickHandler(SVG_ID.PEN)}
           color={colorHandler(SVG_ID.PEN)}
-          size="24"
+          size="22"
         />
         <RiEraserLine
           onClick={() => iconClickHandler(SVG_ID.ERASE)}
           color={colorHandler(SVG_ID.ERASE)}
-          size="24"
+          size="22"
         />
         <RiArrowRightUpLine
           onClick={() => iconClickHandler(SVG_ID.ARROW)}
           color={colorHandler(SVG_ID.ARROW)}
-          size="24"
+          size="22"
         />
         <TbRectangle
           onClick={() => iconClickHandler(SVG_ID.RECTANGLE)}
           color={colorHandler(SVG_ID.RECTANGLE)}
-          size="24"
+          size="22"
         />
         <TbCircle
           onClick={() => iconClickHandler(SVG_ID.CIRCLE)}
           color={colorHandler(SVG_ID.CIRCLE)}
-          size="24"
+          size="22"
         />
         <BsFonts
           onClick={() => iconClickHandler(SVG_ID.TEXT)}
           color={colorHandler(SVG_ID.TEXT)}
-          size="24"
+          size="22"
         />
         {isPlusFeatureIn && (
-          <BsTrash onClick={() => clearDrawing()} color={colorHandler(SVG_ID.TRASH)} size="24" />
+          <BsTrash onClick={() => clearDrawing()} color={colorHandler(SVG_ID.TRASH)} size="22" />
         )}
         {children}
       </CanvasNoteTools>

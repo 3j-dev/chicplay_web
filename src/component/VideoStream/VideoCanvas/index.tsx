@@ -19,15 +19,13 @@ const VideoCanvas: React.FC<Props> = ({ canvasActivated, videoCanvasRef }: Props
     [videoCanvasRef],
   );
 
-  const handleChange = useCallback((appState: TldrawApp) => {
-    console.log(appState.document);
-  }, []);
+  // const handleChange = useCallback((appState: TldrawApp) => {}, []);
 
   return (
     <VideoCanvasContainer ref={outerRef} canvasActivated={canvasActivated}>
       <Tldraw
         onMount={handleMount}
-        onChange={handleChange}
+        // onChange={handleChange}
         showMenu={false}
         showPages={false}
         showUI={false}

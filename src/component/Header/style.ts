@@ -83,6 +83,7 @@ const NavDetail = styled.a`
   align-items: center;
   color: ${Colors.Black} !important;
   margin-right: 4%;
+  cursor: pointer;
   &:hover {
     color: ${Colors.Blue1} !important;
     border-bottom: 2px solid ${Colors.Blue1};
@@ -95,11 +96,26 @@ const VerticalLine = styled.div`
   background: ${Colors.Gray3};
 `;
 
+const UserProfileContainer = styled.div<{ isExtended: boolean }>`
+  width: ${({ isExtended }) => (isExtended ? '30%' : '50px')};
+  height: ${({ isExtended }) => (isExtended ? '80%' : '50px')};
+  display: flex;
+  flex-direction: row;
+  justify-content: ${({ isExtended }) => (isExtended ? 'space-around' : 'center')};
+  gap: 30%;
+  align-items: center;
+  border-radius: ${({ isExtended }) => (isExtended ? '30px' : '50%')};
+  background: ${Colors.Blue1};
+  opacity: ${({ isExtended }) => (isExtended ? '70%' : '1')};
+  transition: all ease 0.5s;
+`;
+
 const UserImage = styled.img`
   width: 36px;
   height: 36px;
   border-radius: 50%;
   margin-left: 2%;
+  cursor: pointer;
   &:hover {
     opacity: 0.7;
   }
@@ -114,5 +130,6 @@ export {
   UserLoginButton,
   NavDetail,
   VerticalLine,
+  UserProfileContainer,
   UserImage,
 };

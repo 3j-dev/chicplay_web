@@ -1,34 +1,38 @@
 import { useState, useLayoutEffect, useEffect } from 'react';
 
 import { Layout } from './style';
-import { data, tempSpace } from './data';
+import { tempSpace } from './data';
 import Submenu from '@/component/Common/Submenu';
 import Content from '@/component/Common/Content';
 import { SettingVideoList, SettingUserList, SettingUserAdd } from '@/component/Setting/SettingAtom';
 import { LectureSpaceT, SpaceVideoT, SpaceUserT } from '@/interfaces/setting';
 import SettingModal from '@/component/Setting/SettingModal';
+import { getHostedVideoList } from '@/api/setting';
 
 const LectureSettingPage: React.FC = () => {
-  const [lectureSpaceData, setLectureSpaceData] = useState<LectureSpaceT[]>(data);
-  const [nowSpaceName, setNowSpaceName] = useState<string>('');
+  const [lectureSpaceData, setLectureSpaceData] = useState<LectureSpaceT[]>([]);
+  const [nowSpaceId, setNowSpaceId] = useState<number>(0);
   const [nowSpaceData, setNowSpaceData] = useState<LectureSpaceT>(tempSpace);
 
   useLayoutEffect(() => {
-    //api call and setLectureSpaceData
-    setNowSpaceName(data[0].name);
+    getHostedVideoList().then((res) => {
+      setLectureSpaceData(res.data);
+      setNowSpaceId(res.data[0].id);
+    });
   }, []);
 
   useEffect(() => {
-    if (nowSpaceName)
-      data.forEach((space) => space.name === nowSpaceName && setNowSpaceData(space));
-  }, [nowSpaceName]);
+    if (nowSpaceId)
+      lectureSpaceData.forEach((space) => space.id === nowSpaceId && setNowSpaceData(space));
+  }, [nowSpaceId, lectureSpaceData]);
 
   return (
     <Layout>
       <Submenu
         allMenuState={getAllMenuState(lectureSpaceData)}
-        nowMenuState={nowSpaceName}
-        changeMenuState={setNowSpaceName}
+        allMenuName={getAllMenuName(lectureSpaceData)}
+        nowMenuState={nowSpaceId}
+        changeMenuState={setNowSpaceId}
         isPlusMethodExist={true}
         plusMethodComponent={<SettingModal />}
       />
@@ -37,7 +41,11 @@ const LectureSettingPage: React.FC = () => {
         atomInRow={3}
         childrens={[
           <SettingVideoList videoList={getVideoListData(nowSpaceData)} key="1" />,
-          <SettingUserList userList={getUserListData(nowSpaceData)} key="2" />,
+          <SettingUserList
+            videoSpaceId={nowSpaceId}
+            userList={getUserListData(nowSpaceData)}
+            key="2"
+          />,
           <SettingUserAdd videoSpaceId={nowSpaceData.id} key="3" />,
         ]}
       />
@@ -45,7 +53,12 @@ const LectureSettingPage: React.FC = () => {
   );
 };
 
-const getAllMenuState = (lectureSpaceGroup: LectureSpaceT[] | null): string[] => {
+const getAllMenuState = (lectureSpaceGroup: LectureSpaceT[]): number[] => {
+  if (!lectureSpaceGroup) return [];
+  return lectureSpaceGroup.map((lectureSpace: LectureSpaceT) => lectureSpace.id);
+};
+
+const getAllMenuName = (lectureSpaceGroup: LectureSpaceT[]): string[] => {
   if (!lectureSpaceGroup) return [];
   return lectureSpaceGroup.map((lectureSpace: LectureSpaceT) => lectureSpace.name);
 };
