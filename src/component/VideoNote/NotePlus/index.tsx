@@ -11,7 +11,6 @@ interface Props {
 }
 
 const NotePlus: React.FC<Props> = ({ notePlusType, setNotePlusType, individualVideoId }: Props) => {
-  console.log(notePlusType);
   return (
     <NotePlusContainer activated={notePlusType !== NOTE_PLUS_TYPE.DEFAULT}>
       {notePlusType === NOTE_PLUS_TYPE.RECORD ? (
