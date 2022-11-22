@@ -8,6 +8,8 @@ export const apiRoutes = {
   deleteVideoSpace: '/api/video-space/{video-space-id}',
   plusUserInVideoSpace: '/api/video-space/{video-space-id}/{user-email}',
   getHostVideoSpaceList: '/api/video-space/hosted',
+  deleteUserInVideoSpace: '/api/video-space/{video-space-id}/{user-email}',
+  deleteIndividualVideo: '/api/individual-videos/{individual-video-id}',
 
   updateTextMemo: '/api/individual-videos/{individual-video-id}/cache/text-memo-state',
   getTextMemo: '/api/individual-videos/{individual-video-id}/cache/text-memo-state-latest',
