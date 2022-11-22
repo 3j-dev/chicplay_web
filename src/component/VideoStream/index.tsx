@@ -98,8 +98,9 @@ const VideoStream: React.FC<StreamProps> = ({
 
   const updateVideoProgressRate = () => {
     if (playerRef && playerRef.current) {
-      const progressRate: number =
-        Math.round(playerRef.current.currentTime / playerRef.current.duration) * 100;
+      const progressRate: number = Math.round(
+        (playerRef.current.currentTime * 100) / playerRef.current.duration,
+      );
       freshProgressRate(individualVideoId, progressRate);
     }
   };
