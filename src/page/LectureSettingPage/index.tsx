@@ -41,7 +41,11 @@ const LectureSettingPage: React.FC = () => {
         atomInRow={3}
         childrens={[
           <SettingVideoList videoList={getVideoListData(nowSpaceData)} key="1" />,
-          <SettingUserList userList={getUserListData(nowSpaceData)} key="2" />,
+          <SettingUserList
+            videoSpaceId={nowSpaceId}
+            userList={getUserListData(nowSpaceData)}
+            key="2"
+          />,
           <SettingUserAdd videoSpaceId={nowSpaceData.id} key="3" />,
         ]}
       />

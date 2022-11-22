@@ -20,3 +20,15 @@ export const getHostedVideoList = () =>
 
 export const deleteVideoSpace = (videoSpaceId: number) =>
   axiosInstance.delete(apiRoutes.deleteVideoSpace.replace('{video-space-id}', `${videoSpaceId}`));
+
+export const deleteUserInVideoSpace = (videoSpaceId: number, userEmail: string) =>
+  axiosInstance.delete(
+    apiRoutes.deleteUserInVideoSpace
+      .replace('{video-space-id}', `${videoSpaceId}`)
+      .replace('{user-email}', userEmail),
+  );
+
+export const deleteIndividualVideo = (individualVideoId: number) =>
+  axiosInstance.delete(
+    apiRoutes.deleteIndividualVideo.replace('{individual-video-id}', `${individualVideoId}`),
+  );

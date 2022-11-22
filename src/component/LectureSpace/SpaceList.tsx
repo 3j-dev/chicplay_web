@@ -5,6 +5,9 @@ import { LectureStreamSpaceT, LectureVideoT } from '@/interfaces/space';
 import spaceLectureImgSrc from '@/assets/icon/space_lecture.png';
 import { useNavigate } from 'react-router-dom';
 
+import formatDate from '@/util/fomatDate';
+import { parseISO } from 'date-fns';
+
 const SpaceList: React.FC<LectureStreamSpaceT> = ({
   id,
   name,
@@ -21,13 +24,16 @@ const SpaceList: React.FC<LectureStreamSpaceT> = ({
         <SpaceListInput placeholder="검색어를 입력해주세요" />
       </SpaceListTitleContainer>
       <SpaceLectureListGroup>
-        {videos.map((video, idx) => (
+        {videos.map((video) => (
           <SpaceLectureAtom
             id={video.id}
             individualVideoId={video.individualVideoId}
             title={video.title}
             description={video.description}
-            key={idx}
+            key={video.id}
+            lastAccessTime={video.lastAccessTime}
+            progressRate={video.progressRate}
+            thumbnailImagePath={video.thumbnailImagePath}
           />
         ))}
       </SpaceLectureListGroup>
@@ -97,6 +103,9 @@ const SpaceLectureAtom: React.FC<LectureVideoT> = ({
   id,
   title,
   description,
+  lastAccessTime,
+  progressRate,
+  thumbnailImagePath,
 }: LectureVideoT) => {
   const navigate = useNavigate();
   const onClickHandler = () => {
@@ -105,10 +114,18 @@ const SpaceLectureAtom: React.FC<LectureVideoT> = ({
 
   return (
     <SpaceLectureAtomContainer onClick={onClickHandler}>
-      <SpaceLectureText width={50}>
-        <h1>{title}</h1>
+      <SpaceLectureThumbnail src={thumbnailImagePath} />
+      <SpaceLectureText width={40}>
+        <SpaceLectureTitle>
+          <h4>{title}</h4>
+        </SpaceLectureTitle>
+        <SpaceLectureProgressContainer progressRate={progressRate}>
+          <h5>{`${progressRate}% 완료`}</h5>
+        </SpaceLectureProgressContainer>
       </SpaceLectureText>
-      <SpaceLectureText width={30}>{description}</SpaceLectureText>
+      <SpaceLectureLastAccess>
+        <h6>{formatDate(parseISO(lastAccessTime))}</h6>
+      </SpaceLectureLastAccess>
     </SpaceLectureAtomContainer>
   );
 };
@@ -117,20 +134,60 @@ const SpaceLectureAtomContainer = styled.div`
   width: 100%;
   height: 130px;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   border-radius: 8px;
-  gap: 30%;
   background: ${Colors.White};
   cursor: pointer;
 `;
 
+const SpaceLectureThumbnail = styled.img`
+  height: 80%;
+  width: auto;
+  border-radius: 8px;
+  margin-left: 2%;
+`;
+
 const SpaceLectureText = styled.div<{ width: number }>`
   width: ${({ width }) => `${width}%`};
-  height: 100%;
+  height: 80%;
+  margin-left: 4%;
+  overflow-y: auto;
+  display: flex;
+  gap: 5%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+`;
+
+const SpaceLectureTitle = styled.div`
+  width: 100%;
+  height: 50%;
+  overflow-y: auto;
+`;
+
+const SpaceLectureProgressContainer = styled.div<{ progressRate: number }>`
+  width: 30%;
+  height: 30%;
+  border-radius: 8px;
   display: flex;
   justify-content: center;
   align-items: center;
+  background: ${({ progressRate }) => (progressRate === 100 ? Colors.Blue2 : Colors.Red2)};
+  h5 {
+    color: ${({ progressRate }) => (progressRate === 100 ? Colors.Blue : Colors.Red3)};
+  }
+`;
+
+const SpaceLectureLastAccess = styled.div`
+  width: 30%;
+  height: 70%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  h6 {
+    color: ${Colors.Gray1};
+  }
 `;
 
 export default SpaceList;

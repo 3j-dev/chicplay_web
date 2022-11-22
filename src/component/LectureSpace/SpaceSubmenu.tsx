@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 import { Colors } from '@/util/Constant';
-import spaceListIconImgSrc from '@/assets/icon/space_video_list.png';
 import { LectureStreamSpaceT } from '@/interfaces/space';
 
 interface SpaceSubmenuProps {
@@ -18,7 +17,6 @@ const SpaceSubmenu: React.FC<SpaceSubmenuProps> = ({
   return (
     <SpaceSubmenuContainer>
       <SpaceSubmenuTitle>
-        <ListIcon src={spaceListIconImgSrc} />
         <h6>나의 강의 목록</h6>
       </SpaceSubmenuTitle>
       <SpaceSubmenuList>
@@ -54,12 +52,9 @@ const SpaceSubmenuTitle = styled.div`
   justify-content: flex-start;
   align-items: center;
   gap: 10px;
-`;
-
-const ListIcon = styled.img`
-  width: 20px;
-  height: 20px;
-  margin-left: 5%;
+  h6 {
+    margin-left: 10%;
+  }
 `;
 
 const SpaceSubmenuList = styled.div`
@@ -98,6 +93,7 @@ const SpaceContainer = styled.div<{ isNowSpace: boolean }>`
   border-radius: 8px;
   background: ${({ isNowSpace }) => (isNowSpace ? Colors.Blue2 : Colors.White)};
   color: ${({ isNowSpace }) => (isNowSpace ? Colors.Blue : Colors.Black1)};
+  cursor: pointer;
   h4 {
     margin-left: 7%;
   }

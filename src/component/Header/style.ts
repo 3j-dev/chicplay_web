@@ -83,6 +83,7 @@ const NavDetail = styled.a`
   align-items: center;
   color: ${Colors.Black} !important;
   margin-right: 4%;
+  cursor: pointer;
   &:hover {
     color: ${Colors.Blue1} !important;
     border-bottom: 2px solid ${Colors.Blue1};

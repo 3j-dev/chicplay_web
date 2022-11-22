@@ -1,4 +1,6 @@
 import { apiRoutes } from './routes';
 import { axiosInstance } from './instance';
+import { LectureStreamSpaceT } from '@/interfaces/space';
 
-export const getVideoList = () => axiosInstance.get(apiRoutes.getVideoSpaceList);
+export const getVideoList = () =>
+  axiosInstance.get<LectureStreamSpaceT[]>(apiRoutes.getVideoSpaceList);
