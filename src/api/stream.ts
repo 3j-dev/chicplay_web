@@ -57,6 +57,13 @@ const freshVideoAccessTime = async (individualVideoId: string) =>
 const getNoteList = async (individualVideoId: string) =>
   axiosInstance.get(apiRoutes.getNoteList.replace('{individual-video-id}', individualVideoId));
 
+const freshProgressRate = (individualVideoId: string, percent: number) =>
+  axiosInstance.put(
+    apiRoutes.updateVideoProgressRate
+      .replace('{individual-video-id}', individualVideoId)
+      .replace('{percent}', `${percent}`),
+  );
+
 export {
   postSnapshot,
   getTextMemo,
@@ -65,4 +72,5 @@ export {
   getVideoInfo,
   freshVideoAccessTime,
   getNoteList,
+  freshProgressRate,
 };

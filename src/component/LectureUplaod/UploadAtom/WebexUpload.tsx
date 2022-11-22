@@ -58,8 +58,14 @@ const WebexRecordingAtom: React.FC<WebexRecordingAtomProps> = ({
   hostEmail,
   timeRecorded,
 }: WebexRecordingAtomProps) => {
-  const onClickHandler = async () => {
-    postWebexRecording(spaceId, recordingId);
+  const onClickHandler = () => {
+    const data = {
+      title: topic,
+      description: topic,
+    };
+    postWebexRecording(spaceId, recordingId, data).then(() =>
+      pushNotification('업로드 성공!', 'success'),
+    );
   };
 
   return (

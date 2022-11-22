@@ -10,11 +10,12 @@ export const postWebexLoginCode = async (code: string) =>
 export const getWebexRecordingList = async () =>
   axiosInstance.get<WebexRecordingT[]>(apiRoutes.getWebexRecordingList);
 
-export const postWebexRecording = async (videoSpaceId: number, recordingId: string) =>
+export const postWebexRecording = async (videoSpaceId: number, recordingId: string, data: object) =>
   axiosInstance.post<{ id: number }>(
     apiRoutes.postWebexRecording
       .replace('{video-space-id}', `${videoSpaceId}`)
       .replace('{recording-id}', recordingId),
+    data,
   );
 
 export const uploadVideoFile = async (videoSpaceId: number, videoFile: File) => {

@@ -2,7 +2,7 @@ import ReactHlsPlayer from 'react-hls-player';
 import FormData from 'form-data';
 import { TldrawApp } from '@tldraw/tldraw';
 import { BsPencilSquare } from 'react-icons/bs';
-import { useRef, useState, useEffect } from 'react';
+import { useRef, useState, useEffect, useCallback } from 'react';
 
 import { postSnapshot } from '@/api/stream';
 import VideoCanvas from './VideoCanvas';
@@ -11,6 +11,8 @@ import VideoCanvasTool from './VideoCanvasTool';
 import { VideoStreamContainer, Video, VideoCanvasButton } from './style';
 import VideoTopBar from './VideoTopBar';
 import { IndivudalVideoInfoT } from '@/interfaces/stream';
+import useInterval from '@/hook/useInterval';
+import { freshProgressRate } from '@/api/stream';
 
 interface DimensionProps {
   w: number;
@@ -93,6 +95,16 @@ const VideoStream: React.FC<StreamProps> = ({
     setSnapShotClicked(false);
   }, [setSnapShotClicked, snapShotClicked]);
   // chang state by snapshot action
+
+  const updateVideoProgressRate = () => {
+    if (playerRef && playerRef.current) {
+      const progressRate: number =
+        Math.round(playerRef.current.currentTime / playerRef.current.duration) * 100;
+      freshProgressRate(individualVideoId, progressRate);
+    }
+  };
+
+  useInterval(updateVideoProgressRate, 1000);
 
   return (
     <VideoStreamContainer>
