@@ -125,8 +125,14 @@ const SettingUserList: React.FC<UserListProps> = ({ videoSpaceId, userList }: Us
 const SettingUserAdd: React.FC<UserAddProps> = ({ videoSpaceId }: UserAddProps) => {
   const [userEmail, setUserEmail] = useState<string>('');
 
+  const emailValidateRegex = new RegExp('[a-z0-9]+@[a-z]+.[a-z]{2,3}');
+
   const submitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (!emailValidateRegex.test(userEmail)) {
+      pushNotification('이메일 형식에 맞게 제출해주세요.', 'error');
+      return;
+    }
     const { data } = await plusUserInVideoSpace(videoSpaceId, userEmail);
     if (data.id === videoSpaceId && data.userEmail === userEmail) {
       setUserEmail('');
@@ -156,12 +162,25 @@ const SettingUserAdd: React.FC<UserAddProps> = ({ videoSpaceId }: UserAddProps) 
             onChange={(e) => setUserEmail(e.target.value)}
             placeholder="Type Email"
           />
+          <SendButton>User Add</SendButton>
         </form>
       </AtomDataContainer>
       <TrashIcon src={deleteImgSrc} onClick={() => deleteHandler()} />
     </SettingAtomContainer>
   );
 };
+
+const SendButton = styled.button`
+  margin-left: 25%;
+  margin-top: 10%;
+  width: 50%;
+  height: 40%;
+  background: ${Colors.Blue1};
+  color: ${Colors.White};
+  border-radius: 24px;
+  font-size: 16px;
+  border: 0;
+`;
 
 const TrashIcon = styled.img`
   width: 24px;
