@@ -10,14 +10,16 @@ export const VideoTopBarContainer = styled.div`
 `;
 
 export const VideoTopBarLeft = styled.div`
-  width: 50%;
+  width: 80%;
   height: 100%;
   margin-left: 3%;
+  margin-top: 1%;
   gap: 10px;
   display: flex;
   align-items: center;
   font-weight: bold;
   font-size: 16px;
+  overflow: auto;
 `;
 
 export const VideoTopBarRight = styled.div`
