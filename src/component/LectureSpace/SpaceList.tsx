@@ -98,6 +98,7 @@ const SpaceLectureListGroup = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 20px;
+  overflow: auto;
 `;
 
 const SpaceLectureAtom: React.FC<LectureVideoT> = ({
