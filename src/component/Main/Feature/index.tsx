@@ -1,4 +1,4 @@
-import { GiGraduateCap } from 'react-icons/gi';
+import { GiGraduateCap } from '@react-icons/all-files/gi/GiGraduateCap';
 
 import {
   FeatureBigText,

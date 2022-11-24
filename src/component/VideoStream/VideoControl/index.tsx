@@ -1,12 +1,10 @@
-import {
-  BsFillPlayFill,
-  BsFillPauseFill,
-  BsFillSkipEndFill,
-  BsFillSkipStartFill,
-  BsVolumeUpFill,
-  BsVolumeDownFill,
-  BsVolumeMuteFill,
-} from 'react-icons/bs';
+import { BsFillPlayFill } from '@react-icons/all-files/bs/BsFillPlayFill';
+import { BsFillPauseFill } from '@react-icons/all-files/bs/BsFillPauseFill';
+import { BsFillSkipEndFill } from '@react-icons/all-files/bs/BsFillSkipEndFill';
+import { BsFillSkipStartFill } from '@react-icons/all-files/bs/BsFillSkipStartFill';
+import { BsVolumeUpFill } from '@react-icons/all-files/bs/BsVolumeUpFill';
+import { BsVolumeMuteFill } from '@react-icons/all-files/bs/BsVolumeMuteFill';
+
 import { useState, useEffect } from 'react';
 
 import {

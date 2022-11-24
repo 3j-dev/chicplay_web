@@ -1,5 +1,3 @@
-import { TbList, TbSettings } from 'react-icons/tb';
-
 import { VideoTopBarContainer, VideoTopBarLeft, VideoTopBarRight } from './style';
 
 interface Props {

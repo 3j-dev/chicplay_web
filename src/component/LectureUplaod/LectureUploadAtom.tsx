@@ -1,6 +1,6 @@
 import { useLayoutEffect, useState } from 'react';
 import styled from 'styled-components';
-import { HiOutlineChevronLeft } from 'react-icons/hi';
+import { HiOutlineChevronLeft } from '@react-icons/all-files/hi/HiOutlineChevronLeft';
 
 import { LectureSpaceT } from '@/interfaces/setting';
 import { Colors } from '@/util/Constant';

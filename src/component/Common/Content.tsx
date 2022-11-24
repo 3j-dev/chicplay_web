@@ -1,7 +1,7 @@
+import { ReactNode } from 'react';
 import styled from 'styled-components';
 
 import { Colors } from '@/util/Constant';
-import { ReactNode } from 'react';
 
 interface ContentProps {
   atomInRow: number;

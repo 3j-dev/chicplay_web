@@ -1,8 +1,12 @@
 import { TldrawApp, TDShapeType, TDToolType } from '@tldraw/tldraw';
-import { RiBallPenLine, RiEraserLine, RiArrowRightUpLine } from 'react-icons/ri';
-import { TbRectangle, TbCircle } from 'react-icons/tb';
-import { BsFonts, BsTrash } from 'react-icons/bs';
-import { BiPointer } from 'react-icons/bi';
+import { RiBallPenLine } from '@react-icons/all-files/ri/RiBallPenLine';
+import { RiEraserLine } from '@react-icons/all-files/ri/RiEraserLine';
+import { RiArrowRightUpLine } from '@react-icons/all-files/ri/RiArrowRightUpLine';
+import { BiSquareRounded } from '@react-icons/all-files/bi/BiSquareRounded';
+import { BiCircle } from '@react-icons/all-files/bi/BiCircle';
+import { BsFonts } from '@react-icons/all-files/bs/BsFonts';
+import { BsTrash } from '@react-icons/all-files/bs/BsTrash';
+import { BiPointer } from '@react-icons/all-files/bi/BiPointer';
 import { PropsWithChildren, useCallback, useState } from 'react';
 
 // import { Icon } from '@/component/Common/Icon';
@@ -79,12 +83,12 @@ const CanvasNoteTool: React.FC<Props> = ({
           color={colorHandler(SVG_ID.ARROW)}
           size="22"
         />
-        <TbRectangle
+        <BiSquareRounded
           onClick={() => iconClickHandler(SVG_ID.RECTANGLE)}
           color={colorHandler(SVG_ID.RECTANGLE)}
           size="22"
         />
-        <TbCircle
+        <BiCircle
           onClick={() => iconClickHandler(SVG_ID.CIRCLE)}
           color={colorHandler(SVG_ID.CIRCLE)}
           size="22"

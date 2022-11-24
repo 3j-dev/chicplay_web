@@ -1,6 +1,7 @@
 import styled from 'styled-components';
-import { BsPlusLg } from 'react-icons/bs';
-import { HiOutlineChevronLeft } from 'react-icons/hi';
+
+import { HiPlus } from '@react-icons/all-files/hi/HiPlus';
+import { HiOutlineChevronLeft } from '@react-icons/all-files/hi/HiOutlineChevronLeft';
 
 import { Colors } from '@/util/Constant';
 import submenuVectorImageSrc from '@/assets/images/submenu_vector.png';
@@ -71,9 +72,9 @@ const Submenu: React.FC<SubmenuProps> = ({
             onClick={() => setIsMethodOpen((state) => !state)}
           />
         ) : (
-          <BsPlusLg
+          <HiPlus
             className="absolute-svg"
-            size={25}
+            size={30}
             onClick={() => setIsMethodOpen((state) => !state)}
           />
         ))}

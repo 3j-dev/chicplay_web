@@ -1,4 +1,7 @@
-import { BsChevronDown, BsXLg, BsChevronUp } from 'react-icons/bs';
+import { BsChevronUp } from '@react-icons/all-files/bs/BsChevronUp';
+import { BsChevronDown } from '@react-icons/all-files/bs/BsChevronDown';
+import { GrClose } from '@react-icons/all-files/gr/GrClose';
+
 import { TldrawApp } from '@tldraw/tldraw';
 import rafSchd from 'raf-schd';
 import { useState, useRef } from 'react';
@@ -97,7 +100,7 @@ const VideoCanvasTool: React.FC<Props> = ({
     >
       <VideoCanvasToolBar>
         <VideoCanvasTitle>
-          <BsXLg color="white" size="16" onClick={() => setCanvasActivated(false)} />
+          <GrClose color="white" size="16" onClick={() => setCanvasActivated(false)} />
           <VideoCanvasText>영상 필기</VideoCanvasText>
         </VideoCanvasTitle>
         <VideoCanvasTools>

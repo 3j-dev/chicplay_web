@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState, useCallback } from 'react';
+import React, { useRef, useState, useCallback } from 'react';
 import styled from 'styled-components';
 
 import uploadImgSrc from '@/assets/images/upload.png';

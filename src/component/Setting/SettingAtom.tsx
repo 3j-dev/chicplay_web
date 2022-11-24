@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { useState } from 'react';
-import { GrFormClose } from 'react-icons/gr';
+import { GrFormClose } from '@react-icons/all-files/gr/GrFormClose';
 
 import { SpaceVideoT, SpaceUserT } from '@/interfaces/setting';
 import videoListImgSrc from '@/assets/icon/setting_video.png';
