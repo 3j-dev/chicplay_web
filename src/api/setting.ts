@@ -28,7 +28,5 @@ export const deleteUserInVideoSpace = (videoSpaceId: number, userEmail: string) 
       .replace('{user-email}', userEmail),
   );
 
-export const deleteIndividualVideo = (individualVideoId: number) =>
-  axiosInstance.delete(
-    apiRoutes.deleteIndividualVideo.replace('{individual-video-id}', `${individualVideoId}`),
-  );
+export const deleteVideo = (videoId: number) =>
+  axiosInstance.delete(apiRoutes.deleteVideo.replace('{video-id}', `${videoId}`));
