@@ -13,6 +13,7 @@ import { Colors } from '@/util/Constant';
 interface Props extends PropsWithChildren {
   tlDrawApp: TldrawApp;
   isPlusFeatureIn: boolean;
+  isInCanvasNote: boolean;
 }
 
 const toolGroup: TDToolType[] = [
@@ -25,11 +26,16 @@ const toolGroup: TDToolType[] = [
   TDShapeType.Text,
 ];
 
-const CanvasNoteTool: React.FC<Props> = ({ tlDrawApp, isPlusFeatureIn, children }: Props) => {
+const CanvasNoteTool: React.FC<Props> = ({
+  tlDrawApp,
+  isPlusFeatureIn,
+  isInCanvasNote,
+  children,
+}: Props) => {
   const [clickedSvg, setClickedSvg] = useState<number>(SVG_ID.POINTER);
   const [nonActiveColor, activeColor] = isPlusFeatureIn
-    ? [Colors.White, Colors.Blue3]
-    : [Colors.Black3, Colors.Blue3];
+    ? [Colors.Black3, Colors.Blue3]
+    : [Colors.White, Colors.Blue3];
 
   const iconClickHandler = useCallback(
     (idx: number) => {
@@ -51,7 +57,7 @@ const CanvasNoteTool: React.FC<Props> = ({ tlDrawApp, isPlusFeatureIn, children 
   };
 
   return (
-    <CanvasNoteToolContainer isTransparent={isPlusFeatureIn}>
+    <CanvasNoteToolContainer isTransparent={isPlusFeatureIn} isInCanvasNote={isInCanvasNote}>
       <CanvasNoteTools>
         <BiPointer
           onClick={() => iconClickHandler(SVG_ID.POINTER)}

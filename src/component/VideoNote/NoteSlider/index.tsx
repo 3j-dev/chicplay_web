@@ -1,6 +1,4 @@
-import { BsThreeDotsVertical, BsXLg } from 'react-icons/bs';
-
-import { NoteSliderContainer, ButtonContainer, Buttons, SvgContainer } from './style';
+import { NoteSliderContainer, ButtonContainer, Buttons } from './style';
 import { NOTE_TYPE } from '@/util/Constant';
 
 interface Props {
@@ -9,16 +7,9 @@ interface Props {
   setDropdownActivated: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const NoteSlider: React.FC<Props> = ({
-  setNowNoteType,
-  nowNoteType,
-  setDropdownActivated,
-}: Props) => {
+const NoteSlider: React.FC<Props> = ({ setNowNoteType, nowNoteType }: Props) => {
   return (
     <NoteSliderContainer>
-      <SvgContainer>
-        <BsXLg />
-      </SvgContainer>
       <Buttons>
         <ButtonContainer
           onClick={() => setNowNoteType(NOTE_TYPE.MARKDOWN)}
@@ -33,9 +24,6 @@ const NoteSlider: React.FC<Props> = ({
           그리기
         </ButtonContainer>
       </Buttons>
-      <SvgContainer>
-        <BsThreeDotsVertical onClick={() => setDropdownActivated((prev) => !prev)} />
-      </SvgContainer>
     </NoteSliderContainer>
   );
 };

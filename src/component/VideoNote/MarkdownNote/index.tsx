@@ -45,7 +45,7 @@ const MarkdownNote: React.FC<MarkdownNoteProps> = ({
       };
       model.length > 0 && reflectTextMemoInDB(individualVideoId, requestData);
     };
-  }, []);
+  }, [individualVideoId, model]);
 
   useInterval(() => {
     const requestData = {

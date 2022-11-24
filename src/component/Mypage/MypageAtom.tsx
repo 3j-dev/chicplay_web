@@ -216,6 +216,7 @@ const MypageAtomContent = styled.div<ContentAtomFlex>`
   width: 95%;
   height: 50%;
   display: flex;
+  overflow: auto;
   flex-direction: ${({ direction }) => `${direction}`};
   gap: ${({ gap }) => `${gap}px`};
   justify-content: ${({ isCenter }) => isCenter && 'center'};

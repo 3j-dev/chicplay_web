@@ -1,4 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const InterpolateHtmlPlugin = require('interpolate-html-plugin');
 const path = require('path');
 const dotenv = require('dotenv');
@@ -27,6 +28,10 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: `${path.resolve(__dirname, '../public')}/index.html`,
       favicon: './public/favicon.ico',
+    }),
+    new FaviconsWebpackPlugin({
+      logo: 'public/logo192.png',
+      manifest: 'public/manifest.json',
     }),
     new webpack.ProvidePlugin({
       React: 'react',
