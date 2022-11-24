@@ -36,7 +36,7 @@ const VideoCanvasTool: React.FC<Props> = ({
   playerRef,
   visualIndexImageFilePathList,
 }: Props) => {
-  const [canvasToolMinimized, setCanvasToolMinimized] = useState<Boolean>(false);
+  const [canvasToolMinimized, setCanvasToolMinimized] = useState<boolean>(false);
   const visualIndexingRef = useRef<HTMLDivElement>(null);
   const [isDrag, setIsDrag] = useState<boolean>(false);
   const [startX, setStartX] = useState<number>(0);
@@ -91,7 +91,10 @@ const VideoCanvasTool: React.FC<Props> = ({
   };
 
   return (
-    <VideoCanvasToolContainer canvasActivated={canvasActivated}>
+    <VideoCanvasToolContainer
+      canvasActivated={canvasActivated}
+      canvasToolMinimized={canvasToolMinimized}
+    >
       <VideoCanvasToolBar>
         <VideoCanvasTitle>
           <BsXLg color="white" size="16" onClick={() => setCanvasActivated(false)} />
@@ -99,29 +102,35 @@ const VideoCanvasTool: React.FC<Props> = ({
         </VideoCanvasTitle>
         <VideoCanvasTools>
           {videoCanvasRef.current !== null && (
-            <CanvasNoteTool tlDrawApp={videoCanvasRef.current} isPlusFeatureIn={false} />
+            <CanvasNoteTool
+              tlDrawApp={videoCanvasRef.current}
+              isPlusFeatureIn={false}
+              isInCanvasNote={false}
+            />
           )}
         </VideoCanvasTools>
         <VideoCanvasMinimize onClick={() => setCanvasToolMinimized((prev) => !prev)}>
           {canvasToolMinimized ? <BsChevronUp color="white" /> : <BsChevronDown color="white" />}
         </VideoCanvasMinimize>
       </VideoCanvasToolBar>
-      <VideoVisualIndexing
-        ref={visualIndexingRef}
-        onMouseDown={onDragStart}
-        onMouseMove={isDrag ? throttledOnDragMove : undefined}
-        onMouseUp={onDragEnd}
-        onMouseLeave={onDragEnd}
-      >
-        {visualIndexImageFilePathList.map((pileFath, idx) => (
-          <VideoSnapImage
-            src={pileFath}
-            alt="snapimage"
-            key={idx}
-            onClick={() => snapShotMove(idx)}
-          />
-        ))}
-      </VideoVisualIndexing>
+      {!canvasToolMinimized && (
+        <VideoVisualIndexing
+          ref={visualIndexingRef}
+          onMouseDown={onDragStart}
+          onMouseMove={isDrag ? throttledOnDragMove : undefined}
+          onMouseUp={onDragEnd}
+          onMouseLeave={onDragEnd}
+        >
+          {visualIndexImageFilePathList.map((pileFath, idx) => (
+            <VideoSnapImage
+              src={pileFath}
+              alt="snapimage"
+              key={idx}
+              onClick={() => snapShotMove(idx)}
+            />
+          ))}
+        </VideoVisualIndexing>
+      )}
     </VideoCanvasToolContainer>
   );
 };

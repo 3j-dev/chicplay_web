@@ -3,12 +3,13 @@ import styled from 'styled-components';
 
 interface VideoCanvasToolContainerProps {
   canvasActivated: boolean;
+  canvasToolMinimized: boolean;
 }
 
 export const VideoCanvasToolContainer = styled.div<VideoCanvasToolContainerProps>`
   display: ${({ canvasActivated }) => (canvasActivated ? 'flex' : 'none')};
   width: 89%;
-  height: 20%;
+  height: ${({ canvasToolMinimized }) => (canvasToolMinimized ? '5%' : '20%')};
   align-self: center;
   background-color: ${Colors.Black2};
   position: absolute;
