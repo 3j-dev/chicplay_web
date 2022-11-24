@@ -6,6 +6,7 @@ import { Colors } from '@/util/Constant';
 import { Typography } from '@/styles/style';
 import { uploadVideoFile } from '@/api/upload';
 import { pushNotification } from '@/util/notification';
+import LoaderSpiner from '@/component/Common/LoaderSpinner';
 
 interface NowSpaceT {
   spaceId: number;
@@ -14,7 +15,7 @@ interface NowSpaceT {
 const FileUpload: React.FC<NowSpaceT> = ({ spaceId }: NowSpaceT) => {
   const inputRef = useRef<HTMLInputElement>(null);
   const [isUploading, setIsUploading] = useState<boolean>(false);
-  const [isDragging, setIsDragging] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const dragRef = useRef<HTMLLabelElement>(null);
 
   const onInputFile = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -38,13 +39,14 @@ const FileUpload: React.FC<NowSpaceT> = ({ spaceId }: NowSpaceT) => {
         pushNotification('한 번에 한개의 파일만 가능합니다.', 'warning');
         return;
       }
-      console.log(files);
       if (!files || !files[0]) return;
       setIsUploading(true);
+      setIsLoading(true);
       const { data } = await uploadVideoFile(spaceId, files[0]);
       if (data.id) pushNotification('업로드 성공!', 'success');
       else pushNotification('업로드 실패', 'error');
       setIsUploading(false);
+      setIsLoading(false);
     },
     [spaceId],
   );
@@ -55,6 +57,7 @@ const FileUpload: React.FC<NowSpaceT> = ({ spaceId }: NowSpaceT) => {
 
   return (
     <UploadContainer>
+      {isLoading && <LoaderSpiner />}
       <FileUploadSection onDrop={onDropFiles} onDragOver={dragOver}>
         <FileUploadImage src={uploadImgSrc} />
         <FileUploadInput

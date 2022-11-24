@@ -8,6 +8,7 @@ import { getWebexRecordingList, postWebexRecording } from '@/api/upload';
 import { Colors } from '@/util/Constant';
 import { Typography } from '@/styles/style';
 import { pushNotification } from '@/util/notification';
+import LoaderSpiner from '@/component/Common/LoaderSpinner';
 
 interface NowSpaceT {
   spaceId: number;
@@ -15,14 +16,18 @@ interface NowSpaceT {
 
 const WebexUpload: React.FC<NowSpaceT> = ({ spaceId }: NowSpaceT) => {
   const [recordingList, setRecordingList] = useState<WebexRecordingT[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   useLayoutEffect(() => {
+    setIsLoading(true);
     getWebexRecordingList()
       .then((res) => setRecordingList(res.data))
-      .catch(() => pushNotification('리스트를 받아오는데 실패했습니다', 'error'));
+      .catch(() => pushNotification('리스트를 받아오는데 실패했습니다', 'error'))
+      .finally(() => setIsLoading(false));
   }, []);
   return (
     <UploadContainer>
+      {isLoading && <LoaderSpiner />}
       {recordingList?.length > 0 ? (
         <WebexRecordingAtomGroup>
           {recordingList !== null &&
@@ -58,18 +63,22 @@ const WebexRecordingAtom: React.FC<WebexRecordingAtomProps> = ({
   hostEmail,
   timeRecorded,
 }: WebexRecordingAtomProps) => {
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+
   const onClickHandler = () => {
     const data = {
       title: topic,
       description: topic,
     };
-    postWebexRecording(spaceId, recordingId, data).then(() =>
-      pushNotification('업로드 성공!', 'success'),
-    );
+    setIsLoading(true);
+    postWebexRecording(spaceId, recordingId, data)
+      .then(() => pushNotification('업로드 성공!', 'success'))
+      .finally(() => setIsLoading(false));
   };
 
   return (
     <WebexRecordingAtomContainer onClick={onClickHandler}>
+      {isLoading && <LoaderSpiner />}
       <TextGroup width={30}>
         <h4>{topic}</h4>
       </TextGroup>
