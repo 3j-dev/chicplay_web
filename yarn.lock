@@ -8157,6 +8157,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-loader-spinner@npm:^5.3.4":
+  version: 5.3.4
+  resolution: "react-loader-spinner@npm:5.3.4"
+  dependencies:
+    react-is: ^18.2.0
+    styled-components: ^5.3.5
+    styled-tools: ^1.7.2
+  peerDependencies:
+    react: ^16.0.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.0.0 || ^17.0.0 || ^18.0.0
+  checksum: 429ee74233b2a225164bd77cce94459c20443411248e00604a21752fabf31a36749cc4d52c2a2cf194b98b37c543e0cbb9b76a0e49188acd1f17087035544ca6
+  languageName: node
+  linkType: hard
+
 "react-modal@npm:^3.15.1":
   version: 3.15.1
   resolution: "react-modal@npm:3.15.1"
@@ -9110,6 +9124,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"styled-tools@npm:^1.7.2":
+  version: 1.7.2
+  resolution: "styled-tools@npm:1.7.2"
+  checksum: 00cc1796085589b8d95d5a4183806d45b1d332fbc1dcf19922b01b81bd871c5a499fce64e82bb63bbead5bb8fe317f60a6e91c2fe01bf1ed79f5953977a05065
+  languageName: node
+  linkType: hard
+
 "stylehacks@npm:^5.1.0":
   version: 5.1.0
   resolution: "stylehacks@npm:5.1.0"
@@ -9613,6 +9634,7 @@ __metadata:
     react-froala-wysiwyg: ^4.0.13
     react-hls-player: ^3.0.7
     react-is: ^18.2.0
+    react-loader-spinner: ^5.3.4
     react-modal: ^3.15.1
     react-router-dom: ^6.3.0
     react-toastify: ^9.0.8

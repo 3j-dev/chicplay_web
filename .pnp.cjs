@@ -84,6 +84,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react-froala-wysiwyg", "virtual:45f30d38dbe693d8821abcd87af315e8d7a0ac4aa060fdcf62b1d33b2fed6c7a3bfc1b588474183900876d703b79201474f4f3222dde9b4e53587004ba67d688#npm:4.0.13"],\
             ["react-hls-player", "virtual:45f30d38dbe693d8821abcd87af315e8d7a0ac4aa060fdcf62b1d33b2fed6c7a3bfc1b588474183900876d703b79201474f4f3222dde9b4e53587004ba67d688#npm:3.0.7"],\
             ["react-is", "npm:18.2.0"],\
+            ["react-loader-spinner", "virtual:45f30d38dbe693d8821abcd87af315e8d7a0ac4aa060fdcf62b1d33b2fed6c7a3bfc1b588474183900876d703b79201474f4f3222dde9b4e53587004ba67d688#npm:5.3.4"],\
             ["react-modal", "virtual:45f30d38dbe693d8821abcd87af315e8d7a0ac4aa060fdcf62b1d33b2fed6c7a3bfc1b588474183900876d703b79201474f4f3222dde9b4e53587004ba67d688#npm:3.15.1"],\
             ["react-router-dom", "virtual:45f30d38dbe693d8821abcd87af315e8d7a0ac4aa060fdcf62b1d33b2fed6c7a3bfc1b588474183900876d703b79201474f4f3222dde9b4e53587004ba67d688#npm:6.3.0"],\
             ["react-toastify", "virtual:45f30d38dbe693d8821abcd87af315e8d7a0ac4aa060fdcf62b1d33b2fed6c7a3bfc1b588474183900876d703b79201474f4f3222dde9b4e53587004ba67d688#npm:9.0.8"],\
@@ -11537,6 +11538,35 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["react-loader-spinner", [\
+        ["npm:5.3.4", {\
+          "packageLocation": "./.yarn/cache/react-loader-spinner-npm-5.3.4-c66d2872c1-429ee74233.zip/node_modules/react-loader-spinner/",\
+          "packageDependencies": [\
+            ["react-loader-spinner", "npm:5.3.4"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:45f30d38dbe693d8821abcd87af315e8d7a0ac4aa060fdcf62b1d33b2fed6c7a3bfc1b588474183900876d703b79201474f4f3222dde9b4e53587004ba67d688#npm:5.3.4", {\
+          "packageLocation": "./.yarn/__virtual__/react-loader-spinner-virtual-b295acbe2a/0/cache/react-loader-spinner-npm-5.3.4-c66d2872c1-429ee74233.zip/node_modules/react-loader-spinner/",\
+          "packageDependencies": [\
+            ["react-loader-spinner", "virtual:45f30d38dbe693d8821abcd87af315e8d7a0ac4aa060fdcf62b1d33b2fed6c7a3bfc1b588474183900876d703b79201474f4f3222dde9b4e53587004ba67d688#npm:5.3.4"],\
+            ["@types/react", "npm:18.0.15"],\
+            ["@types/react-dom", "npm:18.0.6"],\
+            ["react", "npm:18.2.0"],\
+            ["react-dom", "virtual:45f30d38dbe693d8821abcd87af315e8d7a0ac4aa060fdcf62b1d33b2fed6c7a3bfc1b588474183900876d703b79201474f4f3222dde9b4e53587004ba67d688#npm:18.2.0"],\
+            ["react-is", "npm:18.2.0"],\
+            ["styled-components", "virtual:45f30d38dbe693d8821abcd87af315e8d7a0ac4aa060fdcf62b1d33b2fed6c7a3bfc1b588474183900876d703b79201474f4f3222dde9b4e53587004ba67d688#npm:5.3.5"],\
+            ["styled-tools", "npm:1.7.2"]\
+          ],\
+          "packagePeers": [\
+            "@types/react-dom",\
+            "@types/react",\
+            "react-dom",\
+            "react"\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["react-modal", [\
         ["npm:3.15.1", {\
           "packageLocation": "./.yarn/cache/react-modal-npm-3.15.1-6ea99cd184-ee99ca312c.zip/node_modules/react-modal/",\
@@ -12677,6 +12707,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["styled-tools", [\
+        ["npm:1.7.2", {\
+          "packageLocation": "./.yarn/cache/styled-tools-npm-1.7.2-97a33384f1-00cc179608.zip/node_modules/styled-tools/",\
+          "packageDependencies": [\
+            ["styled-tools", "npm:1.7.2"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["stylehacks", [\
         ["npm:5.1.0", {\
           "packageLocation": "./.yarn/cache/stylehacks-npm-5.1.0-f980a6a46f-310b3452c1.zip/node_modules/stylehacks/",\
@@ -13304,6 +13343,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react-froala-wysiwyg", "virtual:45f30d38dbe693d8821abcd87af315e8d7a0ac4aa060fdcf62b1d33b2fed6c7a3bfc1b588474183900876d703b79201474f4f3222dde9b4e53587004ba67d688#npm:4.0.13"],\
             ["react-hls-player", "virtual:45f30d38dbe693d8821abcd87af315e8d7a0ac4aa060fdcf62b1d33b2fed6c7a3bfc1b588474183900876d703b79201474f4f3222dde9b4e53587004ba67d688#npm:3.0.7"],\
             ["react-is", "npm:18.2.0"],\
+            ["react-loader-spinner", "virtual:45f30d38dbe693d8821abcd87af315e8d7a0ac4aa060fdcf62b1d33b2fed6c7a3bfc1b588474183900876d703b79201474f4f3222dde9b4e53587004ba67d688#npm:5.3.4"],\
             ["react-modal", "virtual:45f30d38dbe693d8821abcd87af315e8d7a0ac4aa060fdcf62b1d33b2fed6c7a3bfc1b588474183900876d703b79201474f4f3222dde9b4e53587004ba67d688#npm:3.15.1"],\
             ["react-router-dom", "virtual:45f30d38dbe693d8821abcd87af315e8d7a0ac4aa060fdcf62b1d33b2fed6c7a3bfc1b588474183900876d703b79201474f4f3222dde9b4e53587004ba67d688#npm:6.3.0"],\
             ["react-toastify", "virtual:45f30d38dbe693d8821abcd87af315e8d7a0ac4aa060fdcf62b1d33b2fed6c7a3bfc1b588474183900876d703b79201474f4f3222dde9b4e53587004ba67d688#npm:9.0.8"],\
