@@ -4,7 +4,7 @@ import { Layout } from './style';
 import Content from '@/component/Common/Content';
 import Submenu from '@/component/Common/Submenu';
 import { dashBoardData, myTempData } from './data';
-import { MyDataT, StudiedVideoT } from '@/interfaces/mypage';
+import { MyDataT } from '@/interfaces/mypage';
 import { getMyPageDashBoard } from '@/api/mypage';
 import {
   MyProfile,
