@@ -1,4 +1,7 @@
-import { BsChevronDown, BsXLg, BsChevronUp, BsFillRecordCircleFill } from 'react-icons/bs';
+import { BsChevronUp } from '@react-icons/all-files/bs/BsChevronUp';
+import { BsChevronDown } from '@react-icons/all-files/bs/BsChevronDown';
+import { GrClose } from '@react-icons/all-files/gr/GrClose';
+
 import { TldrawApp } from '@tldraw/tldraw';
 import rafSchd from 'raf-schd';
 import { useState, useRef } from 'react';
@@ -12,11 +15,9 @@ import {
   VideoCanvasMinimize,
   VideoVisualIndexing,
   VideoSnapImage,
-  VideoSnapTime,
 } from './style';
 import CanvasNoteTool from '@/component/VideoNote/CanvasNote/CanvasNoteTool';
 import useCanvasRecord from '@/hook/useCanvasRecord';
-import { Colors } from '@/util/Constant';
 
 interface Props {
   videoCanvasRef: React.MutableRefObject<TldrawApp | null>;
@@ -38,7 +39,7 @@ const VideoCanvasTool: React.FC<Props> = ({
   playerRef,
   visualIndexImageFilePathList,
 }: Props) => {
-  const [canvasToolMinimized, setCanvasToolMinimized] = useState<Boolean>(false);
+  const [canvasToolMinimized, setCanvasToolMinimized] = useState<boolean>(false);
   const visualIndexingRef = useRef<HTMLDivElement>(null);
   const [isDrag, setIsDrag] = useState<boolean>(false);
   const [startX, setStartX] = useState<number>(0);
@@ -93,43 +94,46 @@ const VideoCanvasTool: React.FC<Props> = ({
   };
 
   return (
-    <VideoCanvasToolContainer canvasActivated={canvasActivated}>
+    <VideoCanvasToolContainer
+      canvasActivated={canvasActivated}
+      canvasToolMinimized={canvasToolMinimized}
+    >
       <VideoCanvasToolBar>
         <VideoCanvasTitle>
-          <BsXLg color="white" size="16" onClick={() => setCanvasActivated(false)} />
+          <GrClose color="white" size="16" onClick={() => setCanvasActivated(false)} />
           <VideoCanvasText>영상 필기</VideoCanvasText>
         </VideoCanvasTitle>
         <VideoCanvasTools>
           {videoCanvasRef.current !== null && (
-            <CanvasNoteTool tlDrawApp={videoCanvasRef.current} isPlusFeatureIn={true}>
-              <BsFillRecordCircleFill
-                onClick={recordClickHandler}
-                color={isRecordActive ? Colors.Red : Colors.White}
-                size="24"
-              />
-            </CanvasNoteTool>
+            <CanvasNoteTool
+              tlDrawApp={videoCanvasRef.current}
+              isPlusFeatureIn={false}
+              isInCanvasNote={false}
+            />
           )}
         </VideoCanvasTools>
         <VideoCanvasMinimize onClick={() => setCanvasToolMinimized((prev) => !prev)}>
           {canvasToolMinimized ? <BsChevronUp color="white" /> : <BsChevronDown color="white" />}
         </VideoCanvasMinimize>
       </VideoCanvasToolBar>
-      <VideoVisualIndexing
-        ref={visualIndexingRef}
-        onMouseDown={onDragStart}
-        onMouseMove={isDrag ? throttledOnDragMove : undefined}
-        onMouseUp={onDragEnd}
-        onMouseLeave={onDragEnd}
-      >
-        {visualIndexImageFilePathList.map((pileFath, idx) => (
-          <VideoSnapImage
-            src={pileFath}
-            alt="snapimage"
-            key={idx}
-            onClick={() => snapShotMove(idx)}
-          />
-        ))}
-      </VideoVisualIndexing>
+      {!canvasToolMinimized && (
+        <VideoVisualIndexing
+          ref={visualIndexingRef}
+          onMouseDown={onDragStart}
+          onMouseMove={isDrag ? throttledOnDragMove : undefined}
+          onMouseUp={onDragEnd}
+          onMouseLeave={onDragEnd}
+        >
+          {visualIndexImageFilePathList.map((pileFath, idx) => (
+            <VideoSnapImage
+              src={pileFath}
+              alt="snapimage"
+              key={idx}
+              onClick={() => snapShotMove(idx)}
+            />
+          ))}
+        </VideoVisualIndexing>
+      )}
     </VideoCanvasToolContainer>
   );
 };

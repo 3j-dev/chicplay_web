@@ -1,4 +1,4 @@
-import { BsXLg } from 'react-icons/bs';
+import { GrClose } from '@react-icons/all-files/gr/GrClose';
 import parseISO from 'date-fns/parseISO';
 import format from 'date-fns/format';
 
@@ -40,7 +40,7 @@ const NoteRecord: React.FC<Props> = ({ setNotePlusType, individualVideoId }: Pro
       <RecordTitleContainer>
         <RecordTitle>
           <h4>MY 필기 기록</h4>
-          <BsXLg size={16} onClick={() => setNotePlusType(NOTE_PLUS_TYPE.DEFAULT)} />
+          <GrClose size={16} onClick={() => setNotePlusType(NOTE_PLUS_TYPE.DEFAULT)} />
         </RecordTitle>
       </RecordTitleContainer>
       <RecordContentContainer>

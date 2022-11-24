@@ -3,12 +3,13 @@ import styled from 'styled-components';
 
 interface VideoCanvasToolContainerProps {
   canvasActivated: boolean;
+  canvasToolMinimized: boolean;
 }
 
 export const VideoCanvasToolContainer = styled.div<VideoCanvasToolContainerProps>`
   display: ${({ canvasActivated }) => (canvasActivated ? 'flex' : 'none')};
   width: 89%;
-  height: 20%;
+  height: ${({ canvasToolMinimized }) => (canvasToolMinimized ? '5%' : '20%')};
   align-self: center;
   background-color: ${Colors.Black2};
   position: absolute;
@@ -52,8 +53,7 @@ export const VideoCanvasText = styled.span`
 `;
 
 export const VideoCanvasTools = styled.div`
-  margin-left: -5%;
-  width: 50%;
+  width: 30%;
   height: 100%;
   display: flex;
   justify-content: space-evenly;
@@ -96,8 +96,8 @@ export const VideoSnapImageContainer = styled.div`
 `;
 
 export const VideoSnapImage = styled.img`
-  width: 100%;
-  height: 100%;
+  width: 210px;
+  height: 110px;
   border-radius: 10px;
   position: relative;
 `;

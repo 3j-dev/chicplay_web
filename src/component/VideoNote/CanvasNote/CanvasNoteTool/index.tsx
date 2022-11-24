@@ -1,8 +1,12 @@
 import { TldrawApp, TDShapeType, TDToolType } from '@tldraw/tldraw';
-import { RiBallPenLine, RiEraserLine, RiArrowRightUpLine } from 'react-icons/ri';
-import { TbRectangle, TbCircle } from 'react-icons/tb';
-import { BsFonts, BsTrash } from 'react-icons/bs';
-import { BiPointer } from 'react-icons/bi';
+import { RiBallPenLine } from '@react-icons/all-files/ri/RiBallPenLine';
+import { RiEraserLine } from '@react-icons/all-files/ri/RiEraserLine';
+import { RiArrowRightUpLine } from '@react-icons/all-files/ri/RiArrowRightUpLine';
+import { BiSquareRounded } from '@react-icons/all-files/bi/BiSquareRounded';
+import { BiCircle } from '@react-icons/all-files/bi/BiCircle';
+import { BsFonts } from '@react-icons/all-files/bs/BsFonts';
+import { BsTrash } from '@react-icons/all-files/bs/BsTrash';
+import { BiPointer } from '@react-icons/all-files/bi/BiPointer';
 import { PropsWithChildren, useCallback, useState } from 'react';
 
 // import { Icon } from '@/component/Common/Icon';
@@ -13,6 +17,7 @@ import { Colors } from '@/util/Constant';
 interface Props extends PropsWithChildren {
   tlDrawApp: TldrawApp;
   isPlusFeatureIn: boolean;
+  isInCanvasNote: boolean;
 }
 
 const toolGroup: TDToolType[] = [
@@ -25,11 +30,16 @@ const toolGroup: TDToolType[] = [
   TDShapeType.Text,
 ];
 
-const CanvasNoteTool: React.FC<Props> = ({ tlDrawApp, isPlusFeatureIn, children }: Props) => {
+const CanvasNoteTool: React.FC<Props> = ({
+  tlDrawApp,
+  isPlusFeatureIn,
+  isInCanvasNote,
+  children,
+}: Props) => {
   const [clickedSvg, setClickedSvg] = useState<number>(SVG_ID.POINTER);
   const [nonActiveColor, activeColor] = isPlusFeatureIn
-    ? [Colors.White, Colors.Blue3]
-    : [Colors.Black3, Colors.Blue3];
+    ? [Colors.Black3, Colors.Blue3]
+    : [Colors.White, Colors.Blue3];
 
   const iconClickHandler = useCallback(
     (idx: number) => {
@@ -51,7 +61,7 @@ const CanvasNoteTool: React.FC<Props> = ({ tlDrawApp, isPlusFeatureIn, children 
   };
 
   return (
-    <CanvasNoteToolContainer isTransparent={isPlusFeatureIn}>
+    <CanvasNoteToolContainer isTransparent={isPlusFeatureIn} isInCanvasNote={isInCanvasNote}>
       <CanvasNoteTools>
         <BiPointer
           onClick={() => iconClickHandler(SVG_ID.POINTER)}
@@ -73,12 +83,12 @@ const CanvasNoteTool: React.FC<Props> = ({ tlDrawApp, isPlusFeatureIn, children 
           color={colorHandler(SVG_ID.ARROW)}
           size="22"
         />
-        <TbRectangle
+        <BiSquareRounded
           onClick={() => iconClickHandler(SVG_ID.RECTANGLE)}
           color={colorHandler(SVG_ID.RECTANGLE)}
           size="22"
         />
-        <TbCircle
+        <BiCircle
           onClick={() => iconClickHandler(SVG_ID.CIRCLE)}
           color={colorHandler(SVG_ID.CIRCLE)}
           size="22"

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { useState } from 'react';
-import { GrFormClose } from 'react-icons/gr';
+import { GrFormClose } from '@react-icons/all-files/gr/GrFormClose';
 
 import { SpaceVideoT, SpaceUserT } from '@/interfaces/setting';
 import videoListImgSrc from '@/assets/icon/setting_video.png';
@@ -9,7 +9,12 @@ import userListImgSrc from '@/assets/icon/setting_userlist.png';
 import deleteImgSrc from '@/assets/icon/setting_delete.png';
 import { Colors } from '@/util/Constant';
 import { Typography } from '@/styles/style';
-import { deleteUserInVideoSpace, deleteVideoSpace, plusUserInVideoSpace } from '@/api/setting';
+import {
+  deleteUserInVideoSpace,
+  deleteVideo,
+  deleteVideoSpace,
+  plusUserInVideoSpace,
+} from '@/api/setting';
 import { pushNotification } from '@/util/notification';
 import { minimizeString } from '@/util/minimizeString';
 
@@ -33,11 +38,20 @@ interface SpaceDetailUserProps extends SpaceUserT {
 
 const VideoListAtom: React.FC<SpaceVideoT> = ({ id, title, description }: SpaceVideoT) => {
   const [isClicked, setIsClicked] = useState<boolean>(false);
+
+  const videoDeleteHandler = () => {
+    deleteVideo(id)
+      .then(() => pushNotification(`${title} 영상이 삭제되었습니다`, 'success'))
+      .catch(() => {
+        pushNotification('예상치 못한 문제가 발생했습니다.', 'error');
+      });
+  };
+
   return (
     <ListAtomContainer>
       <ListAtomMain onClick={() => setIsClicked((state) => !state)}>
         <p>{minimizeString(title, 20)}</p>
-        <GrFormClose color="#333" size={20} />
+        {isClicked && <GrFormClose color="#333" size={20} onClick={videoDeleteHandler} />}
       </ListAtomMain>
       <ListAtomDetail show={isClicked}>
         <p>{minimizeString(description, 50)}</p>
@@ -89,7 +103,7 @@ const UserListAtom: React.FC<SpaceDetailUserProps> = ({
           <ListAtomImg src={picture} />
           <p>{minimizeString(name, 10)}</p>
         </ListAtomUser>
-        <GrFormClose color="#333" size={20} onClick={userDeleteHandler} />
+        {isClicked && <GrFormClose color="#333" size={20} onClick={userDeleteHandler} />}
       </ListAtomMain>
       <ListAtomDetail show={isClicked}>
         <p>{email}</p>

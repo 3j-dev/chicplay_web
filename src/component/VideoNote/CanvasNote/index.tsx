@@ -28,7 +28,11 @@ const CanvasNote: React.FC<Props> = ({ nowNoteType, exportClicked, setExportClic
   return (
     <CanvasNoteContainer nowNoteType={nowNoteType}>
       {isMounted && (
-        <CanvasNoteTool tlDrawApp={tlDrawRef.current as TldrawApp} isPlusFeatureIn={false} />
+        <CanvasNoteTool
+          tlDrawApp={tlDrawRef.current as TldrawApp}
+          isPlusFeatureIn={true}
+          isInCanvasNote={true}
+        />
       )}
       <Tldraw onMount={handleMount} showUI={false} {...fileSystmeEvents} />
     </CanvasNoteContainer>

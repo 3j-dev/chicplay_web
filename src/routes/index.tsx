@@ -1,17 +1,17 @@
+import React from 'react';
 import { BrowserRouter, Routes, Route, Navigate, Outlet } from 'react-router-dom';
 
 import Layout from '@/component/Common/Layout';
-import {
-  Main,
-  Redirect,
-  LectureStream,
-  LectureSpace,
-  LectureUpload,
-  LectureSetting,
-  Mypage,
-} from '@/page';
 import { useRecoilValue } from 'recoil';
 import { LoginState } from '@/store/State/LoginState';
+
+const Main = React.lazy(() => import('@/page/MainPage'));
+const Redirect = React.lazy(() => import('@/page/RedirectPage'));
+const LectureStream = React.lazy(() => import('@/page/LectureStreamPage'));
+const LectureSpace = React.lazy(() => import('@/page/LectureSpacePage'));
+const LectureUpload = React.lazy(() => import('@/page/LectureUploadPage'));
+const LectureSetting = React.lazy(() => import('@/page/LectureSettingPage'));
+const Mypage = React.lazy(() => import('@/page/Mypage'));
 
 const Router: React.FC = () => {
   const loginState = useRecoilValue(LoginState);

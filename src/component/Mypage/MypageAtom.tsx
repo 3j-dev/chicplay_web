@@ -8,7 +8,7 @@ import mypageStatisticsImgSrc from '@/assets/icon/mypage_statistic.png';
 import mypageRecentVideosImgSrc from '@/assets/icon/mypage_recent_videos.png';
 import mypageCompleted from '@/assets/icon/mypage_completed.png';
 import webexLogoImgSrc from '@/assets/images/webex_logo2.png';
-import { MyDataT, StudiedVideoT } from '@/interfaces/mypage';
+import { StudiedVideoT } from '@/interfaces/mypage';
 import { Typography } from '@/styles/style';
 import { Colors } from '@/util/Constant';
 import { minimizeString } from '@/util/minimizeString';
@@ -216,6 +216,7 @@ const MypageAtomContent = styled.div<ContentAtomFlex>`
   width: 95%;
   height: 50%;
   display: flex;
+  overflow: auto;
   flex-direction: ${({ direction }) => `${direction}`};
   gap: ${({ gap }) => `${gap}px`};
   justify-content: ${({ isCenter }) => isCenter && 'center'};

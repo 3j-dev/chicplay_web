@@ -1,12 +1,11 @@
 import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
+import { parseISO } from 'date-fns';
 
 import { Colors } from '@/util/Constant';
 import { LectureStreamSpaceT, LectureVideoT } from '@/interfaces/space';
 import spaceLectureImgSrc from '@/assets/icon/space_lecture.png';
-import { useNavigate } from 'react-router-dom';
-
 import formatDate from '@/util/fomatDate';
-import { parseISO } from 'date-fns';
 import { pushNotification } from '@/util/notification';
 
 const SpaceList: React.FC<LectureStreamSpaceT> = ({
@@ -98,6 +97,7 @@ const SpaceLectureListGroup = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 20px;
+  overflow: auto;
 `;
 
 const SpaceLectureAtom: React.FC<LectureVideoT> = ({
