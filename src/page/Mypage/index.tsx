@@ -21,9 +21,30 @@ const Mypage: React.FC = () => {
 
   useLayoutEffect(() => {
     getMyPageDashBoard()
-      .then((res) => setMyData(res.data))
+      .then((res) => {
+        recentStudyNullCheckAndSetData(res.data);
+      })
       .catch(() => pushNotification('서버와의 통신에 에러가 있습니다', 'error'));
-  }, []);
+  }, [myData]);
+
+  const recentStudyNullCheckAndSetData = (data: MyDataT) => {
+    if (data.lastStudiedIndividualVideo !== null) {
+      setMyData(data);
+    } else {
+      const newData = data;
+      newData.lastStudiedIndividualVideo = {
+        videoSpaceId: -1,
+        videoSpaceName: '',
+        videoSpaceDescription: '',
+        individualVideoId: '',
+        updatedDate: '',
+        videoTitle: '',
+        videoDescription: '',
+        lastAccessTime: '',
+      };
+      setMyData(newData);
+    }
+  };
 
   return (
     <Layout>
