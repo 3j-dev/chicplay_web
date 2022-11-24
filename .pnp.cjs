@@ -67,7 +67,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-plugin-react-hooks", "virtual:45f30d38dbe693d8821abcd87af315e8d7a0ac4aa060fdcf62b1d33b2fed6c7a3bfc1b588474183900876d703b79201474f4f3222dde9b4e53587004ba67d688#npm:4.6.0"],\
             ["file-loader", "virtual:45f30d38dbe693d8821abcd87af315e8d7a0ac4aa060fdcf62b1d33b2fed6c7a3bfc1b588474183900876d703b79201474f4f3222dde9b4e53587004ba67d688#npm:6.2.0"],\
             ["form-data", "npm:4.0.0"],\
-            ["froala-editor", "npm:4.0.16"],\
+            ["froala-editor", "npm:4.0.13"],\
             ["html-webpack-plugin", "virtual:45f30d38dbe693d8821abcd87af315e8d7a0ac4aa060fdcf62b1d33b2fed6c7a3bfc1b588474183900876d703b79201474f4f3222dde9b4e53587004ba67d688#npm:5.5.0"],\
             ["interpolate-html-plugin", "virtual:45f30d38dbe693d8821abcd87af315e8d7a0ac4aa060fdcf62b1d33b2fed6c7a3bfc1b588474183900876d703b79201474f4f3222dde9b4e53587004ba67d688#npm:4.0.0"],\
             ["js-cookie", "npm:3.0.1"],\
@@ -7937,13 +7937,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["froala-editor", "npm:4.0.13"]\
           ],\
           "linkType": "HARD"\
-        }],\
-        ["npm:4.0.16", {\
-          "packageLocation": "./.yarn/cache/froala-editor-npm-4.0.16-ae28160a3f-2d1b8e8a8e.zip/node_modules/froala-editor/",\
-          "packageDependencies": [\
-            ["froala-editor", "npm:4.0.16"]\
-          ],\
-          "linkType": "HARD"\
         }]\
       ]],\
       ["fs-minipass", [\
@@ -13422,7 +13415,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-plugin-react-hooks", "virtual:45f30d38dbe693d8821abcd87af315e8d7a0ac4aa060fdcf62b1d33b2fed6c7a3bfc1b588474183900876d703b79201474f4f3222dde9b4e53587004ba67d688#npm:4.6.0"],\
             ["file-loader", "virtual:45f30d38dbe693d8821abcd87af315e8d7a0ac4aa060fdcf62b1d33b2fed6c7a3bfc1b588474183900876d703b79201474f4f3222dde9b4e53587004ba67d688#npm:6.2.0"],\
             ["form-data", "npm:4.0.0"],\
-            ["froala-editor", "npm:4.0.16"],\
+            ["froala-editor", "npm:4.0.13"],\
             ["html-webpack-plugin", "virtual:45f30d38dbe693d8821abcd87af315e8d7a0ac4aa060fdcf62b1d33b2fed6c7a3bfc1b588474183900876d703b79201474f4f3222dde9b4e53587004ba67d688#npm:5.5.0"],\
             ["interpolate-html-plugin", "virtual:45f30d38dbe693d8821abcd87af315e8d7a0ac4aa060fdcf62b1d33b2fed6c7a3bfc1b588474183900876d703b79201474f4f3222dde9b4e53587004ba67d688#npm:4.0.0"],\
             ["js-cookie", "npm:3.0.1"],\

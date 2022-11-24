@@ -5416,13 +5416,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"froala-editor@npm:^4.0.16":
-  version: 4.0.16
-  resolution: "froala-editor@npm:4.0.16"
-  checksum: 2d1b8e8a8e47f4036ad8addb653e72925788ba4e85507776b7e531142b6e0660f020d744fa5c113e63a79cfa6793b024096db103fda5b496d421fc04c3dea0f8
-  languageName: node
-  linkType: hard
-
 "fs-minipass@npm:^2.0.0, fs-minipass@npm:^2.1.0":
   version: 2.1.0
   resolution: "fs-minipass@npm:2.1.0"
@@ -9701,7 +9694,7 @@ __metadata:
     eslint-plugin-react-hooks: ^4.6.0
     file-loader: ^6.2.0
     form-data: ^4.0.0
-    froala-editor: ^4.0.16
+    froala-editor: 4.0.13
     html-webpack-plugin: ^5.5.0
     interpolate-html-plugin: ^4.0.0
     js-cookie: ^3.0.1
