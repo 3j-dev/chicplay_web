@@ -1,4 +1,4 @@
-import { BsChevronDown, BsXLg, BsChevronUp, BsFillRecordCircleFill } from 'react-icons/bs';
+import { BsChevronDown, BsXLg, BsChevronUp } from 'react-icons/bs';
 import { TldrawApp } from '@tldraw/tldraw';
 import rafSchd from 'raf-schd';
 import { useState, useRef } from 'react';
@@ -12,11 +12,9 @@ import {
   VideoCanvasMinimize,
   VideoVisualIndexing,
   VideoSnapImage,
-  VideoSnapTime,
 } from './style';
 import CanvasNoteTool from '@/component/VideoNote/CanvasNote/CanvasNoteTool';
 import useCanvasRecord from '@/hook/useCanvasRecord';
-import { Colors } from '@/util/Constant';
 
 interface Props {
   videoCanvasRef: React.MutableRefObject<TldrawApp | null>;
@@ -101,13 +99,7 @@ const VideoCanvasTool: React.FC<Props> = ({
         </VideoCanvasTitle>
         <VideoCanvasTools>
           {videoCanvasRef.current !== null && (
-            <CanvasNoteTool tlDrawApp={videoCanvasRef.current} isPlusFeatureIn={true}>
-              <BsFillRecordCircleFill
-                onClick={recordClickHandler}
-                color={isRecordActive ? Colors.Red : Colors.White}
-                size="24"
-              />
-            </CanvasNoteTool>
+            <CanvasNoteTool tlDrawApp={videoCanvasRef.current} isPlusFeatureIn={false} />
           )}
         </VideoCanvasTools>
         <VideoCanvasMinimize onClick={() => setCanvasToolMinimized((prev) => !prev)}>

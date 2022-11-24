@@ -52,8 +52,7 @@ export const VideoCanvasText = styled.span`
 `;
 
 export const VideoCanvasTools = styled.div`
-  margin-left: -5%;
-  width: 50%;
+  width: 30%;
   height: 100%;
   display: flex;
   justify-content: space-evenly;
@@ -96,8 +95,8 @@ export const VideoSnapImageContainer = styled.div`
 `;
 
 export const VideoSnapImage = styled.img`
-  width: 100%;
-  height: 100%;
+  width: 210px;
+  height: 110px;
   border-radius: 10px;
   position: relative;
 `;
