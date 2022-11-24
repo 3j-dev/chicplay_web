@@ -16,9 +16,6 @@ const NoteSlider: React.FC<Props> = ({
 }: Props) => {
   return (
     <NoteSliderContainer>
-      <SvgContainer>
-        <BsXLg />
-      </SvgContainer>
       <Buttons>
         <ButtonContainer
           onClick={() => setNowNoteType(NOTE_TYPE.MARKDOWN)}
@@ -33,9 +30,6 @@ const NoteSlider: React.FC<Props> = ({
           그리기
         </ButtonContainer>
       </Buttons>
-      <SvgContainer>
-        <BsThreeDotsVertical onClick={() => setDropdownActivated((prev) => !prev)} />
-      </SvgContainer>
     </NoteSliderContainer>
   );
 };
