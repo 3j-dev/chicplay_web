@@ -14,11 +14,12 @@ const ToVividContainer = styled.div`
 
 const ToVividImage = styled.img`
   width: 40%;
-  height: 70%;
+  height: auto;
+  margin-left: -10%;
 `;
 
 const ToVividTextGroup = styled.div`
-    width: 30%;
+    width: 50%;
     height: 70%
     display: flex;
     flex-direction: column;
@@ -28,7 +29,7 @@ const ToVividTextGroup = styled.div`
 
 const ToVividText = styled.p`
   font-size: 44px;
-  font-weight: 500;
+  font-weight: 700;
   line-height: 100px;
   letter-spacing: -0.07em;
   color: ${Colors.White};

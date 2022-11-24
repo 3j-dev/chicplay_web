@@ -1,8 +1,8 @@
 import ReactHlsPlayer from 'react-hls-player';
 import FormData from 'form-data';
 import { TldrawApp } from '@tldraw/tldraw';
-import { BsPencilSquare } from 'react-icons/bs';
-import { useRef, useState, useEffect, useCallback } from 'react';
+import { BsPencilSquare } from '@react-icons/all-files/bs/BsPencilSquare';
+import { useRef, useState, useEffect } from 'react';
 
 import { postSnapshot } from '@/api/stream';
 import VideoCanvas from './VideoCanvas';

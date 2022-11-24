@@ -1,9 +1,9 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const InterpolateHtmlPlugin = require('interpolate-html-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const path = require('path');
 const dotenv = require('dotenv');
 const webpack = require('webpack');
-// const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
 
 dotenv.config();
 
@@ -38,6 +38,12 @@ module.exports = {
       'process.env': JSON.stringify(process.env),
     }),
     new InterpolateHtmlPlugin({ PUBLIC_URL: '' }),
+    new BundleAnalyzerPlugin({
+      analyzerMode: 'static',
+      openAnalyzer: false,
+      generateStatsFile: true,
+      statsFilename: 'bundle-report.json',
+    }),
   ],
   resolve: {
     alias: {

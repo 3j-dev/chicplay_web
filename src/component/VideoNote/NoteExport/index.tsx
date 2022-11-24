@@ -1,4 +1,4 @@
-import { BsBoxArrowRight } from 'react-icons/bs';
+import { IoLogOutOutline } from '@react-icons/all-files/io5/IoLogOutOutline';
 
 import { NoteExportContainer } from './style';
 
@@ -9,7 +9,7 @@ interface Props {
 const NoteExport: React.FC<Props> = ({ setExportClicked }: Props) => {
   return (
     <NoteExportContainer onClick={() => setExportClicked(true)}>
-      노트 내보내기 <BsBoxArrowRight />
+      노트 내보내기 <IoLogOutOutline size={20} />
     </NoteExportContainer>
   );
 };

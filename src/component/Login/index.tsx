@@ -2,8 +2,8 @@ import ReactModal from 'react-modal';
 import noScroll from 'no-scroll';
 import { PropsWithChildren, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { FaCheck } from 'react-icons/fa';
-import { IoCloseOutline } from 'react-icons/io5';
+import { FaCheck } from '@react-icons/all-files/fa/FaCheck';
+import { IoCloseOutline } from '@react-icons/all-files/io5/IoCloseOutline';
 
 import LogoWithTextSrc from '@/assets/images/logo_with_text2.png';
 import GoogleLogoSrc from '@/assets/images/google_logo.png';

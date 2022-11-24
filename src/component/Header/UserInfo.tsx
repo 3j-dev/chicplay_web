@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
-import { CgProfile } from 'react-icons/cg';
-import { IoLogOutOutline } from 'react-icons/io5';
+import { CgProfile } from '@react-icons/all-files/cg/CgProfile';
+import { IoLogOutOutline } from '@react-icons/all-files/io5/IoLogOutOutline';
 
 import { deleteToken } from '@/util/auth';
 import { logout } from '@/api/user';

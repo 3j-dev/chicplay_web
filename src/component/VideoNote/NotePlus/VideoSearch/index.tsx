@@ -1,5 +1,6 @@
-import { BsXLg, BsClipboardX } from 'react-icons/bs';
-import { FiSearch } from 'react-icons/fi';
+import { GrClose } from '@react-icons/all-files/gr/GrClose';
+import { IoClipboardOutline } from '@react-icons/all-files/io5/IoClipboardOutline';
+import { FiSearch } from '@react-icons/all-files/fi/FiSearch';
 
 import {
   VideoSearchContainer,
@@ -25,7 +26,7 @@ interface ContentProps {
 const EmptyContent: React.FC = () => {
   return (
     <EmptyContentContainer>
-      <BsClipboardX size={40} color="#333333" />
+      <IoClipboardOutline size={40} color="#333333" />
       <span>검색 결과가 없습니다.</span>
     </EmptyContentContainer>
   );
@@ -44,7 +45,7 @@ const VideoSearch: React.FC<Props> = ({ setNotePlusType }: Props) => {
       <SearchTitleContainer>
         <SearchTitle>
           <h4>스마트 검색</h4>
-          <BsXLg size={16} onClick={() => setNotePlusType(NOTE_PLUS_TYPE.DEFAULT)} />
+          <GrClose size={16} onClick={() => setNotePlusType(NOTE_PLUS_TYPE.DEFAULT)} />
         </SearchTitle>
       </SearchTitleContainer>
       <SearchInputContainer>

@@ -25,7 +25,7 @@ const Mypage: React.FC = () => {
         recentStudyNullCheckAndSetData(res.data);
       })
       .catch(() => pushNotification('서버와의 통신에 에러가 있습니다', 'error'));
-  }, [myData]);
+  }, []);
 
   const recentStudyNullCheckAndSetData = (data: MyDataT) => {
     if (data.lastStudiedIndividualVideo !== null) {

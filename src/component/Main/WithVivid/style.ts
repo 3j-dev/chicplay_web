@@ -60,7 +60,7 @@ const WithVividAtomTitle = styled.div<{ idx: number }>`
   letter-spacing: -0.07em;
   color: ${Colors.White};
   background-color: ${({ idx }) => getBackgroundColor(idx)};
-  margin-bottom: 5%;
+  margin-bottom: 3%;
 `;
 
 const WithVividAtomSlogan = styled.div`
@@ -68,6 +68,7 @@ const WithVividAtomSlogan = styled.div`
   line-height: 18px;
   letter-spacing: -0.07em;
   text-align: center;
+  margin-bottom: 3%;
 `;
 
 const WithVividAtomImage = styled.img`
