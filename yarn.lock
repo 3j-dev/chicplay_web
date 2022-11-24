@@ -2223,6 +2223,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@react-icons/all-files@npm:^4.1.0":
+  version: 4.1.0
+  resolution: "@react-icons/all-files@npm:4.1.0"
+  peerDependencies:
+    react: "*"
+  checksum: c34c644650a144e4f2157c20b3106200ac1f76b3132dcda1a40f061e000a34c78df188266395afae571d5c85bf48365824db7b1bf8b7ae6229fdc148c941ab85
+  languageName: node
+  linkType: hard
+
 "@sindresorhus/is@npm:^4.0.0":
   version: 4.6.0
   resolution: "@sindresorhus/is@npm:4.6.0"
@@ -5400,10 +5409,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"froala-editor@npm:4.0.13, froala-editor@npm:^4.0.13":
+"froala-editor@npm:4.0.13":
   version: 4.0.13
   resolution: "froala-editor@npm:4.0.13"
   checksum: a1f83f72144a0524c021815fe027484474f31fd7713b37b3f89dee216c3c1d2a4f6a6de1d1af3f6489bf0cd434c09be7ce876df44cc22c3ae32a78801a38c0e8
+  languageName: node
+  linkType: hard
+
+"froala-editor@npm:^4.0.16":
+  version: 4.0.16
+  resolution: "froala-editor@npm:4.0.16"
+  checksum: 2d1b8e8a8e47f4036ad8addb653e72925788ba4e85507776b7e531142b6e0660f020d744fa5c113e63a79cfa6793b024096db103fda5b496d421fc04c3dea0f8
   languageName: node
   linkType: hard
 
@@ -8166,15 +8182,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-icons@npm:^4.4.0":
-  version: 4.4.0
-  resolution: "react-icons@npm:4.4.0"
-  peerDependencies:
-    react: "*"
-  checksum: dd93a1dcc8ac8a3cf46a2b33e80b586fa967331fa5fcb90d061abf276155a8363a331643e203d67cb9bab4261d00a757da854bcce1fce2c6e4258bf3e33f711b
-  languageName: node
-  linkType: hard
-
 "react-intl@npm:^6.0.3":
   version: 6.0.5
   resolution: "react-intl@npm:6.0.5"
@@ -9664,6 +9671,7 @@ __metadata:
     "@babel/preset-env": ^7.18.6
     "@babel/preset-react": ^7.18.6
     "@babel/preset-typescript": ^7.18.6
+    "@react-icons/all-files": ^4.1.0
     "@tldraw/tldraw": ^1.20.0
     "@types/js-cookie": ^3
     "@types/no-scroll": ^2
@@ -9693,7 +9701,7 @@ __metadata:
     eslint-plugin-react-hooks: ^4.6.0
     file-loader: ^6.2.0
     form-data: ^4.0.0
-    froala-editor: ^4.0.13
+    froala-editor: ^4.0.16
     html-webpack-plugin: ^5.5.0
     interpolate-html-plugin: ^4.0.0
     js-cookie: ^3.0.1
@@ -9709,7 +9717,6 @@ __metadata:
     react-dom: ^18.2.0
     react-froala-wysiwyg: ^4.0.13
     react-hls-player: ^3.0.7
-    react-icons: ^4.4.0
     react-is: ^18.2.0
     react-modal: ^3.15.1
     react-query: ^3.39.2
