@@ -19,7 +19,7 @@ const LoaderSpiner: React.FC = () => {
 };
 
 const BackgroundBlur = styled.div`
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
@@ -29,6 +29,7 @@ const BackgroundBlur = styled.div`
   align-items: center;
   background: ${Colors.White1};
   opacity: 0.6;
+  z-index: 5;
 `;
 
 export default LoaderSpiner;
