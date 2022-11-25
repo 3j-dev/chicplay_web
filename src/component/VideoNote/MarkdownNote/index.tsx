@@ -4,7 +4,7 @@ import { useState, useEffect, useRef, useLayoutEffect } from 'react';
 
 import { FroalaContainer } from './style';
 import { config } from './config';
-import 'froala-editor/js/froala_editor.pkgd.min.js';
+
 import 'froala-editor/css/froala_editor.pkgd.min.css';
 import 'froala-editor/css/froala_style.min.css';
 import 'froala-editor/css/plugins.pkgd.min.css';
@@ -18,6 +18,7 @@ import 'froala-editor/js/third_party/image_tui.min.js';
 import 'froala-editor/css/third_party/spell_checker.min.css';
 import 'froala-editor/js/third_party/spell_checker.min.js';
 import 'froala-editor/js/languages/ko.js';
+
 import { getTextMemo, reflectTextMemoInDB, updateTextMemo } from '@/api/stream';
 import useInterval from '@/hook/useInterval';
 import { pushNotification } from '@/util/notification';
