@@ -117,7 +117,10 @@
 
 ### 강의 화면
 
-<img src="https://user-images.githubusercontent.com/86864534/203502576-88d3eeab-f27d-417e-a8ad-873e071d57ff.png" />
+- 강의 선택 화면
+  <img src="https://user-images.githubusercontent.com/86864534/203502576-88d3eeab-f27d-417e-a8ad-873e071d57ff.png" />
+- 강의 시청 화면
+  <img src="https://user-images.githubusercontent.com/86864534/204141330-d28aa251-a26e-4ce6-bc1c-2a91eb99f310.png" />
 
 ### 업로드 화면
 
