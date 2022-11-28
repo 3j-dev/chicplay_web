@@ -2,7 +2,7 @@ import { LectureSpaceT, SpaceSimpleT, UserPlusT } from '@/interfaces/setting';
 import { axiosInstance } from './instance';
 import { apiRoutes } from './routes';
 
-export const plusUserInVideoSpace = async (videoSpaceId: number, userEmail: string) =>
+export const plusUserInVideoSpace = (videoSpaceId: number, userEmail: string) =>
   axiosInstance.post<UserPlusT>(
     apiRoutes.plusUserInVideoSpace
       .replace('{video-space-id}', `${videoSpaceId}`)

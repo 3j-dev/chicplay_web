@@ -4,12 +4,12 @@ import { axiosInstance } from './instance';
 import { apiRoutes } from './routes';
 import { IndivudalVideoInfoT, SnapshotInfoT, TextMemoT } from '@/interfaces/stream';
 
-const getVideoInfo = async (individualVideoId: string) =>
+const getVideoInfo = (individualVideoId: string) =>
   axiosInstance.get<IndivudalVideoInfoT>(
     apiRoutes.getVideoInfo.replace('{individual-video-id}', individualVideoId),
   );
 
-const postSnapshot = async (individualVideoId: string, videoTime: number, formData: FormData) =>
+const postSnapshot = (individualVideoId: string, videoTime: number, formData: FormData) =>
   axiosInstance.post<SnapshotInfoT>(
     apiRoutes.postImageSnapshot
       .replace('{individual-video-id}', individualVideoId)
@@ -20,12 +20,12 @@ const postSnapshot = async (individualVideoId: string, videoTime: number, formDa
     },
   );
 
-const getTextMemo = async (individualVideoId: string) =>
+const getTextMemo = (individualVideoId: string) =>
   axiosInstance.get<TextMemoT>(
     apiRoutes.getTextMemo.replace('{individual-video-id}', individualVideoId),
   );
 
-const updateTextMemo = async (individualVideoId: string, memoData: object) => {
+const updateTextMemo = (individualVideoId: string, memoData: object) => {
   const blob = new Blob([JSON.stringify(memoData)], { type: 'application/json' });
 
   return axiosInstance.post(
@@ -37,7 +37,7 @@ const updateTextMemo = async (individualVideoId: string, memoData: object) => {
   );
 };
 
-const reflectTextMemoInDB = async (individualVideoId: string, memoData: object) => {
+const reflectTextMemoInDB = (individualVideoId: string, memoData: object) => {
   const blob = new Blob([JSON.stringify(memoData)], { type: 'application/json' });
 
   return axiosInstance.post(
@@ -49,12 +49,12 @@ const reflectTextMemoInDB = async (individualVideoId: string, memoData: object) 
   );
 };
 
-const freshVideoAccessTime = async (individualVideoId: string) =>
+const freshVideoAccessTime = (individualVideoId: string) =>
   axiosInstance.put(
     apiRoutes.freshVideoAccessTime.replace('{individual-video-id}', individualVideoId),
   );
 
-const getNoteList = async (individualVideoId: string) =>
+const getNoteList = (individualVideoId: string) =>
   axiosInstance.get(apiRoutes.getNoteList.replace('{individual-video-id}', individualVideoId));
 
 const freshProgressRate = (individualVideoId: string, percent: number) =>
