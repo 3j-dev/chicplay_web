@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { TailSpin } from 'react-loader-spinner';
 
-import { Colors } from '@/util/Constant';
+import { Colors } from '@/styles/color';
 
 const LoaderSpiner: React.FC = () => {
   return (

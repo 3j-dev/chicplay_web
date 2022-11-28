@@ -5,7 +5,7 @@ import { parseISO, format } from 'date-fns';
 
 import { WebexRecordingT } from '@/interfaces/upload';
 import { getWebexRecordingList, postWebexRecording } from '@/api/upload';
-import { Colors } from '@/util/Constant';
+import { Colors } from '@/styles/color';
 import { Typography } from '@/styles/style';
 import { pushNotification } from '@/util/notification';
 import LoaderSpiner from '@/component/Common/LoaderSpinner';

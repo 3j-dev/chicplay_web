@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { HiOutlineChevronLeft } from '@react-icons/all-files/hi/HiOutlineChevronLeft';
 
 import { LectureSpaceT } from '@/interfaces/setting';
-import { Colors } from '@/util/Constant';
+import { Colors } from '@/styles/color';
 import { Typography } from '@/styles/style';
 import { UPLOAD } from './constant';
 import youtubeImgSrc from '@/assets/images/youtube_logo2.png';

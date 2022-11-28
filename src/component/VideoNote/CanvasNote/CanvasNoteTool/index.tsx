@@ -1,4 +1,6 @@
+import { PropsWithChildren, useCallback, useState } from 'react';
 import { TldrawApp, TDShapeType, TDToolType } from '@tldraw/tldraw';
+
 import { RiBallPenLine } from '@react-icons/all-files/ri/RiBallPenLine';
 import { RiEraserLine } from '@react-icons/all-files/ri/RiEraserLine';
 import { RiArrowRightUpLine } from '@react-icons/all-files/ri/RiArrowRightUpLine';
@@ -7,12 +9,11 @@ import { BiCircle } from '@react-icons/all-files/bi/BiCircle';
 import { BsFonts } from '@react-icons/all-files/bs/BsFonts';
 import { BsTrash } from '@react-icons/all-files/bs/BsTrash';
 import { BiPointer } from '@react-icons/all-files/bi/BiPointer';
-import { PropsWithChildren, useCallback, useState } from 'react';
 
 // import { Icon } from '@/component/Common/Icon';
 import { CanvasNoteToolContainer, CanvasNoteTools } from './style';
 import { SVG_ID } from './constant';
-import { Colors } from '@/util/Constant';
+import { Colors } from '@/styles/color';
 
 interface Props extends PropsWithChildren {
   tlDrawApp: TldrawApp;

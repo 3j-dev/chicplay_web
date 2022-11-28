@@ -7,7 +7,7 @@ import videoListImgSrc from '@/assets/icon/setting_video.png';
 import userAddImgSrc from '@/assets/icon/setting_useradd.png';
 import userListImgSrc from '@/assets/icon/setting_userlist.png';
 import deleteImgSrc from '@/assets/icon/setting_delete.png';
-import { Colors } from '@/util/Constant';
+import { Colors } from '@/styles/color';
 import { Typography } from '@/styles/style';
 import {
   deleteUserInVideoSpace,

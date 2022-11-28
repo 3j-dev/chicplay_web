@@ -2,7 +2,7 @@ import { createGlobalStyle } from 'styled-components';
 import reset from 'styled-reset';
 
 import { Typography } from './style';
-import { Colors } from '@/util/Constant';
+import { Colors } from '@/styles/color';
 
 const GlobalStyle = createGlobalStyle`
     ${reset}

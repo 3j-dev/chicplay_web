@@ -2,7 +2,7 @@ import React, { useRef, useState, useCallback } from 'react';
 import styled from 'styled-components';
 
 import uploadImgSrc from '@/assets/images/upload.png';
-import { Colors } from '@/util/Constant';
+import { Colors } from '@/styles/color';
 import { Typography } from '@/styles/style';
 import { uploadVideoFile } from '@/api/upload';
 import { pushNotification } from '@/util/notification';
