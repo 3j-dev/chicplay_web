@@ -1,7 +1,6 @@
 import { useCallback, useRef } from 'react';
 
-import { NOTE_PLUS_TYPE } from '@/util/Constant';
-import useOutsideClick from '@/hook/useOutsideClick';
+import { NOTE_PLUS_TYPE } from '../Constant';
 import { DropdownContainer, DropdownButtonContainer } from './style';
 
 interface Props {

@@ -1,5 +1,4 @@
-import { NOTE_PLUS_TYPE } from '@/util/Constant';
-
+import { NOTE_PLUS_TYPE } from '../Constant';
 import { NotePlusContainer } from './style';
 import NoteRecord from './NoteRecord';
 import VideoSearch from './VideoSearch';

@@ -1,5 +1,5 @@
 import { ComponentProps } from 'react';
-import { IconBaseProps, IconType } from 'react-icons/lib';
+import { IconBaseProps, IconType } from '@react-icons/all-files';
 
 import { Colors } from '@/styles/color';
 

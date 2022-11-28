@@ -1,5 +1,5 @@
 import { NoteSliderContainer, ButtonContainer, Buttons } from './style';
-import { NOTE_TYPE } from '@/util/Constant';
+import { NOTE_TYPE } from '../Constant';
 
 interface Props {
   nowNoteType: number;

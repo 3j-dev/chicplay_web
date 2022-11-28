@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { NOTE_TYPE, NOTE_PLUS_TYPE } from '@/util/Constant';
+import { NOTE_TYPE, NOTE_PLUS_TYPE } from './Constant';
 import CanvasNote from './CanvasNote';
 import MarkdownNote from './MarkdownNote';
 import NoteSlider from './NoteSlider';

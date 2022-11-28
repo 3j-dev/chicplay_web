@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import { GrClose } from '@react-icons/all-files/gr/GrClose';
 import { IoClipboardOutline } from '@react-icons/all-files/io5/IoClipboardOutline';
 import { FiSearch } from '@react-icons/all-files/fi/FiSearch';
@@ -12,8 +14,7 @@ import {
   EmptyContentContainer,
   ResultContentContainer,
 } from './style';
-import { NOTE_PLUS_TYPE } from '@/util/Constant';
-import { useState } from 'react';
+import { NOTE_PLUS_TYPE } from '../../Constant';
 
 interface Props {
   setNotePlusType: React.Dispatch<React.SetStateAction<number>>;

@@ -9,7 +9,7 @@ import {
   RecordContentContainer,
   ContentContainer,
 } from './style';
-import { NOTE_PLUS_TYPE } from '@/util/Constant';
+import { NOTE_PLUS_TYPE } from '../../Constant';
 import { useLayoutEffect, useState } from 'react';
 import { TextMemoT } from '@/interfaces/stream';
 import { getNoteList } from '@/api/stream';
