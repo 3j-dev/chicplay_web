@@ -1,6 +1,7 @@
-import { Typography } from '@/styles/style';
-import { Colors } from '@/util/Constant';
 import styled from 'styled-components';
+
+import { Typography } from '@/styles/style';
+import { Colors } from '@/styles/color';
 
 const ModalCloseButton = styled.button`
   text-decoration: none;

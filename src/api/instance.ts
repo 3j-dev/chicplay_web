@@ -1,40 +1,43 @@
-import axios, { AxiosError, AxiosResponse } from 'axios';
+import type { AxiosRequestConfig, AxiosResponse } from 'axios';
+import axios, { AxiosError } from 'axios';
 
-import { authHeader } from '@/util/auth';
-import { pushNotification } from '@/util/notification';
+import { authHeader, setAccessToken } from '@/util/TokenStorage';
+import { refreshToken } from './user';
 
-const baseURL: string = 'https://api.dev.edu-vivid.com';
+type RetryConfig = { remainingRetry?: number };
+type RequestWithRetry = AxiosRequestConfig & RetryConfig;
+type ErrorWithRetry = AxiosError & { config: RequestWithRetry };
 
-const instance = axios.create({
-  baseURL: baseURL,
+const RETRY_COUNT = 3;
+const TIMEOUT = 2000;
+
+export const axiosInstance = axios.create({
+  baseURL: 'https://api.dev.edu-vivid.com',
+  validateStatus: (status: number) => status !== 401,
+});
+
+const onFulfilled = (response: AxiosResponse): AxiosResponse => response;
+
+const onRejected = async (error: ErrorWithRetry): Promise<AxiosResponse> => {
+  if (!error.config.remainingRetry) error.config.remainingRetry = RETRY_COUNT;
+  if (error.config.remainingRetry < 0) return Promise.reject(error);
+
+  error.config.remainingRetry = error.config.remainingRetry - 1;
+
+  const { status, data } = await refreshToken();
+  if (status === 401) return Promise.reject(error);
+
+  setAccessToken(data.accessToken);
+  return axiosInstance.request(error.config);
+};
+
+axiosInstance.interceptors.request.use((request: RequestWithRetry) => ({
+  timeout: TIMEOUT,
+  ...request,
   headers: {
-    'Access-Control-Allow-Origin': '*',
-    withCredentials: true,
+    ...request.headers,
+    Authorization: `${authHeader()}`,
   },
-});
+}));
 
-instance.interceptors.request.use((config) => {
-  if (config && config.headers) config.headers.authorization = `${authHeader()}`;
-  return config;
-});
-
-instance.interceptors.response.use(
-  (res: AxiosResponse) => {
-    return res;
-  },
-  async (error: AxiosError) => {
-    if (error.response && error.response.status === 500) {
-      pushNotification('현재 서버에 문제가 발생하였습니다. 추후 다시 시도해주십시오', 'error');
-    } else if (error.response && error.response.data.code === 'A03') {
-      pushNotification('해당 유저를 찾을 수 없습니다.', 'error');
-    } else if (error.response && error.response.data.code === 'VS03') {
-      pushNotification('해당 유저는 이미 space 내에 있습니다.', 'error');
-    } else if (error.response && error.response.data.code === 'E01') {
-      pushNotification('Webex Login이 필요합니다.', 'error');
-    }
-
-    return Promise.reject(error);
-  },
-);
-
-export const axiosInstance = instance;
+axiosInstance.interceptors.response.use(onFulfilled, onRejected);

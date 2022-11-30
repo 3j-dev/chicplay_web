@@ -1,14 +1,15 @@
 import styled from 'styled-components';
-import { useState, useLayoutEffect } from 'react';
+import { useState, useLayoutEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { parseISO, format } from 'date-fns';
 
 import { WebexRecordingT } from '@/interfaces/upload';
 import { getWebexRecordingList, postWebexRecording } from '@/api/upload';
-import { Colors } from '@/util/Constant';
+import { Colors } from '@/styles/color';
 import { Typography } from '@/styles/style';
 import { pushNotification } from '@/util/notification';
 import LoaderSpiner from '@/component/Common/LoaderSpinner';
+import { getErrorToast } from '@/api/error/error.config';
 
 interface NowSpaceT {
   spaceId: number;
@@ -18,13 +19,21 @@ const WebexUpload: React.FC<NowSpaceT> = ({ spaceId }: NowSpaceT) => {
   const [recordingList, setRecordingList] = useState<WebexRecordingT[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  useLayoutEffect(() => {
+  const initialize = useCallback(async () => {
     setIsLoading(true);
-    getWebexRecordingList()
-      .then((res) => setRecordingList(res.data))
-      .catch(() => pushNotification('리스트를 받아오는데 실패했습니다', 'error'))
-      .finally(() => setIsLoading(false));
+    const { status, data, code } = await getWebexRecordingList();
+    if (status === 200) {
+      setRecordingList(data);
+    } else {
+      getErrorToast(code);
+    }
+    setIsLoading(false);
   }, []);
+
+  useLayoutEffect(() => {
+    initialize();
+  }, [initialize]);
+
   return (
     <UploadContainer>
       {isLoading && <LoaderSpiner />}

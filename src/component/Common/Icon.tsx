@@ -1,7 +1,7 @@
 import { ComponentProps } from 'react';
-import { IconBaseProps, IconType } from 'react-icons/lib';
+import { IconBaseProps, IconType } from '@react-icons/all-files';
 
-import { Colors } from '@/util/Constant';
+import { Colors } from '@/styles/color';
 
 interface IconProps extends ComponentProps<'svg'> {
   isActive: boolean;

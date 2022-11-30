@@ -1,6 +1,6 @@
-import { Colors } from '@/util/Constant';
 import styled from 'styled-components';
 
+import { Colors } from '@/styles/color';
 import { POSITION } from './constant';
 
 interface EllipseProps {

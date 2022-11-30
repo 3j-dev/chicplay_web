@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { Colors } from '@/util/Constant';
+import { Colors } from '@/styles/color';
 
 const getBackgroundColor = (idx: number): string => {
   switch (idx) {

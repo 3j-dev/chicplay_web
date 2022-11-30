@@ -17,7 +17,7 @@ import {
   WhyLoginDetail,
   WhyLoginDetailText,
 } from './style';
-import { Colors } from '@/util/Constant';
+import { Colors } from '@/styles/color';
 
 interface Props {
   isOpen: boolean;

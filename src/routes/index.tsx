@@ -2,8 +2,7 @@ import React from 'react';
 import { BrowserRouter, Routes, Route, Navigate, Outlet } from 'react-router-dom';
 
 import Layout from '@/component/Common/Layout';
-import { useRecoilValue } from 'recoil';
-import { LoginState } from '@/store/State/LoginState';
+import { useAuthenticationContext } from '@/hook/AuthenticationContext';
 
 const Main = React.lazy(() => import('@/page/MainPage'));
 const Redirect = React.lazy(() => import('@/page/RedirectPage'));
@@ -14,14 +13,14 @@ const LectureSetting = React.lazy(() => import('@/page/LectureSettingPage'));
 const Mypage = React.lazy(() => import('@/page/Mypage'));
 
 const Router: React.FC = () => {
-  const loginState = useRecoilValue(LoginState);
+  const { isAuthenticated } = useAuthenticationContext();
 
   return (
     <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Routes>
         <Route element={<Layout />}>
           <Route path="/" element={<Main />} />;
-          <Route element={<ProtectedRoute loginState={loginState} />}>
+          <Route element={<ProtectedRoute loginState={isAuthenticated} />}>
             <Route path="/space" element={<LectureSpace />} />;
             <Route path="/upload" element={<LectureUpload />} />;
             <Route path="/setting" element={<LectureSetting />} />;
@@ -29,7 +28,7 @@ const Router: React.FC = () => {
           </Route>
           <Route path="*" element={<Main />} />
         </Route>
-        <Route element={<ProtectedRoute loginState={loginState} />}>
+        <Route element={<ProtectedRoute loginState={isAuthenticated} />}>
           <Route path="/stream" element={<LectureStream />} />;
         </Route>
         <Route path="/redirect" element={<Redirect />} />;

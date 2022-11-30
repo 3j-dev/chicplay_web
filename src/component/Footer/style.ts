@@ -1,5 +1,6 @@
-import { Colors } from '@/util/Constant';
 import styled from 'styled-components';
+
+import { Colors } from '@/styles/color';
 
 const FooterContainer = styled.footer`
   width: 100%;

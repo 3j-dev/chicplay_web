@@ -7,7 +7,7 @@ import videoListImgSrc from '@/assets/icon/setting_video.png';
 import userAddImgSrc from '@/assets/icon/setting_useradd.png';
 import userListImgSrc from '@/assets/icon/setting_userlist.png';
 import deleteImgSrc from '@/assets/icon/setting_delete.png';
-import { Colors } from '@/util/Constant';
+import { Colors } from '@/styles/color';
 import { Typography } from '@/styles/style';
 import {
   deleteUserInVideoSpace,
@@ -17,6 +17,7 @@ import {
 } from '@/api/setting';
 import { pushNotification } from '@/util/notification';
 import { minimizeString } from '@/util/minimizeString';
+import { getErrorToast } from '@/api/error/error.config';
 
 type SettingAtomType = 'VideoList' | 'UserList' | 'UserAdd';
 
@@ -39,12 +40,13 @@ interface SpaceDetailUserProps extends SpaceUserT {
 const VideoListAtom: React.FC<SpaceVideoT> = ({ id, title, description }: SpaceVideoT) => {
   const [isClicked, setIsClicked] = useState<boolean>(false);
 
-  const videoDeleteHandler = () => {
-    deleteVideo(id)
-      .then(() => pushNotification(`${title} 영상이 삭제되었습니다`, 'success'))
-      .catch(() => {
-        pushNotification('예상치 못한 문제가 발생했습니다.', 'error');
-      });
+  const videoDeleteHandler = async () => {
+    const { status, code } = await deleteVideo(id);
+    if (status === 200) {
+      pushNotification(`${title} 영상이 삭제되었습니다`, 'success');
+    } else {
+      getErrorToast(code);
+    }
   };
 
   return (

@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 import { parseISO } from 'date-fns';
 
-import { Colors } from '@/util/Constant';
+import { Colors } from '@/styles/color';
 import { LectureStreamSpaceT, LectureVideoT } from '@/interfaces/space';
 import spaceLectureImgSrc from '@/assets/icon/space_lecture.png';
 import formatDate from '@/util/fomatDate';

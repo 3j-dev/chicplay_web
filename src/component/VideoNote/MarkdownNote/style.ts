@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { NOTE_TYPE } from '@/util/Constant';
+import { NOTE_TYPE } from '../Constant';
 
 interface FroalaContainerProps {
   nowNoteType: number;

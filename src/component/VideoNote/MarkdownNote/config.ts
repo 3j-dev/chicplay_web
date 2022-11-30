@@ -1,4 +1,4 @@
-import { FROALA_BUTTONS, FROALA_PLUGINS } from '@/util/Constant';
+import { FROALA_BUTTONS, FROALA_PLUGINS } from './Constant';
 
 export const config = {
   key: process.env.FROALA_LICENSE_KEY,

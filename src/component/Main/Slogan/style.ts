@@ -1,5 +1,6 @@
-import { Colors } from '@/util/Constant';
 import styled from 'styled-components';
+
+import { Colors } from '@/styles/color';
 
 const SloganContainer = styled.div`
   width: 100%;

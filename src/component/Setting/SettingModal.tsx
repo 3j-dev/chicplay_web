@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 
-import { Colors } from '@/util/Constant';
+import { Colors } from '@/styles/color';
 import { plusVideoSpace } from '@/api/setting';
 import { pushNotification } from '@/util/notification';
+import { getErrorToast } from '@/api/error/error.config';
 
 const SettingModal: React.FC = () => {
   const [spaceName, setSpaceName] = useState<string>('');
@@ -12,12 +13,12 @@ const SettingModal: React.FC = () => {
   const submitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (spaceName.length < 1 || spaceDescription.length < 1) return;
-    const { data } = await plusVideoSpace(spaceName, spaceDescription);
+    const { data, code } = await plusVideoSpace(spaceName, spaceDescription);
     if (data.name === spaceName && data.description === spaceDescription) {
       pushNotification('Space 생성 성공!', 'success');
       setSpaceName('');
       setSpaceDescription('');
-    } else pushNotification('Space 생성 실패', 'error');
+    } else getErrorToast(code);
   };
 
   return (

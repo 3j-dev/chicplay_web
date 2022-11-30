@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { HiPlus } from '@react-icons/all-files/hi/HiPlus';
 import { HiOutlineChevronLeft } from '@react-icons/all-files/hi/HiOutlineChevronLeft';
 
-import { Colors } from '@/util/Constant';
+import { Colors } from '@/styles/color';
 import submenuVectorImageSrc from '@/assets/images/submenu_vector.png';
 import { Typography } from '@/styles/style';
 import { PropsWithChildren, ReactNode, useState } from 'react';

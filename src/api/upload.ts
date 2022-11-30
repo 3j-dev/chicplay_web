@@ -4,13 +4,13 @@ import FormData from 'form-data';
 import { axiosInstance } from './instance';
 import { apiRoutes } from './routes';
 
-export const postWebexLoginCode = async (code: string) =>
+export const postWebexLoginCode = (code: string) =>
   axiosInstance.post(apiRoutes.postWebexLoginCode.replace('{code}', code));
 
-export const getWebexRecordingList = async () =>
+export const getWebexRecordingList = () =>
   axiosInstance.get<WebexRecordingT[]>(apiRoutes.getWebexRecordingList);
 
-export const postWebexRecording = async (videoSpaceId: number, recordingId: string, data: object) =>
+export const postWebexRecording = (videoSpaceId: number, recordingId: string, data: object) =>
   axiosInstance.post<{ id: number }>(
     apiRoutes.postWebexRecording
       .replace('{video-space-id}', `${videoSpaceId}`)
@@ -18,7 +18,7 @@ export const postWebexRecording = async (videoSpaceId: number, recordingId: stri
     data,
   );
 
-export const uploadVideoFile = async (videoSpaceId: number, videoFile: File) => {
+export const uploadVideoFile = (videoSpaceId: number, videoFile: File) => {
   let videoFormData = new FormData();
   const blob = new Blob([JSON.stringify({ title: videoFile.name, description: videoFile.name })], {
     type: 'application/json',

@@ -10,7 +10,7 @@ import mypageCompleted from '@/assets/icon/mypage_completed.png';
 import webexLogoImgSrc from '@/assets/images/webex_logo2.png';
 import { StudiedVideoT } from '@/interfaces/mypage';
 import { Typography } from '@/styles/style';
-import { Colors } from '@/util/Constant';
+import { Colors } from '@/styles/color';
 import { minimizeString } from '@/util/minimizeString';
 
 interface ContentAtomFlex {
