@@ -1,4 +1,4 @@
-import { useState, useLayoutEffect, useEffect } from 'react';
+import { useState, useLayoutEffect, useEffect, useCallback } from 'react';
 
 import { Layout } from './style';
 import { tempSpace } from './data';
@@ -8,18 +8,26 @@ import { SettingVideoList, SettingUserList, SettingUserAdd } from '@/component/S
 import { LectureSpaceT, SpaceVideoT, SpaceUserT } from '@/interfaces/setting';
 import SettingModal from '@/component/Setting/SettingModal';
 import { getHostedVideoList } from '@/api/setting';
+import { getErrorToast } from '@/api/error/error.config';
 
 const LectureSettingPage: React.FC = () => {
   const [lectureSpaceData, setLectureSpaceData] = useState<LectureSpaceT[]>([]);
   const [nowSpaceId, setNowSpaceId] = useState<number>(0);
   const [nowSpaceData, setNowSpaceData] = useState<LectureSpaceT>(tempSpace);
 
-  useLayoutEffect(() => {
-    getHostedVideoList().then((res) => {
-      setLectureSpaceData(res.data);
-      setNowSpaceId(res.data[0].id);
-    });
+  const initialize = useCallback(async () => {
+    const { status, data, code } = await getHostedVideoList();
+    if (status === 200) {
+      setLectureSpaceData(data);
+      setNowSpaceId(data[0].id);
+    } else {
+      getErrorToast(code);
+    }
   }, []);
+
+  useLayoutEffect(() => {
+    initialize();
+  }, [initialize]);
 
   useEffect(() => {
     if (nowSpaceId)

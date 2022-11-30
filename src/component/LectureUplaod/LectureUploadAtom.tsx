@@ -1,4 +1,4 @@
-import { useLayoutEffect, useState } from 'react';
+import { useCallback, useLayoutEffect, useState } from 'react';
 import styled from 'styled-components';
 import { HiOutlineChevronLeft } from '@react-icons/all-files/hi/HiOutlineChevronLeft';
 
@@ -13,6 +13,7 @@ import FileUpload from './UploadAtom/FileUpload';
 import WebexUpload from './UploadAtom/WebexUpload';
 import YoutubeUpload from './UploadAtom/YoutubeUpload';
 import { getHostedVideoList } from '@/api/setting';
+import { getErrorToast } from '@/api/error/error.config';
 
 interface VideoSpaceProps {
   setSelectedSpaceId: React.Dispatch<React.SetStateAction<number>>;
@@ -21,9 +22,19 @@ interface VideoSpaceProps {
 
 const VideoSpace: React.FC<VideoSpaceProps> = ({ setSelectedSpaceId }: VideoSpaceProps) => {
   const [videoSpaceData, setVideoSpaceData] = useState<LectureSpaceT[]>([]);
-  useLayoutEffect(() => {
-    getHostedVideoList().then((res) => setVideoSpaceData(res.data));
+
+  const initialize = useCallback(async () => {
+    const { status, data, code } = await getHostedVideoList();
+    if (status === 200) {
+      setVideoSpaceData(data);
+    } else {
+      getErrorToast(code);
+    }
   }, []);
+
+  useLayoutEffect(() => {
+    initialize();
+  }, [initialize]);
 
   return (
     <LectureAtomContainer>

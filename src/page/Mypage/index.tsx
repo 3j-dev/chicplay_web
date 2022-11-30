@@ -1,4 +1,4 @@
-import { useLayoutEffect, useState } from 'react';
+import { useCallback, useLayoutEffect, useState } from 'react';
 
 import { Layout } from './style';
 import Content from '@/component/Common/Content';
@@ -14,18 +14,23 @@ import {
   MyAuthAccount,
   MyVideoList,
 } from '@/component/Mypage/MypageAtom';
-import { pushNotification } from '@/util/notification';
+import { getErrorToast } from '@/api/error/error.config';
 
 const Mypage: React.FC = () => {
   const [myData, setMyData] = useState<MyDataT>(myTempData);
 
-  useLayoutEffect(() => {
-    getMyPageDashBoard()
-      .then((res) => {
-        recentStudyNullCheckAndSetData(res.data);
-      })
-      .catch(() => pushNotification('서버와의 통신에 에러가 있습니다', 'error'));
+  const initialize = useCallback(async () => {
+    const { status, data, code } = await getMyPageDashBoard();
+    if (status === 200) {
+      recentStudyNullCheckAndSetData(data);
+    } else {
+      getErrorToast(code);
+    }
   }, []);
+
+  useLayoutEffect(() => {
+    initialize();
+  }, [initialize]);
 
   const recentStudyNullCheckAndSetData = (data: MyDataT) => {
     if (data.lastStudiedIndividualVideo !== null) {

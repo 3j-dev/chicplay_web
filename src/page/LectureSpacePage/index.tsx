@@ -1,25 +1,30 @@
-import { useEffect, useLayoutEffect, useState } from 'react';
+import { useCallback, useEffect, useLayoutEffect, useState } from 'react';
 
 import { Layout } from './style';
 import { SpaceList, SpaceSubmenu } from '@/component/LectureSpace';
 import { getVideoList } from '@/api/space';
 import { LectureStreamSpaceT } from '@/interfaces/space';
-import { pushNotification } from '@/util/notification';
+import { getErrorToast } from '@/api/error/error.config';
 
 const LectureSpace: React.FC = () => {
   const [lectureList, setLectureList] = useState<LectureStreamSpaceT[]>([]);
   const [lectureSpaceId, setLectureSpaceId] = useState<number>(1);
   const [nowSpaceInfo, setNowSpaceInfo] = useState<LectureStreamSpaceT | null>(null);
 
-  useLayoutEffect(() => {
-    getVideoList()
-      .then((res) => {
-        setLectureList(res.data);
-        setNowSpaceInfo(res.data[0]);
-        setLectureSpaceId(res.data[0].id);
-      })
-      .catch(() => pushNotification('서버 통신에 오류가 발생했습니다', 'error'));
+  const initialize = useCallback(async () => {
+    const { status, data, code } = await getVideoList();
+    if (status === 200) {
+      setLectureList(data);
+      setNowSpaceInfo(data[0]);
+      setLectureSpaceId(data[0].id);
+    } else {
+      getErrorToast(code);
+    }
   }, []);
+
+  useLayoutEffect(() => {
+    initialize();
+  }, [initialize]);
 
   useEffect(() => {
     const nowSpaceList = lectureList.filter((lecture) => lecture.id === lectureSpaceId && lecture);
