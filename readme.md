@@ -5,7 +5,7 @@
 # VIVID
 
 > VIVID 서비스는 영상 콘텐츠 통합 관리 & 학습 툴 웹 서비스입니다.<br>
-> 소프트웨어 마에스트로 13기 연수 과정에서 개발 진행 중인 프로젝트입니다.
+> 소프트웨어 마에스트로 13기 연수 과정에서 개발 진행한 프로젝트입니다.
 > <br>
 
 ## 💡 Background
@@ -54,54 +54,16 @@
 
 ## 🎯 트러블 슈팅 & 개발 일지
 
-- [**위지윅 에디터 한글과 관련된 문제(draft.js)**]()
-- [**Froala 활용기, Draft.js에서 Froala로**]()
-- [**hls란 무엇인가**]()
-- [**에러코드를 어떻게 처리할 것인가(UX)**]()
-- [**React-Query 도입 실패와 적정기술이란 무엇인가**]()
-- [**로그인 유지와 관련된 고민**]()
-- [**프라이빗 라우트와 아웃렛**]()
+- [**위지윅 에디터 한글과 관련된 문제**](https://velog.io/@inwoo920/%EC%9C%84%EC%A7%80%EC%9C%85-%EC%97%90%EB%94%94%ED%84%B0-%ED%95%9C%EA%B8%80%EA%B3%BC-%EA%B4%80%EB%A0%A8%EB%90%9C-%EB%AC%B8%EC%A0%9Cdraft.js)
+- [**Froala의 다양한 문제점에 관하여**](https://velog.io/@inwoo920/Froala%EC%9D%98-%EB%8B%A4%EC%96%91%ED%95%9C-%EB%AC%B8%EC%A0%9C%EC%A0%90%EC%97%90-%EA%B4%80%ED%95%98%EC%97%AC)
+- [**에러코드를 어떻게 처리할 것인가(UX)**](https://velog.io/@inwoo920/React-Error-%EA%B4%80%EB%A6%AC%ED%95%98%EA%B8%B0)
+- [**Recoil to Context API(feat.login)**](https://velog.io/@inwoo920/Recoil-to-Context-API-feat.-login)
+- [**프라이빗 라우트와 아웃렛**](https://velog.io/@inwoo920/Private-Route%EC%99%80-Outlet)
 - [**axios 활용법 발전기, api call을 클린 코드로**]()
-- [**tlDraw 활용기, 기능은 훌륭하지만 Documentation이..**]()
-- [**간단한 react-toastify 후기**]()
-- [**file Upload 트러블 슈팅(oct-stream이 뭔가요)**]()
-- [**주기적 업로드, 이탈시 업로드( w. useInterval )**]()
-- [**복잡한 어플리케이션에서 성능 향상하기(클라이언트 편)**]()
+- [**간단한 react-toastify 후기**](https://velog.io/@inwoo920/%EA%B0%84%EB%8B%A8%ED%95%9C-react-toastify-%ED%9B%84%EA%B8%B0)
+- [**file Upload 트러블 슈팅(octet-stream이 뭔가요)**](https://velog.io/@inwoo920/file-Upload-%ED%8A%B8%EB%9F%AC%EB%B8%94-%EC%8A%88%ED%8C%85oct-stream%EC%9D%B4-%EB%AD%94%EA%B0%80%EC%9A%94)
+- [**웹 어플리케이션에서 성능 향상하기(클라이언트 편)**](https://velog.io/@inwoo920/%EB%B3%B5%EC%9E%A1%ED%95%9C-%EC%96%B4%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98%EC%97%90%EC%84%9C-%EC%84%B1%EB%8A%A5-%ED%96%A5%EC%83%81%ED%95%98%EA%B8%B0%ED%81%B4%EB%9D%BC%EC%9D%B4%EC%96%B8%ED%8A%B8-%ED%8E%B8)
 - [**클린 코드를 위한 여정, 리팩토링 탐험기**]()
-- [**영상 자동재생 시 소리가 꺼지는 문제에 관하여**]()
-
-## ✍️ Process Docs
-
-<details>
-<summary><b>Video Watch Tracking</b></summary>
-
-<br>
-
-### 유저 영상 시청시 상태 동기화
-
-- 1초 분기로 영상 progress 분기 트래킹
-
-</details>
-
-<details>
-<summary><b>Text Memo Tracking</b></summary>
-
-<br>
-
-### Redis와 실제 DB 반영
-
-</details>
-
-<details>
-<summary><b>Text Memo On Screen Recoding And Visualizing</b></summary>
-
-<br>
-
-### 복잡한 로직을 hook으로
-
-</details>
-
-<br>
 
 ## 동작 화면
 
