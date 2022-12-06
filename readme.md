@@ -35,7 +35,7 @@
 
 ## 📚 Skill Stack
 
-- **Front-end** : TypeScript, React, Recoil, Styled-component
+- **Front-end** : TypeScript, React, Context API, Styled-component
 - **Back-end** : Java, Spring boot, JPA, QueryDSL, JUnit
 - **DB** : MySQL, DynamoDB, Redis
 - **Infra** : AWS Services(EC2, S3, RDS, DynamoDB, Lambda, Route53, CloudFront, MediaConvert), Docker
@@ -45,9 +45,9 @@
 ## 💻 개발 내용/프로젝트 중점 사항
 
 - **React 18과 Styled-Component를 기반으로 클라이언트 단을 구성했습니다.**
-- **Recoil과 같은 전역 상태 관리 사용을 최소화하고자 노력했습니다. 전역 상태 관리 도구를 원래의 목적에 맞게 사용하기 위해 노력했습니다.**
+- **Recoil과 같은 전역 상태 관리 사용을 최소화하고자 노력했습니다. 최대한 최소화를 진행하자 전역적으로 관리할 상태가 줄어들어 Recoil을 Context API로 대체하였습니다.**
 - **Draft.js, Froala 등의 마크다운 에디터들을 활용하여 텍스트 필기를 구현하였습니다. 해당 과정에서 서비스에 필요한 추가 기능을 구현하여 적절히 적용했습니다.**
-- **tlDraw 등의 캔버스 드로잉 툴을 프로젝트에 추가하였고 툴 내의 상태 관리 및 트래킹을 진행하였습니다. 추가적으로 서비스에 맞게 변형을 하기 위해 라이브러리 제작자와 소통하였습니다.**
+- **tlDraw 등의 캔버스 드로잉 툴을 프로젝트에 추가하였고 툴 내의 상태 관리 및 트래킹을 진행하였습니다. 서비스에 맞게 적절히 변형을 진행했습니다.**
 - **성능 최적화를 위해 CDN, lazy import, 번들 최적화 등 다양한 기법을 적용하였습니다.**
 - **프론트엔드 단의 CI/CD를 구성하여 AWS CloudFront 배포 자동화를 구현했습니다.**
 - **Jira, Confluence를 기반으로 이슈 및 개발 현황을 공유 및 관리하였습니다.**
